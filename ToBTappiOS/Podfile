@@ -16,4 +16,8 @@ pod 'RxDataSources'
 pod 'Moya-ObjectMapper'
 pod 'Moya-ObjectMapper/RxSwift'
 pod 'SwiftDate'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'R.swift'
+pod 'IQKeyboardManagerSwift'
 end

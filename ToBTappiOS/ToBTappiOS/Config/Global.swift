@@ -26,6 +26,7 @@ let mScreenH = UIScreen.main.bounds.height
 
 let mScreenW = UIScreen.main.bounds.width
 
+let font_name = "Century Gothic"
 
 
 // MARK: key

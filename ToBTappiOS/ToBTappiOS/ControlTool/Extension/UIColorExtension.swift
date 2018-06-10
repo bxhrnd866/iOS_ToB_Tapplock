@@ -134,3 +134,30 @@ extension UIColor {
         }
     }
 }
+
+extension UIColor {
+    static var themeColor: UIColor {
+        return UIColor("#FF6600")
+    }
+    static var overLayColor: UIColor {
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+    }
+    
+    static var aleftColor: UIColor {
+        return UIColor("#FFB15E")
+    }
+    static var arightColor: UIColor {
+        return UIColor("#FE6A6A")
+    }
+    
+    static var bLeftColor: UIColor {
+        return UIColor("#EE70E9")
+    }
+    static var bLightColor: UIColor {
+        return UIColor("#8363F9")
+    }
+    
+    static var shadowColor: UIColor {
+        return UIColor(red: 237/255.0, green: 99/2540.0, blue: 50/255.0, alpha: 0.3)
+    }
+}

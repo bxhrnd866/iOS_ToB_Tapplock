@@ -14,8 +14,6 @@
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
 		55235E9620AED41500B98D38 /* BLEPeripheralHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9520AED41500B98D38 /* BLEPeripheralHistory.swift */; };
-		553E72A020AAAD8E00CFFEB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E729F20AAAD8E00CFFEB8 /* AppDelegate.swift */; };
-		553E72A220AAAD8E00CFFEB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E72A120AAAD8E00CFFEB8 /* ViewController.swift */; };
 		553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A320AAAD8E00CFFEB8 /* Main.storyboard */; };
 		553E72A720AAAD8F00CFFEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */; };
 		553E72AA20AAAD8F00CFFEB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A820AAAD8F00CFFEB8 /* LaunchScreen.storyboard */; };
@@ -42,6 +40,31 @@
 		553E731D20AAB8DF00CFFEB8 /* BLEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E731520AAB8DF00CFFEB8 /* BLEResponse.swift */; };
 		553E732120AABB5B00CFFEB8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E732020AABB5B00CFFEB8 /* UserModel.swift */; };
 		556B11A220AD774D00BF5F18 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B11A120AD774D00BF5F18 /* FileHelper.swift */; };
+		7DFE0FC120CD365700C94FA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE0FC020CD365700C94FA3 /* AppDelegate.swift */; };
+		7DFE108120CD3FD500C94FA3 /* Century Gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE108020CD3FD500C94FA3 /* Century Gothic.ttf */; };
+		7DFE108320CD405000C94FA3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE108220CD405000C94FA3 /* RootViewController.swift */; };
+		7DFE108520CD406A00C94FA3 /* BaseNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE108420CD406A00C94FA3 /* BaseNaviController.swift */; };
+		7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE108620CD407900C94FA3 /* BaseViewController.swift */; };
+		7DFE108920CD41AA00C94FA3 /* Root_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE108820CD41AA00C94FA3 /* Root_logo.png */; };
+		7DFE10CB20CD466700C94FA3 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10CA20CD466700C94FA3 /* NSBundle+Language.m */; };
+		7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10CC20CD46EE00C94FA3 /* RefreshGifheader.m */; };
+		7DFE10D420CD473D00C94FA3 /* GradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10D320CD473D00C94FA3 /* GradientExtension.swift */; };
+		7DFE10D620CD480800C94FA3 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10D520CD480800C94FA3 /* UIFontExtension.swift */; };
+		7DFE10DA20CD4A3800C94FA3 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE10D920CD4A3800C94FA3 /* LogIn.storyboard */; };
+		7DFE10DE20CD4A7E00C94FA3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */; };
+		7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */; };
+		7DFE10E420CD4A8E00C94FA3 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */; };
+		7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */; };
+		7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */; };
+		7DFE10E720CD4A8E00C94FA3 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */; };
+		7DFE10F020CD4AC700C94FA3 /* ConfirmPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */; };
+		7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */; };
+		7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */; };
+		7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */; };
+		7DFE10F420CD4AC700C94FA3 /* RegistVerficationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */; };
+		7DFE10F520CD4AC700C94FA3 /* RegisterUserImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EE20CD4AC700C94FA3 /* RegisterUserImageUploader.swift */; };
+		7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EF20CD4AC700C94FA3 /* RegisterViewModel.swift */; };
+		7DFE10F820CD4AD600C94FA3 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE10F720CD4AD600C94FA3 /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +76,6 @@
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
 		55235E9520AED41500B98D38 /* BLEPeripheralHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEPeripheralHistory.swift; sourceTree = "<group>"; };
 		553E729C20AAAD8E00CFFEB8 /* ToBTappiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBTappiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		553E729F20AAAD8E00CFFEB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		553E72A120AAAD8E00CFFEB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		553E72A420AAAD8E00CFFEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553E72A920AAAD8F00CFFEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +107,37 @@
 		553E731520AAB8DF00CFFEB8 /* BLEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEResponse.swift; sourceTree = "<group>"; };
 		553E732020AABB5B00CFFEB8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		556B11A120AD774D00BF5F18 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		7DFE0FC020CD365700C94FA3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7DFE108020CD3FD500C94FA3 /* Century Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic.ttf"; sourceTree = "<group>"; };
+		7DFE108220CD405000C94FA3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		7DFE108420CD406A00C94FA3 /* BaseNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNaviController.swift; sourceTree = "<group>"; };
+		7DFE108620CD407900C94FA3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7DFE108820CD41AA00C94FA3 /* Root_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Root_logo.png; sourceTree = "<group>"; };
+		7DFE10C020CD437F00C94FA3 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Main.strings; sourceTree = "<group>"; };
+		7DFE10C220CD438000C94FA3 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
+		7DFE10C420CD438100C94FA3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		7DFE10C520CD464300C94FA3 /* ToBTappiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToBTappiOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		7DFE10C920CD466700C94FA3 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		7DFE10CA20CD466700C94FA3 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		7DFE10CC20CD46EE00C94FA3 /* RefreshGifheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshGifheader.m; sourceTree = "<group>"; };
+		7DFE10CE20CD46EE00C94FA3 /* RefreshGifheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshGifheader.h; sourceTree = "<group>"; };
+		7DFE10D320CD473D00C94FA3 /* GradientExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExtension.swift; sourceTree = "<group>"; };
+		7DFE10D520CD480800C94FA3 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		7DFE10D920CD4A3800C94FA3 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
+		7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordController.swift; sourceTree = "<group>"; };
+		7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistInformationController.swift; sourceTree = "<group>"; };
+		7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPasswordController.swift; sourceTree = "<group>"; };
+		7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistMailController.swift; sourceTree = "<group>"; };
+		7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistVerficationController.swift; sourceTree = "<group>"; };
+		7DFE10EE20CD4AC700C94FA3 /* RegisterUserImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserImageUploader.swift; sourceTree = "<group>"; };
+		7DFE10EF20CD4AC700C94FA3 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7DFE10F720CD4AD600C94FA3 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		A8AE0A036004F0656D7C570E /* Pods_ToBTappiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToBTappiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2895609F623B6D9625F111C /* Pods-ToBTappiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToBTappiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToBTappiOS/Pods-ToBTappiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,14 +187,13 @@
 				553E72F120AAB83400CFFEB8 /* ControlTool */,
 				553E72F020AAB82D00CFFEB8 /* Config */,
 				553E72EF20AAB82500CFFEB8 /* Scene */,
-				553E729F20AAAD8E00CFFEB8 /* AppDelegate.swift */,
-				553E72A120AAAD8E00CFFEB8 /* ViewController.swift */,
 				553E72A320AAAD8E00CFFEB8 /* Main.storyboard */,
 				553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */,
 				553E72A820AAAD8F00CFFEB8 /* LaunchScreen.storyboard */,
 				553E72AB20AAAD8F00CFFEB8 /* Info.plist */,
 				553E72C620AAB38C00CFFEB8 /* InfoPlist.strings */,
 				553E72C020AAB35200CFFEB8 /* Localizable.strings */,
+				7DFE10C520CD464300C94FA3 /* ToBTappiOS-Bridging-Header.h */,
 			);
 			path = ToBTappiOS;
 			sourceTree = "<group>";
@@ -150,6 +201,11 @@
 		553E72EF20AAB82500CFFEB8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7DFE108420CD406A00C94FA3 /* BaseNaviController.swift */,
+				7DFE108620CD407900C94FA3 /* BaseViewController.swift */,
+				7DFE0FC020CD365700C94FA3 /* AppDelegate.swift */,
+				7DFE108220CD405000C94FA3 /* RootViewController.swift */,
+				7DFE10D820CD49D300C94FA3 /* Login */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -158,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				553E72F320AAB85C00CFFEB8 /* Global.swift */,
+				7DFE0FE020CD3F6200C94FA3 /* Source */,
 				553E731F20AABB3D00CFFEB8 /* Models */,
 			);
 			path = Config;
@@ -202,6 +259,12 @@
 				553E72FF20AAB8C100CFFEB8 /* UITextfieldExtension.swift */,
 				553E72FE20AAB8C100CFFEB8 /* UIViewExtension.swift */,
 				556B11A120AD774D00BF5F18 /* FileHelper.swift */,
+				7DFE10C920CD466700C94FA3 /* NSBundle+Language.h */,
+				7DFE10CA20CD466700C94FA3 /* NSBundle+Language.m */,
+				7DFE10D320CD473D00C94FA3 /* GradientExtension.swift */,
+				7DFE10CE20CD46EE00C94FA3 /* RefreshGifheader.h */,
+				7DFE10CC20CD46EE00C94FA3 /* RefreshGifheader.m */,
+				7DFE10D520CD480800C94FA3 /* UIFontExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -233,6 +296,53 @@
 				C2895609F623B6D9625F111C /* Pods-ToBTappiOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DFE0FE020CD3F6200C94FA3 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE108020CD3FD500C94FA3 /* Century Gothic.ttf */,
+				7DFE108820CD41AA00C94FA3 /* Root_logo.png */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7DFE10D820CD49D300C94FA3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE10E820CD4A9700C94FA3 /* Register */,
+				7DFE10DB20CD4A7D00C94FA3 /* Login */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7DFE10DB20CD4A7D00C94FA3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE10D920CD4A3800C94FA3 /* LogIn.storyboard */,
+				7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */,
+				7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */,
+				7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */,
+				7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */,
+				7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */,
+				7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7DFE10E820CD4A9700C94FA3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */,
+				7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */,
+				7DFE10EE20CD4AC700C94FA3 /* RegisterUserImageUploader.swift */,
+				7DFE10EF20CD4AC700C94FA3 /* RegisterViewModel.swift */,
+				7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */,
+				7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */,
+				7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */,
+				7DFE10F720CD4AD600C94FA3 /* Register.storyboard */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +380,7 @@
 				TargetAttributes = {
 					553E729B20AAAD8E00CFFEB8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -281,6 +392,9 @@
 				en,
 				Base,
 				ja,
+				sk,
+				cs,
+				ko,
 			);
 			mainGroup = 553E729320AAAD8E00CFFEB8;
 			productRefGroup = 553E729D20AAAD8E00CFFEB8 /* Products */;
@@ -297,10 +411,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DFE10DA20CD4A3800C94FA3 /* LogIn.storyboard in Resources */,
 				553E72AA20AAAD8F00CFFEB8 /* LaunchScreen.storyboard in Resources */,
 				553E72BE20AAB35200CFFEB8 /* Localizable.strings in Resources */,
 				553E72A720AAAD8F00CFFEB8 /* Assets.xcassets in Resources */,
 				553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */,
+				7DFE10F820CD4AD600C94FA3 /* Register.storyboard in Resources */,
+				7DFE108920CD41AA00C94FA3 /* Root_logo.png in Resources */,
+				7DFE108120CD3FD500C94FA3 /* Century Gothic.ttf in Resources */,
 				553E72C420AAB38C00CFFEB8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,27 +520,46 @@
 			files = (
 				553E730C20AAB8C100CFFEB8 /* UIIViewControllerExtension.swift in Sources */,
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
+				7DFE10F520CD4AC700C94FA3 /* RegisterUserImageUploader.swift in Sources */,
 				55235E9620AED41500B98D38 /* BLEPeripheralHistory.swift in Sources */,
 				553E730920AAB8C100CFFEB8 /* UITextfieldExtension.swift in Sources */,
+				7DFE10F420CD4AC700C94FA3 /* RegistVerficationController.swift in Sources */,
+				7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */,
+				7DFE0FC120CD365700C94FA3 /* AppDelegate.swift in Sources */,
+				7DFE108320CD405000C94FA3 /* RootViewController.swift in Sources */,
+				7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */,
 				553E730A20AAB8C100CFFEB8 /* StringExtension.swift in Sources */,
+				7DFE10DE20CD4A7E00C94FA3 /* LoginViewModel.swift in Sources */,
 				553E731920AAB8DF00CFFEB8 /* PeripheralPortocol.swift in Sources */,
 				55235E8B20AE792A00B98D38 /* APIResponse.swift in Sources */,
+				7DFE10E720CD4A8E00C94FA3 /* NewPasswordViewController.swift in Sources */,
+				7DFE10D620CD480800C94FA3 /* UIFontExtension.swift in Sources */,
 				553E731B20AAB8DF00CFFEB8 /* TapplockDFU.swift in Sources */,
 				55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */,
-				553E72A220AAAD8E00CFFEB8 /* ViewController.swift in Sources */,
+				7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */,
+				7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */,
 				55235E8C20AE792A00B98D38 /* APIServer.swift in Sources */,
+				7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */,
 				553E730520AAB8C100CFFEB8 /* DateExtension.swift in Sources */,
+				7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */,
 				55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */,
+				7DFE108520CD406A00C94FA3 /* BaseNaviController.swift in Sources */,
 				553E730D20AAB8C100CFFEB8 /* UIColorExtension.swift in Sources */,
 				553E731C20AAB8DF00CFFEB8 /* BLEPeripheral.swift in Sources */,
+				7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */,
 				553E732120AABB5B00CFFEB8 /* UserModel.swift in Sources */,
 				553E731D20AAB8DF00CFFEB8 /* BLEResponse.swift in Sources */,
 				553E730420AAB8C100CFFEB8 /* DataExtension.swift in Sources */,
+				7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */,
 				553E730620AAB8C100CFFEB8 /* DictionaryExtension.swift in Sources */,
+				7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */,
+				7DFE10F020CD4AC700C94FA3 /* ConfirmPasswordController.swift in Sources */,
+				7DFE10E420CD4A8E00C94FA3 /* ForgetPasswordViewModel.swift in Sources */,
 				553E731720AAB8DF00CFFEB8 /* TapplockManager.swift in Sources */,
+				7DFE10D420CD473D00C94FA3 /* GradientExtension.swift in Sources */,
 				55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */,
+				7DFE10CB20CD466700C94FA3 /* NSBundle+Language.m in Sources */,
 				553E731620AAB8DF00CFFEB8 /* BLECommand.swift in Sources */,
-				553E72A020AAAD8E00CFFEB8 /* AppDelegate.swift in Sources */,
 				553E731A20AAB8DF00CFFEB8 /* BLEPeripheralService.swift in Sources */,
 				553E730820AAB8C100CFFEB8 /* UIViewExtension.swift in Sources */,
 				556B11A220AD774D00BF5F18 /* FileHelper.swift in Sources */,
@@ -440,6 +577,9 @@
 			children = (
 				553E72A420AAAD8E00CFFEB8 /* Base */,
 				553E72BA20AAB33200CFFEB8 /* ja */,
+				7DFE10C020CD437F00C94FA3 /* sk */,
+				7DFE10C220CD438000C94FA3 /* cs */,
+				7DFE10C420CD438100C94FA3 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -595,6 +735,7 @@
 			baseConfigurationReference = 09C04267B9B6EC490816A322 /* Pods-ToBTappiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQCGT3VTF2;
 				INFOPLIST_FILE = ToBTappiOS/Info.plist;
@@ -605,6 +746,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = QDTapplockCompanyiOSBxh.ToBTappiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ToBTappiOS/ToBTappiOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,6 +758,7 @@
 			baseConfigurationReference = C2895609F623B6D9625F111C /* Pods-ToBTappiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQCGT3VTF2;
 				INFOPLIST_FILE = ToBTappiOS/Info.plist;
@@ -625,6 +769,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = QDTapplockCompanyiOSBxh.ToBTappiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ToBTappiOS/ToBTappiOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
