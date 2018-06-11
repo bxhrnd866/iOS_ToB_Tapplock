@@ -1,0 +1,147 @@
+/* 
+  Localizable.strings
+  ToBTappiOS
+
+  Created by TapplockiOS on 2018/5/15.
+  Copyright © 2018年 TapplockiOS. All rights reserved.
+*/
+
+
+"ErrorMessage_FirstNameEmpty" = "이름을입력하십시오";
+"ErrorMessage_UsernameNameEmpty" = "사용자이름을입력하십시오";
+"ErrorMessage_FirstNameOverLenth" = "이름에 %d 자 이상을 입력하지 마십시오.";
+"ErrorMessage_UserNameOverLenth" = "마세요, 먼저 %d여 문자 이름 입력";
+"ErrorMessage_LastNameEmpty" = "성을입력하십시오";
+"ErrorMessage_LastNameOverLenth" = "성에 %d 자 이상을 입력하지 마십시오.";
+"ErrorMessage_MailEmpty" = "이메일을입력하십시오";
+"ErrorMessage_MailIncorrect" = "잘못된이메일형식";
+"ErrorMessage_PasswordEmpty" = "비밀번호를입력하십시오";
+"ErrorMessage_OldPasswordEmpty" = "이전비밀번호를입력하십시오";
+"ErrorMessage_NewPasswordEmpty" = "새비밀번호를입력하십시오";
+"ErrorMessage_PasswordTooShort" = "비밀번호는%d자이상이어야합니다";
+"ErrorMessage_PasswordOverLenth" = "비밀번호에 %d 자 이상을 입력하지 마십시오.";
+"ErrorMessage_NewPasswordTooShort" = "새 비밀번호는 %d 자 이상이어야 합니다.";
+"ErrorMessage_NewPasswordOverLenth" = "새 비밀번호에 %d 자 이상의 문자를 입력하지 마십시오.";
+"ErrorMessage_PasswordConfirmEmpty" = "확인비밀번호를입력하십시오";
+"ErrorMessage_PasswordConfirmWrong" = "비밀번호가일치하지않습니다";
+"ErrorMessage_vCodeEmpty" = "인증번호를입력하십시오";
+"ErrorMessage_vCodeWrong" = "인증번호불일치";
+"ErrorMessage_BluetoothOff" = "블루투스가 꺼져 있습니다. 블루투스를 켜주십시오";
+"ErrorMessage_NetOff" = "인터넷연결을확인해주십시오";
+"ErrorMessage_BluetoothConnectFailed" = "블루투스 연결 실패";
+"ErrorMessage_Synchronizing" = "데이터 동기화 실패했습니다. 다시 시도하십시오.";
+"ErrorMessage_LockDisconnected" = "블루투스연결이끊어졌습니다.잠금장치를블루투스모드로설정하십시오.";
+"ErrorMessage_Morse" = "모스코드 설정 실패";
+"ErrorMessage_MorseTooShort" = "%d 코드 이상을 입력하십시오.";
+"ErrorMessage_MorseOverLenth" = "%d 코드를 초과하여 입력 할 수 없습니다.";
+"ErrorMessage_MorseNoLongCode" = "전체를 짧은 코드 (short codes)로 설정할 수 없습니다. 긴 코드 (long codes)를 같이 설정해 주십시오.";
+"ErrorMessage_LockNameEmpty" = "잠금장치 이름을 입력하십시오";
+"ErrorMessage_LockNameOverLenth" = "잠금장치 이름을 %d 자 이상 입력하지 마십시오.";
+"ErrorMessage_NoFirmwareUpdate" = "귀하의Tapplock이최신버전으로업데이트되었습니다.";
+"ErrorMessage_Delete" = "삭제 실패";
+"ErrorMessage_DeleteFingerprint" = "지문삭제실패";
+"ErrorMessage_ShareToEmpty" = "공유대상을선택하십시오";
+"ErrorMessage_ShareLockEmpty" = "공유잠금장치를선택하십시오";
+"ErrorMessage_ShareStartTimeEmpty" = "시작일을설정하십시오";
+"ErrorMessage_ShareEndTimeEmpty" = "종료일을설정하십시오";
+"ErrorMessage_ShareStartTimeEndTime" = "시작시간은종료시간후로설정할수없습니다.";
+"ErrorMessage_FeedbackTitleEmpty" = "피드백제목을작성하십시오";
+"ErrorMessage_FeedbackDescriptionEmpty" = "피드백 설명을 입력하십시오.";
+"ErrorMessage_EnrollTemplateExisted" = "기존에 등록된 지문이 존재하기 때문에";
+"ErrorMessage_EnrollNoSpace" = "지문등록이완료되면상태표시등이녹색으로표시됩니다.";
+"ErrorMessage_Enroll" = "지문을등록하지못했습니다.다시시도해주십시오.";
+"ErrorMessage_EnrollMismatch" = "지문확인불일치로인하여";
+"ErrorMessage_FingerOwnerEmpty" = "사용자이름을선택해주십시오";
+"ErrorMessage_FingerHandEmpty" = "사용손을선택해주십시오";
+"ErrorMessage_FingerEmpty" = "손가락을선택해주십시오";
+"ErrorMessage_Emoji" = "이모티콘을 입력하지 마십시오.";
+
+
+
+"SuccessMessage_Save" = "저장 성공";
+"SuccessMessage_AddNewLock" = "새로운 Tapplock 추가 성공\n 지문을 추가하십시오";
+"SuccessMessage_AddFingerprint" = "지문 추가 성공";
+"SuccessMessage_LockName" = "Tapplock 이름 저장 성공";
+"SuccessMessage_MorseCode" = "모스코드 저장 성공";
+"SuccessMessage_Register" = "등록 성공";
+"SuccessMessage_RollingBack" = "롤백 성공";
+"SuccessMessage_Delete" = "삭제 성공";
+"SuccessMessage_Feedback" = "피드백 성공";
+"SuccessMessage_ShareAccess" = "공유 액세스 저장 성공";
+"SuccessMessage_ShareUser" = "공유 사용자 저장 성공";
+"SuccessMessage_UserName" = "사용자 이름 저장 성공";
+"SuccessMessage_Password" = "신규 비밀번호 저장 성공";
+
+"EnsureMessage_DeleteLock" = "이Tapplock을정말지우시겠습니까?";
+"EnsureMessage_Notification" = "알림을끄면중요한알림이누락될수있습니다";
+"EnsureMessage_Logout" = "Tapplock을정말종료하시겠습니까?";
+
+
+"LockLog" = "%@에서%@을열었습니다.";
+"AddShareUser" = "공유사용자추가";
+"EditShareUser" = "공유 사용자 수정";
+"Permanent" = "영구적인";
+"SetStartTime" = "시작";
+"SetEndTime" = "종료";
+"AddNewShareAccess" = "접근권한공유추가";
+"EditShareAccess" = "공유 액세스 수정";
+"Yes" = "네";
+"No" = "아니오";
+"MyOwn" = "소유";
+"Shared" = "공유 액세스";
+"OK" = "OK";
+"Roll Back" = "롤백";
+"ResendCount" = "재전송(%d)";
+"Resend" = "재전송";
+"Connected" = "연결됨";
+"Disconnected" = "연결이끊어짐";
+"Edit" = "수정";
+"Done" = "완료";
+"LeftHand" = "왼손";
+"RightHand" = "오른손";
+"ThumbFinger" = "엄지";
+"IndexFinger" = "검지";
+"MiddleFinger" = "중지";
+"RingFinger" = "약지";
+"LittleFinger" = "소지";
+"Fingerprint" = "지문";
+"Confirm delete" = "정말 삭제하시겠습니까";
+"AdddNewLock" = "새로운Tapplock을추가하기";
+"NoDataplaceholder" = "No Data";
+"Returyplaceholder" = "Retury";
+
+
+"Tutorial_AddShareAccess" = "접근권한공유추가\n지인에게잠금해제권한을공유하시겠습니까?";
+"Tutorial_OneTimeAccess" = "일회성권한부여\n공유된사람에게제한시간10분동안일시적인잠금해제권한을부여해보십시오.";
+"Tutorial_PermanentAccess" = "영구적인\n영구적으로잠금해제권한을부여해보십시오! (언제든지권한을취소할수있습니다.)";
+"Tutorial_FingerprintName" = "지문추가\n이름을여기에추가하십시오.";
+"Tutorial_FingerprintHand" = "지문추가\n사용할손선택";
+"Tutorial_FingerprintFinger" = "지문추가\n사용할손가락선택";
+"Tutorial_FingerprintAddOwner" = "지문사용자추가\n이름을더추가하시겠습니까?여기를클릭하십시오.";
+"Tutorial_Tab0" = "이것은자사의홈페이지입니다.";
+"Tutorial_Tab1" = "여기에서다른사람들과공유할수있습니다.";
+"Tutorial_Tab2" = "이것은잠금권한과거이력조회하는페이지입니다.";
+"Tutorial_Tab3" = "계정관련정보및도움말.";
+"Tutorial_TapplockAdd" = "새로운Tapplock을추가하기\n잠금장치를추가하려면여기를클릭하십시오.";
+"Tutorial_TapplockLockCell" = "잠금장치세부정보\n더많은잠금장치를여기서찾아보십시오.";
+"Tutorial_DetailUnlock" = "블루투스잠금해제\n블루투스가연결되어있는동안잠금장치를열려면여기를클릭하십시오.";
+"Tutorial_DetailFingerprints" = "지문관리\n지문을관리하려면여기를클릭하십시오.";
+"Tutorial_DetailSetting" = "잠금설정\n프로필사진및잠금장치이름을여기에설정하십시오.";
+"Tutorial_MorseCode" = "모스부호\nTapplock의모스부호를설정하려면여기를클릭하십시오.";
+
+"Alert" = "알림";
+"MustUpdateMessage" = "새로운 버전의 업데이트가 있습니다. 최신 버전으로 업그레이드 하십시오.";
+"CanUpdateMessage" = "새로운 버전의 앱이 감지되었습니다. 업데이트 하시겠습니까?";
+
+//固件相关
+
+"DownloadingBLE" = "블루투스 펌웨어 다운로드";
+"UpdatingDontTurnOff" = "업데이트중, 블루투스를 끄지 마십시오";
+"Newfirmwareversion" = "새로운 펌웨어 버전";
+"Updatecontent" = "콘텐츠 업데이트";
+"Updatenow" = "지금 업데이트";
+"Downloadfailed" = "다운로드 실패, 다시 다운로드 하십시오";
+"Installationfailed" = "설치 실패, 다시 설치하십시오";
+"Firmwareupdate" = "펌웨어 업데이트";
+
+

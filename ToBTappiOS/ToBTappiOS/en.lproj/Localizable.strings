@@ -1,0 +1,145 @@
+/* 
+  Localizable.strings
+  ToBTappiOS
+
+  Created by TapplockiOS on 2018/5/15.
+  Copyright © 2018年 TapplockiOS. All rights reserved.
+*/
+
+"ErrorMessage_FirstNameEmpty" = "Please fill in first name";
+"ErrorMessage_UsernameNameEmpty" = "Please fill in the Username";
+"ErrorMessage_FirstNameOverLenth" = "Please don't input more than %d characters for first name";
+"ErrorMessage_UserNameOverLenth" = "Please don't input Username more than %d characters";
+"ErrorMessage_LastNameEmpty" = "Please fill in last name";
+"ErrorMessage_LastNameOverLenth" = "Please don't input more than %d characters for last name";
+"ErrorMessage_MailEmpty" = "Please fill in email";
+"ErrorMessage_MailIncorrect" = "Incorrect email format";
+"ErrorMessage_PasswordEmpty" = "Please fill in password";
+"ErrorMessage_OldPasswordEmpty" = "Please fill in the old password";
+"ErrorMessage_NewPasswordEmpty" = "Please fill in the new password";
+"ErrorMessage_PasswordTooShort" = "Password must be at least %d characters";
+"ErrorMessage_PasswordOverLenth" = "Please don't input more than %d characters for password";
+"ErrorMessage_NewPasswordTooShort" = "New Password should be more than %d characters";
+"ErrorMessage_NewPasswordOverLenth" = "Please don't input more than %d characters for new password";
+"ErrorMessage_PasswordConfirmEmpty" = "Please enter the confirmed password";
+"ErrorMessage_PasswordConfirmWrong" = "Passwords do not match";
+"ErrorMessage_vCodeEmpty" = "Please fill in the verification code";
+"ErrorMessage_vCodeWrong" = "Verification code mismatch";
+"ErrorMessage_BluetoothOff" = "Bluetooth is turned off\nPlease turn on the bluetooth";
+"ErrorMessage_NetOff" = "Please check your internet connection.";
+"ErrorMessage_BluetoothConnectFailed" = "Bluetooth Connected Failed";
+"ErrorMessage_Synchronizing" = "Data Synchronizing Failed,\nPlease Try Again";
+"ErrorMessage_LockDisconnected" = "Tapplock is disconnected, Please turn your lock into the Bluetooth mode";
+"ErrorMessage_Morse" = "Morse Code Setup Failed";
+"ErrorMessage_MorseTooShort" = "Please input more than %d codes";
+"ErrorMessage_MorseOverLenth" = "Can't input more than %d codes";
+"ErrorMessage_MorseNoLongCode" = "It can't be all short codes\nPlease set some long codes";
+"ErrorMessage_LockNameEmpty" = "Please input Lock Name";
+"ErrorMessage_LockNameOverLenth" = "Please don't input lock name more than %d characters";
+"ErrorMessage_NoFirmwareUpdate" = "Your Tapplock has been upgraded to the lastest version.";
+"ErrorMessage_Delete" = "Delete Failed";
+"ErrorMessage_DeleteFingerprint" = "Failed to delete fingerprint";
+"ErrorMessage_ShareToEmpty" = "Please choose whom to share to";
+"ErrorMessage_ShareLockEmpty" = "Please choose the share lock";
+"ErrorMessage_ShareStartTimeEmpty" = "Please choose the start time";
+"ErrorMessage_ShareEndTimeEmpty" = "Please choose the end time";
+"ErrorMessage_ShareStartTimeEndTime" = "The start time must not exceed the end time";
+"ErrorMessage_FeedbackTitleEmpty" = "Please fill in feedback title";
+"ErrorMessage_FeedbackDescriptionEmpty" = "Please input the feedback description";
+"ErrorMessage_EnrollTemplateExisted" = "Enroll failed because of template existed";
+"ErrorMessage_EnrollNoSpace" = "If the enrollment process is complete, the light will appear green.";
+"ErrorMessage_Enroll" = "Failed to enroll fingerprint, please try again.";
+"ErrorMessage_EnrollMismatch" = "because of mismatch of fingerprint with confirmation";
+"ErrorMessage_FingerOwnerEmpty" = "Please choose owner's name";
+"ErrorMessage_FingerHandEmpty" = "Please choose the hand";
+"ErrorMessage_FingerEmpty" = "Please choose the finger";
+"ErrorMessage_Emoji" = "Please don't input Emoji";
+//"ErrorMessage_NoNetwork" = "Please check your internet connection.";
+
+
+
+"SuccessMessage_Save" = "Saved Successfully";
+"SuccessMessage_AddNewLock" = "Added New Tapplock Successfully \nPlease add a Fingerprint";
+"SuccessMessage_AddFingerprint" = "Added Fingerprint Successfully";
+"SuccessMessage_LockName" = "Tapplock Name Saved Successfully";
+"SuccessMessage_MorseCode" = "Morse Code Saved Successfully";
+"SuccessMessage_Register" = "Registered Successfully";
+"SuccessMessage_RollingBack" = "Rolled Back Successfully";
+"SuccessMessage_Delete" = "Deleted Successfully";
+"SuccessMessage_Feedback" = "Feedback Sent Successfully";
+"SuccessMessage_ShareAccess" = "Share Access Saved Successfully";
+"SuccessMessage_ShareUser" = "Share User Saved Successfully";
+"SuccessMessage_UserName" = "Username Saved Successfully";
+"SuccessMessage_Password" = "New Password Saved Successfully";
+
+"EnsureMessage_DeleteLock" = "Are you sure you want to delete this Tapplock?";
+"EnsureMessage_Notification" = "Turning off notifications may result in missing important notices";
+"EnsureMessage_Logout" = "Are you sure you want to exit Tapplock?";
+
+
+"LockLog" = "%@ opened the lock %@";
+"AddShareUser" = "Add shared user";
+"EditShareUser" = "Edit Share User";
+"Permanent" = "Permanent";
+"SetStartTime" = "Start Date";
+"SetEndTime" = "End Date";
+"AddNewShareAccess" = "Add Share Access";
+"EditShareAccess" = "Edit Share Access";
+"Yes" = "YES";
+"No" = "NO";
+"MyOwn" = "Own";
+"Shared" = "Shared";
+"OK" = "OK";
+"Roll Back" = "Roll Back";
+"ResendCount" = "Resend(%d)";
+"Resend" = "Resend";
+"Connected" = "Connected";
+"Disconnected" = "Disconnected";
+"Edit" = "Edit";
+"Done" = "Done";
+"LeftHand" = "Left";
+"RightHand" = "Right";
+"ThumbFinger" = "Thumb";
+"IndexFinger" = "Index";
+"MiddleFinger" = "Middle";
+"RingFinger" = "Ring";
+"LittleFinger" = "Little";
+"Fingerprint" = "Fingerprint";
+"Confirm delete" = "Confirm delete";
+"AdddNewLock" = "Add A New Tapplock";
+"NoDataplaceholder" = "No Data";
+"Returyplaceholder" = "Retury";
+
+"Tutorial_AddShareAccess" = "ADD SHARE ACCESS\nWant to share your lock to a friend?";
+"Tutorial_OneTimeAccess" = "ONE TIME ACCESS\nGive the shared person a temporary 10 min access within the set time.";
+"Tutorial_PermanentAccess" = "PERMANENT\nShare the lock forever! (You can always revoke access)";
+"Tutorial_FingerprintName" = "ADD FINGERPRINT\nAdd your name here.";
+"Tutorial_FingerprintHand" = "ADD FINGERPRINT\nChoose which hand.";
+"Tutorial_FingerprintFinger" = "ADD FINGERPRINT\nChoose which finger.";
+"Tutorial_FingerprintAddOwner" = "ADD FINGERPRINT OWNER\nWant to add more names?\n Click here";
+"Tutorial_Tab0" = "This is the homepage, where we are right now.";
+"Tutorial_Tab1" = "This is where you can share access to others.";
+"Tutorial_Tab2" = "This is the access history page.";
+"Tutorial_Tab3" = "Account related information and help.";
+"Tutorial_TapplockAdd" = "ADD A NEW TAPPLOCK\nClick here to add your lock.";
+"Tutorial_TapplockLockCell" = "LOCK DETAILS\nClick here to find more about your lock.";
+"Tutorial_DetailUnlock" = "BLUETOOTH UNLOCKING\nClick here to open the lock while connected via Bluetooth.";
+"Tutorial_DetailFingerprints" = "MANAGE FINGERPRINTS\nClick here to manage fingerprints";
+"Tutorial_DetailSetting" = "LOCK SETTING\nSet the profile pic and lock name here";
+"Tutorial_MorseCode" = "MORSE CODE\nClick here to setup your custom Morse Code for your Tapplock.";
+
+"Alert" = "Alert";
+"MustUpdateMessage" = "There is a new for the App. Please upgrade to the latest version.";
+"CanUpdateMessage" = "New version of the app detected. Do you want to update?";
+
+
+
+//固件升级相关
+"DownloadingBLE" = "Downloading Bluetooth firmware";
+"UpdatingDontTurnOff" = "Updating, please do not turn off Bluetooth";
+"Newfirmwareversion" = "New firmware version";
+"Updatecontent" = "Update content";
+"Updatenow" = "Update now";
+"Downloadfailed" = "Download failed, please download again";
+"Installationfailed" = "Installation failed, please install again";
+"Firmwareupdate" = "Firmware update";

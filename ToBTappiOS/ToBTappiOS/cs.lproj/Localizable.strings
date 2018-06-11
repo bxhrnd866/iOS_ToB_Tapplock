@@ -1,0 +1,144 @@
+/* 
+  Localizable.strings
+  ToBTappiOS
+
+  Created by TapplockiOS on 2018/5/15.
+  Copyright © 2018年 TapplockiOS. All rights reserved.
+*/
+
+"ErrorMessage_FirstNameEmpty" = "Zadejte jméno";
+"ErrorMessage_UsernameNameEmpty" = "Vyplňte uživatelské jméno";
+"ErrorMessage_FirstNameOverLenth" = "Jméno nesmí přesahovat %d znaků";
+"ErrorMessage_UserNameOverLenth" = "Please don't input Username more than %d characters";
+"ErrorMessage_LastNameEmpty" = "Zadejte příjmení";
+"ErrorMessage_LastNameOverLenth" = "Příjmení nesmí přesahovat %d znaků";
+"ErrorMessage_MailEmpty" = "Vyplňte e-mail";
+"ErrorMessage_MailIncorrect" = "Nesprávný formát e-mailu";
+"ErrorMessage_PasswordEmpty" = "Zadejte heslo";
+"ErrorMessage_OldPasswordEmpty" = "Zadejte staré heslo";
+"ErrorMessage_NewPasswordEmpty" = "Zadejte nové heslo";
+"ErrorMessage_PasswordTooShort" = "PHeslo musí obsahovat min. %d  znaků";
+"ErrorMessage_PasswordOverLenth" = "Heslo by nemělo přesahovat %d znaků";
+"ErrorMessage_NewPasswordTooShort" = "Nové heslo by mělo být delší než %d znaků";
+"ErrorMessage_NewPasswordOverLenth" = "Nové heslo by nemělo přesahovat %d znaků";
+"ErrorMessage_PasswordConfirmEmpty" = "Zadejte potvrzené heslo";
+"ErrorMessage_PasswordConfirmWrong" = "Hesla se neshodují";
+"ErrorMessage_vCodeEmpty" = "Zadejte ověřovací kód";
+"ErrorMessage_vCodeWrong" = "Ověřovací kód se neshoduje";
+"ErrorMessage_BluetoothOff" = "Bluetooth je vypnuté\nProsím, zapněte Bluetooth";
+"ErrorMessage_NetOff" = "Zkontrolujte připojení k internetu.";
+"ErrorMessage_BluetoothConnectFailed" = "Bletooth připojeno Selhalo";
+"ErrorMessage_Synchronizing" = "Synchronizace dat selhala,\nZkuste to znovu";
+"ErrorMessage_LockDisconnected" = "Bluetooth odpojeno, nastavte na vašem zámku režim Bluetooth";
+"ErrorMessage_Morse" = "Nastavení morseovky selhalo";
+"ErrorMessage_MorseTooShort" = "Vložte více než %d kódů";
+"ErrorMessage_MorseOverLenth" = "Nemůžete použít více než %d kódů";
+"ErrorMessage_MorseNoLongCode" = "Nemůžete použít pouze krátké kódy\nPoužijte i dlouhé kódy";
+"ErrorMessage_LockNameEmpty" = "Vložte název zámku";
+"ErrorMessage_LockNameOverLenth" = "Název zámku nemůže obsahovat více než %d znaků";
+"ErrorMessage_NoFirmwareUpdate" = "Váš Tapplock byl aktualizován na nejnovější verzi.";
+"ErrorMessage_Delete" = "Smazání selhalo";
+"ErrorMessage_DeleteFingerprint" = "Smazání otisku selhalo";
+"ErrorMessage_ShareToEmpty" = "Vyberte, s kým chcete sdílet přístup";
+"ErrorMessage_ShareLockEmpty" = "Vyberte zámek, který chcete sdílet";
+"ErrorMessage_ShareStartTimeEmpty" = "Zvolte počáteční datum";
+"ErrorMessage_ShareEndTimeEmpty" = "Zvolte datum od od";
+"ErrorMessage_ShareStartTimeEndTime" = "Počáteční datum nesmí přesahovat datum ukončení";
+"ErrorMessage_FeedbackTitleEmpty" = "Vyplňte titulek";
+"ErrorMessage_FeedbackDescriptionEmpty" = "Vložte popis zpětné vazby";
+"ErrorMessage_EnrollTemplateExisted" = "Zápis otisku selhal, kvůli již existující šabloně";
+"ErrorMessage_EnrollNoSpace" = "Jakmile je proces zápisu dokončený, dioda se rozsvítí zeleně.";
+"ErrorMessage_Enroll" = "Zápis otisku selhal, zkuste to znovu.";
+"ErrorMessage_EnrollMismatch" = "kvůli neshodě otisku s potvrzením";
+"ErrorMessage_FingerOwnerEmpty" = "Vyberte jméno vlastníka";
+"ErrorMessage_FingerHandEmpty" = "Zvolte ruku";
+"ErrorMessage_FingerEmpty" = "Zvolte prst";
+"ErrorMessage_Emoji" = "Nevkládejte emoji";
+//"ErrorMessage_NoNetwork" = "Zkontrolujte připojení k internetu.";
+
+
+
+"SuccessMessage_Save" = "Úspěšně uloženo";
+"SuccessMessage_AddNewLock" = "Nový Tapplock byl úspěšně přidán \nProsíme, přidejte otisk";
+"SuccessMessage_AddFingerprint" = "Otisk úspěšně přidán";
+"SuccessMessage_LockName" = "Název Tapplocku úspěšně uložen";
+"SuccessMessage_MorseCode" = "Morseovka úspěšně uložena";
+"SuccessMessage_Register" = "Registrace proběhla úspěšně";
+"SuccessMessage_RollingBack" = "Návrat byl úspěšný";
+"SuccessMessage_Delete" = "Smazání bylo úspěšné";
+"SuccessMessage_Feedback" = "Zpráva úspěšně odeslána";
+"SuccessMessage_ShareAccess" = "Sdílený přístup úspěšně uložen";
+"SuccessMessage_ShareUser" = "Uživatel ke sdílení úspěšně uložen";
+"SuccessMessage_UserName" = "Uživatelské jméno úspěšně uloženo";
+"SuccessMessage_Password" = "Nové heslo úspěšně uloženo";
+
+"EnsureMessage_DeleteLock" = "Opravdu chcete odstranit tento Tapplock?";
+"EnsureMessage_Notification" = "Vypnutím notifikací můžete přijít o důležitá upozornění.";
+"EnsureMessage_Logout" = "Opravdu chcete opustit aplikaci Tapplock?";
+
+
+"LockLog" = "%@ otevřel zámek %@";
+"AddShareUser" = "Přidat uživatele ke sdílení";
+"EditShareUser" = "Upravit Uživatele ke sdílení";
+"Permanent" = "Trvalý";
+"SetStartTime" = "Počáteční datum";
+"SetEndTime" = "Datum ukončení";
+"AddNewShareAccess" = "Přidat sdílený přístup";
+"EditShareAccess" = "Upravit sdílený přístup";
+"Yes" = "Ano";
+"No" = "Ne";
+"MyOwn" = "Můj vlastní";
+"Shared" = "Sdílený přístup";
+"OK" = "OK";
+"Roll Back" = "Návrat zpět";
+"ResendCount" = "Odeslat znovu(%d)";
+"Resend" = "Odeslat znovu";
+"Connected" = "Připojeno";
+"Disconnected" = "Odpojeno";
+"Edit" = "Změnit";
+"Done" = "Hotovo";
+"LeftHand" = "Levá";
+"RightHand" = "Pravá";
+"ThumbFinger" = "Palec";
+"IndexFinger" = "Ukazovák";
+"MiddleFinger" = "Prostředník";
+"RingFinger" = "Prsteník";
+"LittleFinger" = "Malík";
+"Fingerprint" = "Otisk prstu";
+"Confirm delete" = "Confirm delete";
+"AdddNewLock" = "Add A New Tapplock";
+"NoDataplaceholder" = "No Data";
+"Returyplaceholder" = "Retury";
+
+
+"Tutorial_AddShareAccess" = "Přidat sdílený přístup\nChcete sdílet zámek s kamarádem? Klikněte zde.";
+"Tutorial_OneTimeAccess" = "JEDNORÁZOVÝ PŘÍSTUP\nUmožněte sdílené osobě dočasný 10 minutový přístup v rámci nastaveného času.";
+"Tutorial_PermanentAccess" = "Trvalý\nSdílejte zámek navždy! (Vždy můžete přístup odebrat)";
+"Tutorial_FingerprintName" = "PŘIDAT OTISK\nZde přidejte své jméno.";
+"Tutorial_FingerprintHand" = "PŘIDAT OTISK\nVyberte ruku..";
+"Tutorial_FingerprintFinger" = "PŘIDAT OTISK\nVyberte prst.";
+"Tutorial_FingerprintAddOwner" = "Přidat vlastníka otisku\nChcete přidat více jmen?\n Klikněte zde";
+"Tutorial_Tab0" = "Právě se nacházíte na domovské stránce.";
+"Tutorial_Tab1" = "Zde můžete sdílet přístup s ostatními.";
+"Tutorial_Tab2" = "Toto je stránka historie přístupů.";
+"Tutorial_Tab3" = "Informace a pomoc s uživatelským účtem.";
+"Tutorial_TapplockAdd" = "PŘIDAT NOVÝ TAPPLOCK\nKlikněte pro přidání zámku.";
+"Tutorial_TapplockLockCell" = "DETAILY O ZÁMKU\nKlikněte pro přidání zámku..";
+"Tutorial_DetailUnlock" = "ODEMČENÍ PŘES BLUETOOTH\nPro otevření zámku během připojení k Bluetooth klikněte zde..";
+"Tutorial_DetailFingerprints" = "SPRÁVA OTISKŮ\nKlikněte zde pro správu otisků";
+"Tutorial_DetailSetting" = "Nastavení zámku\nNastavte profilový obrázek a název zámku zde.";
+"Tutorial_MorseCode" = "Morseovka\nKlikněte zde pro nastavení morseovky do vašeho Tapplocku..";
+
+"Alert" = "Upozornění";
+"MustUpdateMessage" = "Je dostupná nová aktualizace aplikace. Proveďte aktualizaci na nejnovější verzi.";
+"CanUpdateMessage" = "Je dostupná nová verze aplikace. Chcete ji aktualizovat nyní?";
+
+// 固件相关
+"DownloadingBLE" = "Downloading Bluetooth firmware";
+"UpdatingDontTurnOff" = "Updating, please do not turn off Bluetooth";
+"Newfirmwareversion" = "New firmware version";
+"Updatecontent" = "Update content";
+"Updatenow" = "Update now";
+"Downloadfailed" = "Download failed, please download again";
+"Installationfailed" = "Installation failed, please install again";
+"Firmwareupdate" = "Firmware update";

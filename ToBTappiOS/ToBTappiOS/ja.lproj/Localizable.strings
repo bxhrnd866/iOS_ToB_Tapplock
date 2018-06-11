@@ -1,0 +1,145 @@
+/* 
+  Localizable.strings
+  ToBTappiOS
+
+  Created by TapplockiOS on 2018/5/15.
+  Copyright © 2018年 TapplockiOS. All rights reserved.
+*/
+
+"ErrorMessage_FirstNameEmpty" = "名を記入してください";
+"ErrorMessage_UsernameNameEmpty" = "ユーザー名を記入してください";
+"ErrorMessage_FirstNameOverLenth" = "名字は%d文字以上入力しないでください";
+"ErrorMessage_UserNameOverLenth" = "%d文字以上のユーザー名を入力しないでください";
+"ErrorMessage_LastNameEmpty" = "姓を記入してください";
+"ErrorMessage_LastNameOverLenth" = "姓には%d文字以上は入力しないでください";
+"ErrorMessage_MailEmpty" = "電子メールを入力してください";
+"ErrorMessage_MailIncorrect" = "電子メールの形式が正しくありません";
+"ErrorMessage_PasswordEmpty" = "パスワードを記入してください";
+"ErrorMessage_OldPasswordEmpty" = "古いパスワードを入力してください";
+"ErrorMessage_NewPasswordEmpty" = "新しいパスワードを入力してください";
+"ErrorMessage_PasswordTooShort" = "パスワードは半角英数%d文字以上でなければなりません";
+"ErrorMessage_PasswordOverLenth" = "パスワードは%d文字以上入力しないでください";
+"ErrorMessage_NewPasswordTooShort" = "新しいパスワードは%d文字以上にする必要があります";
+"ErrorMessage_NewPasswordOverLenth" = "新しいパスワードは%d文字以上入力しないでください";
+"ErrorMessage_PasswordConfirmEmpty" = "確認済みのパスワードを入力してください";
+"ErrorMessage_PasswordConfirmWrong" = "パスワードが一致していません";
+"ErrorMessage_vCodeEmpty" = "確認コードを入力してください";
+"ErrorMessage_vCodeWrong" = "確認コードの不一致";
+"ErrorMessage_BluetoothOff" = "Bluetoothがオフになっています\nお使いの端末でBluetooth モードをオンにしてください";
+"ErrorMessage_NetOff" = "インターネット接続を確認してください。";
+"ErrorMessage_BluetoothConnectFailed" = "Bluetooth接続障害";
+"ErrorMessage_Synchronizing" = "データの同期に失敗しました、\nもう一度お試しください。";
+"ErrorMessage_LockDisconnected" = "Bluetooth が切断されました。TapplockをBluetooth モードに設定してください";
+"ErrorMessage_Morse" = "モールス符号の設定に失敗しました";
+"ErrorMessage_MorseTooShort" = "%dつ以上のコードを入力してください";
+"ErrorMessage_MorseOverLenth" = "%dつ以上のコードを入力できません";
+"ErrorMessage_MorseNoLongCode" = "すべてのショートコードにすることはできません\nいくつかの長いコードを設定してください";
+"ErrorMessage_LockNameEmpty" = "Tapplock名を入力してください";
+"ErrorMessage_LockNameOverLenth" = "Tapplock名を%d文字以上入力しないでください";
+"ErrorMessage_NoFirmwareUpdate" = "あなたのTapplockは最新バージョンにアップグレードされました。";
+"ErrorMessage_Delete" = "削除に失敗しました";
+"ErrorMessage_DeleteFingerprint" = "指紋の削除に失敗しました";
+"ErrorMessage_ShareToEmpty" = "共有先を選択してください";
+"ErrorMessage_ShareLockEmpty" = "共有するTapplockを選択してください";
+"ErrorMessage_ShareStartTimeEmpty" = "開始日を選択してください";
+"ErrorMessage_ShareEndTimeEmpty" = "終了日を選択してください";
+"ErrorMessage_ShareStartTimeEndTime" = "開始時刻は終了時刻を超えてはいけません";
+"ErrorMessage_FeedbackTitleEmpty" = "フィードバックタイトルを入力してください";
+"ErrorMessage_FeedbackDescriptionEmpty" = "入力記述してください";
+"ErrorMessage_EnrollTemplateExisted" = "登録テンプレートの存在のために失敗しました";
+"ErrorMessage_EnrollNoSpace" = "登録プロセスが完了すると、ライトが緑色に表示されます。";
+"ErrorMessage_Enroll" = "指紋の登録に失敗しました。もう一度お試しください。";
+"ErrorMessage_EnrollMismatch" = "確認した指紋が一致していません";
+"ErrorMessage_FingerOwnerEmpty" = "オーナーの名前を選択してください";
+"ErrorMessage_FingerHandEmpty" = "手を選んでください";
+"ErrorMessage_FingerEmpty" = "指を選んでください";
+"ErrorMessage_Emoji" = "絵文字は入力しないでください";
+//"ErrorMessage_NoNetwork" = "Please check your internet connection.";
+
+
+
+"SuccessMessage_Save" = "保存されました";
+"SuccessMessage_AddNewLock" = "新しいTapplockが追加されました \n 指紋を追加してください";
+"SuccessMessage_AddFingerprint" = "指紋が追加されました";
+"SuccessMessage_LockName" = "Tapplockの名前が保存されました";
+"SuccessMessage_MorseCode" = "モールス符号が保存されました";
+"SuccessMessage_Register" = "登録されました";
+"SuccessMessage_RollingBack" = "ロールバックしました";
+"SuccessMessage_Delete" = "削除されました";
+"SuccessMessage_Feedback" = "フィードバックが送付されました";
+"SuccessMessage_ShareAccess" = "共有が保存されました";
+"SuccessMessage_ShareUser" = "共有されたユーザーが保存されました";
+"SuccessMessage_UserName" = "ユーザー名が保存されました";
+"SuccessMessage_Password" = "新しいパスワードが保存されました";
+
+"EnsureMessage_DeleteLock" = "このTapplockを削除してもよろしいですか？";
+"EnsureMessage_Notification" = "通知をオフにすると、重要な通知が表示されなくなる可能性があります。";
+"EnsureMessage_Logout" = "Tapplockを終了してもよろしいですか？";
+
+
+"LockLog" = "%@は%@の錠を開けました";
+"AddShareUser" = "共有ユーザーを追加する";
+"EditShareUser" = "共有ユーザーを編集";
+"Permanent" = "恒久的なアクセス権";
+"SetStartTime" = "開始日";
+"SetEndTime" = "終了日";
+"AddNewShareAccess" = "共有アクセスを追加する";
+"EditShareAccess" = "共有アクセスを編集";
+"Yes" = "はい";
+"No" = "いいえ";
+"MyOwn" = "自分自身";
+"Shared" = "共有アクセス";
+"OK" = "OK";
+"Roll Back" = "ロールバック";
+"ResendCount" = "再送信する(%d)";
+"Resend" = "再送信する";
+"Connected" = "接続済み";
+"Disconnected" = "切断されました";
+"Edit" = "編集";
+"Done" = "完了";
+"LeftHand" = "左";
+"RightHand" = "右";
+"ThumbFinger" = "親指";
+"IndexFinger" = "人差し指";
+"MiddleFinger" = "中指";
+"RingFinger" = "薬指";
+"LittleFinger" = "小指";
+"Fingerprint" = "指紋";
+"Confirm delete" = "削除しますか";
+"AdddNewLock" = "Tapplockを追加";
+"NoDataplaceholder" = "No Data";
+"Returyplaceholder" = "Retury";
+
+
+
+"Tutorial_AddShareAccess" = "共有アクセスを追加する\nあなたのTapplockを友人と共有したいですか？";
+"Tutorial_OneTimeAccess" = "ワンタイムアクセス\n設定された時間内に共有の人に一時的に10分間のアクセスを与えます。";
+"Tutorial_PermanentAccess" = "恒久的な\nTapplockを永遠に共有してください！ （いつでもアクセスを取り消すことができます）";
+"Tutorial_FingerprintName" = "指紋を追加する\nあなたの名前をここに追加してください。";
+"Tutorial_FingerprintHand" = "指紋を追加する\nどの手を選びますか？";
+"Tutorial_FingerprintFinger" = "指紋を追加する\nどの指を選びますか？";
+"Tutorial_FingerprintAddOwner" = "指紋の所有者を追加する\nより多くの名前を追加したいですか？ ここをクリック。";
+"Tutorial_Tab0" = "これは現在のホームページです。";
+"Tutorial_Tab1" = "これは、他のユーザーとのアクセスを共有できる場所です。";
+"Tutorial_Tab2" = "これはアクセス履歴ページです";
+"Tutorial_Tab3" = "アカウント関連の情報とヘルプ。";
+"Tutorial_TapplockAdd" = "新しいTapplockを追加\nTapplockを追加するには、ここをクリックしてください。";
+"Tutorial_TapplockLockCell" = "Tapplock詳細\nあなたのTapplockの詳細を見つけるには、ここをクリックしてください。";
+"Tutorial_DetailUnlock" = "Bluetoothによる開錠\nBluetooth経由で接続中にTapplockを開くには、ここをクリックしてください。";
+"Tutorial_DetailFingerprints" = "指を操作する\n指紋を管理するには、ここをクリックしてください";
+"Tutorial_DetailSetting" = "ロック設定\nプロファイルの写真とTapplockの名前をここに設定します。";
+"Tutorial_MorseCode" = "モールス符号\nTapplockのカスタムモールス符号を設定するには、ここをクリックしてください。";
+
+"Alert" = "警報";
+"MustUpdateMessage" = "Tapplockの新しい更新があります！ 最新のバージョンに更新してください。";
+"CanUpdateMessage" = "新しいバージョンのアプリが検出されました。更新しますか？";
+
+// 固件相关
+"DownloadingBLE" = "ダウンロード中　Bluetooth Firmware";
+"UpdatingDontTurnOff" = "アップデート中、Bluetoothを切らないでください。";
+"Newfirmwareversion" = "最新ファームウェアバージョン";
+"Updatecontent" = "内容をアップデートしてください。";
+"Updatenow" = "今すぐアップデートしてください。";
+"Downloadfailed" = "ダウンロードは失敗しました、 再度ダウンロードしてください";
+"Installationfailed" = "インストールは失敗しました、再インストールしてください";
+"Firmwareupdate" = "ファームウェアアップデート";
