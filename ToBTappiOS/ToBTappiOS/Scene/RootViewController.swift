@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-//import PromiseKit
+import PromiseKit
 class RootViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -39,16 +39,16 @@ class RootViewController: UIViewController {
             else if ConfigModel.default.user.value != nil {
                 
                 self.performSegue(withIdentifier: R.segue.rootViewController.showHomeSB, sender: self)
-//                _ = CLLocationManager.promise().then { (location: CLLocation) -> Void in
-//                    _ = provider.rx.request(ApiService.UpdateLocktion(latitude: String(location.coordinate.latitude),
-//                                                                      longitude: String(location.coordinate.longitude),
-//                                                                      uuid: ConfigModel.default.user.value!.uuid))
-//                        .mapObject(APIResponse<EmptyModel>.self)
-//                        .subscribe(onSuccess: { response in
-//                            print(response)
-//                        })
-//
-//                }
+                _ = CLLocationManager.promise().then { (location: CLLocation) -> Void in
+                    _ = provider.rx.request(ApiService.UpdateLocktion(latitude: String(location.coordinate.latitude),
+                                                                      longitude: String(location.coordinate.longitude),
+                                                                      uuid: ConfigModel.default.user.value!.uuid))
+                        .mapObject(APIResponse<EmptyModel>.self)
+                        .subscribe(onSuccess: { response in
+                            print(response)
+                        })
+
+                }
                 
             }
                 //非初次使用并且不存在user信息=>showLoginSegue

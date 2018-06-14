@@ -50,6 +50,7 @@
                     <connections>
                         <segue destination="hLA-4J-Go9" kind="presentation" identifier="showLoginSb" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vsZ-ON-65k"/>
                         <segue destination="S33-P0-oSD" kind="presentation" identifier="showHomeSB" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bHw-ht-YYO"/>
+                        <segue destination="Tlo-Nh-SJ3" kind="presentation" identifier="ShowTutorialSegue" id="2x5-sX-6dJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -160,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkl-lm-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="839"/>
+            <point key="canvasLocation" x="-233" y="771"/>
         </scene>
         <!--1-->
         <scene sceneID="GUc-6S-K4d">
@@ -170,7 +171,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="walkthrough_1" translatesAutoresizingMaskIntoConstraints="NO" id="gH4-Zn-e0L">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="Tutorial - 01" translatesAutoresizingMaskIntoConstraints="NO" id="gH4-Zn-e0L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="0fb-zU-mt8">
@@ -226,7 +227,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="walkthrough_2" translatesAutoresizingMaskIntoConstraints="NO" id="mDz-IN-cpM">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="Tutorial - 02" translatesAutoresizingMaskIntoConstraints="NO" id="mDz-IN-cpM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="4o6-b6-mqF">
@@ -280,7 +281,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="walkthrough_3" translatesAutoresizingMaskIntoConstraints="NO" id="rC7-QB-6Gg">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="Tutorial - 03" translatesAutoresizingMaskIntoConstraints="NO" id="rC7-QB-6Gg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Login_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-gB-SBP">
@@ -334,7 +335,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="walkthrough_4" translatesAutoresizingMaskIntoConstraints="NO" id="phO-lx-IKV">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="Tutorial - 04" translatesAutoresizingMaskIntoConstraints="NO" id="phO-lx-IKV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Login_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-gx-hDB">
@@ -410,9 +411,9 @@
     <resources>
         <image name="Login_Logo" width="207" height="70"/>
         <image name="Root_logo.png" width="555" height="201"/>
-        <image name="walkthrough_1" width="16" height="16"/>
-        <image name="walkthrough_2" width="16" height="16"/>
-        <image name="walkthrough_3" width="16" height="16"/>
-        <image name="walkthrough_4" width="16" height="16"/>
+        <image name="Tutorial - 01" width="360" height="640"/>
+        <image name="Tutorial - 02" width="360" height="640"/>
+        <image name="Tutorial - 03" width="360" height="640"/>
+        <image name="Tutorial - 04" width="360" height="640"/>
     </resources>
 </document>

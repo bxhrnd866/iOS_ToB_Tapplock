@@ -21,10 +21,57 @@
                         <viewLayoutGuide key="safeArea" id="bFm-9n-laq"/>
                     </view>
                     <navigationItem key="navigationItem" id="ACO-yh-a20"/>
+                    <connections>
+                        <segue destination="yBT-86-YFp" kind="show" id="zKs-tI-PQm"/>
+                        <segue destination="JGJ-m6-2W6" kind="show" id="INm-qg-Qbq"/>
+                        <segue destination="Bkw-oJ-IuG" kind="show" id="Dzm-ol-7na"/>
+                        <segue destination="8A9-4l-p5i" kind="show" id="Zxh-UT-6AX"/>
+                        <segue destination="eCx-22-qPz" kind="show" id="trU-Wp-kCi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2i0-S9-nBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226.4000000000001" y="205.54722638680661"/>
+            <point key="canvasLocation" x="1074" y="200"/>
+        </scene>
+        <!--MyTapplock-->
+        <scene sceneID="bqc-qt-DZu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyTapplock" id="yBT-86-YFp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jyw-Ra-DFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1710" y="-105"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="w0T-mv-DAn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="JGJ-m6-2W6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-GD-2yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840" y="75"/>
+        </scene>
+        <!--ViewAlllock-->
+        <scene sceneID="qu3-fZ-EMR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewAlllock" id="Bkw-oJ-IuG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4f-UB-Wgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864" y="288"/>
+        </scene>
+        <!--ViewHistory-->
+        <scene sceneID="vHt-HB-TmO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewHistory" id="8A9-4l-p5i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPs-Ua-K7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1738" y="493"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="6Qq-HZ-INA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="eCx-22-qPz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7uc-iS-wVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1566" y="631"/>
         </scene>
         <!--Base Navi Controller-->
         <scene sceneID="x2B-oA-pMp">
