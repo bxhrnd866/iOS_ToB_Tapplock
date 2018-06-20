@@ -25,6 +25,20 @@ extension CAGradientLayer {
         gradlayer.shadowRadius = 5
         return gradlayer
     }
+    
+    
+    public static func normalgradientLayer(frame: CGRect, colorA: UIColor, colorB: UIColor) -> CAGradientLayer {
+        
+        let gradColor = [colorA.cgColor, colorB.cgColor]
+        let gradlocations: [NSNumber] = [0.0, 1.0]
+        let gradlayer = CAGradientLayer()
+        gradlayer.colors = gradColor
+        gradlayer.locations = gradlocations
+        gradlayer.startPoint = CGPoint(x: 0, y: 0)
+        gradlayer.endPoint = CGPoint(x: 1, y: 0)
+        gradlayer.frame = frame
+        return gradlayer
+    }
 }
 
 
@@ -36,13 +50,30 @@ class normalGradientBtn: UIButton {
         
     }
 }
+
+
 class unlockGradientBtn: UIButton {
     override func draw(_ rect: CGRect) {
-        let layer = CAGradientLayer.gradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.aleftColor, colorB: UIColor.arightColor, corner: 33)
+        let layer = CAGradientLayer.normalgradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.aleftColor, colorB: UIColor.arightColor)
         self.layer.insertSublayer(layer, at: 0)
-        
     }
 }
+
+class HistoryGradientBtn: UIButton {
+    override func draw(_ rect: CGRect) {
+        let layer = CAGradientLayer.normalgradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.cLeftColor, colorB: UIColor.cLightColor)
+        self.layer.insertSublayer(layer, at: 0)
+    }
+}
+
+
+class morsekGradientBtn: UIButton {
+    override func draw(_ rect: CGRect) {
+        let layer = CAGradientLayer.normalgradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.dLeftColor, colorB: UIColor.dLightColor)
+        self.layer.insertSublayer(layer, at: 0)
+    }
+}
+
 
 class fingerGradientBtn: UIButton {
     override func draw(_ rect: CGRect) {

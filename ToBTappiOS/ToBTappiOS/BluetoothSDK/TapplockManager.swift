@@ -87,8 +87,8 @@ final class TapplockManager: NSObject {
         var oldArr = self.rx_mylocks.value
         oldArr.append(lock)
         self.rx_mylocks.accept(oldArr)
-        
     }
+    
     // 扫描到锁时添加
     func addPeripheralFromScan(_ peripheral: CBPeripheral) {
         if !self.rx_mylocks.value.reduce(false, { $0 || $1.peripheral?.peripheral == peripheral }) ||
@@ -153,9 +153,7 @@ extension TapplockManager: CBCentralManagerDelegate {
                 scan_peripheral.value.remove(model)
             }
         }
-        if UIApplication.shared.applicationState == .active {
-            scan()
-        }
+      
     }
     // MARK: 连接失败
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -164,9 +162,6 @@ extension TapplockManager: CBCentralManagerDelegate {
             if model.peripheral == peripheral {
                 scan_peripheral.value.remove(model)
             }
-        }
-        if UIApplication.shared.applicationState == .active {
-            scan()
         }
     }
     

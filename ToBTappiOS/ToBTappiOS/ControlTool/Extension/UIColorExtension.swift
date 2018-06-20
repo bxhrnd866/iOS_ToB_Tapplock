@@ -157,6 +157,20 @@ extension UIColor {
         return UIColor("#8363F9")
     }
     
+    static var cLeftColor: UIColor {
+        return UIColor("#1BEEF2")
+    }
+    static var cLightColor: UIColor {
+        return UIColor("#3699FF")
+    }
+    
+    static var dLeftColor: UIColor {
+        return UIColor("#EE70E9")
+    }
+    static var dLightColor: UIColor {
+        return UIColor("#8363F9")
+    }
+    
     static var shadowColor: UIColor {
         return UIColor(red: 237/255.0, green: 99/2540.0, blue: 50/255.0, alpha: 0.3)
     }
