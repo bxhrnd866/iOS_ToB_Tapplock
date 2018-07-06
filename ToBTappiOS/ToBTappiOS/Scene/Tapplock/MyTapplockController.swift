@@ -7,18 +7,30 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 class MyTapplockController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    @IBAction func searchList(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.myTapplockController.showFingerLockDetail, sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        plog("mytapplock 销毁了")
     }
     
 

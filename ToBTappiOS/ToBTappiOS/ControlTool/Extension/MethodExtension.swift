@@ -22,12 +22,12 @@ func GMTCoverToHex() -> String {
     
     //
     let new = String(Int(s0)! - 1970)
-    let year = new.hexadeConver()?.hexadecimalSupplement()
-    let month = s1.hexadeConver()?.hexadecimalSupplement()
-    let day = s2.hexadeConver()?.hexadecimalSupplement()
-    let hour = s3.hexadeConver()?.hexadecimalSupplement()
-    let minite = s4.hexadeConver()?.hexadecimalSupplement()
-    let second = s5.hexadeConver()?.hexadecimalSupplement()
+    let year = new.decimalConver()?.hexadecimalSupplement()
+    let month = s1.decimalConver()?.hexadecimalSupplement()
+    let day = s2.decimalConver()?.hexadecimalSupplement()
+    let hour = s3.decimalConver()?.hexadecimalSupplement()
+    let minite = s4.decimalConver()?.hexadecimalSupplement()
+    let second = s5.decimalConver()?.hexadecimalSupplement()
     let times = year! + month! + day! + hour! + minite! + second!
     
     return times
@@ -42,7 +42,7 @@ func hexCovertoTamp(time: String) -> Int {
     
     let t1 = (x2 + x1).hexToInt!
     
-    let t12 = String(t1).hexadeConver(rax: 2)! as NSString
+    let t12 = String(t1).decimalConver(rax: 2)! as NSString
     let length = t12.length
     let d = t12.substring(with: NSMakeRange(length - 5, 5))
     

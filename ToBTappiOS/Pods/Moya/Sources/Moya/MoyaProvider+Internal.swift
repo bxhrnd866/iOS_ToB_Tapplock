@@ -1,6 +1,6 @@
 import Foundation
 import Result
-
+import CryptoSwift
 // MARK: - Method
 
 extension Method {
@@ -228,7 +228,25 @@ private extension MoyaProvider {
         }
 
         let completionHandler: RequestableCompletion = { response, request, data, error in
-            let result = convertResponseToResult(response, request: request, data: data, error: error)
+            var newdata: Data? = nil
+            
+            if data != nil {
+                let text = String(data: data!, encoding: String.Encoding.utf8)
+                let base = Data(base64Encoded: text!)
+                if base == nil {
+                    newdata = data
+                } else {
+                    do {
+                        let dec = try aes.decrypt((base?.bytes)!)
+                        newdata = Data(dec)
+                    } catch let err {
+                        print("------>\(err)")
+                    }
+                }
+                
+            }
+            
+            let result = convertResponseToResult(response, request: request, data: newdata, error: error)
             // Inform all plugins about the response
             plugins.forEach { $0.didReceive(result, target: target) }
             if let progressCompletion = progressCompletion {
@@ -253,3 +271,7 @@ private extension MoyaProvider {
         return CancellableToken(request: progressAlamoRequest)
     }
 }
+
+private let aesSecret = "tprjrA5kkKyvh4nw"
+
+private let aes = try! AES(key: aesSecret.bytes, blockMode: .ECB, padding: Padding.pkcs5)

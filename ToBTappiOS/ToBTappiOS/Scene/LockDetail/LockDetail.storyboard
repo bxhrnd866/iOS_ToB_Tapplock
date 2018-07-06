@@ -30,9 +30,8 @@
                                     <constraint firstAttribute="height" constant="50" id="Cya-hb-AOP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Unlock">
-                                    <color key="titleColor" red="0.24313725489999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_unlock"/>
                                 <userDefinedRuntimeAttributes>
@@ -218,10 +217,8 @@
                                     <constraint firstAttribute="height" constant="50" id="h2k-gV-IUt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="2" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                 <state key="normal" title="History">
-                                    <color key="titleColor" red="0.24313725489999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_fingerprint"/>
                                 <userDefinedRuntimeAttributes>
@@ -239,10 +236,8 @@
                                     <constraint firstAttribute="height" constant="50" id="V55-dS-aIZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="2" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                 <state key="normal" title="Morse-code">
-                                    <color key="titleColor" red="0.24313725489999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_fingerprint"/>
                                 <userDefinedRuntimeAttributes>
@@ -258,10 +253,8 @@
                                     <constraint firstAttribute="height" constant="50" id="7Jo-Hl-3QR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="2" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                 <state key="normal" title="Firmware Update">
-                                    <color key="titleColor" red="0.24313725489999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_fingerprint"/>
                                 <userDefinedRuntimeAttributes>
@@ -310,6 +303,9 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bgview" destination="LbA-p7-3ew" id="C9l-8C-Phb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh3-cx-OLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -358,14 +354,14 @@
                                 <rect key="frame" x="0.0" y="138" width="375" height="674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BluetoothHistoryCell" rowHeight="120" id="68e-Ts-HBX" customClass="BluetoothHistoryCell" customModule="Tapplock2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BluetoothHistoryCell" rowHeight="120" id="68e-Ts-HBX" customClass="BluetoothHistoryCell" customModule="ToBTappiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68e-Ts-HBX" id="Zbr-4Z-Opv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder_Lock" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-n4-vdi">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserPlace" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-n4-vdi">
                                                     <rect key="frame" x="20" y="18" width="54" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="54" id="TaL-Pm-Z0C"/>
@@ -530,7 +526,7 @@
         <image name="LockDetail_fingerprint" width="16" height="16"/>
         <image name="LockDetail_unlock" width="16" height="16"/>
         <image name="Lock_lockicon" width="139" height="204"/>
-        <image name="Placeholder_Lock" width="16" height="16"/>
+        <image name="UserPlace" width="54" height="54"/>
         <image name="lock_battery_0" width="7" height="10"/>
         <image name="lock_bgImg" width="375" height="196"/>
         <image name="lock_sysn" width="42" height="42"/>

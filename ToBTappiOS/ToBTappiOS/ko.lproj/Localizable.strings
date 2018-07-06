@@ -75,7 +75,7 @@
 "EnsureMessage_DeleteLock" = "이Tapplock을정말지우시겠습니까?";
 "EnsureMessage_Notification" = "알림을끄면중요한알림이누락될수있습니다";
 "EnsureMessage_Logout" = "Tapplock을정말종료하시겠습니까?";
-
+"ItmeNext" = "다음";
 
 "LockLog" = "%@에서%@을열었습니다.";
 "AddShareUser" = "공유사용자추가";
@@ -107,8 +107,6 @@
 "Fingerprint" = "지문";
 "Confirm delete" = "정말 삭제하시겠습니까";
 "AdddNewLock" = "새로운Tapplock을추가하기";
-"NoDataplaceholder" = "No Data";
-"Returyplaceholder" = "Retury";
 
 
 "Tutorial_AddShareAccess" = "접근권한공유추가\n지인에게잠금해제권한을공유하시겠습니까?";
@@ -143,5 +141,9 @@
 "Downloadfailed" = "다운로드 실패, 다시 다운로드 하십시오";
 "Installationfailed" = "설치 실패, 다시 설치하십시오";
 "Firmwareupdate" = "펌웨어 업데이트";
+
+"LockNewFirmwareVersionTotals" = "새로운 펌웨어 업데이트. 업데이트를 시작하려면 설정 > 펌웨어 업데이트로 이동하십시오";
+"LockOpenLocationService" = "위치 서비스를 켜십시오.";
+"GoToSetting" = "설정으로 바로 가기";
 
 

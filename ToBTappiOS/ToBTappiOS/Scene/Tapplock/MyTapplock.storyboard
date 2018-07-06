@@ -51,19 +51,10 @@
                                             <constraint firstAttribute="width" constant="40" id="Wt9-Ww-3EE"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84N-bi-KIo">
-                                        <rect key="frame" x="261" y="41" width="40" height="3"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="0Yb-Ip-G3L"/>
-                                            <constraint firstAttribute="height" constant="3" id="MZS-Se-Z5U"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="xN5-hs-BUX" firstAttribute="top" secondItem="whx-JT-9Lv" secondAttribute="top" id="4Ex-10-XvE"/>
-                                    <constraint firstItem="84N-bi-KIo" firstAttribute="top" secondItem="whx-JT-9Lv" secondAttribute="top" constant="41" id="CNV-lq-Fhq"/>
                                     <constraint firstItem="xN5-hs-BUX" firstAttribute="width" secondItem="1e8-zE-Y3y" secondAttribute="width" id="Ecm-wi-zgu"/>
                                     <constraint firstAttribute="height" constant="44" id="LdK-wD-LPp"/>
                                     <constraint firstItem="1e8-zE-Y3y" firstAttribute="top" secondItem="whx-JT-9Lv" secondAttribute="top" id="Lwo-tY-cgB"/>
@@ -72,7 +63,6 @@
                                     <constraint firstItem="xN5-hs-BUX" firstAttribute="height" secondItem="1e8-zE-Y3y" secondAttribute="height" id="jXR-QU-yTw"/>
                                     <constraint firstItem="0og-Te-uf7" firstAttribute="centerX" secondItem="xN5-hs-BUX" secondAttribute="centerX" id="oCp-WO-sBz"/>
                                     <constraint firstItem="0og-Te-uf7" firstAttribute="top" secondItem="whx-JT-9Lv" secondAttribute="top" constant="41" id="tVe-zY-GPK"/>
-                                    <constraint firstItem="84N-bi-KIo" firstAttribute="centerX" secondItem="1e8-zE-Y3y" secondAttribute="centerX" id="tgG-ab-b7j"/>
                                     <constraint firstItem="xN5-hs-BUX" firstAttribute="leading" secondItem="whx-JT-9Lv" secondAttribute="leading" id="twQ-DL-bkw"/>
                                 </constraints>
                             </view>
@@ -223,19 +213,43 @@
                     <navigationItem key="navigationItem" title="My Tapplock" id="L7G-Vk-fKC">
                         <barButtonItem key="leftBarButtonItem" image="Home_Hierarchical" id="bWP-6V-ZR4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="vzC-hX-cdc" id="iSO-Ot-eG5"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Home_search" id="21i-Ls-V6M">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="searchList:" destination="vzC-hX-cdc" id="R8b-o4-bKX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <segue destination="7GP-oe-V5u" kind="show" identifier="myTapplockGroup" id="dhu-j0-cyj"/>
+                        <segue destination="pCW-aX-6E5" kind="show" identifier="showBLELockDetail" id="t6x-ii-FXz"/>
+                        <segue destination="qEp-18-BTn" kind="show" identifier="showFingerLockDetail" id="lS2-yM-vE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVA-Fx-aTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="187.68472906403943"/>
+        </scene>
+        <!--LockDetail-->
+        <scene sceneID="b4G-8n-Poi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LockDetail" id="pCW-aX-6E5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-Ru-kAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="632"/>
+        </scene>
+        <!--FingerLockDetail-->
+        <scene sceneID="ZmB-09-XGN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FingerLockDetail" id="qEp-18-BTn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GmJ-VR-s7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="631"/>
         </scene>
         <!--Group-->
         <scene sceneID="Hzt-iO-den">
@@ -299,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBv-um-qnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="164"/>
+            <point key="canvasLocation" x="950" y="188"/>
         </scene>
     </scenes>
     <resources>

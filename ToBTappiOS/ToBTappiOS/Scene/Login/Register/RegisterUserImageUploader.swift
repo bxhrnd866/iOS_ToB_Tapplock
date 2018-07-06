@@ -33,17 +33,17 @@ class RegisterUserImageUploader: NSObject, Uploader {
     }
 
     func upload(image: UIImage) {
-        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: nil, progress: { (progress) in
-            print(progress)
-        }, completionHandler: { (result, error) in
-
-            if error != nil {
-                self.rx_sucess.value = false
-            } else {
-                self.rx_sucess.value = true
-                self.callBack((result?.url)!)
-            }
-        })
+//        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: nil, progress: { (progress) in
+//            print(progress)
+//        }, completionHandler: { (result, error) in
+//
+//            if error != nil {
+//                self.rx_sucess.value = false
+//            } else {
+//                self.rx_sucess.value = true
+//                self.callBack((result?.url)!)
+//            }
+//        })
     }
 
     //用户信息上传接口

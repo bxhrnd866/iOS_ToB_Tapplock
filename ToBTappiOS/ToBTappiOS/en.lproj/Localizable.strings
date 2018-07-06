@@ -5,7 +5,6 @@
   Created by TapplockiOS on 2018/5/15.
   Copyright © 2018年 TapplockiOS. All rights reserved.
 */
-
 "ErrorMessage_FirstNameEmpty" = "Please fill in first name";
 "ErrorMessage_UsernameNameEmpty" = "Please fill in the Username";
 "ErrorMessage_FirstNameOverLenth" = "Please don't input more than %d characters for first name";
@@ -36,7 +35,7 @@
 "ErrorMessage_MorseNoLongCode" = "It can't be all short codes\nPlease set some long codes";
 "ErrorMessage_LockNameEmpty" = "Please input Lock Name";
 "ErrorMessage_LockNameOverLenth" = "Please don't input lock name more than %d characters";
-"ErrorMessage_NoFirmwareUpdate" = "Your Tapplock has been upgraded to the lastest version.";
+"ErrorMessage_NoFirmwareUpdate" = "Your Tapplock has been upgraded to the latest version.";
 "ErrorMessage_Delete" = "Delete Failed";
 "ErrorMessage_DeleteFingerprint" = "Failed to delete fingerprint";
 "ErrorMessage_ShareToEmpty" = "Please choose whom to share to";
@@ -87,8 +86,8 @@
 "EditShareAccess" = "Edit Share Access";
 "Yes" = "YES";
 "No" = "NO";
-"MyOwn" = "Own";
-"Shared" = "Shared";
+"MyOwn" = "My Own";
+"Shared" = "Shared Access";
 "OK" = "OK";
 "Roll Back" = "Roll Back";
 "ResendCount" = "Resend(%d)";
@@ -107,8 +106,7 @@
 "Fingerprint" = "Fingerprint";
 "Confirm delete" = "Confirm delete";
 "AdddNewLock" = "Add A New Tapplock";
-"NoDataplaceholder" = "No Data";
-"Returyplaceholder" = "Retury";
+"ItmeNext" = "Next";
 
 "Tutorial_AddShareAccess" = "ADD SHARE ACCESS\nWant to share your lock to a friend?";
 "Tutorial_OneTimeAccess" = "ONE TIME ACCESS\nGive the shared person a temporary 10 min access within the set time.";
@@ -129,7 +127,7 @@
 "Tutorial_MorseCode" = "MORSE CODE\nClick here to setup your custom Morse Code for your Tapplock.";
 
 "Alert" = "Alert";
-"MustUpdateMessage" = "There is a new for the App. Please upgrade to the latest version.";
+"MustUpdateMessage" = "There is a new update for the App. Please update to the latest version.";
 "CanUpdateMessage" = "New version of the app detected. Do you want to update?";
 
 
@@ -143,3 +141,8 @@
 "Downloadfailed" = "Download failed, please download again";
 "Installationfailed" = "Installation failed, please install again";
 "Firmwareupdate" = "Firmware update";
+
+
+"LockNewFirmwareVersionTotals" = "New firmware update. Please go to Lock Setting > Firmware Update to start";
+"LockOpenLocationService" = "Please turn on the Location service";
+"GoToSetting" = "Go to setting";

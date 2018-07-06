@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        
     }
     
   

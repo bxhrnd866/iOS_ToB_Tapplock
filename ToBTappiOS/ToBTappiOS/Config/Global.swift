@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CryptoSwift
 import Cloudinary
+import Kingfisher
+import SwiftDate
 
 func plog<T>(_ message: T,
              fileName: String = #file,
@@ -20,7 +22,16 @@ func plog<T>(_ message: T,
     #endif
 }
 
-
+//isSimulator,开发时用
+struct Platform {
+    static let isSimulator: Bool = {
+        var isSim = false
+        #if arch(i386) || arch(x86_64)
+        isSim = true
+        #endif
+        return isSim
+    }()
+}
 
 let isPhoneX = UIScreen.main.currentMode?.size.height == 2436
 
@@ -40,6 +51,8 @@ let mScreenH = UIScreen.main.bounds.height
 
 let mScreenW = UIScreen.main.bounds.width
 
+let mScale = mScreenW/375
+
 let font_name = "Century Gothic"
 
 let isIphone5 = mScreenW <= 320
@@ -52,6 +65,16 @@ let ble_disconnectKey = "ble_disconnectKeyDisconnect"
 let language_model_key = "language_model_key"
 
 let user_saveKey = "user_saveKey"
+
+var basicToken_UserKey: String? {
+    return UserDefaults.standard.object(forKey: "basicTokenUserDefaultKey") as? String
+} // token 存储
+
+var refreshbasicToken_UserKey: String? { // 刷新token
+    return UserDefaults.standard.object(forKey: "refreshbasicTokenUserDefaultKey") as? String
+}
+
+let cldConfiguration = CLDConfiguration.init(cloudName: "tapplock", apiKey: "98584592923587")
 
 let cloudinaryStorage = CLDCloudinary.init(configuration: cldConfiguration)
 

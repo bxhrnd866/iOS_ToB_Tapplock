@@ -25,11 +25,11 @@ class ConfigModel: NSObject {
     func setpushToken(data: String) {
         pushToken = data
         if (pushToken != nil && user.value != nil) {
-            _ = provider.rx.request(ApiService.EditUserConfiguration(mai: (user.value!.mail)!, deviceToken: pushToken, firstName: nil, lastName: nil, imageURL: nil, push: nil, showBattery: nil))
-                .mapObject(APIResponse<UserModel>.self)
-                .subscribe(onSuccess: { response in
-                    plog(response)
-                })
+//            _ = provider.rx.request(ApiService.EditUserConfiguration(mai: (user.value!.mail)!, deviceToken: pushToken, firstName: nil, lastName: nil, imageURL: nil, push: nil, showBattery: nil))
+//                .mapObject(APIResponse<UserModel>.self)
+//                .subscribe(onSuccess: { response in
+//                    plog(response)
+//                })
         }
     }
     
@@ -41,7 +41,7 @@ class ConfigModel: NSObject {
         if myLanguage != nil && myLanguage! != "" {
             language = Language.init(myLanguage!)
         } else {
-            let preferredLang = (UserDefaults.standard.object(forKey: language_model_key) as! Array<String>).first
+            let preferredLang = (UserDefaults.standard.object(forKey: "AppleLanguages") as! Array<String>).first
             
             language = Language.init(preferredLang!)
         }

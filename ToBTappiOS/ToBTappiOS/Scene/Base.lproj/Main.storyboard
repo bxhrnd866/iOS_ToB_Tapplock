@@ -50,7 +50,7 @@
                     <connections>
                         <segue destination="hLA-4J-Go9" kind="presentation" identifier="showLoginSb" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vsZ-ON-65k"/>
                         <segue destination="S33-P0-oSD" kind="presentation" identifier="showHomeSB" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bHw-ht-YYO"/>
-                        <segue destination="Tlo-Nh-SJ3" kind="presentation" identifier="ShowTutorialSegue" id="2x5-sX-6dJ"/>
+                        <segue destination="Tlo-Nh-SJ3" kind="presentation" identifier="ShowTutorialSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2x5-sX-6dJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -33,7 +33,7 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - Instructions (1.1.0)
-  - IQKeyboardManagerSwift (6.0.3)
+  - IQKeyboardManagerSwift (6.0.4)
   - Kingfisher (4.6.4)
   - MJRefresh (3.1.15.3)
   - Moya (10.0.2):
@@ -62,9 +62,9 @@ PODS:
     - RxSwift (~> 4.0)
   - ObjectMapper (3.0.0)
   - PKHUD (5.0.0)
-  - PromiseKit/CoreLocation (6.3.0):
+  - PromiseKit/CoreLocation (6.3.4):
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (6.3.0)
+  - PromiseKit/CorePromise (6.3.4)
   - Protobuf (3.6.0)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -155,7 +155,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Instructions: ff5738d6a637a46d1638a77d77261649f4da36a7
-  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
+  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
@@ -164,7 +164,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
-  PromiseKit: cf84bbb1235a61473b326c5cf0b41f6828f87ba5
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
@@ -177,6 +177,6 @@ SPEC CHECKSUMS:
   TOCropViewController: 6d972f2c609372312648f96758e13a7f689efbc0
   WXImageCompress: 4003213a788574c3e307faec0130359c52e43887
 
-PODFILE CHECKSUM: 97c79b01a2666995826323e2904d3c353fa0f980
+PODFILE CHECKSUM: d2729f4f3dfcd331c43ce75f8b18f18d21ca9d33
 
 COCOAPODS: 1.5.3

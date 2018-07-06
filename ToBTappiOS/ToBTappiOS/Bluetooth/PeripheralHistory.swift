@@ -1,13 +1,13 @@
 //
-//  BLEPeripheralHistory.swift
-//  ToBTappiOS
+//  PeripheralHistory.swift
+//  Tapplock2
 //
-//  Created by TapplockiOS on 2018/5/18.
-//  Copyright © 2018年 TapplockiOS. All rights reserved.
+//  Created by TapplockiOS on 2018/6/21.
+//  Copyright © 2018年 Tapplock. All rights reserved.
 //
 
 import Foundation
-extension BLEPeripheral {
+extension PeripheralModel {
     
     
     func lockCollectHistory(response: BluetoothResponse) {
@@ -15,24 +15,23 @@ extension BLEPeripheral {
             return
         }
         switch hv {
-        case TL1:
-            TL1Update(response: response)
-        case TL2:
+        case aKind:
+            if let value = response.value {
+                TL1Update(value:value)
+            } else{
+                plog("历史为空")
+            }
+            
+        case bKind:
             TL2CollectData(response: response)
             historyNumer(response: response)
         default:
             break
         }
-        
     }
     
-    
-    func TL1Update(response: BluetoothResponse) {
-        guard let value = response.value else {
-            plog("历史为空")
-            return
-        }
-        
+    func TL1Update(value: String) {
+      
         let vl = value.inserting(separator: ",", every: 4)
         let source = vl.components(separatedBy: ",")
         
@@ -41,7 +40,6 @@ extension BLEPeripheral {
             .subscribe(onSuccess: { _ in
                 plog("一代指纹成功")
             })
-        
     }
     
     func TL2CollectData(response: BluetoothResponse){

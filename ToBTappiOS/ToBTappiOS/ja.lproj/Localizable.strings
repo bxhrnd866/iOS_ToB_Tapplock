@@ -76,6 +76,7 @@
 "EnsureMessage_Notification" = "通知をオフにすると、重要な通知が表示されなくなる可能性があります。";
 "EnsureMessage_Logout" = "Tapplockを終了してもよろしいですか？";
 
+"ItmeNext" = "次";
 
 "LockLog" = "%@は%@の錠を開けました";
 "AddShareUser" = "共有ユーザーを追加する";
@@ -107,8 +108,6 @@
 "Fingerprint" = "指紋";
 "Confirm delete" = "削除しますか";
 "AdddNewLock" = "Tapplockを追加";
-"NoDataplaceholder" = "No Data";
-"Returyplaceholder" = "Retury";
 
 
 
@@ -143,3 +142,10 @@
 "Downloadfailed" = "ダウンロードは失敗しました、 再度ダウンロードしてください";
 "Installationfailed" = "インストールは失敗しました、再インストールしてください";
 "Firmwareupdate" = "ファームウェアアップデート";
+"LockNewFirmwareVersionTotals" = "新しいファームウェアのアップデート。 ロック設定を行ってください〉開始するファームウェアのアップデート開始。";
+"LockOpenLocationService" = "位置情報サービスをオンにしてください";
+"GoToSetting" = "設定に移動";
+
+
+
+

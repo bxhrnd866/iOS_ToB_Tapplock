@@ -22,12 +22,16 @@ extension UIViewController {
         }
     }
     
+    @IBAction func showMenu(_ sender: Any) {
+        MenuView.instance.commeTransform()
+    }
+    
     //页面按钮点击时,检查蓝牙状态
     func checkBlueWithAlert() -> Bool {
         if TapplockManager.default.bluetoothState != .poweredOn {
             self.showToast(message: "R.string.localizable.errorMessage_BluetoothOff()")
             return false
-        } else if TapplockManager.default.isEditLock?.peripheral?.rx_staus.value == .connected {
+        } else if TapplockManager.default.editingLock?.peripheralModel?.rx_status.value == .connected {
             self.showToast(message: "R.string.localizable.errorMessage_LockDisconnected()")
             TapplockManager.default.scan()
             return false
@@ -35,6 +39,7 @@ extension UIViewController {
             return true
         }
     }
+    
     func showToast(message: String, didDismiss: ((Any) -> Void)? = nil) {
         let alertController = CFAlertViewController(title: message,
                                                     message: nil,
@@ -71,5 +76,16 @@ extension UIViewController {
                 self.navigationController?.popToViewController(vc, animated: true)
             }
         }
+    }
+    
+    // 调整controllers
+    func navigationChildController() {
+        var child = self.navigationController?.viewControllers
+        
+        if (child?.count)! <= 2 {
+            return
+        }
+        child?.remove(at: 1)
+        self.navigationController?.viewControllers = child!
     }
 }

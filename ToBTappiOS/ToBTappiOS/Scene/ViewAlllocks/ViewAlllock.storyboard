@@ -132,6 +132,9 @@
                     <navigationItem key="navigationItem" title="Tapplock" id="OCN-Uj-LL1">
                         <barButtonItem key="leftBarButtonItem" image="Home_Hierarchical" id="6oJ-di-Pxp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="VMQ-gE-F25" id="mm4-ZL-51h"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Home_search" id="7fd-rb-jpU">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -208,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8V-Sn-S3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="249"/>
+            <point key="canvasLocation" x="998" y="262"/>
         </scene>
     </scenes>
     <resources>

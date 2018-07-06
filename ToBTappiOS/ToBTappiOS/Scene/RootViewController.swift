@@ -7,14 +7,16 @@
 //
 
 import UIKit
-import CoreLocation
 import PromiseKit
+import CoreLocation
+import RxSwift
+import RxCocoa
 class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,25 +36,25 @@ class RootViewController: UIViewController {
             if !used {
                 UserDefaults.standard.set(true, forKey: "used")
                 UserDefaults.standard.synchronize()
-//                self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialSegue, sender: self)
+                self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialSegue, sender: self)
             }
             else if ConfigModel.default.user.value != nil {
                 
                 self.performSegue(withIdentifier: R.segue.rootViewController.showHomeSB, sender: self)
-                _ = CLLocationManager.promise().then { (location: CLLocation) -> Void in
+                
+            
+               _ = CLLocationManager.requestLocation().lastValue.done({ (location) in
                     _ = provider.rx.request(ApiService.UpdateLocktion(latitude: String(location.coordinate.latitude),
                                                                       longitude: String(location.coordinate.longitude),
                                                                       uuid: ConfigModel.default.user.value!.uuid))
                         .mapObject(APIResponse<EmptyModel>.self)
                         .subscribe(onSuccess: { response in
+                            
                             print(response)
                         })
+                })
 
-                }
-                
-            }
-                //非初次使用并且不存在user信息=>showLoginSegue
-            else {
+            } else {
                 self.performSegue(withIdentifier: R.segue.rootViewController.showLoginSb, sender: self)
             }
         }

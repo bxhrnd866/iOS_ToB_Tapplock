@@ -138,7 +138,7 @@ import Foundation
      - parameter progress:          The closure that is called periodically during the data transfer.
      - parameter completionHandler: The closure to be called once the request is prepared, holding either the request object or an error
      */
-    open func signedUploadLarge(url: URL, params: CLDUploadRequestParams = CLDUploadRequestParams(), chunkSize: Int = defaultChunkSize, progress: ((Progress) -> Void)? = nil,
+    open func signedUploadLarge(url: URL, params: CLDUploadRequestParams = CLDUploadRequestParams(), chunkSize: Int = 20 * 1024 * 1024, progress: ((Progress) -> Void)? = nil,
                                 completionHandler: CLDUploadCompletionHandler? = nil) -> CLDUploadRequest{
         params.setSigned(true)
         return performUploadLarge(url: url, params: params, chunkSize: chunkSize, progress: progress, completionHandler: completionHandler)
@@ -153,7 +153,7 @@ import Foundation
      - parameter progress:          The closure that is called periodically during the data transfer.
      - parameter completionHandler: The closure to be called once the request is prepared, holding either the request object or an error
      */
-    open func uploadLarge(url: URL, uploadPreset: String, params: CLDUploadRequestParams = CLDUploadRequestParams(), chunkSize: Int = defaultChunkSize, progress: ((Progress) -> Void)? = nil,
+    open func uploadLarge(url: URL, uploadPreset: String, params: CLDUploadRequestParams = CLDUploadRequestParams(), chunkSize: Int = 20 * 1024 * 1024, progress: ((Progress) -> Void)? = nil,
                           completionHandler: CLDUploadCompletionHandler? = nil) -> CLDUploadRequest{
         params.setSigned(false)
         params.setUploadPreset(uploadPreset)

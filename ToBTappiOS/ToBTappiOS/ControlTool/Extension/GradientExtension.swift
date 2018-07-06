@@ -27,7 +27,7 @@ extension CAGradientLayer {
     }
     
     
-    public static func normalgradientLayer(frame: CGRect, colorA: UIColor, colorB: UIColor) -> CAGradientLayer {
+    public static func normalgradientLayer(frame: CGRect, colorA: UIColor, colorB: UIColor, corner: CGFloat = 6) -> CAGradientLayer {
         
         let gradColor = [colorA.cgColor, colorB.cgColor]
         let gradlocations: [NSNumber] = [0.0, 1.0]
@@ -37,6 +37,7 @@ extension CAGradientLayer {
         gradlayer.startPoint = CGPoint(x: 0, y: 0)
         gradlayer.endPoint = CGPoint(x: 1, y: 0)
         gradlayer.frame = frame
+        gradlayer.cornerRadius = corner
         return gradlayer
     }
 }
@@ -101,12 +102,14 @@ class EnrollFingerMessageBtn: UIButton {
 class BGShadowView: UIView {
     override func draw(_ rect: CGRect) {
         self.layer.cornerRadius = 6
+        
         self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 0.7
         self.layer.shadowRadius = 2
     }
 }
+
 
 extension UIView {
     func genlaGradientlayer() {

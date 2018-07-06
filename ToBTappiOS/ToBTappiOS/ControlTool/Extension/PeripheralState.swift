@@ -21,3 +21,15 @@ extension CBPeripheralState {
     }
     
 }
+
+var cbLockid = "cbLockid"
+extension CBPeripheral {
+    var lockId: Int? {
+        get {
+            return (objc_getAssociatedObject(self, &cbLockid) as? Int)
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &cbLockid, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+}

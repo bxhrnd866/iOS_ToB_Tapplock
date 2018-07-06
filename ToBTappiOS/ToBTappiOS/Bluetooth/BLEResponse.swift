@@ -1,12 +1,13 @@
 //
-//  BLEResponse.swift
-//  ToBTapplcok
+//  ResponseModel.swift
+//  Tapplock2
 //
-//  Created by TapplockiOS on 2018/4/10.
-//  Copyright © 2018年 TapplockiOS. All rights reserved.
+//  Created by Jiang Xiaoming on 2017/12/1.
+//  Copyright © 2017年 Tapplock. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 let RCM_PREFIX = "AA55"
 let RCM_GetDeviceMac = RCM_PREFIX + "9A01"
 let RCM_PairingFirstTime = RCM_PREFIX + "8101"
@@ -22,7 +23,10 @@ let RCM_T2_AllHistory = RCM_PREFIX + "9B02"
 let RCM_GetFirmwareVersion = RCM_PREFIX + "4501"
 let RCM_GMTTime = RCM_PREFIX + "1002"
 let RCM_SetDeviceName = RCM_PREFIX + "8901"
-let RCM_ReadFingerprintImg = RCM_PREFIX + "7802"
+let RCM_GetRandomData = RCM_PREFIX + "0103"
+let RCM_VerifyRandom = RCM_PREFIX + "0203"
+
+
 
 //蓝牙通信响应,参考蓝牙通信文档
 enum BluetoothResponse {
@@ -39,10 +43,11 @@ enum BluetoothResponse {
     case History(value: String)
     case GetFiremwareVersion(value: String)
     case GMTTime(value: String)
+    case HistoryPacket(value: String)
     case SetDeviceName(value: String)
-    case ReadFingerprint(value: String)
     case T2AllHistory(value: String)
-    
+    case GetRandomData(value: String)
+    case VerifyRandom(value: String)
     typealias RawValue = String
     var rawValue: RawValue {
         switch self {
@@ -59,19 +64,20 @@ enum BluetoothResponse {
              .DeleteFingerprint(let value),
              .History(let value),
              .GetFiremwareVersion(let value),
-             .ReadFingerprint(let value),
+             .HistoryPacket(let value),
              .GMTTime(let value),
              .SetDeviceName(let value),
+             .GetRandomData(let value),
+             .VerifyRandom(let value),
              .T2AllHistory(let value):
             return value
         }
     }
-    
+
     init?(_ data: Data) {
         let response = data.hexadecimal()
         let index = response.index(response.startIndex, offsetBy: 7)
         let cmd: String = String(response[...index])
-        
         if (cmd.uppercased().contains(RCM_History)) {
             self = .History(value: response)
             return
@@ -106,40 +112,46 @@ enum BluetoothResponse {
             self = .MorseCode(value: response)
         case RCM_GetFirmwareVersion:
             print("RCM_GetFirmwareVersion:" + response)
-            
+           
             self = .GetFiremwareVersion(value: response)
         case RCM_GMTTime:
-            print("已经sendGMT时间: \(response)")
-            
+            print("已经sendGMT时间")
             self = .GMTTime(value: response)
         case RCM_SetDeviceName:
             print("设置名字返回: \(response)")
             self = .SetDeviceName(value: response)
-        case RCM_ReadFingerprintImg:
-            print("返回指纹图像\(response)")
-            self = .ReadFingerprint(value: response)
         case RCM_T2_AllHistory:
             plog("二代锁指纹\(response)")
             self = .T2AllHistory(value: response)
+        case RCM_GetRandomData:
+            self = .GetRandomData(value: response)
+        case RCM_VerifyRandom:
+            plog("验证密文\(response)")
+            self = .VerifyRandom(value: response)
         default:
             return nil
         }
     }
-    
     
     var firemwareVersion: String?  {
         switch self {
         case .GetFiremwareVersion:
             
             if self.value == nil {
-                return "1000"
+                return nil
             }
+            
+            if self.rawValue.length < 21 {
+                plog("太短")
+                return nil
+            }
+            
             let fm = self.rawValue[18...21]
             let val = self.rawValue[14...17]
             if val != "0001" && val != "0002"{
                 return fm.exchangeSequence()
             }
-            return val
+            return fm
         default:
             return nil
         }
@@ -149,7 +161,12 @@ enum BluetoothResponse {
         switch self {
         case .GetFiremwareVersion:
             if self.value == nil {
-                return TL1
+                plog("固件号为空")
+                return nil
+            }
+            if (self.value?.length)! < 4 {
+                plog("固件号为空")
+                return nil
             }
             let val = TapplockType(rawValue: (self.value?[0...3])!)
             return val?.deviceType
@@ -161,6 +178,8 @@ enum BluetoothResponse {
     var mac: String? {
         switch self {
         case .GetDeviceMac:
+            
+            plog(self.value)
             return self.value
         default:
             return nil
@@ -184,7 +203,6 @@ enum BluetoothResponse {
             return nil
         }
     }
-    
     var battery: Int? {
         switch self {
         case .Battery:
@@ -193,24 +211,44 @@ enum BluetoothResponse {
             return nil
         }
     }
-    
+
     var success: Bool {
         switch self {
-        case .History:
-            return true
         default:do {
            
             let startIndex = self.rawValue.index((self.rawValue.startIndex), offsetBy: 12)
             let endIndex = self.rawValue.index((self.rawValue.startIndex), offsetBy: 13)
             return String(self.rawValue[startIndex...endIndex]) == "01"
-            }
+        }
         }
     }
-    
+
     var fingerprintID: String? {
         switch self {
         case .EnrollFingerprint(_):
             return (self.success ? self.value : nil)
+        default:
+            return nil
+        }
+    }
+    
+    var errorMessage: String? {
+        switch self {
+        case .EnrollFingerprint(_):
+            if self.success {
+                return nil
+            } else {
+                switch self.value {
+                case "0100"?:
+                    return R.string.localizable.errorMessage_EnrollTemplateExisted()
+                case "02100"?:
+                    return R.string.localizable.errorMessage_EnrollNoSpace()
+                case "0300"?:
+                    return R.string.localizable.errorMessage_EnrollMismatch()
+                default:
+                    return R.string.localizable.errorMessage_Enroll()
+                }
+            }
         default:
             return nil
         }
@@ -239,12 +277,32 @@ enum BluetoothResponse {
             return nil
         }
     }
+    // 数据包长度
+    var dataLength: Int? {
+        switch self {
+        default:do {
+            let str = self.rawValue[8...9]
+            let length = str.hexToInt
+            return length!
+            }
+        }
+    }
+    
+    
+    // 随机数
+    var randomNumer: String? {
+        switch self {
+        case .GetRandomData(_):
+            return self.value
+        default:
+            return nil
+        }
+    }
     
     
     var value: String? {
         switch self {
         case .History(_):
-            
             let startIndex = self.rawValue.index((self.rawValue.startIndex), offsetBy: 12)
             let endIndex = self.rawValue.index(self.rawValue.startIndex, offsetBy: (self.rawValue.count) - 5)
             if startIndex >= endIndex {
@@ -262,6 +320,11 @@ enum BluetoothResponse {
             }
         }
     }
+
+    
+
 }
+
+
 
 

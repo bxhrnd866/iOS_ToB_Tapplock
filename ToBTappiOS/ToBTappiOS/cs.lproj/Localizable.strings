@@ -105,11 +105,10 @@
 "RingFinger" = "Prsteník";
 "LittleFinger" = "Malík";
 "Fingerprint" = "Otisk prstu";
-"Confirm delete" = "Confirm delete";
-"AdddNewLock" = "Add A New Tapplock";
-"NoDataplaceholder" = "No Data";
-"Returyplaceholder" = "Retury";
+"Confirm delete" = "Smazat";
+"AdddNewLock" = "PŘIDAT NOVÝ TAPPLOCK";
 
+"ItmeNext" = "DALŠÍ";
 
 "Tutorial_AddShareAccess" = "Přidat sdílený přístup\nChcete sdílet zámek s kamarádem? Klikněte zde.";
 "Tutorial_OneTimeAccess" = "JEDNORÁZOVÝ PŘÍSTUP\nUmožněte sdílené osobě dočasný 10 minutový přístup v rámci nastaveného času.";
@@ -134,11 +133,17 @@
 "CanUpdateMessage" = "Je dostupná nová verze aplikace. Chcete ji aktualizovat nyní?";
 
 // 固件相关
-"DownloadingBLE" = "Downloading Bluetooth firmware";
-"UpdatingDontTurnOff" = "Updating, please do not turn off Bluetooth";
-"Newfirmwareversion" = "New firmware version";
-"Updatecontent" = "Update content";
-"Updatenow" = "Update now";
-"Downloadfailed" = "Download failed, please download again";
-"Installationfailed" = "Installation failed, please install again";
-"Firmwareupdate" = "Firmware update";
+"DownloadingBLE" = "Stahování Bluetooth firmwaru";
+"UpdatingDontTurnOff" = "Probíhá aktualizace, nevypínejte Bluetooth";
+"Newfirmwareversion" = "Nová verze firmwaru";
+"Updatecontent" = "Aktualizovat obsah";
+"Updatenow" = "Aktualizovat nyní";
+"Downloadfailed" = "Stahování selhalo, zkuste to znovu";
+"Installationfailed" = "Instalace selhala, zkuste to znovu";
+"Firmwareupdate" = "Aktualizace firmwaru";
+
+"LockNewFirmwareVersionTotals" = "Nová aktualizace firmwaru. Chcete-li začít, přejděte do části Nastavení zámku> Aktualizace firmwaru";
+"LockOpenLocationService" = "Zapněte službu Umístění";
+"GoToSetting" = "Jdi do nastavení";
+
+
