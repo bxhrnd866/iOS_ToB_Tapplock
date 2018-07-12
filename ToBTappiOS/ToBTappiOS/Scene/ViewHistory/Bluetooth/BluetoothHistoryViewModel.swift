@@ -41,25 +41,25 @@ class BluetoothHistoryViewModel: NSObject {
 
     func loadHistory(page: Int = 1) {
         rx_loading.value = true
-        _ = provider.rx.request(ApiService.BluetoothHistory(uuid: (ConfigModel.default.user.value?.uuid)!, page: page, size: 20))
-                .mapObject(APIResponse<ListModel<BluetoothHistoryModel>>.self)
-                .subscribe(onSuccess: { [weak self] response in
-                    if let list = response.data?.list {
-                        self?.page = (response.data?.pageCurrent)!
-                        self?.totalPage = (response.data?.totalPage)!
-                       
-                        self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
-
-                        if response.data?.pageCurrent == 1 {
-//                            self?.rx_historys.value = list
-                            self?.dictSource.removeAll()
-                        } else {
-//                            self?.rx_historys.value += list
-                        }
-                        self?.resetDate(list: list)
-                        self?.rx_loading.value = false
-                    }
-                })
+//        _ = provider.rx.request(ApiService.BluetoothHistory(uuid: (ConfigModel.default.user.value?.uuid)!, page: page, size: 20))
+//                .mapObject(APIResponse<ListModel<BluetoothHistoryModel>>.self)
+//                .subscribe(onSuccess: { [weak self] response in
+//                    if let list = response.data?.list {
+//                        self?.page = (response.data?.pageCurrent)!
+//                        self?.totalPage = (response.data?.totalPage)!
+//                       
+//                        self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
+//
+//                        if response.data?.pageCurrent == 1 {
+////                            self?.rx_historys.value = list
+//                            self?.dictSource.removeAll()
+//                        } else {
+////                            self?.rx_historys.value += list
+//                        }
+//                        self?.resetDate(list: list)
+//                        self?.rx_loading.value = false
+//                    }
+//                })
     }
     
     func resetDate(list: [BluetoothHistoryModel]) -> Void {

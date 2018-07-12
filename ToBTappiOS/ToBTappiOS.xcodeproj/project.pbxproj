@@ -11,10 +11,6 @@
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
-		5533E76F20F330CB00A65502 /* APIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533E76E20F330CA00A65502 /* APIServer.swift */; };
-		5533E77120F3344E00A65502 /* ToAPIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533E77020F3344E00A65502 /* ToAPIServer.swift */; };
-		5533E77320F33A9100A65502 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533E77220F33A9100A65502 /* ServerAPI.swift */; };
-		5533E77520F33AE500A65502 /* ServerEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533E77420F33AE500A65502 /* ServerEncryption.swift */; };
 		553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A320AAAD8E00CFFEB8 /* Main.storyboard */; };
 		553E72A720AAAD8F00CFFEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */; };
 		553E72AA20AAAD8F00CFFEB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A820AAAD8F00CFFEB8 /* LaunchScreen.storyboard */; };
@@ -35,8 +31,14 @@
 		553FD1C520EDEA5D00A43F5D /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C420EDEA5D00A43F5D /* TutorialController.swift */; };
 		553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C620EDFDE500A43F5D /* GroupCollectionViewCell.swift */; };
 		553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */; };
+		5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */; };
 		55437EA520ECC4CA00C25143 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55437EA420ECC4CA00C25143 /* MenuModel.swift */; };
 		556B11A220AD774D00BF5F18 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B11A120AD774D00BF5F18 /* FileHelper.swift */; };
+		55730F3420F5E3C8007F5230 /* HeaderRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3020F5E3C8007F5230 /* HeaderRefresh.m */; };
+		55730F3520F5E3C8007F5230 /* FooterRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3120F5E3C8007F5230 /* FooterRefresh.m */; };
+		55730F3720F5F147007F5230 /* GroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3620F5F147007F5230 /* GroupsModel.swift */; };
+		55730F3920F5F3EA007F5230 /* PermissionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3820F5F3EA007F5230 /* PermissionInfoModel.swift */; };
+		55730F3B20F5FEF7007F5230 /* InviteCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3A20F5FEF7007F5230 /* InviteCodeController.swift */; };
 		557C3F2D20EB1AF300A24D54 /* UpdateFWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F2C20EB1AF300A24D54 /* UpdateFWModel.swift */; };
 		557C3F3220EB1BD400A24D54 /* APIEncrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F2F20EB1BD400A24D54 /* APIEncrypt.swift */; };
 		557C3F3320EB1BD400A24D54 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F3020EB1BD400A24D54 /* APIResponse.swift */; };
@@ -50,6 +52,7 @@
 		557E6FC520DA02C8003C7975 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E6FC420DA02C8003C7975 /* PermissionController.swift */; };
 		557E6FC720DA02DD003C7975 /* YourGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E6FC620DA02DD003C7975 /* YourGroupController.swift */; };
 		557E6FC920DA2875003C7975 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E6FC820DA2875003C7975 /* ProfileModel.swift */; };
+		557F272D20F4B09B0032A662 /* APIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F272C20F4B09B0032A662 /* APIServer.swift */; };
 		55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126020EA31460008A4CC /* BLECommand.swift */; };
 		55A1126B20EA31460008A4CC /* BLEPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126120EA31460008A4CC /* BLEPeripheral.swift */; };
 		55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126220EA31460008A4CC /* BLEResponse.swift */; };
@@ -113,7 +116,6 @@
 		7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */; };
 		7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */; };
 		7DFE10E720CD4A8E00C94FA3 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */; };
-		7DFE10F020CD4AC700C94FA3 /* ConfirmPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */; };
 		7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */; };
 		7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */; };
 		7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */; };
@@ -128,10 +130,6 @@
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
-		5533E76E20F330CA00A65502 /* APIServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServer.swift; sourceTree = "<group>"; };
-		5533E77020F3344E00A65502 /* ToAPIServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToAPIServer.swift; sourceTree = "<group>"; };
-		5533E77220F33A9100A65502 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
-		5533E77420F33AE500A65502 /* ServerEncryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerEncryption.swift; sourceTree = "<group>"; };
 		553E729C20AAAD8E00CFFEB8 /* ToBTappiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBTappiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553E72A420AAAD8E00CFFEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,8 +156,16 @@
 		553FD1C420EDEA5D00A43F5D /* TutorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		553FD1C620EDFDE500A43F5D /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCollectionCell.swift; sourceTree = "<group>"; };
+		5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexSelectController.swift; sourceTree = "<group>"; };
 		55437EA420ECC4CA00C25143 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		556B11A120AD774D00BF5F18 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		55730F3020F5E3C8007F5230 /* HeaderRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderRefresh.m; sourceTree = "<group>"; };
+		55730F3120F5E3C8007F5230 /* FooterRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterRefresh.m; sourceTree = "<group>"; };
+		55730F3220F5E3C8007F5230 /* FooterRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterRefresh.h; sourceTree = "<group>"; };
+		55730F3320F5E3C8007F5230 /* HeaderRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderRefresh.h; sourceTree = "<group>"; };
+		55730F3620F5F147007F5230 /* GroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsModel.swift; sourceTree = "<group>"; };
+		55730F3820F5F3EA007F5230 /* PermissionInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionInfoModel.swift; sourceTree = "<group>"; };
+		55730F3A20F5FEF7007F5230 /* InviteCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeController.swift; sourceTree = "<group>"; };
 		557C3F2C20EB1AF300A24D54 /* UpdateFWModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateFWModel.swift; sourceTree = "<group>"; };
 		557C3F2F20EB1BD400A24D54 /* APIEncrypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEncrypt.swift; sourceTree = "<group>"; };
 		557C3F3020EB1BD400A24D54 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 		557E6FC420DA02C8003C7975 /* PermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
 		557E6FC620DA02DD003C7975 /* YourGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourGroupController.swift; sourceTree = "<group>"; };
 		557E6FC820DA2875003C7975 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		557F272C20F4B09B0032A662 /* APIServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServer.swift; sourceTree = "<group>"; };
 		55A1126020EA31460008A4CC /* BLECommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECommand.swift; sourceTree = "<group>"; };
 		55A1126120EA31460008A4CC /* BLEPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheral.swift; sourceTree = "<group>"; };
 		55A1126220EA31460008A4CC /* BLEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEResponse.swift; sourceTree = "<group>"; };
@@ -246,7 +253,6 @@
 		7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
-		7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordController.swift; sourceTree = "<group>"; };
 		7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistInformationController.swift; sourceTree = "<group>"; };
 		7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPasswordController.swift; sourceTree = "<group>"; };
 		7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistMailController.swift; sourceTree = "<group>"; };
@@ -378,6 +384,10 @@
 				7DFE10CE20CD46EE00C94FA3 /* RefreshGifheader.h */,
 				7DFE10CC20CD46EE00C94FA3 /* RefreshGifheader.m */,
 				7DFE10D520CD480800C94FA3 /* UIFontExtension.swift */,
+				55730F3220F5E3C8007F5230 /* FooterRefresh.h */,
+				55730F3120F5E3C8007F5230 /* FooterRefresh.m */,
+				55730F3320F5E3C8007F5230 /* HeaderRefresh.h */,
+				55730F3020F5E3C8007F5230 /* HeaderRefresh.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -387,6 +397,8 @@
 			children = (
 				55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */,
 				553E732020AABB5B00CFFEB8 /* UserModel.swift */,
+				55730F3620F5F147007F5230 /* GroupsModel.swift */,
+				55730F3820F5F3EA007F5230 /* PermissionInfoModel.swift */,
 				55235E8F20AE7CB600B98D38 /* LanguageModel.swift */,
 				55235E9120AE97D800B98D38 /* EmptyModel.swift */,
 				557C3F2C20EB1AF300A24D54 /* UpdateFWModel.swift */,
@@ -412,10 +424,7 @@
 			children = (
 				557C3F2F20EB1BD400A24D54 /* APIEncrypt.swift */,
 				557C3F3020EB1BD400A24D54 /* APIResponse.swift */,
-				5533E76E20F330CA00A65502 /* APIServer.swift */,
-				5533E77020F3344E00A65502 /* ToAPIServer.swift */,
-				5533E77220F33A9100A65502 /* ServerAPI.swift */,
-				5533E77420F33AE500A65502 /* ServerEncryption.swift */,
+				557F272C20F4B09B0032A662 /* APIServer.swift */,
 			);
 			path = APIServer;
 			sourceTree = "<group>";
@@ -594,13 +603,14 @@
 		7DFE10E820CD4A9700C94FA3 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				7DFE10E920CD4AC600C94FA3 /* ConfirmPasswordController.swift */,
+				7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */,
+				55730F3A20F5FEF7007F5230 /* InviteCodeController.swift */,
+				7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */,
 				7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */,
+				7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */,
+				5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */,
 				7DFE10EE20CD4AC700C94FA3 /* RegisterUserImageUploader.swift */,
 				7DFE10EF20CD4AC700C94FA3 /* RegisterViewModel.swift */,
-				7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */,
-				7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */,
-				7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */,
 				7DFE10F720CD4AD600C94FA3 /* Register.storyboard */,
 			);
 			path = Register;
@@ -814,10 +824,8 @@
 				55D054A820D8E876003C92B5 /* FingerLockDetailController.swift in Sources */,
 				553E730C20AAB8C100CFFEB8 /* UIIViewControllerExtension.swift in Sources */,
 				557E6FC520DA02C8003C7975 /* PermissionController.swift in Sources */,
-				5533E77320F33A9100A65502 /* ServerAPI.swift in Sources */,
 				557E6FC920DA2875003C7975 /* ProfileModel.swift in Sources */,
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
-				5533E76F20F330CB00A65502 /* APIServer.swift in Sources */,
 				557C3F3620EB1E8A00A24D54 /* AppDelegate+Method.swift in Sources */,
 				55D0549D20D8CE4B003C92B5 /* WorkGroupController.swift in Sources */,
 				55AEEE7620EF428500D219BD /* FingerprintHistoryModel.swift in Sources */,
@@ -830,6 +838,7 @@
 				55D054AE20D8F2DE003C92B5 /* AuthorizedUserController.swift in Sources */,
 				55AEEE6220EF18FB00D219BD /* SendFeedbackController.swift in Sources */,
 				55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */,
+				55730F3920F5F3EA007F5230 /* PermissionInfoModel.swift in Sources */,
 				557E6FC720DA02DD003C7975 /* YourGroupController.swift in Sources */,
 				553E730920AAB8C100CFFEB8 /* UITextfieldExtension.swift in Sources */,
 				7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */,
@@ -839,9 +848,11 @@
 				7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */,
 				55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */,
 				553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */,
+				55730F3720F5F147007F5230 /* GroupsModel.swift in Sources */,
 				7DFE0FC120CD365700C94FA3 /* AppDelegate.swift in Sources */,
 				7DFE108320CD405000C94FA3 /* RootViewController.swift in Sources */,
 				7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */,
+				55730F3420F5E3C8007F5230 /* HeaderRefresh.m in Sources */,
 				557C3F4120EB530400A24D54 /* MenuViewModel.swift in Sources */,
 				553E730A20AAB8C100CFFEB8 /* StringExtension.swift in Sources */,
 				55AEEE7220EF3E2200D219BD /* BluetoothHistoryViewModel.swift in Sources */,
@@ -858,10 +869,12 @@
 				557C3F2D20EB1AF300A24D54 /* UpdateFWModel.swift in Sources */,
 				7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */,
 				7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */,
+				55730F3520F5E3C8007F5230 /* FooterRefresh.m in Sources */,
 				7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */,
 				55AEEE7A20EF5A2200D219BD /* FingerPrintListCollectionCell.swift in Sources */,
 				553E730520AAB8C100CFFEB8 /* DateExtension.swift in Sources */,
 				7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */,
+				557F272D20F4B09B0032A662 /* APIServer.swift in Sources */,
 				55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */,
 				55AEEE6E20EF3E2200D219BD /* FingerPrintListCell.swift in Sources */,
 				7D8D774220CE41A700C218D0 /* HomeViewController.swift in Sources */,
@@ -873,12 +886,13 @@
 				55D0549B20D8CA0F003C92B5 /* HomeLockCell.swift in Sources */,
 				7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */,
 				7D05125020D2654B0075C681 /* ProfileViewController.swift in Sources */,
-				5533E77520F33AE500A65502 /* ServerEncryption.swift in Sources */,
 				7D05125620D265950075C681 /* AllLocksViewController.swift in Sources */,
+				55730F3B20F5FEF7007F5230 /* InviteCodeController.swift in Sources */,
 				55A1126D20EA31460008A4CC /* PeripheralEncrypt.swift in Sources */,
 				553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */,
 				55AEEE7120EF3E2200D219BD /* BluetoothHistoryViewController.swift in Sources */,
 				55A1127320EA31460008A4CC /* TapplockType.swift in Sources */,
+				5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */,
 				553E732120AABB5B00CFFEB8 /* UserModel.swift in Sources */,
 				553E730420AAB8C100CFFEB8 /* DataExtension.swift in Sources */,
 				55AEEE6D20EF3E2200D219BD /* FingerprintHistoryViewModel.swift in Sources */,
@@ -890,9 +904,7 @@
 				557C3F3220EB1BD400A24D54 /* APIEncrypt.swift in Sources */,
 				553E730620AAB8C100CFFEB8 /* DictionaryExtension.swift in Sources */,
 				7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */,
-				7DFE10F020CD4AC700C94FA3 /* ConfirmPasswordController.swift in Sources */,
 				7D8D773A20CE1DF200C218D0 /* R.generated.swift in Sources */,
-				5533E77120F3344E00A65502 /* ToAPIServer.swift in Sources */,
 				55AEEE6C20EF3E2200D219BD /* FingerprintHistoryViewController.swift in Sources */,
 				7DFE10E420CD4A8E00C94FA3 /* ForgetPasswordViewModel.swift in Sources */,
 				7DFE10D420CD473D00C94FA3 /* GradientExtension.swift in Sources */,

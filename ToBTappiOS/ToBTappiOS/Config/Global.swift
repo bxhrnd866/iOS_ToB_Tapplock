@@ -66,12 +66,17 @@ let language_model_key = "language_model_key"
 
 let user_saveKey = "user_saveKey"
 
+let basicToKenKey = "basicTokenUserDefaultKey"
+
+let refreshTokenKey = "refreshbasicTokenUserDefaultKey"
+
+
 var basicToken_UserKey: String? {
-    return UserDefaults.standard.object(forKey: "basicTokenUserDefaultKey") as? String
+    return UserDefaults.standard.object(forKey: basicToKenKey) as? String
 } // token 存储
 
 var refreshbasicToken_UserKey: String? { // 刷新token
-    return UserDefaults.standard.object(forKey: "refreshbasicTokenUserDefaultKey") as? String
+    return UserDefaults.standard.object(forKey: refreshTokenKey) as? String
 }
 
 let cldConfiguration = CLDConfiguration.init(cloudName: "tapplock", apiKey: "98584592923587")

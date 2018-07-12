@@ -25,17 +25,17 @@ class LoginViewModel: NSObject {
         let mail = rx_email.value
         if canLogin(password: password, mail: mail) {
             HUD.show(.progress)
-            _ = provider.rx.request(ApiService.Login(mail: mail!, password: password!))
-                    .mapObject(APIResponse<UserModel>.self)
-                    .subscribe(onSuccess: { [weak self] response in
-                        HUD.hide()
-                        if let user = response.data {
-                            ConfigModel.default.user.value = user
-                        } else if let errorMessage = response.message {
-                            
-                            self?.rx_errorMessage.value = errorMessage
-                        }
-                    })
+//            _ = provider.rx.request(APIService.Login(mail: mail!, password: password!))
+//                    .mapObject(APIResponse<UserModel>.self)
+//                    .subscribe(onSuccess: { [weak self] response in
+//                        HUD.hide()
+//                        if let user = response.data {
+//                            ConfigModel.default.user.value = user
+//                        } else if let errorMessage = response.message {
+//                            
+//                            self?.rx_errorMessage.value = errorMessage
+//                        }
+//                    })
         }
     }
 

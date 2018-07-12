@@ -54,15 +54,15 @@ class ForgetPasswordViewModel: NSObject {
             })
             codeTimer.resume()
 
-            _ = provider.rx.request(ApiService.ForgetPasswordVerifyCode(mail: rx_mail.value!))
-                    .mapObject(APIResponseString.self)
-                    .subscribe(onSuccess: { [weak self] response in
-                        if response.success {
-                            self?.vCodeMd5 = response.data!
-                        } else {
-                            self?.rx_errorMessage.value = response.message
-                        }
-                    })
+//            _ = provider.rx.request(APIService.ForgetPasswordVerifyCode(mail: rx_mail.value!))
+//                    .mapObject(APIResponseString.self)
+//                    .subscribe(onSuccess: { [weak self] response in
+//                        if response.success {
+//                            self?.vCodeMd5 = response.data!
+//                        } else {
+//                            self?.rx_errorMessage.value = response.message
+//                        }
+//                    })
         }
     }
 
@@ -86,17 +86,17 @@ class ForgetPasswordViewModel: NSObject {
     func forgetPasswordNextAction() {
         if checkMail() {
             rx_upLoading.value = true
-            _ = provider.rx.request(ApiService.CheckUser(mail: rx_mail.value!))
-                    .mapObject(APIResponse<EmptyModel>.self)
-                    .subscribe(onSuccess: { [weak self] response in
-                        self?.rx_upLoading.value = false
-                        if response.success {
-                            self?.rx_errorMessage.value = nil
-                            self?.rx_checkMailSuccess.value = true
-                        } else {
-                            self?.rx_errorMessage.value = response.message
-                        }
-                    })
+//            _ = provider.rx.request(APIService.CheckUser(mail: rx_mail.value!))
+//                    .mapObject(APIResponse<EmptyModel>.self)
+//                    .subscribe(onSuccess: { [weak self] response in
+//                        self?.rx_upLoading.value = false
+//                        if response.success {
+//                            self?.rx_errorMessage.value = nil
+//                            self?.rx_checkMailSuccess.value = true
+//                        } else {
+//                            self?.rx_errorMessage.value = response.message
+//                        }
+//                    })
         }
     }
 
@@ -116,17 +116,17 @@ class ForgetPasswordViewModel: NSObject {
     func newPasswordOkAction() {
         if canSetNewPassword() {
             rx_upLoading.value = true
-            _ = provider.rx.request(ApiService.ForgetPassword(mail: rx_mail.value!, newPassword: rx_password.value!, verifyCode: rx_vCode.value!))
-                    .mapObject(APIResponse<EmptyModel>.self)
-                    .subscribe(onSuccess: { [weak self] response in
-                        self?.rx_upLoading.value = false
-                        if response.success {
-                            self?.rx_errorMessage.value = nil
-                            self?.rx_setPasswordSuccess.value = true
-                        } else {
-                            self?.rx_errorMessage.value = response.message
-                        }
-                    })
+//            _ = provider.rx.request(APIService.ForgetPassword(mail: rx_mail.value!, newPassword: rx_password.value!, verifyCode: rx_vCode.value!))
+//                    .mapObject(APIResponse<EmptyModel>.self)
+//                    .subscribe(onSuccess: { [weak self] response in
+//                        self?.rx_upLoading.value = false
+//                        if response.success {
+//                            self?.rx_errorMessage.value = nil
+//                            self?.rx_setPasswordSuccess.value = true
+//                        } else {
+//                            self?.rx_errorMessage.value = response.message
+//                        }
+//                    })
         }
     }
 

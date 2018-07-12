@@ -27,13 +27,14 @@ class RegistMailController: UIViewController {
     
     @IBAction func mailNextAction(_ sender: Any) {
         
-        if isMailCheck() {
-            self.performSegue(withIdentifier: R.segue.registMailController.registerVerfication, sender: self)
-        }
+//        if isMailCheck() {
+//            self.performSegue(withIdentifier: R.segue.registMailController.showInviationCode, sender: self)
+//        }
+        self.performSegue(withIdentifier: R.segue.registMailController.showInviationCode, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let verficaiton = R.segue.registMailController.registerVerfication(segue: segue) {
+        if let verficaiton = R.segue.registMailController.showInviationCode(segue: segue) {
             verficaiton.destination.mail = textField.text
         }
     }

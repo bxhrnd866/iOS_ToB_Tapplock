@@ -35,11 +35,11 @@ extension PeripheralModel {
         let vl = value.inserting(separator: ",", every: 4)
         let source = vl.components(separatedBy: ",")
         
-        _ = provider.rx.request(ApiService.V1addHistoryFingerprint(fingerprintIndex: source, mac: self.rx_mac.value!, uuid: (ConfigModel.default.user.value?.uuid)!))
-            .mapObject(APIResponse<EmptyModel>.self)
-            .subscribe(onSuccess: { _ in
-                plog("一代指纹成功")
-            })
+//        _ = provider.rx.request(APIService.V1addHistoryFingerprint(fingerprintIndex: source, mac: self.rx_mac.value!, uuid: (ConfigModel.default.user.value?.uuid)!))
+//            .mapObject(APIResponse<EmptyModel>.self)
+//            .subscribe(onSuccess: { _ in
+//                plog("一代指纹成功")
+//            })
     }
     
     func TL2CollectData(response: BluetoothResponse){
@@ -71,12 +71,12 @@ extension PeripheralModel {
         
         if num == self.rx_historyTotals.value - 1 {
             let arr = Array(self.historys.reversed())
-            _ = provider.rx.request(ApiService.AddHistoryFingerprint(fingerprintIndex: arr, mac: self.rx_mac.value!, uuid: (ConfigModel.default.user.value?.uuid)!))
-                .mapObject(APIResponse<EmptyModel>.self)
-                .subscribe(onSuccess: {  response in
-                    plog("二代指纹成功")
-                    
-                })
+//            _ = provider.rx.request(APIService.AddHistoryFingerprint(fingerprintIndex: arr, mac: self.rx_mac.value!, uuid: (ConfigModel.default.user.value?.uuid)!))
+//                .mapObject(APIResponse<EmptyModel>.self)
+//                .subscribe(onSuccess: {  response in
+//                    plog("二代指纹成功")
+//
+//                })
         }
     }
     

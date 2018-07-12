@@ -82,14 +82,14 @@ class TapplockModel: NSObject, Mappable {
     
     // 查看固件版本
     func checkFirwareVersion(hv: String,fv: Int) {
-        _ = provider.rx.request(ApiService.UpdateFirmware(hardVersion: hv)).mapObject(APIResponse<UpdateFWModel>.self).subscribe(onSuccess: { [weak self] (response) in
-            if let list = response.data {
-                let max = list.currentVersion?.toInt()
-                if max! > fv {
-                    self?.showToast()
-                }
-            }
-        })
+//        _ = provider.rx.request(ApiService.UpdateFirmware(hardVersion: hv)).mapObject(APIResponse<UpdateFWModel>.self).subscribe(onSuccess: { [weak self] (response) in
+//            if let list = response.data {
+//                let max = list.currentVersion?.toInt()
+//                if max! > fv {
+//                    self?.showToast()
+//                }
+//            }
+//        })
     }
     
     // 显示固件提示

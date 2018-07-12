@@ -13,6 +13,9 @@ class RegisterPasswordController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     var mail: String!
     var verCode: String!
+    var inviteCode: String!
+    
+    @IBOutlet weak var confirmTextfield: UITextField!
     
     
     override func viewDidLoad() {
@@ -29,15 +32,21 @@ class RegisterPasswordController: UIViewController {
     @IBAction func leftItemAction(_ sender: Any) {
         self.popToController(controller: LoginViewController.self)
     }
+    
     @IBAction func nextAction(_ sender: Any) {
-        if isPasswordCheck() {
-            self.performSegue(withIdentifier: R.segue.registerPasswordController.showConfirmPassword, sender: self)
-        }
+//        if isPasswordCheck() {
+//            self.performSegue(withIdentifier: R.segue.registerPasswordController.showPersonalInformation, sender: self)
+//        }
+        self.performSegue(withIdentifier: R.segue.registerPasswordController.showPersonalInformation, sender: self)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let confirm = R.segue.registerPasswordController.showConfirmPassword(segue: segue) {
-            confirm.destination.mail = mail
-            confirm.destination.password = textField.text!
+
+        if let vc = R.segue.registerPasswordController.showPersonalInformation(segue: segue) {
+            vc.destination.mail = mail
+            vc.destination.password = textField.text
+            vc.destination.verCode = verCode
+            vc.destination.inviteCode = inviteCode
         }
     }
     
@@ -55,8 +64,10 @@ class RegisterPasswordController: UIViewController {
         } else if textField.text!.passwordOverlength {
             self.showToast(message: R.string.localizable.errorMessage_PasswordOverLenth(passwordLenthMax))
             return false
+        } else if textField.text != confirmTextfield.text {
+            self.showToast(message: R.string.localizable.errorMessage_PasswordConfirmWrong())
+            return false
         }
-        
         return true
     }
     deinit {

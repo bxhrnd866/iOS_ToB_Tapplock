@@ -6,4 +6,6 @@
 #import "RefreshGifheader.h"
 #import <MJRefresh/MJRefresh.h>
 #import "NSBundle+Language.h"
+#import "HeaderRefresh.h"
+#import "FooterRefresh.h"
 #import <CommonCrypto/CommonCrypto.h>

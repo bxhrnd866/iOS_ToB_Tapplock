@@ -16,7 +16,7 @@ private let aesSecret = "tprjrA5kkKyvh4nw"
 private let aes = try! AES(key: aesSecret.bytes, blockMode: .ECB, padding: Padding.pkcs5)
 
 
-extension ApiService {
+extension APIServer {
     
     // 签名
     func hmacSign() -> [String: String] {
@@ -42,6 +42,13 @@ extension ApiService {
     // body字典加密
     func requestBodyEncrypted(body: [String: Any]) -> Data {
         let data = try? JSONSerialization.data(withJSONObject: body, options: [])
+        return data!
+        
+        
+        
+        
+        
+        
         let json = String(data: data!, encoding: String.Encoding.utf8)
         let encrypted = try! aes.encrypt((json!.bytes))
         let js = Data(encrypted).base64EncodedString()

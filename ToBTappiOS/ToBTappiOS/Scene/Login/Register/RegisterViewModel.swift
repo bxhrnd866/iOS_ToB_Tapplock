@@ -16,7 +16,10 @@ class RegisterViewModel: NSObject {
     var rx_mail: Variable<String?> = Variable(nil)
     var rx_vCode: Variable<String?> = Variable(nil)
     var rx_password: Variable<String?> = Variable(nil)
-    var rx_resendVCodeTime: Variable<Int?> = Variable(nil)
+    var rx_inviteCode: Variable<String?> = Variable(nil)
+    var rx_iphone: Variable<String?> = Variable(nil)
+    var rx_sex: Variable<Int?> = Variable(nil)
+    
     
     
     public var rx_errorMessage: Variable<String?> = Variable(nil)
@@ -31,18 +34,25 @@ class RegisterViewModel: NSObject {
     func okButtonAction() {
         if canRegist() {
             rx_upLoading.value = true
-            _ = provider.rx.request(ApiService.Register(firstName: rx_firstName.value!, lastName: rx_lastName.value!, mail: rx_mail.value!, imageURL: rx_url.value!, password: rx_password.value!, vCode: rx_vCode.value!))
-                    .mapObject(APIResponse<EmptyModel>.self)
-                    .subscribe(onSuccess: { [weak self] response in
-                        
-                       
+
+            provider.rx.request(APIServer.userRegister(corpId: nil,
+                                                       fcmDeviceToken: nil,
+                                                       inviteCode: rx_inviteCode.value!,
+                                                       firstName: rx_firstName.value!,
+                                                       lastName: rx_lastName.value!,
+                                                       mail: rx_mail.value!,
+                                                       password: rx_password.value!,
+                                                       phone: rx_iphone.value!,
+                                                       photoUrl: rx_url.value!,
+                                                       sex: rx_sex.value!))
+                .mapObject(APIResponse<EmptyModel>.self).subscribe(onSuccess: { [weak self] response in
                         self?.rx_upLoading.value = false
                         if response.success {
                             self?.rx_success.value = true
                         } else {
                             self?.rx_errorMessage.value = response.message
                         }
-                    })
+            }).disposed(by: rx.disposeBag)
         }
     }
     
@@ -65,6 +75,9 @@ class RegisterViewModel: NSObject {
             return false
         } else if rx_lastName.value!.nameOverlength {
             rx_errorMessage.value = R.string.localizable.errorMessage_LastNameOverLenth(nameLenthMax)
+            return false
+        } else if rx_iphone.value?.isPurnInt == false {
+            rx_errorMessage.value = "请输入数字"
             return false
         } else {
             return true

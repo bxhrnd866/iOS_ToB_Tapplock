@@ -12,14 +12,14 @@ import CryptoSwift
 extension PeripheralModel {
     
     func randomKeyServeEncrpted(numer: String) {
-        _ = provider.rx.request(ApiService.GenerateLockKey(numer: numer, lockid: self.peripheral.lockId)).mapObject(APIResponseString.self).subscribe(onSuccess: { [weak self] response in
-            if let key = response.data {
-                self?.secretKey = key.hexadecimal()
-                let data = numer.hexadecimal()
-                let hex = self?.encrpted(data: data!).hexadecimal()
-                self?.sendVerifyRandom(numer: (hex![0...23]))
-            }
-        })
+//        _ = provider.rx.request(ApiService.GenerateLockKey(numer: numer, lockid: self.peripheral.lockId)).mapObject(APIResponseString.self).subscribe(onSuccess: { [weak self] response in
+//            if let key = response.data {
+//                self?.secretKey = key.hexadecimal()
+//                let data = numer.hexadecimal()
+//                let hex = self?.encrpted(data: data!).hexadecimal()
+//                self?.sendVerifyRandom(numer: (hex![0...23]))
+//            }
+//        })
     }
    
     // 加密

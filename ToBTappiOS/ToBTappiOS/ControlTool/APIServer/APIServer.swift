@@ -1,446 +1,331 @@
 //
 //  APIServer.swift
-//  Tapplock2
+//  ToBTappiOS
 //
-//  Created by Jiang Xiaoming on 2017/12/5.
-//  Copyright © 2017年 Tapplock. All rights reserved.
+//  Created by TapplockiOS on 2018/7/10.
+//  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
 import Foundation
+import Foundation
 import Moya
-
-//网络接口,使用Moya框架,参考网络接口文档和Moya官方文档.
-
-let APIVersion = "v1"
-let APIVersion2 = "v2"
-let APIVersionNew = "v05600"
 
 let APIHost = "http://34.220.89.68:8888"
 //let APIHost = "https://api.tapplock.com"
 
+let APIVersion = "v1"
+let provider = MoyaProvider<APIServer>(plugins: [NetworkLoggerPlugin(verbose: true)])
 
-let provider = MoyaProvider<ApiService>(plugins: [NetworkLoggerPlugin(verbose: true)])
-
-//定义各种网络接口
-enum ApiService {
-
-    case Login(mail: String, password: String)
-    case Locks(mail: String, myOwner: Bool)
-    case AddLock(key1: String, key2: String, mac: String, serialNo: String, userUUID: String, lockName: String, imageURL: String?)
-    case FingerPrints(lockId: Int, page: Int, size: Int)
-    case CheckFingerPrint(fingerOwner: String, fingerType: Int, handType: Int, lockId: Int)
-    case FingerOwners(uuid: String, page: Int, size: Int)
-    case EditeLock(lockId: Int, LockName: String?, imageUrl: String?, morseCode: String?)
-    case AddFingerOwner(uuid: String, ownerName: String)
-    case AddFingerPrint(ownerUUID: String, fingerType: Int, fingerprintIndex: String, handType: Int, lockID: Int, mail: String)
-    case DeleteFingerprint(id: Int)
-    case DeletLock(id: Int)
-    case ShareAccess(mail: String, page: Int, size: Int)
-    case DeleteUserId(id: Int)
-    case ShareUsers(mail: String, page: Int, size: Int)
-    case AddShareUser(mail: String, name: String, uuid: String)
-    case EditShareUser(name: String, id: Int)
-    case AddShareAccess(mail: String, lockID: Int, oneAccess: Bool, permanent: Bool, startDate: Date?, endDate: Date?, uuid: String)
-    case EditeShareAccess(mail: String, lockID: Int, oneAccess: Bool, permanent: Bool, startDate: Date?, endDate: Date?, shareID: Int)
-    case BluetoothHistory(uuid: String, page: Int, size: Int)
-    case FingerprintHistory(uuid: String, page: Int, size: Int)
-    case AddHistoryFingerprint(fingerprintIndex: Array<Any>, mac: String, uuid: String)
-    case V1addHistoryFingerprint(fingerprintIndex: Array<Any>, mac: String, uuid: String)
-    case AddHistoryBluetooth(lockId: Int, shareUuid: String, userUuid: String)
-    case EditUserConfiguration(mai: String,
-                               deviceToken: String?,
-                               firstName: String?,
-                               lastName: String?,
-                               imageURL: String?,
-                               push: Bool?,
-                               showBattery: Bool?)
-    case ForgetPasswordVerifyCode(mail: String)
-    case RegisterVerifyCode(mail: String)
-    case Register(firstName: String, lastName: String, mail: String, imageURL: String, password: String, vCode: String)
-    case CheckUser(mail: String)
-    case ForgetPassword(mail: String, newPassword: String, verifyCode: String)
-    case ChangePassword(mail: String, newPassword: String, oldPassword: String)
-    case Feedback(title: String, content: String)
-    case UpdateLocktion(latitude: String, longitude: String, uuid: String)
-    case SupportVersion
-    case UpdateFirmware(hardVersion: String)
-    case DeletefingerOwners(uuid: String)
-    case checklock(lockid: Int)
-    case GenerateLockKey(numer: String, lockid: Int?)
+enum APIServer {
     
+    case oauthToken // 初次获取token  password client_credentials
+    case userRegister(corpId: Int?, fcmDeviceToken: String?, inviteCode: String, firstName: String, lastName: String, mail: String, password: String, phone: String, photoUrl: String, sex: Int)  //0-男 1-女
+    case userLog(mail: String, password: String)
+    case userUpdate(fcmDeviceToken: String?, firstName: String?, groupIds: [String]?, id: String, lastName: String?, permissionIds: [Int]?, phone: String?, photoUrl: String?, sex: Int?) // 更新用户信息
+    case registerVerifyCode(mail: String, type: Int)  // 0-注册 1-忘记密码
+    case checkVerifyCode(mail: String, verifyCode: String) // 校验验证码
+    case checkinviteCodes(inviteCode: String) //校验邀请码
+    case changePassword(newPassword: String, oldPassword: String)
+    case lockList(lockName: String? , corpId: Int?, groupId: Int?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
+    case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, id: Int, latitude: String?, longitude: String?, lockName: String?, morseCode: String?, morseStatus: Int?) //更新锁信息
+    case historyList(lockId: Int?, userName: String?, beginTime: Int?, endTime: Int?, queryType: Int?, size: Int, page: Int)  // 查询类型0-all,1-fingerprint 2-bluetooth,3-close
+    case closeTimeHistory(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
+    case openTimeHistory(corpId: Int, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: String?, unlockFingerprints: [[String : String]]?, unlockType: Int, userId: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
+    case downloadFingerprint(lockId: Int)  // 下载指纹
+    case updateFingerprintSycnState(lockId: Int, fingerprintIds: String) // 更新指纹同步状态
+    case feedBack(content: String, title: String, corpId: Int, source: Int, platform: Int) // 反馈
+
 }
 
-//设置各种网络接口
-extension ApiService: TargetType {
+extension APIServer: TargetType{
     
-    var headers: [String: String]? {
-        switch self {
-        case .Login(_, _), .CheckUser(_),
-             .ForgetPassword(_, _, _),
-             .ForgetPasswordVerifyCode(_),
-             .Register(_, _, _, _, _, _),
-             .RegisterVerifyCode(_):
-            return ["Content-type": "application/json", "lang": ConfigModel.default.language.code]
-        default:
-            return ["Content-type": "application/json", "Authorization": (ConfigModel.default.user.value?.basicToken ?? ""), "lang": ConfigModel.default.language.code]
-        }
-    }
-
-    var baseURL: URL {
-        switch self {
-        case .AddHistoryFingerprint(_, _, _):
-            return URL(string: APIHost + "/api/\(APIVersion2)/")!
-        case .SupportVersion:
-            return URL(string: APIHost + "/api/\(APIVersion)/")!
-        default:
-            return URL(string: APIHost + "/api/\(APIVersionNew)/")!
-        }
-    }
-
-    var path: String {
-    
-        switch self {
-        case .Login(_, _):
-            
-            return "users/actions/login"
-        case .Locks(let mail, _):
-            return "locks/\(mail)"
-        case .checklock(_):
-            return "locks"
-        case .FingerPrints(let lockId, _, _):
-            return "fingers/\(lockId)"
-        case .EditeLock(_, _, _, _):
-            return "locks"
-        case .FingerOwners(let uuid, _, _):
-            return "finger_owners/" + uuid
-        case .AddFingerOwner(_, _):
-            return "finger_owners"
-        case .AddFingerPrint(_, _, _, _, _, _):
-            return "fingers"
-        case .DeleteFingerprint(let id):
-            return "fingers/\(id)"
-        case .AddLock(_, _, _, _, _, _, _):
-            return "locks"
-        case .DeletLock(let id):
-            return "locks/\(id)"
-        case .ShareAccess(let mail, _, _):
-            return "shares/\(mail)"
-        case .DeleteUserId(let id):
-            return "shares/\(id)"
-        case .ShareUsers(let mail, _, _):
-            return "shareable_users/\(mail)"
-        case .AddShareUser(_, _, _):
-            return "shareable_users"
-        case .EditShareUser(_, _):
-            return "shareable_users"
-        case .AddShareAccess(_, _, _, _, _, _, _):
-            return "shares"
-        case .EditeShareAccess(_, _, _, _, _, _, _):
-            return "shares"
-        case .BluetoothHistory(let uuid, _, _):
-            return "unlock_records/bluetooth/" + uuid
-        case .FingerprintHistory(let uuid, _, _):
-            return "unlock_records/fingerprints/" + uuid
-        case .AddHistoryFingerprint(_, _, _),.V1addHistoryFingerprint(_, _, _):
-            return "unlock_records/fingerprint/actions/sync"
-        case .AddHistoryBluetooth(_, _, _):
-            return "unlock_records/bluetooth"
-        case .EditUserConfiguration(_, _, _, _, _, _, _):
-            return "users"
-        case .ForgetPasswordVerifyCode(let mail),
-             .RegisterVerifyCode(let mail):
-            return "verifycode/" + mail
-        case .Register(_, _, _, _, _, _):
-            return "users"
-        case .CheckUser(let mail):
-            return "users/actions/check_user/" + mail
-        case .ForgetPassword(_, _, _):
-            return "users/actions/forget_pwd"
-        case .ChangePassword(_, _, _):
-            return "users/actions/change_pwd"
-        case .Feedback(_, _):
-            return "feedbacks"
-        case .UpdateLocktion(_, _, _):
-            return "users/actions/updateLocation"
-        case .SupportVersion:
-            return "support_version/2"
-        case .CheckFingerPrint(_, _, _, _):
-            return "fingers/actions/check"
-        case .UpdateFirmware(_):
-            return "firmware_update"
-        case .DeletefingerOwners(let uuid):
-            return "finger_owners/" + uuid
-        case .GenerateLockKey(_, _):
-            return "generate_key"
+    var headers: [String : String]? {
+        var token = "Bearer "
         
+        if basicToken_UserKey != nil {
+            token = "Bearer " + basicToken_UserKey!
+        }
+        
+        switch self {
+        case .registerVerifyCode:
+            return ["Content-type": "application/json", "Authorization": token, "lang": ConfigModel.default.language.code]
+        default:
+            return ["Content-type": "application/json", "Authorization": token]
         }
     }
-
+    
+    var baseURL: URL {
+        return URL(string: APIHost + "/api/\(APIVersion)/")!
+    }
+    
+    
+    var path: String {
+        switch self {
+        case .userRegister(_, _, _, _, _, _, _, _, _, _):
+            return "users/register"
+        case .userLog(_, _):
+            return "users/login"
+        case .userUpdate(_, _, _, _, _, _, _, _, _):
+            return "users"
+        case .registerVerifyCode(_, _):
+            return "users/get_verify_code"
+        case .lockList(_, _, _, _, _, _):
+            return "locks/for_staff"
+        case .updateLock(_, _, _, _, _, _, _, _, _):
+            return "locks"
+        case .historyList(_, _, _, _, _, _, _):
+            return "lock_histories"
+        case .closeTimeHistory(_, _, _):
+            return "lock_histories/close"
+        case .openTimeHistory(_, _, _, _, _, _, _, _):
+            return "lock_histories/open"
+        case .oauthToken:
+            return "oauth/token"
+        case .downloadFingerprint(_):
+            return "auth_rels/to_be_downloaded"
+        case .updateFingerprintSycnState(_, _):
+            return "auth_rels/update_rel"
+        case .changePassword(_, _):
+            return "users/change_password"
+        case .feedBack(_, _, _, _, _):
+            return "feedback"
+        case .checkinviteCodes(_):
+            return "invite_codes/check_invite"
+        case .checkVerifyCode(_, _):
+            return "users/check_verify_code"
+        }
+    }
+    
     var method: Moya.Method {
         switch self {
-        case .Login(_, _),
-             .AddFingerPrint(_, _, _, _, _, _),
-             .AddLock(_, _, _, _, _, _, _),
-             .AddShareUser(_, _, _),
-             .AddShareAccess(_, _, _, _, _, _, _),
-             .AddHistoryFingerprint(_, _, _),
-             .V1addHistoryFingerprint(_, _, _),
-             .AddHistoryBluetooth(_, _, _),
-             .Register(_, _, _, _, _, _),
-             .Feedback(_, _),
-             .CheckFingerPrint(_, _, _, _),
-             .AddFingerOwner(_, _):
-            return .post
-        case .Locks(_, _),
-             .FingerPrints(_, _, _),
-             .ShareAccess(_, _, _),
-             .ShareUsers(_, _, _),
-             .BluetoothHistory(_, _, _),
-             .FingerprintHistory(_, _, _),
-             .ForgetPasswordVerifyCode(_),
-             .RegisterVerifyCode(_),
-             .CheckUser(_),
-             .SupportVersion,
-             .UpdateFirmware(_),
-             .checklock(_),
-             .FingerOwners(_, _, _),
-             .GenerateLockKey(_, _):
+        case .lockList(_, _, _, _, _, _),
+             .historyList(_, _, _, _, _, _, _),
+             .registerVerifyCode(_, _),
+             .downloadFingerprint(_),
+             .checkinviteCodes(_),
+             .checkVerifyCode(_, _):
             return .get
-        case .EditeLock(_, _, _, _),
-             .EditUserConfiguration(_, _, _, _, _, _, _),
-             .ForgetPassword(_, _, _),
-             .ChangePassword(_, _, _),
-             .EditShareUser(_, _):
-            return .patch
-        case .DeleteFingerprint(_),
-             .DeleteUserId(_),
-             .DeletLock(_),
-             .DeletefingerOwners(_):
-            return .delete
-        case .EditeShareAccess(_, _, _, _, _, _, _),
-             .UpdateLocktion(_, _, _):
+        case .updateLock(_, _, _, _, _, _, _, _, _),
+             .updateFingerprintSycnState(_, _),
+             .userUpdate(_, _, _, _, _, _, _, _, _),
+             .changePassword(_, _):
             return .put
-
+        case .closeTimeHistory(_, _, _),
+             .openTimeHistory(_, _, _, _, _, _, _, _),
+             .oauthToken,
+             .userRegister(_, _, _, _, _, _, _, _, _, _),
+             .userLog(_, _),
+             .feedBack(_, _, _, _, _):
+            return .post
+            
         }
     }
-
+    
+    var task: Task {
+        
+        var parameters: [String: Any] = ["device": "1", "version": "v2.0"] + hmacSign()
+        
+        var dict = [String: Any]()
+        
+        switch self {
+            
+        case .userRegister(let corpId, let fcmDeviceToken, let inviteCode, let firstName, let lastName, let mail, let password, let phone, let photoUrl, let sex):
+            
+            if fcmDeviceToken != nil {
+                dict = dict + ["fcmDeviceToken": fcmDeviceToken!]
+            }
+            if corpId != nil {
+                dict = dict + ["corpId": corpId!]
+            }
+            
+            dict = dict + ["phone": phone, "inviteCode": inviteCode, "firstName": firstName, "lastName": lastName, "mail": mail, "password": password, "photoUrl": photoUrl, "sex": sex]
+            let data = requestBodyEncrypted(body: dict)
+            
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .userLog(let mail, let password):
+            
+            dict = dict + ["mail": mail, "password": password, "clientType": 1]
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .oauthToken:
+           
+            dict = dict + ["grant_type": "client_credentials"]
+            
+            let data = requestBodyEncrypted(body: dict)
+            
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .registerVerifyCode(let type, let mail):
+            
+            parameters = parameters + ["type": type, "mail": mail]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            
+        case .lockList(let lockName, let corpId, let groupId, let authType, let page, let size):
+            
+            if lockName != nil {
+                parameters = parameters + ["lockName": lockName!]
+            }
+            if corpId != nil {
+                parameters = parameters + ["corpId": corpId!]
+            }
+            if groupId != nil {
+                parameters = parameters + ["groupId": groupId!]
+            }
+            if authType != nil {
+                parameters = parameters + ["authType": authType!]
+            }
+            
+            parameters = parameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id)!]
+            
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            
+        case .updateLock(let battery, let firmwareVersion, let hardwareVersion, let id, let latitude, let longitude, let lockName, let morseCode, let morseStatus):
+            
+            if battery != nil {
+                dict = dict + ["battery": battery!]
+            }
+            if firmwareVersion != nil {
+                dict = dict + ["firmwareVersion": firmwareVersion!]
+            }
+            if hardwareVersion != nil {
+                dict = dict + ["hardwareVersion": hardwareVersion!]
+            }
+            if latitude != nil {
+                dict = dict + ["latitude": latitude!]
+            }
+            if longitude != nil {
+                dict = dict + ["longitude": longitude!]
+            }
+            if lockName != nil {
+                dict = dict + ["lockName": lockName!]
+            }
+            if morseCode != nil {
+                dict = dict + ["morseCode": morseCode!]
+            }
+            if morseStatus != nil {
+                dict = dict + ["morseStatus": morseStatus!]
+            }
+            dict = dict + ["id": id]
+            
+            let data = requestBodyEncrypted(body: dict)
+            
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .historyList(let lockId, let userName, let beginTime, let endTime, let queryType, let size, let page):
+            
+            if lockId != nil {
+                parameters = parameters + ["lockId": lockId!]
+            }
+            if userName != nil {
+                parameters = parameters + ["userName": userName!]
+            }
+            if beginTime != nil {
+                parameters = parameters + ["beginTime": beginTime!]
+            }
+            if endTime != nil {
+                parameters = parameters + ["endTime": endTime!]
+            }
+            if queryType != nil {
+                parameters = parameters + ["queryType": queryType!]
+            }
+            parameters = parameters + ["page": page, "size": size]
+            
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            
+        case .closeTimeHistory(let corpId, let lockId, let operateTime):
+            dict = dict + ["corpId": corpId, "lockId": lockId, "operateTime": operateTime]
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .openTimeHistory(let corpId, let latitude, let longitude, let lockId, let morseOperateTimes, let unlockFingerprints, let unlockType, let userId):
+            
+            if latitude != nil {
+                dict = dict + ["latitude": latitude!]
+            }
+            if longitude != nil {
+                dict = dict + ["longitude": longitude!]
+            }
+            if morseOperateTimes != nil {
+                dict = dict + ["morseOperateTimes": morseOperateTimes!]
+            }
+            if unlockFingerprints != nil {
+                dict = dict + ["unlockFingerprints": unlockFingerprints!]
+            }
+            if longitude != nil {
+                dict = dict + ["longitude": longitude!]
+            }
+            
+            dict = dict + ["corpId": corpId, "lockId": lockId, "userId": userId, "unlockType": unlockType]
+            
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .downloadFingerprint(let lockId):
+            parameters = parameters + ["lockId": lockId]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            
+        case .updateFingerprintSycnState(let lockId, let fingerprintIds):
+            parameters = parameters + ["lockId": lockId, "fingerprintIds": fingerprintIds]
+            
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            
+        case .userUpdate(let fcmDeviceToken, let firstName, let groupIds, let id, let lastName, let permissionIds, let phone, let photoUrl, let sex):
+            
+            if fcmDeviceToken != nil {
+                dict = dict + ["fcmDeviceToken": fcmDeviceToken!]
+            }
+            if firstName != nil {
+                dict = dict + ["firstName": firstName!]
+            }
+            if groupIds != nil {
+                dict = dict + ["groupIds": groupIds!]
+            }
+            if lastName != nil {
+                dict = dict + ["lastName": lastName!]
+            }
+            if permissionIds != nil {
+                dict = dict + ["permissionIds": permissionIds!]
+            }
+            if phone != nil {
+                dict = dict + ["phone": phone!]
+            }
+            if photoUrl != nil {
+                dict = dict + ["photoUrl": photoUrl!]
+            }
+            if sex != nil {
+                dict = dict + ["sex": sex!]
+            }
+            
+            dict = dict + ["id": id]
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            
+        case .changePassword(let newPassword, let oldPassword):
+            dict = dict + ["newPassword": newPassword, "oldPassword": oldPassword, "id": (ConfigModel.default.user.value?.id)!]
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+        
+        case .feedBack(let content, let title, let corpId, let source, let platform):
+            dict = dict + ["userId": (ConfigModel.default.user.value?.id)!, "content": content, "title": title, "corpId": corpId, "source": source, "platform": platform]
+            let data = requestBodyEncrypted(body: dict)
+            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+        
+        case .checkinviteCodes(let inviteCode):
+            parameters = parameters + ["inviteCode": inviteCode]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+        
+        case .checkVerifyCode(let mail, let verifyCode):
+            parameters = parameters + ["mail": mail, "verifyCode": verifyCode]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+        }
+        
+    }
+    
     var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!
     }
-
-    var task: Task {//parameters
-        var parameters: [String: Any] = ["device": "1", "version": "v2.0"]
-
-        switch self {
-        case .CheckUser(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters + hmacSign())
-            
-        case .Register(let firstName, let lastName, let mail, let imageURL, let password, let vCode):
-        
-            let data = requestBodyEncrypted(body: ["firstName": firstName, "lastName": lastName, "imageUrl": imageURL, "mail": mail, "password": password, "verifyCode": vCode] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .Login(let mail, let password):
-            let data = requestBodyEncrypted(body: ["mail": mail, "password": password] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .Locks(_, let myOwner):
-            
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": 1, "size": 100, "myOwner": myOwner] + parameters + hmacSign())
-        case .FingerPrints(_, let page, let size):
-            
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size] + parameters + hmacSign())
-        case .EditeLock(let lockId, let LockName, let imageUrl, let morseCode):
-
-            if LockName != nil {
-                parameters = parameters + ["lockName":LockName!]
-            }
-            if imageUrl != nil {
-                parameters = parameters + ["imageUrl":imageUrl!]
-            }
-            if morseCode != nil {
-                parameters = parameters + ["morseCode":morseCode!]
-            }
-            parameters = ["lockId":lockId] + parameters
-            
-            let data = requestBodyEncrypted(body: parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-        
-        case .FingerOwners(let uuid, let page, let size):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size, "userUuid": uuid] + parameters + hmacSign())
-            
-        case .AddFingerOwner(let uuid, let ownerName):
-            
-            let data = requestBodyEncrypted(body: ["userUuid": uuid, "ownerName": ownerName] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-        
-        case .AddFingerPrint(let ownerUUID, let fingerType, let fingerprintIndex, let handType, let lockID, let mail):
-            
-            let data = requestBodyEncrypted(body: ["fingerOwner": ownerUUID,
-                                                   "fingerType": fingerType,
-                                                   "fingerprintIndex": fingerprintIndex,
-                                                   "handType": handType,
-                                                   "lockId": lockID,
-                                                   "mail": mail]
-                + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-
-        case .DeleteFingerprint(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters + hmacSign())
-        case .AddLock(let key1, let key2, let mac, let serialNo, let userUUID, let lockName, let imageURL):
-          
-            let data = requestBodyEncrypted(body: ["imageUrl": imageURL ?? "",
-                                                   "key1": key1,
-                                                   "key2": key2,
-                                                   "lockName": lockName,
-                                                   "mac": mac.macText,
-                                                   "serialNo": serialNo,
-                                                   "userUuid": userUUID,
-            ] + parameters)
-             return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-        case .DeletLock(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters + hmacSign())
-        case .DeleteUserId(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters + hmacSign())
-        
-        case .ShareAccess(let mail, let page, let size):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size, "mail": mail] + parameters + hmacSign())
-        case .ShareUsers(let mail, let page, let size):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size, "mail": mail, "myOwner": true] + parameters + hmacSign())
-        case .AddShareUser(let mail, let name, let uuid):
-            
-            let data = requestBodyEncrypted(body: ["mail": mail, "nickName": name, "userUuid": uuid] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-           
-        case .EditShareUser(let name, let id):
-            
-            let data = requestBodyEncrypted(body: ["shareableUserId": id, "nickName": name] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
     
-        case .AddShareAccess(let mail, let lockID, let oneAccess, let permanent, let startDate, let endDate, let uuid):
-
-            parameters = parameters + [
-            "oneAccess":(oneAccess ? 1:0),
-            "permanent":(permanent ? 1:0),
-            "toUserMail":mail,
-            "userUuid":uuid,
-            "lockId":lockID]
-            if !permanent {
-                parameters = parameters + ["startDate":(startDate != nil ? startDate!.timeStemp:""),
-                "endDate":(endDate != nil ? endDate!.timeStemp:"")]
-            }
-            let data = requestBodyEncrypted(body: parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-           
-        case .BluetoothHistory(_, let page, let size):
-          
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size] + parameters + hmacSign())
-        case .FingerprintHistory(_, let page, let size):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["page": page, "size": size] + parameters + hmacSign())
-            
-        case .EditeShareAccess(let mail, let lockID, let oneAccess, let permanent, let startDate, let endDate, let shareID):
-            parameters = parameters + [
-            "oneAccess":(oneAccess ? 1:0),
-            "permanent":(permanent ? 1:0),
-            "shareId":shareID,
-            "toUserMail":mail,
-            "lockId":lockID]
-
-            if !permanent {
-                parameters = parameters + ["startDate":(startDate != nil ? startDate!.timeStemp:""),
-                "endDate":(endDate != nil ? endDate!.timeStemp:"")]
-            }
-            
-            let data = requestBodyEncrypted(body: parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .AddHistoryFingerprint(let fingerprintIndex, let mac, let uuid):
-          
-            let data = requestBodyEncrypted(body: ["unlockDatas": fingerprintIndex, "mac": mac.macText, "userUuid": uuid] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .V1addHistoryFingerprint(let fingerprintIndex, let mac, let uuid):
-        
-            let data = requestBodyEncrypted(body: ["fingerprintIndex": fingerprintIndex, "mac": mac.macText, "userUuid": uuid] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .AddHistoryBluetooth(let lockId, let shareUuid, let userUuid):
-            if shareUuid != "-1" {
-                parameters = parameters + ["shareUuid":shareUuid]
-            }
-            
-            let data = requestBodyEncrypted(body: ["lockId": lockId, "userUuid": userUuid] + parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-
-        case .EditUserConfiguration(let mail, let deviceToken, let firstName, let lastName, let imageURL, let push, let showBattery):
-            if (deviceToken != nil) {
-                parameters = parameters + ["fcmDeviceToken":deviceToken!]
-            }
-            if firstName != nil {
-                parameters = parameters + ["firstName":firstName!]
-            }
-            if lastName != nil {
-                parameters = parameters + ["lastName":lastName!]
-            }
-            if imageURL != nil {
-                parameters = parameters + ["imageUrl":imageURL!]
-            }
-            if push != nil {
-                parameters = parameters + ["push":(push! ? 1:0)]
-            }
-            if showBattery != nil {
-                parameters = parameters + ["showBattery":(showBattery! ? 1:0)]
-            }
-            parameters = parameters + ["mail":mail]
-
-            let data = requestBodyEncrypted(body: parameters)
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .ForgetPasswordVerifyCode(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["type": 2] + parameters + hmacSign())
-        case .RegisterVerifyCode(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["type": 1] + parameters + hmacSign())
-        case .ForgetPassword(let mail, let newPassword, let verifyCode):
-            
-            let data = requestBodyEncrypted(body: parameters + ["mail": mail, "newPassword": newPassword, "verifyCode": verifyCode])
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .ChangePassword(let mail, let newPassword, let oldPassword):
-         
-            let data = requestBodyEncrypted(body: ["mail": mail, "newPassword": newPassword, "oldPassword": oldPassword] + parameters )
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .Feedback(let title, let content):
-            
-            let data = requestBodyEncrypted(body: ["title": title, "content": content] + parameters )
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-        case .UpdateLocktion(let latitude, let longitude, let uuid):
     
-            let data = requestBodyEncrypted(body: ["latitude": latitude, "longitude": longitude, "userUuid": uuid] + parameters )
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-            
-        case .SupportVersion:
-      
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["deviceType": "2"] )
-        case .UpdateFirmware(let hardversion):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["hardwareVersion": hardversion] + parameters + hmacSign())
-        case .CheckFingerPrint(let fingerOwner, let fingerType, let handType, let lockId):
-            
-            let data = requestBodyEncrypted(body: ["fingerOwner": fingerOwner, "fingerType": fingerType, "handType": handType, "lockId": lockId] + parameters )
-            return .requestCompositeData(bodyData: data, urlParameters: hmacSign())
-        case .DeletefingerOwners(_):
-            
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters + hmacSign())
-        case .checklock(let id):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: ["lockId": id] + parameters + hmacSign())
-       
-        case .GenerateLockKey(let numer, let lockid):
-            var dict = ["randNumber": numer] + parameters + hmacSign()
-            if lockid != nil {
-                dict = ["lockId": lockid!] + dict
-            }
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: dict)
-        }
-    }
 }
-

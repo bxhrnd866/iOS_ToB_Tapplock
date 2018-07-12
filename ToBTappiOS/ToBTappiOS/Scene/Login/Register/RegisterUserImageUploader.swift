@@ -48,17 +48,17 @@ class RegisterUserImageUploader: NSObject, Uploader {
 
     //用户信息上传接口
     func saveToApi(url: String) {
-        _ = provider.rx.request(ApiService.EditUserConfiguration(mai: (ConfigModel.default.user.value?.mail)!, deviceToken: nil, firstName: nil, lastName: url, imageURL: nil, push: nil, showBattery: nil))
-                .mapObject(APIResponse<UserModel>.self)
-                .subscribe(onSuccess: { response in
-                    if let user = response.data {
-                        self.rx_sucess.value = true
-                        
-                        ConfigModel.default.user.value = user
-                    } else if let errorMessage = response.message {
-                        self.rx_errorMessage.value = errorMessage
-                    }
-                })
+//        _ = provider.rx.request(APIService.EditUserConfiguration(mai: (ConfigModel.default.user.value?.mail)!, deviceToken: nil, firstName: nil, lastName: url, imageURL: nil, push: nil, showBattery: nil))
+//                .mapObject(APIResponse<UserModel>.self)
+//                .subscribe(onSuccess: { response in
+//                    if let user = response.data {
+//                        self.rx_sucess.value = true
+//                        
+//                        ConfigModel.default.user.value = user
+//                    } else if let errorMessage = response.message {
+//                        self.rx_errorMessage.value = errorMessage
+//                    }
+//                })
     }
 
 }

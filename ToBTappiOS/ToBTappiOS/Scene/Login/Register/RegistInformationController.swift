@@ -12,7 +12,7 @@ import RxSwift
 import PKHUD
 import Kingfisher
 
-class RegistInformationController: UIViewController {
+class RegistInformationController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var header: UIImageView!
     
@@ -20,33 +20,41 @@ class RegistInformationController: UIViewController {
     
     @IBOutlet weak var lastFeild: UITextField!
     
-    @IBOutlet weak var btnTop: NSLayoutConstraint!
+    @IBOutlet weak var phoneFeild: UITextField!
     
-   
+    @IBOutlet weak var sexlab: UILabel!
+    
+    @IBOutlet weak var sexBtn: UIButton!
+    
+    @IBOutlet weak var sexLab: UILabel!
+    
     var mail: String!
     var password: String!
     var verCode: String!
+    var inviteCode: String!
     
     let viewModel = RegisterViewModel.init()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isIphone5 {
-            self.btnTop.constant = 10
-        }
+      
        
         firstField.rx.text.bind(to: viewModel.rx_firstName).disposed(by: rx.disposeBag)
         lastFeild.rx.text.bind(to: viewModel.rx_lastName).disposed(by: rx.disposeBag)
+        phoneFeild.rx.text.bind(to: viewModel.rx_iphone).disposed(by: rx.disposeBag)
+        
+
         viewModel.rx_mail.value = mail
         viewModel.rx_password.value = password
         viewModel.rx_vCode.value = verCode
-
+        viewModel.rx_inviteCode.value = inviteCode
+        
         viewModel.rx_url.asDriver().filter {
             $0 != nil
             }.drive(onNext: { [weak self] urlString in
                 if let url = URL(string: urlString!) {
-//                    self?.header.kf.setImage(with: ImageResource.init(downloadURL: url.httpURL), options: [.processor(kfProcessor)])
+                    self?.header.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
                 }
             }).disposed(by: rx.disposeBag)
         
@@ -83,7 +91,11 @@ class RegistInformationController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func headerBtnSelect(_ sender: Any) {
+        
+        //设置头像
+    }
+    
     @IBAction func leftItemAction(_ sender: Any) {
         self.popToController(controller: LoginViewController.self)
     }
@@ -96,7 +108,28 @@ class RegistInformationController: UIViewController {
 //            imagePicker.destination.topViewController = self
 //            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
 //        }
+        
+        if let sexvc = R.segue.registInformationController.showSexSelect(segue: segue) {
+            sexvc.destination.preferredContentSize = CGSize(width: 150, height: 120)
+            sexvc.destination.modalPresentationStyle = .popover
+            sexvc.destination.popoverPresentationController?.delegate = self
+            sexvc.destination.popoverPresentationController?.sourceView = self.sexBtn
+            sexvc.destination.popoverPresentationController?.sourceRect = self.sexBtn.bounds
+            sexvc.destination.popoverPresentationController?.permittedArrowDirections = .any
+            sexvc.destination.block = { [weak self] tuple in
+                self?.sexLab.text = tuple.0
+                self?.viewModel.rx_sex.value = tuple.1
+            }
+        }
     }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return false
+    }
+    
     deinit {
         plog("销毁了")
     }

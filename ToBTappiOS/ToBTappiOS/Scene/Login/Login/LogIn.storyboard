@@ -19,7 +19,7 @@
         <!--Login View Controller-->
         <scene sceneID="sac-s6-lWd">
             <objects>
-                <viewController id="ZIB-5s-8J6" customClass="LoginViewController" customModule="Tapplock2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZIB-5s-8J6" customClass="LoginViewController" customModule="ToBTappiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZJJ-hW-Qpb"/>
                         <viewControllerLayoutGuide type="bottom" id="85D-qt-S4R"/>
@@ -135,7 +135,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Log_password" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-HF-SOQ">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" image="Log_password" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-HF-SOQ">
                                 <rect key="frame" x="30" y="362.66666666666669" width="23" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="23" id="Xxd-WW-JbL"/>
@@ -160,7 +160,7 @@
                                     <outlet property="delegate" destination="ZIB-5s-8J6" id="vt0-65-Cjp"/>
                                 </connections>
                             </textField>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Log_email" translatesAutoresizingMaskIntoConstraints="NO" id="Moo-B4-SaL">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" image="Log_email" translatesAutoresizingMaskIntoConstraints="NO" id="Moo-B4-SaL">
                                 <rect key="frame" x="30" y="315.66666666666669" width="16" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="7ZX-cI-QVu"/>
@@ -272,7 +272,7 @@
         <!--Forget Password View Controller-->
         <scene sceneID="kqx-qN-Hl5">
             <objects>
-                <viewController id="Kw2-oi-BCb" customClass="ForgetPasswordViewController" customModule="Tapplock2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Kw2-oi-BCb" customClass="ForgetPasswordViewController" customModule="ToBTappiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BdT-1e-Wyh"/>
                         <viewControllerLayoutGuide type="bottom" id="Hsl-ek-NaO"/>
@@ -375,7 +375,7 @@
         <!--Verification Code View Controller-->
         <scene sceneID="EJF-H9-Lxa">
             <objects>
-                <viewController id="z84-jX-atd" customClass="VerificationCodeViewController" customModule="Tapplock2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z84-jX-atd" customClass="VerificationCodeViewController" customModule="ToBTappiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dfN-Wt-tnI"/>
                         <viewControllerLayoutGuide type="bottom" id="ZAm-VI-heB"/>
@@ -501,7 +501,7 @@
         <!--New Password View Controller-->
         <scene sceneID="uMF-lv-ibm">
             <objects>
-                <viewController id="ICB-0F-Av7" customClass="NewPasswordViewController" customModule="Tapplock2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ICB-0F-Av7" customClass="NewPasswordViewController" customModule="ToBTappiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wAR-qV-c0q"/>
                         <viewControllerLayoutGuide type="bottom" id="tqD-wN-Uhe"/>

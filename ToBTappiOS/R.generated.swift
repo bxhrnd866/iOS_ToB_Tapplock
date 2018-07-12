@@ -69,7 +69,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 36 images.
+  /// This `R.image` struct is generated, and contains static references to 37 images.
   struct image {
     /// Image `About_Logo`.
     static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
@@ -109,6 +109,8 @@ struct R: Rswift.Validatable {
     static let placeholder_Userhead = Rswift.ImageResource(bundle: R.hostingBundle, name: "Placeholder_Userhead")
     /// Image `Root_logo`.
     static let root_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Root_logo")
+    /// Image `Sexgroup`.
+    static let sexgroup = Rswift.ImageResource(bundle: R.hostingBundle, name: "Sexgroup")
     /// Image `Tutorial - 01`.
     static let tutorial01 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Tutorial - 01")
     /// Image `Tutorial - 02`.
@@ -239,6 +241,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.root_logo, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "Sexgroup", bundle: ..., traitCollection: ...)`
+    static func sexgroup(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.sexgroup, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "Tutorial - 01", bundle: ..., traitCollection: ...)`
     static func tutorial01(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tutorial01, compatibleWith: traitCollection)
@@ -362,7 +369,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 16 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 17 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -389,21 +396,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func bluetoothAuthorizedUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BlueHistoryController, AuthorizedUserController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.blueHistoryController.bluetoothAuthorizedUser, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `ConfirmPasswordController`, and contains static references to 1 segues.
-    struct confirmPasswordController {
-      /// Segue identifier `showPersonalInfor`.
-      static let showPersonalInfor: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ConfirmPasswordController, RegistInformationController> = Rswift.StoryboardSegueIdentifier(identifier: "showPersonalInfor")
-      
-      /// Optionally returns a typed version of segue `showPersonalInfor`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showPersonalInfor(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ConfirmPasswordController, RegistInformationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.confirmPasswordController.showPersonalInfor, segue: segue)
       }
       
       fileprivate init() {}
@@ -514,6 +506,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This struct is generated for `InviteCodeController`, and contains static references to 1 segues.
+    struct inviteCodeController {
+      /// Segue identifier `showVerificaitonCode`.
+      static let showVerificaitonCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, InviteCodeController, RegistVerficationController> = Rswift.StoryboardSegueIdentifier(identifier: "showVerificaitonCode")
+      
+      /// Optionally returns a typed version of segue `showVerificaitonCode`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showVerificaitonCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, InviteCodeController, RegistVerficationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.inviteCodeController.showVerificaitonCode, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `LockDetailController`, and contains static references to 1 segues.
     struct lockDetailController {
       /// Segue identifier `lockBluetoothHistory`.
@@ -601,16 +608,31 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `RegistMailController`, and contains static references to 1 segues.
-    struct registMailController {
-      /// Segue identifier `registerVerfication`.
-      static let registerVerfication: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistMailController, RegistVerficationController> = Rswift.StoryboardSegueIdentifier(identifier: "registerVerfication")
+    /// This struct is generated for `RegistInformationController`, and contains static references to 1 segues.
+    struct registInformationController {
+      /// Segue identifier `showSexSelect`.
+      static let showSexSelect: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistInformationController, SexSelectController> = Rswift.StoryboardSegueIdentifier(identifier: "showSexSelect")
       
-      /// Optionally returns a typed version of segue `registerVerfication`.
+      /// Optionally returns a typed version of segue `showSexSelect`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func registerVerfication(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistMailController, RegistVerficationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registMailController.registerVerfication, segue: segue)
+      static func showSexSelect(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistInformationController, SexSelectController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registInformationController.showSexSelect, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `RegistMailController`, and contains static references to 1 segues.
+    struct registMailController {
+      /// Segue identifier `showInviationCode`.
+      static let showInviationCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistMailController, InviteCodeController> = Rswift.StoryboardSegueIdentifier(identifier: "showInviationCode")
+      
+      /// Optionally returns a typed version of segue `showInviationCode`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showInviationCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistMailController, InviteCodeController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registMailController.showInviationCode, segue: segue)
       }
       
       fileprivate init() {}
@@ -633,14 +655,14 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `RegisterPasswordController`, and contains static references to 1 segues.
     struct registerPasswordController {
-      /// Segue identifier `showConfirmPassword`.
-      static let showConfirmPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegisterPasswordController, ConfirmPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "showConfirmPassword")
+      /// Segue identifier `showPersonalInformation`.
+      static let showPersonalInformation: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegisterPasswordController, RegistInformationController> = Rswift.StoryboardSegueIdentifier(identifier: "showPersonalInformation")
       
-      /// Optionally returns a typed version of segue `showConfirmPassword`.
+      /// Optionally returns a typed version of segue `showPersonalInformation`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showConfirmPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegisterPasswordController, ConfirmPasswordController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registerPasswordController.showConfirmPassword, segue: segue)
+      static func showPersonalInformation(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegisterPasswordController, RegistInformationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registerPasswordController.showPersonalInformation, segue: segue)
       }
       
       fileprivate init() {}
@@ -2447,6 +2469,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'Register', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Placeholder_Userhead") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Placeholder_Userhead' is used in storyboard 'Register', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Sexgroup") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Sexgroup' is used in storyboard 'Register', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
