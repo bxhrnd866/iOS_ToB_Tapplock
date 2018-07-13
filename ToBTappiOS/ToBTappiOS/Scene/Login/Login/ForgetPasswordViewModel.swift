@@ -54,15 +54,15 @@ class ForgetPasswordViewModel: NSObject {
             })
             codeTimer.resume()
 
-//            _ = provider.rx.request(APIService.ForgetPasswordVerifyCode(mail: rx_mail.value!))
-//                    .mapObject(APIResponseString.self)
-//                    .subscribe(onSuccess: { [weak self] response in
-//                        if response.success {
-//                            self?.vCodeMd5 = response.data!
-//                        } else {
-//                            self?.rx_errorMessage.value = response.message
-//                        }
-//                    })
+            provider.rx.request(APIServer.registerVerifyCode(mail: rx_mail.value!, type: 1))
+                .mapObject(APIResponseString.self)
+                .subscribe(onSuccess: { [weak self] response in
+                    if response.success {
+                        
+                    } else {
+                        self?.rx_errorMessage.value = response.codeMessage
+                    }
+                }).disposed(by: rx.disposeBag)
         }
     }
 
@@ -86,17 +86,18 @@ class ForgetPasswordViewModel: NSObject {
     func forgetPasswordNextAction() {
         if checkMail() {
             rx_upLoading.value = true
-//            _ = provider.rx.request(APIService.CheckUser(mail: rx_mail.value!))
-//                    .mapObject(APIResponse<EmptyModel>.self)
-//                    .subscribe(onSuccess: { [weak self] response in
-//                        self?.rx_upLoading.value = false
-//                        if response.success {
-//                            self?.rx_errorMessage.value = nil
-//                            self?.rx_checkMailSuccess.value = true
-//                        } else {
-//                            self?.rx_errorMessage.value = response.message
-//                        }
-//                    })
+            
+            provider.rx.request(APIServer.userCheckMail(mail: rx_mail.value!))
+                .mapObject(APIResponse<EmptyModel>.self)
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.rx_upLoading.value = false
+                    if response.success {
+                        self?.rx_errorMessage.value = nil
+                        self?.rx_checkMailSuccess.value = true
+                    } else {
+                        self?.rx_errorMessage.value = response.codeMessage
+                    }
+                }).disposed(by: rx.disposeBag)
         }
     }
 

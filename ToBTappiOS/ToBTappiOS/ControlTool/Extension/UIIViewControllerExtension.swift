@@ -50,11 +50,11 @@ extension UIViewController {
         alertController.backgroundStyle = .blur
         alertController.backgroundColor = UIColor.clear
 
-        let okAction = CFAlertAction(title: "R.string.localizable.oK()",
+        let okAction = CFAlertAction(title: R.string.localizable.oK(),
                                      style: .Default,
                                      alignment: .justified,
                                      backgroundColor: thembColor,
-                                     textColor: nil,
+                                     textColor: UIColor.black,
                                      handler: didDismiss)
         alertController.addAction(okAction)
 

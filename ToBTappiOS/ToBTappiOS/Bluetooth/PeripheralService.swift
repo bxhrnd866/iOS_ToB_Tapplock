@@ -78,12 +78,10 @@ extension PeripheralModel {
         guard let seria = serialNumber else {
             return
         }
-        guard let key2 = key2 else {
-            return
-        }
+        
         plog("发送获Botting")
         
-        writeEncryptedData(data: BluetoothCommand.Booting(key1: key, key2: key2, serialNumber: seria).command)
+        writeEncryptedData(data: BluetoothCommand.Booting(key1: key, key2: "05060708", serialNumber: seria).command)
     }
     
     public func sendUnlockCommand() {

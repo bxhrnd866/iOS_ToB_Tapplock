@@ -14,16 +14,25 @@ import CFAlertViewController
 //Tapplock模型类
 class TapplockModel: NSObject, Mappable {
 
-    var id: Int?
-    var rx_lockName: Variable<String?> = Variable(nil)
-    var rx_imageUrl: Variable<String?> = Variable(nil)
-    var key1: String?
-    var key2: String?
+    
+    var corpName: String?         // 公司名
+    var groupName: String?        //组名字
+    var firmwareVersion: String?  //固件版本
+    var hardwareVersion: String?  //硬件版本
+    var id: Int?                  //锁id
+    var lastUpdateTime: Int?      //最后更新时间
+    var latitude: String?         //纬度
+    var longitude: String?        //经度
+    var lockName: String?         //锁名称
+    var lockStatus: Int?          //锁状态 0-no action 1-pending 2-complete
     var mac: String?
-    var oneAccess: String?
+    var morseStatus: Int?        //摩斯码状态0-未同步 1-已同步
+    
+    var key1: String?
     var serialNo: String?
-    var shareUuid: String?  // -1自己的锁
- 
+    
+    
+
     //连接状态
     public var rx_status: Variable<CBPeripheralState?> = Variable(.disconnected)
     //可观察设备电量
@@ -33,7 +42,7 @@ class TapplockModel: NSObject, Mappable {
     var peripheralModel: PeripheralModel? {
         didSet {
             peripheralModel?.key1 = self.key1
-            peripheralModel?.key2 = self.key2
+
             peripheralModel?.serialNumber = self.serialNo
             if peripheralModel?.isFirstPairing == false {
                 peripheralModel?.sendPairingCommand()
@@ -92,26 +101,8 @@ class TapplockModel: NSObject, Mappable {
 //        })
     }
     
-    // 显示固件提示
-    func showToast() {
-//        let window = UIApplication.shared.delegate?.window!
-//        let x =  window?.rootViewController?.presentedViewController
-//        
-//        let alertController = CFAlertViewController(title: R.string.localizable.lockNewFirmwareVersionTotals(),
-//                                                    message: nil,
-//                                                    textAlignment: .left,
-//                                                    preferredStyle: .alert,
-//                                                    didDismissAlertHandler: nil)
-//        alertController.shouldDismissOnBackgroundTap = false
-//        alertController.backgroundStyle = .blur
-//        alertController.backgroundColor = UIColor.clear
-//        
-//        let ok = CFAlertAction(title: R.string.localizable.oK(), style: .Default, alignment: .justified, backgroundColor: UIColor.themeColor, textColor: nil, handler: nil)
-//        
-//        alertController.addAction(ok)
-//        x?.present(alertController, animated: true, completion: nil)
-    }
-    
+
+
     required init?(map: Map) {
         super.init()
     }
@@ -120,55 +111,21 @@ class TapplockModel: NSObject, Mappable {
         super.init()
     }
 
-}
-
-extension TapplockModel {
-    var lockName: String? {
-        set {
-            rx_lockName.value = newValue
-        }
-        get {
-            return rx_lockName.value
-        }
-    }
-
-    var imageUrl: String? {
-        set {
-            rx_imageUrl.value = newValue
-        }
-        get {
-            return rx_imageUrl.value
-        }
-    }
-
     func mapping(map: Map) {
+        corpName <- map["corpName"]
+        groupName <- map["groupName"]
+        firmwareVersion <- map["firmwareVersion"]
+        hardwareVersion <- map["hardwareVersion"]
         id <- map["id"]
-        imageUrl <- map["imageUrl"]
-        key1 <- map["key1"]
-        key2 <- map["key2"]
-        mac <- map["mac"]
+        lastUpdateTime <- map["lastUpdateTime"]
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
         lockName <- map["lockName"]
-        oneAccess <- map["oneAccess"]
-        serialNo <- map["serialNo"]
-        shareUuid <- map["shareUuid"]
+        lockStatus <- map["lockStatus"]
+        mac <- map["mac"]
+        morseStatus <- map["morseStatus"]
     }
     
-    //更新Tapplock信息
-    public func update(_ model: TapplockModel) {
-        
-        if (self.id == nil) {
-            id = model.id
-            key1 = model.key1
-            key2 = model.key2
-            mac = model.mac
-            oneAccess = model.oneAccess
-            serialNo = model.serialNo
-            shareUuid = model.shareUuid
-        }
-        
-        lockName = model.lockName
-        imageUrl = model.imageUrl
-    }
 }
 
 

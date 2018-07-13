@@ -113,9 +113,9 @@
                                     <constraint firstAttribute="height" constant="1" id="57p-OG-E4F"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txm-4c-PEg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txm-4c-PEg">
                                 <rect key="frame" x="30" y="434.66666666666669" width="315" height="48"/>
-                                <color key="backgroundColor" red="0.92941176469999998" green="0.38823529410000002" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.38823529410000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="WtS-m5-Lwt"/>
                                 </constraints>
@@ -240,7 +240,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iN1-7B-Xbc">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.92941176470588238" green="0.38823529411764707" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -317,7 +317,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-Hh-FNO" customClass="normalGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="378.66666666666669" width="335" height="48"/>
+                                <rect key="frame" x="30" y="378.66666666666669" width="315" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="30r-ya-A7P"/>
                                 </constraints>
@@ -335,8 +335,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5Mi-KY-ysS" firstAttribute="top" secondItem="NRk-q3-2IR" secondAttribute="bottom" constant="50" id="0NA-Q2-wtv"/>
-                            <constraint firstAttribute="trailing" secondItem="DjN-Hh-FNO" secondAttribute="trailing" constant="20" id="3n4-wc-QDf"/>
-                            <constraint firstItem="DjN-Hh-FNO" firstAttribute="leading" secondItem="Fch-fW-B2I" secondAttribute="leading" constant="20" id="4bA-XX-k7T"/>
+                            <constraint firstAttribute="trailing" secondItem="DjN-Hh-FNO" secondAttribute="trailing" constant="30" id="3n4-wc-QDf"/>
+                            <constraint firstItem="DjN-Hh-FNO" firstAttribute="leading" secondItem="Fch-fW-B2I" secondAttribute="leading" constant="30" id="4bA-XX-k7T"/>
                             <constraint firstAttribute="trailing" secondItem="g6W-8c-I7E" secondAttribute="trailing" constant="20" id="IJp-Xu-9Hi"/>
                             <constraint firstAttribute="trailing" secondItem="9tD-Ye-Rms" secondAttribute="trailing" constant="20" id="Jno-Q4-ebq"/>
                             <constraint firstItem="DjN-Hh-FNO" firstAttribute="top" secondItem="9tD-Ye-Rms" secondAttribute="bottom" constant="80" id="MpV-jS-RvZ"/>
@@ -528,26 +528,8 @@
                                 <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyl-bP-eAP">
-                                <rect key="frame" x="20" y="229" width="68" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="o1N-lx-WgJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
-                                <color key="textColor" red="0.6705882353" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eu-rI-WaI">
-                                <rect key="frame" x="20" y="344" width="130" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="52e-BF-R6X"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
-                                <color key="textColor" red="0.6705882353" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5r1-3m-WMM" customClass="normalGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="494" width="335" height="48"/>
+                                <rect key="frame" x="20" y="436" width="335" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="whx-3h-CwE"/>
                                 </constraints>
@@ -561,35 +543,35 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W27-uG-hzn">
-                                <rect key="frame" x="20" y="258" width="335" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W27-uG-hzn">
+                                <rect key="frame" x="20" y="229" width="335" height="40"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GDa-Me-4JN"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpu-eK-w4M" userLabel="Deliver">
-                                <rect key="frame" x="20" y="298" width="335" height="1"/>
+                                <rect key="frame" x="20" y="269" width="335" height="1"/>
                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ryo-J7-Sjt"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkT-w6-Acm">
-                                <rect key="frame" x="20" y="373" width="335" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkT-w6-Acm">
+                                <rect key="frame" x="20" y="315" width="335" height="40"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="YD6-SL-c4J"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shS-bG-qiG" userLabel="Deliver">
-                                <rect key="frame" x="20" y="413" width="335" height="1"/>
+                                <rect key="frame" x="20" y="355" width="335" height="1"/>
                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="E1A-wu-9bz"/>
@@ -603,23 +585,19 @@
                             <constraint firstItem="5r1-3m-WMM" firstAttribute="top" secondItem="shS-bG-qiG" secondAttribute="bottom" constant="80" id="65B-Rf-2vb"/>
                             <constraint firstAttribute="trailing" secondItem="5r1-3m-WMM" secondAttribute="trailing" constant="20" id="6iT-Ya-pQz"/>
                             <constraint firstItem="Mpu-eK-w4M" firstAttribute="leading" secondItem="W27-uG-hzn" secondAttribute="leading" id="8xe-Ha-hDY"/>
-                            <constraint firstItem="W27-uG-hzn" firstAttribute="top" secondItem="Tyl-bP-eAP" secondAttribute="bottom" constant="10" id="9bc-QB-xv3"/>
                             <constraint firstItem="oXr-SB-NSc" firstAttribute="top" secondItem="wAR-qV-c0q" secondAttribute="bottom" constant="35" id="Adh-pV-4A0"/>
-                            <constraint firstItem="Tyl-bP-eAP" firstAttribute="top" secondItem="3vY-rb-J8m" secondAttribute="bottom" constant="50" id="Eta-eo-LUN"/>
                             <constraint firstItem="shS-bG-qiG" firstAttribute="trailing" secondItem="qkT-w6-Acm" secondAttribute="trailing" id="FdJ-MO-V0r"/>
                             <constraint firstItem="5r1-3m-WMM" firstAttribute="leading" secondItem="nAi-FU-R65" secondAttribute="leading" constant="20" id="Hch-gM-qa8"/>
-                            <constraint firstItem="1eu-rI-WaI" firstAttribute="leading" secondItem="W27-uG-hzn" secondAttribute="leading" id="JH1-84-StC"/>
+                            <constraint firstItem="W27-uG-hzn" firstAttribute="top" secondItem="3vY-rb-J8m" secondAttribute="bottom" constant="50" id="L62-Qi-rtC"/>
+                            <constraint firstItem="qkT-w6-Acm" firstAttribute="top" secondItem="Mpu-eK-w4M" secondAttribute="bottom" constant="45" id="LgU-dA-dKh"/>
                             <constraint firstItem="W27-uG-hzn" firstAttribute="leading" secondItem="nAi-FU-R65" secondAttribute="leading" constant="20" id="MRw-Gt-D1H"/>
                             <constraint firstItem="Mpu-eK-w4M" firstAttribute="trailing" secondItem="W27-uG-hzn" secondAttribute="trailing" id="NK7-Cs-2As"/>
-                            <constraint firstItem="qkT-w6-Acm" firstAttribute="leading" secondItem="1eu-rI-WaI" secondAttribute="leading" id="Vok-C9-ja3"/>
                             <constraint firstItem="3vY-rb-J8m" firstAttribute="leading" secondItem="oXr-SB-NSc" secondAttribute="leading" id="XG4-61-CmE"/>
-                            <constraint firstItem="qkT-w6-Acm" firstAttribute="top" secondItem="1eu-rI-WaI" secondAttribute="bottom" constant="10" id="Yha-R0-C5Q"/>
                             <constraint firstItem="shS-bG-qiG" firstAttribute="top" secondItem="qkT-w6-Acm" secondAttribute="bottom" id="cro-lT-mtc"/>
                             <constraint firstItem="oXr-SB-NSc" firstAttribute="leading" secondItem="nAi-FU-R65" secondAttribute="leading" constant="20" id="dDr-oZ-QJx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3vY-rb-J8m" secondAttribute="trailing" constant="20" id="fP7-f2-Ucd"/>
                             <constraint firstItem="3vY-rb-J8m" firstAttribute="top" secondItem="oXr-SB-NSc" secondAttribute="bottom" constant="10" id="fpJ-vZ-20M"/>
-                            <constraint firstItem="1eu-rI-WaI" firstAttribute="top" secondItem="Mpu-eK-w4M" secondAttribute="bottom" constant="45" id="gMq-fC-VUr"/>
-                            <constraint firstItem="Tyl-bP-eAP" firstAttribute="leading" secondItem="3vY-rb-J8m" secondAttribute="leading" id="l4T-vT-aOo"/>
+                            <constraint firstItem="qkT-w6-Acm" firstAttribute="leading" secondItem="W27-uG-hzn" secondAttribute="leading" id="gmK-UA-Xew"/>
                             <constraint firstAttribute="trailing" secondItem="W27-uG-hzn" secondAttribute="trailing" constant="20" id="n1Z-QS-z9f"/>
                             <constraint firstItem="qkT-w6-Acm" firstAttribute="trailing" secondItem="W27-uG-hzn" secondAttribute="trailing" id="yl8-oi-mtZ"/>
                         </constraints>

@@ -104,7 +104,7 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCellIdentifier", for: indexPath) as! MenuTableViewCell
         cell.lable.text = viewModel.dataSource[indexPath.row]
         if indexPath.row == 1 {
-            cell.backgroundColor = UIColor.orange
+            cell.backgroundColor = thembColor
             cell.lable.textColor = UIColor.white
         }
         return cell
@@ -127,7 +127,7 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
             let before = tableView.cellForRow(at: IndexPath(row: rx_SelectIndex.value, section: 0)) as! MenuTableViewCell
             before.backgroundColor = UIColor.white
             before.lable.textColor = UIColor.black
-            cell.backgroundColor = UIColor.orange
+            cell.backgroundColor = thembColor
             cell.lable.textColor = UIColor.white
             rx_SelectIndex.value = indexPath.row
             self.recovery()

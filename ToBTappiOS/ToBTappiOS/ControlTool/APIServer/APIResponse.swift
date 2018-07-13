@@ -14,24 +14,27 @@ struct APIResponse<T:Mappable>: Mappable {
 
     var data: T?
     var message: String?
-    var devMessage: String?
-    var success: Bool! = false
-
-    // MARK: JSON
-    static func errorResponse() -> APIResponse {
-        return APIResponse.init()
+    var code: Int?
+    
+    var codeMessage: String? {
+        return APICode.init(code!)?.rawValue
     }
-
-    private init() {
+    var success: Bool! {
+        guard let co = code else { return false }
+        if co == 0 {
+            return true
+        } else {
+            return false
+        }
     }
-
+    
     init?(map: Map) {
     }
 
     mutating func mapping(map: Map) {
         data <- map["data"]
         message <- map["message"]
-        success <- map["status"]
+        code <- map["code"]
     }
 
 }
@@ -41,25 +44,59 @@ struct APIResponseString: Mappable {
 
     var data: String?
     var message: String?
-    var devMessage: String?
-    var success: Bool! = false
+    var code: Int?
 
-    // MARK: JSON
-    static func errorResponse() -> APIResponseString {
-        return APIResponseString.init()
+    var codeMessage: String? {
+        return APICode.init(code!)?.rawValue
     }
-
-    private init() {
+    
+    var success: Bool! {
+        guard let co = code else { return false }
+        if co == 0 {
+            return true
+        } else {
+            return false
+        }
     }
-
+   
     init?(map: Map) {
+        
     }
-
+    
     mutating func mapping(map: Map) {
         data <- map["data"]
         message <- map["message"]
-        success <- map["status"]
+        code <- map["code"]
     }
 
+}
+
+
+struct APIResponseData<T: Mappable>: Mappable{
+    
+    var data: [T]?
+    var message: String?
+    var code: Int?
+    
+    var codeMessage: String? {
+        return APICode.init(code!)?.rawValue
+    }
+    var success: Bool! {
+        guard let co = code else { return false }
+        if co == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        data <- map["data"]
+        message <- map["message"]
+        code <- map["code"]
+    }
 }
 

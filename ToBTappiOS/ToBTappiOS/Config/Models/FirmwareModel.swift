@@ -1,22 +1,23 @@
 //
-//  UpdateFirmwareModel.swift
-//  Tapplock2
+//  FirmwareModel.swift
+//  ToBTappiOS
 //
-//  Created by TapplockiOS on 2018/3/26.
-//  Copyright © 2018年 Tapplock. All rights reserved.
+//  Created by TapplockiOS on 2018/7/13.
+//  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import ObjectMapper
-//支持版本模型,参考网络接口文档
 
-class UpdateFWModel: Mappable {
+class FirmwareModel: Mappable {
+    
     var currentVersion: String?
     var firmwarePackageUrl: String?
     var firmwareSize: String?
+    var hardwareVersion: String?
     var supportMinVersion: String?
-    var updateTime: String?
     var updateContent: String?
+    var updateTime: Int?
     
     
     
@@ -25,14 +26,12 @@ class UpdateFWModel: Mappable {
     }
     
     func mapping(map: Map) {
-
         currentVersion <- map["currentVersion"]
         firmwarePackageUrl <- map["firmwarePackageUrl"]
         firmwareSize <- map["firmwareSize"]
+        hardwareVersion <- map["hardwareVersion"]
         supportMinVersion <- map["supportMinVersion"]
-        updateTime <- map["updateTime"]
         updateContent <- map["updateContent"]
+        updateTime <- map["updateTime"]
     }
-    
-    
 }

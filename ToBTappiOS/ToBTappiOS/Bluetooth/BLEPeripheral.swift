@@ -21,7 +21,7 @@ class PeripheralModel: NSObject {
     
     public var serialNumber: String?
     public var key1: String?
-    public var key2: String?
+ 
    
     
     public var rx_mac: Variable<String?> = Variable(nil)

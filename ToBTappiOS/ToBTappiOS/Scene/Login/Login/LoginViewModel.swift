@@ -24,18 +24,21 @@ class LoginViewModel: NSObject {
         let password = rx_password.value
         let mail = rx_email.value
         if canLogin(password: password, mail: mail) {
+            
+
             HUD.show(.progress)
-//            _ = provider.rx.request(APIService.Login(mail: mail!, password: password!))
-//                    .mapObject(APIResponse<UserModel>.self)
-//                    .subscribe(onSuccess: { [weak self] response in
-//                        HUD.hide()
-//                        if let user = response.data {
-//                            ConfigModel.default.user.value = user
-//                        } else if let errorMessage = response.message {
-//                            
-//                            self?.rx_errorMessage.value = errorMessage
-//                        }
-//                    })
+            provider.rx.request(APIServer.userLog(mail: mail!, password: password!))
+                .mapObject(APIResponse<UserModel>.self)
+                .subscribe(onSuccess: { [weak self] response in
+                    HUD.hide()
+                    if response.success {
+                        ConfigModel.default.user.value = response.data!
+                    } else {
+                        self?.rx_errorMessage.value = response.codeMessage
+                    }
+                
+                
+            }).disposed(by: rx.disposeBag)
         }
     }
 

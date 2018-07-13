@@ -673,7 +673,7 @@ struct R: Rswift.Validatable {
       /// Segue identifier `ShowTutorialSegue`.
       static let showTutorialSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "ShowTutorialSegue")
       /// Segue identifier `showHomeSB`.
-      static let showHomeSB: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, BaseNaviController> = Rswift.StoryboardSegueIdentifier(identifier: "showHomeSB")
+      static let showHomeSB: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "showHomeSB")
       /// Segue identifier `showLoginSb`.
       static let showLoginSb: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "showLoginSb")
       
@@ -687,7 +687,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `showHomeSB`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showHomeSB(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, BaseNaviController>? {
+      static func showHomeSB(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.rootViewController.showHomeSB, segue: segue)
       }
       
@@ -2350,7 +2350,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = BaseNaviController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Home"

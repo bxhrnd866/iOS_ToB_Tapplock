@@ -65,6 +65,7 @@ class ConfigModel: NSObject {
             if self?.pushToken != nil {
                 self?.setpushToken(data: self!.pushToken!)
             }
+            
             UserDefaults.standard.set(md.toJSONString(), forKey: user_saveKey)
             UserDefaults.standard.synchronize()
         }).disposed(by: rx.disposeBag)

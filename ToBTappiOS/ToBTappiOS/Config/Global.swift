@@ -45,7 +45,7 @@ let kSafeAreaInset = isPhoneX ? 34 : 0
 
 let kNoStatusBar = isPhoneX ? 44 : 0
 
-let thembColor = UIColor("#66666")
+let thembColor = UIColor("#ED6332")
 
 let mScreenH = UIScreen.main.bounds.height
 
@@ -56,6 +56,7 @@ let mScale = mScreenW/375
 let font_name = "Century Gothic"
 
 let isIphone5 = mScreenW <= 320
+
 // MARK: key
 
 let ble_notficationKye = "ble_notficationKye_Response"

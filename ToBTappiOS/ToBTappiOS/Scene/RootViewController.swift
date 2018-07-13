@@ -15,7 +15,7 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
        
     }
 
@@ -38,7 +38,7 @@ class RootViewController: UIViewController {
                 UserDefaults.standard.synchronize()
                 self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialSegue, sender: self)
             }
-            else if ConfigModel.default.user.value != nil {
+            else if ConfigModel.default.user.value == nil {
                 
                 self.performSegue(withIdentifier: R.segue.rootViewController.showHomeSB, sender: self)
                 
