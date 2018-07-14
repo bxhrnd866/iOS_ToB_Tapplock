@@ -21,13 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 
         IQKeyboardManager.shared.enable = true
         
+        getBasicToken()
         
         /**************设置语言**************/
         let myLanguage: String? = UserDefaults.standard.object(forKey: language_model_key) as? String
         if myLanguage != nil && myLanguage! != "" {
-            
             Bundle.setLanguage(myLanguage)
         }
+        
+        
         //初始化FirebaseApp
 //        FirebaseApp.configure()
 //        Messaging.messaging().delegate = self
@@ -37,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
         
         self.window?.addSubview(MenuView.instance)
+        
+        
 
         return true
     }

@@ -77,7 +77,7 @@ final class TapplockManager: NSObject {
     public func addTapplock(_ lock: TapplockModel) {
         for myLock in rx_myLocks.value {
             if myLock.mac?.macValue == lock.mac?.macValue {
-                myLock.update(lock)
+//                myLock.update(lock)
                 return
             }
         }

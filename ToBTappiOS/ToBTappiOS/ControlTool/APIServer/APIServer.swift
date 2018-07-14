@@ -10,7 +10,7 @@ import Foundation
 import Foundation
 import Moya
 
-let APIHost = "http://34.220.89.68:8888"
+let APIHost = "http://192.168.7.213:8791"
 //let APIHost = "https://api.tapplock.com"
 
 let APIVersion = "v1"
@@ -43,18 +43,19 @@ enum APIServer {
 extension APIServer: TargetType{
     
     var headers: [String : String]? {
-        var token = "Bearer "
-        
-        if basicToken_UserKey != nil {
-            token = "Bearer " + basicToken_UserKey!
-        }
-        
+    
         switch self {
+        case .oauthToken:
+            let value = "clientIdPassword:secret".toBase64()
+            return ["Content-type": "application/json", "Authorization": "Basic \(value)"]
         case .registerVerifyCode:
-            return ["Content-type": "application/json", "Authorization": token, "lang": ConfigModel.default.language.code]
+           
+            return ["Content-type": "application/json", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg"), "lang": ConfigModel.default.language.code]
         default:
-            return ["Content-type": "application/json", "Authorization": token]
+            return ["Content-type": "application/json", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg")]
         }
+        
+        
     }
     
     var baseURL: URL {
@@ -134,210 +135,210 @@ extension APIServer: TargetType{
     }
     
     var task: Task {
+//        + hmacSign()
+        var urlParameters = [String: Any]()
         
-        var parameters: [String: Any] = ["device": "1", "version": "v2.0"] + hmacSign()
-        
-        var dict = [String: Any]()
+        var bodyParameters = [String: Any]()
         
         switch self {
             
         case .userRegister(let corpId, let fcmDeviceToken, let inviteCode, let firstName, let lastName, let mail, let password, let phone, let photoUrl, let sex):
             
             if fcmDeviceToken != nil {
-                dict = dict + ["fcmDeviceToken": fcmDeviceToken!]
+                bodyParameters = bodyParameters + ["fcmDeviceToken": fcmDeviceToken!]
             }
             if corpId != nil {
-                dict = dict + ["corpId": corpId!]
+                bodyParameters = bodyParameters + ["corpId": corpId!]
             }
+
+            bodyParameters = bodyParameters + ["phone": phone, "inviteCode": inviteCode, "firstName": firstName, "lastName": lastName, "mail": mail, "password": password.sha256(), "photoUrl": photoUrl, "sex": sex]
+            let data = requestBodyEncrypted(body: bodyParameters)
             
-            dict = dict + ["phone": phone, "inviteCode": inviteCode, "firstName": firstName, "lastName": lastName, "mail": mail, "password": password, "photoUrl": photoUrl, "sex": sex]
-            let data = requestBodyEncrypted(body: dict)
-            
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .userLog(let mail, let password):
             
-            dict = dict + ["mail": mail, "password": password, "clientType": 1]
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            bodyParameters = bodyParameters + ["mail": mail, "password": password.sha256(), "clientType": 1]
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
         case .userCheckMail(let mail):
-            parameters = parameters + ["mail": mail]
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            urlParameters = urlParameters + ["mail": mail]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .oauthToken:
            
-            dict = dict + ["grant_type": "client_credentials"]
+            bodyParameters = bodyParameters + ["grant_type": "client_credentials"]
             
-            let data = requestBodyEncrypted(body: dict)
+            let data = requestBodyEncrypted(body: bodyParameters)
             
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .registerVerifyCode(let type, let mail):
             
-            parameters = parameters + ["type": type, "mail": mail]
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            urlParameters = urlParameters + ["type": type, "mail": mail]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .lockList(let lockName, let groupId, let authType, let page, let size):
             
             if lockName != nil {
-                parameters = parameters + ["lockName": lockName!]
+                urlParameters = urlParameters + ["lockName": lockName!]
             }
             
             if groupId != nil {
-                parameters = parameters + ["groupId": groupId!]
+                urlParameters = urlParameters + ["groupId": groupId!]
             }
             if authType != nil {
-                parameters = parameters + ["authType": authType!]
+                urlParameters = urlParameters + ["authType": authType!]
             }
             
-            parameters = parameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id)!, "corpId": (ConfigModel.default.user.value?.corpId)!]
+            urlParameters = urlParameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id)!, "corpId": (ConfigModel.default.user.value?.corpId)!]
             
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .lockKey(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         case .updateLock(let battery, let firmwareVersion, let hardwareVersion, let id, let latitude, let longitude, let lockName, let morseCode, let morseStatus, let syncType):
             
             if battery != nil {
-                dict = dict + ["battery": battery!]
+                bodyParameters = bodyParameters + ["battery": battery!]
             }
             if firmwareVersion != nil {
-                dict = dict + ["firmwareVersion": firmwareVersion!]
+                bodyParameters = bodyParameters + ["firmwareVersion": firmwareVersion!]
             }
             if hardwareVersion != nil {
-                dict = dict + ["hardwareVersion": hardwareVersion!]
+                bodyParameters = bodyParameters + ["hardwareVersion": hardwareVersion!]
             }
             if latitude != nil {
-                dict = dict + ["latitude": latitude!]
+                bodyParameters = bodyParameters + ["latitude": latitude!]
             }
             if longitude != nil {
-                dict = dict + ["longitude": longitude!]
+                bodyParameters = bodyParameters + ["longitude": longitude!]
             }
             if lockName != nil {
-                dict = dict + ["lockName": lockName!]
+                bodyParameters = bodyParameters + ["lockName": lockName!]
             }
             if morseCode != nil {
-                dict = dict + ["morseCode": morseCode!]
+                bodyParameters = bodyParameters + ["morseCode": morseCode!]
             }
             if morseStatus != nil {
-                dict = dict + ["morseStatus": morseStatus!]
+                bodyParameters = bodyParameters + ["morseStatus": morseStatus!]
             }
         
-            dict = dict + ["id": id, "syncType": syncType]
+            bodyParameters = bodyParameters + ["id": id, "syncType": syncType]
             
-            let data = requestBodyEncrypted(body: dict)
+            let data = requestBodyEncrypted(body: bodyParameters)
             
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .historyList(let lockId, let userName, let beginTime, let endTime, let queryType, let size, let page):
             
            
             if userName != nil {
-                parameters = parameters + ["userName": userName!]
+                urlParameters = urlParameters + ["userName": userName!]
             }
             if beginTime != nil {
-                parameters = parameters + ["beginTime": beginTime!]
+                urlParameters = urlParameters + ["beginTime": beginTime!]
             }
             if endTime != nil {
-                parameters = parameters + ["endTime": endTime!]
+                urlParameters = urlParameters + ["endTime": endTime!]
             }
             
             if lockId != nil {
-                 parameters = parameters + ["lockId": lockId!]
+                 urlParameters = urlParameters + ["lockId": lockId!]
             }
             
-            parameters = parameters + ["queryType": queryType, "page": page, "size": size]
+            urlParameters = urlParameters + ["queryType": queryType, "page": page, "size": size]
             
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .closeTimeHistory(let corpId, let lockId, let operateTime):
-            dict = dict + ["corpId": corpId, "lockId": lockId, "operateTime": operateTime]
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            bodyParameters = bodyParameters + ["corpId": corpId, "lockId": lockId, "operateTime": operateTime]
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .openTimeHistory(let corpId, let latitude, let longitude, let lockId, let morseOperateTimes, let unlockFingerprints, let unlockType, let userId):
             
             if latitude != nil {
-                dict = dict + ["latitude": latitude!]
+                bodyParameters = bodyParameters + ["latitude": latitude!]
             }
             if longitude != nil {
-                dict = dict + ["longitude": longitude!]
+                bodyParameters = bodyParameters + ["longitude": longitude!]
             }
             if morseOperateTimes != nil {
-                dict = dict + ["morseOperateTimes": morseOperateTimes!]
+                bodyParameters = bodyParameters + ["morseOperateTimes": morseOperateTimes!]
             }
             if unlockFingerprints != nil {
-                dict = dict + ["unlockFingerprints": unlockFingerprints!]
+                bodyParameters = bodyParameters + ["unlockFingerprints": unlockFingerprints!]
             }
             if longitude != nil {
-                dict = dict + ["longitude": longitude!]
+                bodyParameters = bodyParameters + ["longitude": longitude!]
             }
             
-            dict = dict + ["corpId": corpId, "lockId": lockId, "userId": userId, "unlockType": unlockType]
+            bodyParameters = bodyParameters + ["corpId": corpId, "lockId": lockId, "userId": userId, "unlockType": unlockType]
             
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .downloadFingerprint(let lockId):
-            parameters = parameters + ["lockId": lockId]
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            urlParameters = urlParameters + ["lockId": lockId]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .updateFingerprintSycnState(let lockId, let fingerprintIds, let lockFingerprintIndex):
-            parameters = parameters + ["lockId": lockId, "fingerprintIds": fingerprintIds, "lockFingerprintIndex": lockFingerprintIndex]
+            urlParameters = urlParameters + ["lockId": lockId, "fingerprintIds": fingerprintIds, "lockFingerprintIndex": lockFingerprintIndex]
             
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .userUpdate(let fcmDeviceToken, let firstName, let groupIds, let id, let lastName, let permissionIds, let phone, let photoUrl, let sex):
             
             if fcmDeviceToken != nil {
-                dict = dict + ["fcmDeviceToken": fcmDeviceToken!]
+                bodyParameters = bodyParameters + ["fcmDeviceToken": fcmDeviceToken!]
             }
             if firstName != nil {
-                dict = dict + ["firstName": firstName!]
+                bodyParameters = bodyParameters + ["firstName": firstName!]
             }
             if groupIds != nil {
-                dict = dict + ["groupIds": groupIds!]
+                bodyParameters = bodyParameters + ["groupIds": groupIds!]
             }
             if lastName != nil {
-                dict = dict + ["lastName": lastName!]
+                bodyParameters = bodyParameters + ["lastName": lastName!]
             }
             if permissionIds != nil {
-                dict = dict + ["permissionIds": permissionIds!]
+                bodyParameters = bodyParameters + ["permissionIds": permissionIds!]
             }
             if phone != nil {
-                dict = dict + ["phone": phone!]
+                bodyParameters = bodyParameters + ["phone": phone!]
             }
             if photoUrl != nil {
-                dict = dict + ["photoUrl": photoUrl!]
+                bodyParameters = bodyParameters + ["photoUrl": photoUrl!]
             }
             if sex != nil {
-                dict = dict + ["sex": sex!]
+                bodyParameters = bodyParameters + ["sex": sex!]
             }
             
-            dict = dict + ["id": id]
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            bodyParameters = bodyParameters + ["id": id]
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
         case .changePassword(let newPassword, let oldPassword):
-            dict = dict + ["newPassword": newPassword, "oldPassword": oldPassword, "id": (ConfigModel.default.user.value?.id)!]
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            bodyParameters = bodyParameters + ["newPassword": newPassword, "oldPassword": oldPassword, "id": (ConfigModel.default.user.value?.id)!]
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
         
         case .feedBack(let content, let title, let corpId, let source, let platform):
-            dict = dict + ["userId": (ConfigModel.default.user.value?.id)!, "content": content, "title": title, "corpId": corpId, "source": source, "platform": platform]
-            let data = requestBodyEncrypted(body: dict)
-            return .requestCompositeData(bodyData: data, urlParameters: parameters)
+            bodyParameters = bodyParameters + ["userId": (ConfigModel.default.user.value?.id)!, "content": content, "title": title, "corpId": corpId, "source": source, "platform": platform]
+            let data = requestBodyEncrypted(body: bodyParameters)
+            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
         
         case .checkinviteCodes(let inviteCode):
-            parameters = parameters + ["inviteCode": inviteCode]
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            urlParameters = urlParameters + ["inviteCode": inviteCode]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         
         case .checkVerifyCode(let mail, let verifyCode):
-            parameters = parameters + ["mail": mail, "verifyCode": verifyCode]
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            urlParameters = urlParameters + ["mail": mail, "verifyCode": verifyCode]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         
         case .checkFirmwares(_):
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: parameters)
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         }
         
     }

@@ -65,6 +65,7 @@
 		55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126620EA31460008A4CC /* TapplockManager.swift */; };
 		55A1127220EA31460008A4CC /* TapplockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126820EA31460008A4CC /* TapplockModel.swift */; };
 		55A1127320EA31460008A4CC /* TapplockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126920EA31460008A4CC /* TapplockType.swift */; };
+		55AD996020F99D6D00826EDE /* BasicTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AD995F20F99D6D00826EDE /* BasicTokenModel.swift */; };
 		55AEEE5E20EF159300D219BD /* AboutUSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE5D20EF159300D219BD /* AboutUSViewController.swift */; };
 		55AEEE6020EF18D600D219BD /* ChangePassWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE5F20EF18D600D219BD /* ChangePassWordController.swift */; };
 		55AEEE6220EF18FB00D219BD /* SendFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE6120EF18FB00D219BD /* SendFeedbackController.swift */; };
@@ -196,6 +197,7 @@
 		55A1126620EA31460008A4CC /* TapplockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockManager.swift; sourceTree = "<group>"; };
 		55A1126820EA31460008A4CC /* TapplockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockModel.swift; sourceTree = "<group>"; };
 		55A1126920EA31460008A4CC /* TapplockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockType.swift; sourceTree = "<group>"; };
+		55AD995F20F99D6D00826EDE /* BasicTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTokenModel.swift; sourceTree = "<group>"; };
 		55AEEE5D20EF159300D219BD /* AboutUSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSViewController.swift; sourceTree = "<group>"; };
 		55AEEE5F20EF18D600D219BD /* ChangePassWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordController.swift; sourceTree = "<group>"; };
 		55AEEE6120EF18FB00D219BD /* SendFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFeedbackController.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				55AEEE7720EF438D00D219BD /* ListModel.swift */,
 				55235E9120AE97D800B98D38 /* EmptyModel.swift */,
 				55235E8F20AE7CB600B98D38 /* LanguageModel.swift */,
+				55AD995F20F99D6D00826EDE /* BasicTokenModel.swift */,
 				55730F3620F5F147007F5230 /* GroupsModel.swift */,
 				55730F3820F5F3EA007F5230 /* PermissionInfoModel.swift */,
 				557C3F3920EB1FE400A24D54 /* SupportVersionModel.swift */,
@@ -877,6 +880,7 @@
 				7D05125C20D266420075C681 /* ViewHistoryController.swift in Sources */,
 				5507B82520F89E9700C499DB /* DownloadFingerprintModel.swift in Sources */,
 				7DFE10D620CD480800C94FA3 /* UIFontExtension.swift in Sources */,
+				55AD996020F99D6D00826EDE /* BasicTokenModel.swift in Sources */,
 				55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */,
 				7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */,
 				7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */,
