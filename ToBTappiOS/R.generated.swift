@@ -77,7 +77,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 37 images.
+  /// This `R.image` struct is generated, and contains static references to 40 images.
   struct image {
     /// Image `About_Logo`.
     static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
@@ -89,6 +89,8 @@ struct R: Rswift.Validatable {
     static let history_closethelock = Rswift.ImageResource(bundle: R.hostingBundle, name: "History_closethelock")
     /// Image `History_openedthelock`.
     static let history_openedthelock = Rswift.ImageResource(bundle: R.hostingBundle, name: "History_openedthelock")
+    /// Image `Historylocation`.
+    static let historylocation = Rswift.ImageResource(bundle: R.hostingBundle, name: "Historylocation")
     /// Image `Home_Hierarchical`.
     static let home_Hierarchical = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Hierarchical")
     /// Image `Home_lock1_n`.
@@ -129,6 +131,10 @@ struct R: Rswift.Validatable {
     static let tutorial04 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Tutorial - 04")
     /// Image `UserPlace`.
     static let userPlace = Rswift.ImageResource(bundle: R.hostingBundle, name: "UserPlace")
+    /// Image `bluetooth`.
+    static let bluetooth = Rswift.ImageResource(bundle: R.hostingBundle, name: "bluetooth")
+    /// Image `fingerprint`.
+    static let fingerprint = Rswift.ImageResource(bundle: R.hostingBundle, name: "fingerprint")
     /// Image `icon_check`.
     static let icon_check = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_check")
     /// Image `lock_battery_0`.
@@ -177,6 +183,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "History_openedthelock", bundle: ..., traitCollection: ...)`
     static func history_openedthelock(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.history_openedthelock, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Historylocation", bundle: ..., traitCollection: ...)`
+    static func historylocation(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.historylocation, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Home_Hierarchical", bundle: ..., traitCollection: ...)`
@@ -279,6 +290,16 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.userPlace, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "bluetooth", bundle: ..., traitCollection: ...)`
+    static func bluetooth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bluetooth, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "fingerprint", bundle: ..., traitCollection: ...)`
+    static func fingerprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fingerprint, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "icon_check", bundle: ..., traitCollection: ...)`
     static func icon_check(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_check, compatibleWith: traitCollection)
@@ -377,7 +398,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 17 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 15 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -389,36 +410,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func viewTapplockGroup(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AllLocksViewController, WorkGroupController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.allLocksViewController.viewTapplockGroup, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `BlueHistoryController`, and contains static references to 1 segues.
-    struct blueHistoryController {
-      /// Segue identifier `bluetoothAuthorizedUser`.
-      static let bluetoothAuthorizedUser: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BlueHistoryController, AuthorizedUserController> = Rswift.StoryboardSegueIdentifier(identifier: "bluetoothAuthorizedUser")
-      
-      /// Optionally returns a typed version of segue `bluetoothAuthorizedUser`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func bluetoothAuthorizedUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BlueHistoryController, AuthorizedUserController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.blueHistoryController.bluetoothAuthorizedUser, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `FingerHistoryController`, and contains static references to 1 segues.
-    struct fingerHistoryController {
-      /// Segue identifier `fingerAuthorizedUser`.
-      static let fingerAuthorizedUser: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, FingerHistoryController, AuthorizedUserController> = Rswift.StoryboardSegueIdentifier(identifier: "fingerAuthorizedUser")
-      
-      /// Optionally returns a typed version of segue `fingerAuthorizedUser`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func fingerAuthorizedUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, FingerHistoryController, AuthorizedUserController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.fingerHistoryController.fingerAuthorizedUser, segue: segue)
       }
       
       fileprivate init() {}
@@ -2347,11 +2338,9 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "lock_fingerprint_high") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_fingerprint_high' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LockDetail_fingerprint") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LockDetail_fingerprint' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_bgImg") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_bgImg' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "History_closethelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_closethelock' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder_lock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_lock' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_battery_0") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_battery_0' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'FingerLockDetail', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -2387,15 +2376,16 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "History_calender") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_calender' is used in storyboard 'LockDetail', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "History_openedthelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_openedthelock' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Lock_lockicon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Lock_lockicon' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_sysn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_sysn' is used in storyboard 'LockDetail', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Historylocation") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Historylocation' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LockDetail_fingerprint") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LockDetail_fingerprint' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_bgImg") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_bgImg' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_battery_0") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_battery_0' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'LockDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'LockDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "LockDetail_unlock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LockDetail_unlock' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "UserPlace") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UserPlace' is used in storyboard 'LockDetail', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LockDetail_unlock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LockDetail_unlock' is used in storyboard 'LockDetail', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -2507,10 +2497,11 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Home_search") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_search' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_lock1_n") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_lock1_n' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_lock1_s") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_lock1_s' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "bluetooth") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bluetooth' is used in storyboard 'ViewAlllock', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

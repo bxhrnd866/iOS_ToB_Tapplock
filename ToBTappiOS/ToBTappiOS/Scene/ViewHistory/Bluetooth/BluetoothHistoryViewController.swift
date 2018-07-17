@@ -12,16 +12,6 @@ let headerIndenty = "BluetoothHistoryHeaderIndenty"
 class BluetoothHistoryViewController: UIViewController {
     let viewModel = BluetoothHistoryViewModel.init()
     
-//    lazy var noView: NoDataView = {
-//        let no = NoDataView(frame: self.tableView.frame)
-//
-//        no.callBack = { [weak self] in
-//            self?.tableView.mj_header.beginRefreshing()
-//        }
-//        return no
-//    }()
-    
-    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +110,7 @@ extension BluetoothHistoryViewController: UITableViewDelegate, UITableViewDataSo
         let source = viewModel.dictSource[key]!
         let moel = source[indexPath.row]
     
-        cell.setModel(moel)
+//        cell.setModel(moel)
         return cell
     }
     

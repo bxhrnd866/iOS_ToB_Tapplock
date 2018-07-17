@@ -62,7 +62,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grW-58-EBg">
                                                     <rect key="frame" x="20" y="0.0" width="335" height="80"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_lock1_s" translatesAutoresizingMaskIntoConstraints="NO" id="4G5-Tp-wFG">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_lock1_n" translatesAutoresizingMaskIntoConstraints="NO" id="4G5-Tp-wFG">
                                                             <rect key="frame" x="23" y="15" width="35" height="50"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -76,11 +76,18 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LockName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7h-5c-6rC">
-                                                            <rect key="frame" x="88" y="29" width="95" height="23"/>
+                                                            <rect key="frame" x="88" y="29.333333333333336" width="95" height="22.333333333333336"/>
                                                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.2627450980392157" green="0.28235294117647058" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-bk-CWN">
+                                                            <rect key="frame" x="290" y="28.333333333333329" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="h8I-dW-X07"/>
+                                                                <constraint firstAttribute="width" constant="25" id="rqD-Xd-mlC"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.95686274510000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -88,7 +95,9 @@
                                                         <constraint firstAttribute="height" constant="80" id="9nq-fb-NsJ"/>
                                                         <constraint firstItem="M7h-5c-6rC" firstAttribute="centerY" secondItem="4G5-Tp-wFG" secondAttribute="centerY" id="AEq-5F-uV1"/>
                                                         <constraint firstItem="4G5-Tp-wFG" firstAttribute="leading" secondItem="grW-58-EBg" secondAttribute="leading" constant="23" id="An4-t0-iOf"/>
+                                                        <constraint firstItem="HNI-bk-CWN" firstAttribute="centerY" secondItem="M7h-5c-6rC" secondAttribute="centerY" id="J8j-wg-54v"/>
                                                         <constraint firstItem="4G5-Tp-wFG" firstAttribute="centerY" secondItem="grW-58-EBg" secondAttribute="centerY" id="OjN-Mi-gcZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="HNI-bk-CWN" secondAttribute="trailing" constant="20" id="VfH-bO-GMk"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -217,8 +226,9 @@
     <resources>
         <image name="Back_Arrow" width="11" height="18"/>
         <image name="Home_Hierarchical" width="17" height="14"/>
-        <image name="Home_lock1_s" width="37" height="54"/>
+        <image name="Home_lock1_n" width="37" height="54"/>
         <image name="Home_right" width="16" height="16"/>
         <image name="Home_search" width="17" height="17"/>
+        <image name="bluetooth" width="17" height="24"/>
     </resources>
 </document>

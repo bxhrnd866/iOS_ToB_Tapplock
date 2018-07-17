@@ -89,7 +89,6 @@
 		55D054A820D8E876003C92B5 /* FingerLockDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A720D8E876003C92B5 /* FingerLockDetailController.swift */; };
 		55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */; };
 		55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */; };
-		55D054AE20D8F2DE003C92B5 /* AuthorizedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AD20D8F2DE003C92B5 /* AuthorizedUserController.swift */; };
 		55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */; };
 		7D05124820D263B90075C681 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D05124720D263B90075C681 /* Setting.storyboard */; };
 		7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124920D263F10075C681 /* SettingViewController.swift */; };
@@ -222,7 +221,6 @@
 		55D054A720D8E876003C92B5 /* FingerLockDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerLockDetailController.swift; sourceTree = "<group>"; };
 		55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueHistoryController.swift; sourceTree = "<group>"; };
 		55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerHistoryController.swift; sourceTree = "<group>"; };
-		55D054AD20D8F2DE003C92B5 /* AuthorizedUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedUserController.swift; sourceTree = "<group>"; };
 		55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D05124720D263B90075C681 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7D05124920D263F10075C681 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -503,7 +501,6 @@
 				55AEEE7920EF5A2200D219BD /* FingerPrintListCollectionCell.swift */,
 				55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */,
 				55D054A520D8E850003C92B5 /* FingerLockDetail.storyboard */,
-				55D054AD20D8F2DE003C92B5 /* AuthorizedUserController.swift */,
 			);
 			path = LockDetail;
 			sourceTree = "<group>";
@@ -854,7 +851,6 @@
 				55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */,
 				557C3F3F20EB526B00A24D54 /* MenuView.swift in Sources */,
 				55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */,
-				55D054AE20D8F2DE003C92B5 /* AuthorizedUserController.swift in Sources */,
 				55AEEE6220EF18FB00D219BD /* SendFeedbackController.swift in Sources */,
 				55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */,
 				55730F3920F5F3EA007F5230 /* PermissionInfoModel.swift in Sources */,
