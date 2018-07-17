@@ -22,13 +22,19 @@ class MyTapplockController: BaseViewController {
     }
 
     @IBAction func searchList(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.myTapplockController.showFingerLockDetail, sender: self)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func bleBtnAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.myTapplockController.showBLELockDetail, sender: self)
+    }
     
+    @IBAction func fingerprintAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.myTapplockController.showFingerLockDetail, sender: self)
+    }
     deinit {
         plog("mytapplock 销毁了")
     }

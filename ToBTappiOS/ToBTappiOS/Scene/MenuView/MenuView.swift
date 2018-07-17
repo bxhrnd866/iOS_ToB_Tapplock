@@ -66,7 +66,7 @@ class MenuView: UIView {
         bgview.addSubview(tableView)
         
      
-        
+        // viewhistory  viewalllock
     }
     @objc private func tapToRecovery() {
         UIView.animate(withDuration: timeInterval) {

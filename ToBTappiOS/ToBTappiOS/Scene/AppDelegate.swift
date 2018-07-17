@@ -12,7 +12,7 @@ import Firebase
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 
         IQKeyboardManager.shared.enable = true
         
-        getBasicToken()
+//        getBasicToken()
         
         /**************设置语言**************/
         let myLanguage: String? = UserDefaults.standard.object(forKey: language_model_key) as? String
@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         
         //初始化FirebaseApp
-//        FirebaseApp.configure()
-//        Messaging.messaging().delegate = self
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         //获取token
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in}
@@ -46,11 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        plog("deviceToken----> \(deviceToken)")
     
-//        Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        plog("fcmToken ------>  \(fcmToken)---")
         ConfigModel.default.setpushToken(data: fcmToken)
     }
     func applicationWillResignActive(_ application: UIApplication) {

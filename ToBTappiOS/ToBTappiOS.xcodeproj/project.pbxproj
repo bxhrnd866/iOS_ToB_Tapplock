@@ -90,6 +90,7 @@
 		55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */; };
 		55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */; };
 		55D054AE20D8F2DE003C92B5 /* AuthorizedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AD20D8F2DE003C92B5 /* AuthorizedUserController.swift */; };
+		55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */; };
 		7D05124820D263B90075C681 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D05124720D263B90075C681 /* Setting.storyboard */; };
 		7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124920D263F10075C681 /* SettingViewController.swift */; };
 		7D05124C20D2650F0075C681 /* MyTapplockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124B20D2650F0075C681 /* MyTapplockController.swift */; };
@@ -222,6 +223,7 @@
 		55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueHistoryController.swift; sourceTree = "<group>"; };
 		55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerHistoryController.swift; sourceTree = "<group>"; };
 		55D054AD20D8F2DE003C92B5 /* AuthorizedUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedUserController.swift; sourceTree = "<group>"; };
+		55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D05124720D263B90075C681 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7D05124920D263F10075C681 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7D05124B20D2650F0075C681 /* MyTapplockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTapplockController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				7D8D773920CE1DF100C218D0 /* R.generated.swift */,
 				7DFE10C520CD464300C94FA3 /* ToBTappiOS-Bridging-Header.h */,
 				557C3F3720EB1EBB00A24D54 /* api_tapplock_com.cer */,
+				55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */,
 			);
 			path = ToBTappiOS;
 			sourceTree = "<group>";
@@ -665,6 +668,9 @@
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0940;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -716,6 +722,7 @@
 				7D05124820D263B90075C681 /* Setting.storyboard in Resources */,
 				7D05125420D265830075C681 /* ViewAlllock.storyboard in Resources */,
 				55D054A620D8E850003C92B5 /* FingerLockDetail.storyboard in Resources */,
+				55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */,
 				7D05125A20D266210075C681 /* ViewHistory.storyboard in Resources */,
 				553E72C420AAB38C00CFFEB8 /* InfoPlist.strings in Resources */,
 			);

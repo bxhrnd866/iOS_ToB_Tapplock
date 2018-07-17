@@ -31,58 +31,66 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-3l-gav">
-                                <rect key="frame" x="135" y="166" width="57.666666666666657" height="17"/>
+                                <rect key="frame" x="135" y="174" width="65" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="AoE-5V-fbV"/>
+                                    <constraint firstAttribute="height" constant="17" id="tLj-KE-nwu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                 <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-Xq-CvK">
-                                <rect key="frame" x="135" y="190" width="31" height="17"/>
+                                <rect key="frame" x="135" y="194" width="65" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="PEm-OG-J6R"/>
+                                    <constraint firstAttribute="height" constant="17" id="gh6-yp-IWo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                 <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEa-Gl-Lsy">
-                                <rect key="frame" x="135" y="141" width="62" height="15"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDg-nN-eu0">
-                                <rect key="frame" x="135" y="117" width="60.333333333333343" height="17"/>
+                                <rect key="frame" x="135" y="134" width="65" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="CnO-Uo-c5f"/>
+                                    <constraint firstAttribute="height" constant="17" id="6Pc-5l-9Lp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                 <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapploc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DQ-3f-tMs">
-                                <rect key="frame" x="210.33333333333334" y="117.66666666666667" width="51.333333333333343" height="16.000000000000014"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDg-nN-eu0">
+                                <rect key="frame" x="135" y="114" width="65" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="088-5x-2xE"/>
+                                    <constraint firstAttribute="height" constant="17" id="eQ0-0W-G4O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sarah" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DQ-3f-tMs">
+                                <rect key="frame" x="210.33333333333334" y="117.66666666666667" width="36.333333333333343" height="16.000000000000014"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapploc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbo-S0-tVV">
-                                <rect key="frame" x="210.33333333333334" y="141" width="47.333333333333343" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pena" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbo-S0-tVV">
+                                <rect key="frame" x="210" y="138" width="31" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapploc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-a7-DJC">
-                                <rect key="frame" x="210.33333333333334" y="166.66666666666666" width="51.333333333333343" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1336936684529" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-a7-DJC">
+                                <rect key="frame" x="211" y="186" width="94" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapploc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7B-hM-HP9">
-                                <rect key="frame" x="210.33333333333334" y="191" width="51.333333333333343" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="514027089@qq.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7B-hM-HP9">
+                                <rect key="frame" x="211" y="212" width="127" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -128,44 +136,58 @@
                                     <segue destination="VyG-Qk-Z35" kind="embed" identifier="profilePermissionIdentifier" id="TmS-Fe-44Q"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Male" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc6-0r-Vmh">
+                                <rect key="frame" x="209" y="161" width="32" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-sH-uVm">
+                                <rect key="frame" x="135" y="154" width="65" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="cKd-e2-pAX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hDA-a7-DJC" firstAttribute="centerY" secondItem="6B3-3l-gav" secondAttribute="centerY" id="0Oz-ou-XRe"/>
+                            <constraint firstItem="zgZ-sH-uVm" firstAttribute="width" secondItem="lEa-Gl-Lsy" secondAttribute="width" id="0PO-g6-c0u"/>
                             <constraint firstItem="Dc8-tP-6Wd" firstAttribute="top" secondItem="iaK-U5-dPE" secondAttribute="bottom" constant="21" id="0mX-fX-jlg"/>
+                            <constraint firstItem="lEa-Gl-Lsy" firstAttribute="top" secondItem="yDg-nN-eu0" secondAttribute="bottom" constant="3" id="3cZ-Pe-PTX"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="CxX-5p-tM6" secondAttribute="trailing" constant="20" id="4V2-N5-H20"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="gMG-YY-5Wu" secondAttribute="trailing" constant="20" id="4hN-oy-L0r"/>
+                            <constraint firstItem="lEa-Gl-Lsy" firstAttribute="leading" secondItem="yDg-nN-eu0" secondAttribute="leading" id="4wf-X4-ffP"/>
                             <constraint firstItem="XS3-Gx-Pzd" firstAttribute="top" secondItem="wXg-pS-1tx" secondAttribute="top" constant="29" id="76j-gz-3Mz"/>
-                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="bottom" secondItem="XS3-Gx-Pzd" secondAttribute="bottom" id="7GJ-Un-FC1"/>
                             <constraint firstItem="iaK-U5-dPE" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" id="7cS-kd-Mc2"/>
-                            <constraint firstItem="q7B-hM-HP9" firstAttribute="leading" secondItem="hDA-a7-DJC" secondAttribute="leading" id="7yP-mD-qMF"/>
-                            <constraint firstItem="yDg-nN-eu0" firstAttribute="top" secondItem="XS3-Gx-Pzd" secondAttribute="top" id="9ho-ts-4uf"/>
                             <constraint firstAttribute="trailing" secondItem="SP0-XP-faR" secondAttribute="trailing" id="AO5-Op-5sA"/>
-                            <constraint firstItem="hDA-a7-DJC" firstAttribute="trailing" secondItem="8DQ-3f-tMs" secondAttribute="trailing" id="Bve-5W-CCk"/>
-                            <constraint firstItem="6B3-3l-gav" firstAttribute="leading" secondItem="mYN-Xq-CvK" secondAttribute="leading" id="IRO-Os-TqM"/>
                             <constraint firstItem="Dc8-tP-6Wd" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="IYi-uK-VpZ"/>
                             <constraint firstItem="CxX-5p-tM6" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="Inf-5A-z4l"/>
                             <constraint firstItem="iaK-U5-dPE" firstAttribute="top" secondItem="XS3-Gx-Pzd" secondAttribute="bottom" constant="30" id="K38-cK-jaO"/>
-                            <constraint firstItem="8DQ-3f-tMs" firstAttribute="leading" secondItem="yDg-nN-eu0" secondAttribute="trailing" constant="15" id="L3M-dU-AQU"/>
                             <constraint firstItem="SP0-XP-faR" firstAttribute="leading" secondItem="H1m-WF-Kr1" secondAttribute="leading" id="LGj-vY-b34"/>
+                            <constraint firstItem="lEa-Gl-Lsy" firstAttribute="width" secondItem="yDg-nN-eu0" secondAttribute="width" id="NEx-Bf-eYf"/>
+                            <constraint firstItem="zgZ-sH-uVm" firstAttribute="leading" secondItem="lEa-Gl-Lsy" secondAttribute="leading" id="NNr-FK-ncL"/>
+                            <constraint firstItem="yDg-nN-eu0" firstAttribute="top" secondItem="wXg-pS-1tx" secondAttribute="top" constant="26" id="NU4-qf-kuQ"/>
                             <constraint firstItem="SP0-XP-faR" firstAttribute="top" secondItem="CxX-5p-tM6" secondAttribute="bottom" constant="20" id="P84-v0-Tqc"/>
+                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="width" secondItem="6B3-3l-gav" secondAttribute="width" id="PtY-bP-VMz"/>
                             <constraint firstItem="gMG-YY-5Wu" firstAttribute="top" secondItem="qya-02-7bA" secondAttribute="bottom" constant="19" id="RcF-tY-UKn"/>
-                            <constraint firstItem="lEa-Gl-Lsy" firstAttribute="leading" secondItem="6B3-3l-gav" secondAttribute="leading" id="ViM-eS-gQt"/>
-                            <constraint firstItem="Lbo-S0-tVV" firstAttribute="leading" secondItem="8DQ-3f-tMs" secondAttribute="leading" id="YE3-5m-zyK"/>
-                            <constraint firstItem="lEa-Gl-Lsy" firstAttribute="top" secondItem="yDg-nN-eu0" secondAttribute="bottom" constant="7" id="Z5q-2J-7Qe"/>
                             <constraint firstItem="XS3-Gx-Pzd" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="blF-mR-aoA"/>
-                            <constraint firstItem="Lbo-S0-tVV" firstAttribute="centerY" secondItem="lEa-Gl-Lsy" secondAttribute="centerY" id="d8U-iG-CRM"/>
-                            <constraint firstItem="yDg-nN-eu0" firstAttribute="leading" secondItem="XS3-Gx-Pzd" secondAttribute="trailing" constant="25" id="dsB-9j-oyl"/>
-                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="top" secondItem="6B3-3l-gav" secondAttribute="bottom" constant="7" id="eLR-4U-muL"/>
+                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="top" secondItem="6B3-3l-gav" secondAttribute="bottom" constant="3" id="dBH-zw-zZ8"/>
+                            <constraint firstItem="6B3-3l-gav" firstAttribute="width" secondItem="zgZ-sH-uVm" secondAttribute="width" id="don-UV-RQK"/>
                             <constraint firstItem="gMG-YY-5Wu" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="en1-Xz-fmZ"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="iaK-U5-dPE" secondAttribute="trailing" id="gg1-9B-v71"/>
-                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="leading" secondItem="XS3-Gx-Pzd" secondAttribute="trailing" constant="25" id="jMz-S5-OIG"/>
+                            <constraint firstItem="mYN-Xq-CvK" firstAttribute="leading" secondItem="6B3-3l-gav" secondAttribute="leading" id="h4T-xj-0fM"/>
+                            <constraint firstItem="zgZ-sH-uVm" firstAttribute="top" secondItem="lEa-Gl-Lsy" secondAttribute="bottom" constant="3" id="ihJ-7d-Fsg"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="bottom" secondItem="gMG-YY-5Wu" secondAttribute="bottom" id="krN-TI-USl"/>
-                            <constraint firstItem="8DQ-3f-tMs" firstAttribute="centerY" secondItem="yDg-nN-eu0" secondAttribute="centerY" id="mbZ-CU-1Be"/>
+                            <constraint firstItem="yDg-nN-eu0" firstAttribute="leading" secondItem="XS3-Gx-Pzd" secondAttribute="trailing" constant="25" id="nw5-hc-0pG"/>
                             <constraint firstItem="qya-02-7bA" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="sbF-OV-9CX"/>
+                            <constraint firstItem="6B3-3l-gav" firstAttribute="top" secondItem="zgZ-sH-uVm" secondAttribute="bottom" constant="3" id="sge-im-8vt"/>
                             <constraint firstItem="qya-02-7bA" firstAttribute="top" secondItem="SP0-XP-faR" secondAttribute="bottom" constant="21" id="vVt-qv-LSK"/>
-                            <constraint firstItem="q7B-hM-HP9" firstAttribute="centerY" secondItem="mYN-Xq-CvK" secondAttribute="centerY" id="vvl-HB-T21"/>
                             <constraint firstItem="CxX-5p-tM6" firstAttribute="top" secondItem="Dc8-tP-6Wd" secondAttribute="bottom" constant="16" id="wHh-Nh-wR7"/>
+                            <constraint firstItem="6B3-3l-gav" firstAttribute="leading" secondItem="zgZ-sH-uVm" secondAttribute="leading" id="zpY-0g-MbG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wXg-pS-1tx"/>
                     </view>
@@ -181,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZt-5V-Wfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="161.46926536731635"/>
+            <point key="canvasLocation" x="117.59999999999999" y="161.08374384236453"/>
         </scene>
         <!--Your Group Controller-->
         <scene sceneID="fLJ-7W-3RG">

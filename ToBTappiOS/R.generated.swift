@@ -22,10 +22,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
     /// Resource file `Century Gothic.ttf`.
     static let centuryGothicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Century Gothic", pathExtension: "ttf")
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
     /// Resource file `Root_logo.png`.
     static let root_logoPng = Rswift.FileResource(bundle: R.hostingBundle, name: "Root_logo", pathExtension: "png")
     /// Resource file `api_tapplock_com.cer`.
@@ -34,6 +36,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Century Gothic", withExtension: "ttf")`
     static func centuryGothicTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.centuryGothicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
       return fileResource.bundle.url(forResource: fileResource)
     }
     
