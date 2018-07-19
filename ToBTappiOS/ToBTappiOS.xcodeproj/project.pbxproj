@@ -15,6 +15,8 @@
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
+		5532F88320FF398200D4E9C5 /* TapplockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532F88220FF398200D4E9C5 /* TapplockViewModel.swift */; };
+		5532F88720FF4ACC00D4E9C5 /* TappLockListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532F88620FF4ACC00D4E9C5 /* TappLockListCell.swift */; };
 		553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A320AAAD8E00CFFEB8 /* Main.storyboard */; };
 		553E72A720AAAD8F00CFFEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */; };
 		553E72AA20AAAD8F00CFFEB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A820AAAD8F00CFFEB8 /* LaunchScreen.storyboard */; };
@@ -37,6 +39,13 @@
 		553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */; };
 		5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */; };
 		55437EA520ECC4CA00C25143 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55437EA420ECC4CA00C25143 /* MenuModel.swift */; };
+		5564117C210061AD00F039AF /* UserGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117B210061AD00F039AF /* UserGroupController.swift */; };
+		5564117E210061F100F039AF /* UserGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117D210061F100F039AF /* UserGroupCell.swift */; };
+		5564118021006C2000F039AF /* AllGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117F21006C2000F039AF /* AllGroupController.swift */; };
+		5564118221006C3D00F039AF /* AllGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564118121006C3D00F039AF /* AllGroupCell.swift */; };
+		55641184210070B500F039AF /* AllLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55641183210070B500F039AF /* AllLockViewModel.swift */; };
+		556411862100728500F039AF /* AllLocksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556411852100728500F039AF /* AllLocksCell.swift */; };
+		556411AA21008D4C00F039AF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556411A921008D4C00F039AF /* SearchBar.swift */; };
 		556B11A220AD774D00BF5F18 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B11A120AD774D00BF5F18 /* FileHelper.swift */; };
 		55730F3420F5E3C8007F5230 /* HeaderRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3020F5E3C8007F5230 /* HeaderRefresh.m */; };
 		55730F3520F5E3C8007F5230 /* FooterRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 55730F3120F5E3C8007F5230 /* FooterRefresh.m */; };
@@ -80,8 +89,6 @@
 		55AEEE7620EF428500D219BD /* FingerprintHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE7520EF428500D219BD /* FingerprintHistoryModel.swift */; };
 		55AEEE7820EF438D00D219BD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE7720EF438D00D219BD /* ListModel.swift */; };
 		55AEEE7A20EF5A2200D219BD /* FingerPrintListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE7920EF5A2200D219BD /* FingerPrintListCollectionCell.swift */; };
-		55D0549B20D8CA0F003C92B5 /* HomeLockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0549A20D8CA0F003C92B5 /* HomeLockCell.swift */; };
-		55D0549D20D8CE4B003C92B5 /* WorkGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0549C20D8CE4B003C92B5 /* WorkGroupController.swift */; };
 		55D054A020D8D2C0003C92B5 /* LockDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0549F20D8D2C0003C92B5 /* LockDetailController.swift */; };
 		55D054A220D8D2D2003C92B5 /* LockDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D054A120D8D2D2003C92B5 /* LockDetail.storyboard */; };
 		55D054A420D8E7FC003C92B5 /* HistoryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A320D8E7FC003C92B5 /* HistoryTableHeaderView.swift */; };
@@ -138,6 +145,8 @@
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		5532F88220FF398200D4E9C5 /* TapplockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplockViewModel.swift; sourceTree = "<group>"; };
+		5532F88620FF4ACC00D4E9C5 /* TappLockListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappLockListCell.swift; sourceTree = "<group>"; };
 		553E729C20AAAD8E00CFFEB8 /* ToBTappiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBTappiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553E72A420AAAD8E00CFFEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		553E72A620AAAD8F00CFFEB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +175,13 @@
 		553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCollectionCell.swift; sourceTree = "<group>"; };
 		5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexSelectController.swift; sourceTree = "<group>"; };
 		55437EA420ECC4CA00C25143 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		5564117B210061AD00F039AF /* UserGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupController.swift; sourceTree = "<group>"; };
+		5564117D210061F100F039AF /* UserGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupCell.swift; sourceTree = "<group>"; };
+		5564117F21006C2000F039AF /* AllGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupController.swift; sourceTree = "<group>"; };
+		5564118121006C3D00F039AF /* AllGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupCell.swift; sourceTree = "<group>"; };
+		55641183210070B500F039AF /* AllLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLockViewModel.swift; sourceTree = "<group>"; };
+		556411852100728500F039AF /* AllLocksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocksCell.swift; sourceTree = "<group>"; };
+		556411A921008D4C00F039AF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		556B11A120AD774D00BF5F18 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		55730F3020F5E3C8007F5230 /* HeaderRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderRefresh.m; sourceTree = "<group>"; };
 		55730F3120F5E3C8007F5230 /* FooterRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterRefresh.m; sourceTree = "<group>"; };
@@ -212,8 +228,6 @@
 		55AEEE7520EF428500D219BD /* FingerprintHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerprintHistoryModel.swift; sourceTree = "<group>"; };
 		55AEEE7720EF438D00D219BD /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		55AEEE7920EF5A2200D219BD /* FingerPrintListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPrintListCollectionCell.swift; sourceTree = "<group>"; };
-		55D0549A20D8CA0F003C92B5 /* HomeLockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLockCell.swift; sourceTree = "<group>"; };
-		55D0549C20D8CE4B003C92B5 /* WorkGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkGroupController.swift; sourceTree = "<group>"; };
 		55D0549F20D8D2C0003C92B5 /* LockDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailController.swift; sourceTree = "<group>"; };
 		55D054A120D8D2D2003C92B5 /* LockDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LockDetail.storyboard; sourceTree = "<group>"; };
 		55D054A320D8E7FC003C92B5 /* HistoryTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableHeaderView.swift; sourceTree = "<group>"; };
@@ -369,6 +383,7 @@
 			children = (
 				557C3F2E20EB1BD400A24D54 /* APIServer */,
 				553E72F920AAB8B100CFFEB8 /* Extension */,
+				556411A921008D4C00F039AF /* SearchBar.swift */,
 			);
 			path = ControlTool;
 			sourceTree = "<group>";
@@ -518,8 +533,10 @@
 			isa = PBXGroup;
 			children = (
 				7D05124B20D2650F0075C681 /* MyTapplockController.swift */,
-				55D0549C20D8CE4B003C92B5 /* WorkGroupController.swift */,
-				55D0549A20D8CA0F003C92B5 /* HomeLockCell.swift */,
+				5532F88620FF4ACC00D4E9C5 /* TappLockListCell.swift */,
+				5532F88220FF398200D4E9C5 /* TapplockViewModel.swift */,
+				5564117B210061AD00F039AF /* UserGroupController.swift */,
+				5564117D210061F100F039AF /* UserGroupCell.swift */,
 				7D05124D20D2651A0075C681 /* MyTapplock.storyboard */,
 			);
 			path = Tapplock;
@@ -544,6 +561,10 @@
 			children = (
 				7D05125320D265830075C681 /* ViewAlllock.storyboard */,
 				7D05125520D265950075C681 /* AllLocksViewController.swift */,
+				55641183210070B500F039AF /* AllLockViewModel.swift */,
+				556411852100728500F039AF /* AllLocksCell.swift */,
+				5564117F21006C2000F039AF /* AllGroupController.swift */,
+				5564118121006C3D00F039AF /* AllGroupCell.swift */,
 			);
 			path = ViewAlllocks;
 			sourceTree = "<group>";
@@ -840,10 +861,11 @@
 				55D054A820D8E876003C92B5 /* FingerLockDetailController.swift in Sources */,
 				553E730C20AAB8C100CFFEB8 /* UIIViewControllerExtension.swift in Sources */,
 				557E6FC520DA02C8003C7975 /* PermissionController.swift in Sources */,
+				5532F88320FF398200D4E9C5 /* TapplockViewModel.swift in Sources */,
 				557E6FC920DA2875003C7975 /* ProfileModel.swift in Sources */,
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
 				557C3F3620EB1E8A00A24D54 /* AppDelegate+Method.swift in Sources */,
-				55D0549D20D8CE4B003C92B5 /* WorkGroupController.swift in Sources */,
+				5532F88720FF4ACC00D4E9C5 /* TappLockListCell.swift in Sources */,
 				55AEEE7620EF428500D219BD /* FingerprintHistoryModel.swift in Sources */,
 				55AEEE7820EF438D00D219BD /* ListModel.swift in Sources */,
 				55AEEE5E20EF159300D219BD /* AboutUSViewController.swift in Sources */,
@@ -862,6 +884,7 @@
 				55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */,
 				7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */,
 				5507B81D20F87DDF00C499DB /* APICode.swift in Sources */,
+				55641184210070B500F039AF /* AllLockViewModel.swift in Sources */,
 				55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */,
 				553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */,
 				55730F3720F5F147007F5230 /* GroupsModel.swift in Sources */,
@@ -869,6 +892,7 @@
 				7DFE108320CD405000C94FA3 /* RootViewController.swift in Sources */,
 				7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */,
 				55730F3420F5E3C8007F5230 /* HeaderRefresh.m in Sources */,
+				5564117E210061F100F039AF /* UserGroupCell.swift in Sources */,
 				557C3F4120EB530400A24D54 /* MenuViewModel.swift in Sources */,
 				553E730A20AAB8C100CFFEB8 /* StringExtension.swift in Sources */,
 				55AEEE7220EF3E2200D219BD /* BluetoothHistoryViewModel.swift in Sources */,
@@ -884,16 +908,20 @@
 				5507B82520F89E9700C499DB /* DownloadFingerprintModel.swift in Sources */,
 				7DFE10D620CD480800C94FA3 /* UIFontExtension.swift in Sources */,
 				55AD996020F99D6D00826EDE /* BasicTokenModel.swift in Sources */,
+				5564118221006C3D00F039AF /* AllGroupCell.swift in Sources */,
 				55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */,
 				7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */,
 				7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */,
 				55730F3520F5E3C8007F5230 /* FooterRefresh.m in Sources */,
 				7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */,
+				556411862100728500F039AF /* AllLocksCell.swift in Sources */,
 				55AEEE7A20EF5A2200D219BD /* FingerPrintListCollectionCell.swift in Sources */,
 				553E730520AAB8C100CFFEB8 /* DateExtension.swift in Sources */,
+				5564117C210061AD00F039AF /* UserGroupController.swift in Sources */,
 				7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */,
 				557F272D20F4B09B0032A662 /* APIServer.swift in Sources */,
 				55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */,
+				5564118021006C2000F039AF /* AllGroupController.swift in Sources */,
 				55AEEE6E20EF3E2200D219BD /* FingerPrintListCell.swift in Sources */,
 				7D8D774220CE41A700C218D0 /* HomeViewController.swift in Sources */,
 				7DFE108520CD406A00C94FA3 /* BaseNaviController.swift in Sources */,
@@ -901,7 +929,6 @@
 				55AEEE6F20EF3E2200D219BD /* LockAFingPrintCell.swift in Sources */,
 				55A1126B20EA31460008A4CC /* BLEPeripheral.swift in Sources */,
 				7D05124C20D2650F0075C681 /* MyTapplockController.swift in Sources */,
-				55D0549B20D8CA0F003C92B5 /* HomeLockCell.swift in Sources */,
 				7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */,
 				7D05125020D2654B0075C681 /* ProfileViewController.swift in Sources */,
 				7D05125620D265950075C681 /* AllLocksViewController.swift in Sources */,
@@ -923,6 +950,7 @@
 				553E730620AAB8C100CFFEB8 /* DictionaryExtension.swift in Sources */,
 				7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */,
 				5507B82320F89ADE00C499DB /* FirmwareModel.swift in Sources */,
+				556411AA21008D4C00F039AF /* SearchBar.swift in Sources */,
 				7D8D773A20CE1DF200C218D0 /* R.generated.swift in Sources */,
 				55AEEE6C20EF3E2200D219BD /* FingerprintHistoryViewController.swift in Sources */,
 				7DFE10E420CD4A8E00C94FA3 /* ForgetPasswordViewModel.swift in Sources */,

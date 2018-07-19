@@ -9,7 +9,8 @@
 import Foundation
 import Moya_ObjectMapper
 import ObjectMapper
-
+import RxCocoa
+import RxSwift
 //用户模型,参考网络通信接口文档
 class UserModel: Mappable {
     
@@ -19,7 +20,13 @@ class UserModel: Mappable {
     var entryFingerprint: Int?
     var firstName: String?
     var lastName: String?
-    var groups: [GroupsModel]?
+    var groups: [GroupsModel]? {
+        didSet {
+            if groups != nil {
+                rx_groups.value = groups!
+            }
+        }
+    }
     var id: Int?
     var lastLoginTime: String?
     var mail: String?
@@ -30,6 +37,9 @@ class UserModel: Mappable {
     var photoUrl: String?
     var refreshToken: String?
     var sex: Int?
+    
+    var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())
+    
     
     // MARK: JSON
     required init?(map: Map) {

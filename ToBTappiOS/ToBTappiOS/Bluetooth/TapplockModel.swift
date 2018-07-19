@@ -14,7 +14,6 @@ import CFAlertViewController
 //Tapplock模型类
 class TapplockModel: NSObject, Mappable {
 
-    
     var corpName: String?         // 公司名
     var groupName: String?        //组名字
     var firmwareVersion: String?  //固件版本
@@ -31,7 +30,7 @@ class TapplockModel: NSObject, Mappable {
     var key1: String?
     var serialNo: String?
     
-    
+
 
     //连接状态
     public var rx_status: Variable<CBPeripheralState?> = Variable(.disconnected)

@@ -28,7 +28,6 @@ class HomeViewController: BaseViewController {
         }).disposed(by: rx.disposeBag)
         
         MenuView.instance.rx_SelectIndex.asObservable().subscribe(onNext: { [weak self] index in
-            plog(index)
             if index == 0 {
                 self?.performSegue(withIdentifier: R.segue.homeViewController.pushProfile, sender: self)
             } else if index == 1 {

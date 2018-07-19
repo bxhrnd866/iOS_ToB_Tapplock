@@ -7,13 +7,37 @@
 //
 
 import UIKit
-
+import RxCocoa
+import Rswift
 class ViewHistoryController: BaseViewController {
 
+    @IBOutlet weak var bleBtn: UIButton!
+    @IBOutlet weak var fingerBtn: UIButton!
+    
+    @IBOutlet weak var underLine: UIView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        bleBtn.rx.tap.subscribe(onNext: { [weak self] in
+            self?.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            self?.bleBtn.setTitleColor(UIColor.black, for: .normal)
+            self?.fingerBtn.setTitleColor(UIColor("#cecece"), for: .normal)
+            
+            self?.underLine.transform = CGAffineTransform.identity
+            
+            
+        }).disposed(by: rx.disposeBag)
+        
+        fingerBtn.rx.tap.subscribe(onNext: { [weak self] in
+            self?.scrollView.setContentOffset(CGPoint(x: mScreenW, y: 0), animated: true)
+            self?.fingerBtn.setTitleColor(UIColor.black, for: .normal)
+            self?.bleBtn.setTitleColor(UIColor("#cecece"), for: .normal)
+            self?.underLine.transform = CGAffineTransform.init(translationX: mScreenW / 2, y: 0)
+            
+        }).disposed(by: rx.disposeBag)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +45,9 @@ class ViewHistoryController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -32,4 +58,19 @@ class ViewHistoryController: BaseViewController {
     }
     */
 
+}
+
+extension ViewHistoryController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let x = scrollView.contentOffset.x
+        
+        let distance =   mScreenW * 3 / 4
+        
+        
+        
+        
+        
+    }
 }

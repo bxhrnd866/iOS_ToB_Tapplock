@@ -376,8 +376,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AllGroupCellIdenty`.
+    static let allGroupCellIdenty: Rswift.ReuseIdentifier<AllGroupCell> = Rswift.ReuseIdentifier(identifier: "AllGroupCellIdenty")
     /// Reuse identifier `BluetoothHistoryCell`.
     static let bluetoothHistoryCell: Rswift.ReuseIdentifier<BluetoothHistoryCell> = Rswift.ReuseIdentifier(identifier: "BluetoothHistoryCell")
     /// Reuse identifier `FingerprintHistoryCell`.
@@ -386,14 +388,14 @@ struct R: Rswift.Validatable {
     static let fingerprintListCollectCell: Rswift.ReuseIdentifier<FingerPrintListCollectionCell> = Rswift.ReuseIdentifier(identifier: "FingerprintListCollectCell")
     /// Reuse identifier `GroupCollectCell`.
     static let groupCollectCell: Rswift.ReuseIdentifier<GroupCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "GroupCollectCell")
-    /// Reuse identifier `GroupTableCell`.
-    static let groupTableCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "GroupTableCell")
-    /// Reuse identifier `HomelockCell`.
-    static let homelockCell: Rswift.ReuseIdentifier<HomeLockCell> = Rswift.ReuseIdentifier(identifier: "HomelockCell")
-    /// Reuse identifier `LockAFingerPrint`.
-    static let lockAFingerPrint: Rswift.ReuseIdentifier<LockAFingPrintCell> = Rswift.ReuseIdentifier(identifier: "LockAFingerPrint")
     /// Reuse identifier `PermissionCell`.
     static let permissionCell: Rswift.ReuseIdentifier<PermissionCollectionCell> = Rswift.ReuseIdentifier(identifier: "PermissionCell")
+    /// Reuse identifier `TapplockListCellIdenty`.
+    static let tapplockListCellIdenty: Rswift.ReuseIdentifier<TappLockListCell> = Rswift.ReuseIdentifier(identifier: "TapplockListCellIdenty")
+    /// Reuse identifier `allLocksListCellIdenty`.
+    static let allLocksListCellIdenty: Rswift.ReuseIdentifier<AllLocksCell> = Rswift.ReuseIdentifier(identifier: "allLocksListCellIdenty")
+    /// Reuse identifier `userGroupCellIdenty`.
+    static let userGroupCellIdenty: Rswift.ReuseIdentifier<UserGroupCell> = Rswift.ReuseIdentifier(identifier: "userGroupCellIdenty")
     
     fileprivate init() {}
   }
@@ -402,14 +404,14 @@ struct R: Rswift.Validatable {
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
-      /// Segue identifier `viewTapplockGroup`.
-      static let viewTapplockGroup: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AllLocksViewController, WorkGroupController> = Rswift.StoryboardSegueIdentifier(identifier: "viewTapplockGroup")
+      /// Segue identifier `showAllGroupSegue`.
+      static let showAllGroupSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AllLocksViewController, AllGroupController> = Rswift.StoryboardSegueIdentifier(identifier: "showAllGroupSegue")
       
-      /// Optionally returns a typed version of segue `viewTapplockGroup`.
+      /// Optionally returns a typed version of segue `showAllGroupSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func viewTapplockGroup(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AllLocksViewController, WorkGroupController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.allLocksViewController.viewTapplockGroup, segue: segue)
+      static func showAllGroupSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AllLocksViewController, AllGroupController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.allLocksViewController.showAllGroupSegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -552,19 +554,12 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `MyTapplockController`, and contains static references to 3 segues.
     struct myTapplockController {
-      /// Segue identifier `myTapplockGroup`.
-      static let myTapplockGroup: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MyTapplockController, WorkGroupController> = Rswift.StoryboardSegueIdentifier(identifier: "myTapplockGroup")
       /// Segue identifier `showBLELockDetail`.
       static let showBLELockDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MyTapplockController, LockDetailController> = Rswift.StoryboardSegueIdentifier(identifier: "showBLELockDetail")
       /// Segue identifier `showFingerLockDetail`.
       static let showFingerLockDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MyTapplockController, FingerLockDetailController> = Rswift.StoryboardSegueIdentifier(identifier: "showFingerLockDetail")
-      
-      /// Optionally returns a typed version of segue `myTapplockGroup`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func myTapplockGroup(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MyTapplockController, WorkGroupController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.myTapplockController.myTapplockGroup, segue: segue)
-      }
+      /// Segue identifier `showUserGroupSegue`.
+      static let showUserGroupSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MyTapplockController, UserGroupController> = Rswift.StoryboardSegueIdentifier(identifier: "showUserGroupSegue")
       
       /// Optionally returns a typed version of segue `showBLELockDetail`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -578,6 +573,13 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func showFingerLockDetail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MyTapplockController, FingerLockDetailController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.myTapplockController.showFingerLockDetail, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `showUserGroupSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showUserGroupSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MyTapplockController, UserGroupController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.myTapplockController.showUserGroupSegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -2434,10 +2436,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Home_search") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_search' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_lock1_n") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_lock1_n' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_lock1_s") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_lock1_s' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -2514,11 +2516,13 @@ struct _R: Rswift.Validatable {
       let name = "ViewHistory"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "History_closethelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_closethelock' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "History_calender") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_calender' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "History_openedthelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_openedthelock' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_search") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_search' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Historylocation") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Historylocation' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Placeholder_Lock_1") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Placeholder_Lock_1' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "placeholder_lock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_lock' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "UserPlace") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UserPlace' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

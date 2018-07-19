@@ -1,22 +1,20 @@
 //
-//  HomeLockCell.swift
+//  UserGroupCell.swift
 //  ToBTappiOS
 //
-//  Created by TapplockiOS on 2018/6/19.
+//  Created by TapplockiOS on 2018/7/19.
 //  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
 import UIKit
 
-class HomeLockCell: UITableViewCell {
+class UserGroupCell: UITableViewCell {
 
-    @IBOutlet weak var lockImg: UIImageView!
     
-    @IBOutlet weak var dotView: UIView!
+    @IBOutlet weak var groupLab: UILabel!
     
-    @IBOutlet weak var lockname: UILabel!
+    var model: GroupsModel?
     
-    @IBOutlet weak var lockState: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -137,7 +137,7 @@ extension UIColor {
 
 extension UIColor {
     static var themeColor: UIColor {
-        return UIColor("#FF6600")
+        return UIColor("#ED6332")
     }
     static var overLayColor: UIColor {
         return UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
