@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import RxCocoa
+import RxSwift
 class TappLockListCell: UITableViewCell {
 
     @IBOutlet weak var headerImg: UIImageView!
@@ -23,6 +24,29 @@ class TappLockListCell: UITableViewCell {
     var model: TapplockModel? {
         didSet {
             
+            model?.rx_status.asDriver().drive(onNext: { [weak self] state in
+                let bglayer = self?.bgView.layer.sublayers?.first!
+                self?.statusLab.text = state?.textValue
+                if state == .connected {
+                    
+                    bglayer?.isHidden = false
+                    self?.lockName.textColor = UIColor.white
+                    self?.statusLab.textColor = UIColor.white
+                    self?.dot.backgroundColor = UIColor("#3effbf")
+                    self?.headerImg.image = R.image.home_lock2_s()
+                    
+                } else {
+                    
+                    bglayer?.isHidden = true
+                    self?.lockName.textColor = UIColor("#43485F")
+                    self?.statusLab.textColor = UIColor("#43485F")
+                    self?.dot.backgroundColor = UIColor("#d1d0d6")
+                    self?.headerImg.image = R.image.home_lock2_n()
+                }
+                
+            }).disposed(by: rx.disposeBag)
+            
+            self.lockName.text = model?.lockName
             
         }
     }

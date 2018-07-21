@@ -144,9 +144,15 @@
                         <rightBarButtonItems>
                             <barButtonItem image="History_calender" id="FxZ-so-Czg">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="searchCalendar:" destination="5EH-ox-E6x" id="pDb-nQ-c2J"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="Home_search" id="lh8-WA-e68">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="5EH-ox-E6x" id="Q1Z-Ya-hJe"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>

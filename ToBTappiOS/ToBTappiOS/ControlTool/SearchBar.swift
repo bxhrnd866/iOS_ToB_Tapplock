@@ -7,52 +7,92 @@
 //
 
 import UIKit
-
-class SearchBar: UIView {
+import RxCocoa
+import RxSwift
+class SearchBar: UIView, UITextFieldDelegate {
     
     private var field: SerchTextField!
     private var cancelBtn: UIButton!
+    var rx_text: Variable<String?> = Variable(nil)
+    var rx_action: Variable<Bool> = Variable(false)
+    
+    
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
        
-        field = SerchTextField(frame: CGRect(x: 25, y: 9, width: self.width - 25 - 50 - 20, height: 26))
+        field = SerchTextField(frame: CGRect(x: mScreenW - 70, y: 9, width: 0, height: 26))
         field.layer.cornerRadius = 13
         field.layer.masksToBounds = true
+        field.returnKeyType = .search
+        field.delegate = self
+        field.rx.text.bind(to: rx_text).disposed(by: rx.disposeBag)
+        
+        
         self.addSubview(field)
         
         cancelBtn = UIButton(frame: CGRect(x: field.rightX, y: 0, width: 50, height: self.height))
         cancelBtn.setTitle("取消", for: .normal)
-        cancelBtn.setTitleColor(UIColor.red, for: .normal)
+        cancelBtn.setTitleColor(UIColor.white, for: .normal)
         cancelBtn.titleLabel?.font = UIFont(name: font_name, size: 15)
-        self.addSubview(cancelBtn)
         
+        cancelBtn.rx.tap.subscribe(onNext: { [weak self]  in
+            self?.cancelHidde()
+        
+        }).disposed(by: rx.disposeBag)
+        
+    
+        self.addSubview(cancelBtn)
+    
         self.backgroundColor = UIColor.themeColor
         
         cancelHidde()
     }
     
     func serchShow() {
+        self.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
-            self.field.transform = CGAffineTransform.identity
+            self.field.frame = CGRect(x: 20, y: 9, width: mScreenW - 20 - 50 - 20, height: 26)
         }) { bl in
-            UIView.animate(withDuration: 0.2, animations: {
-                self.cancelBtn.transform = CGAffineTransform.identity
-            })
+            
         }
+        UIView.animate(withDuration: 0.7, animations: {
+            self.cancelBtn.transform = CGAffineTransform.identity
+        })
     }
     
     func cancelHidde() {
-        field.transform = CGAffineTransform.init(scaleX: 0.01, y: 1)
-        cancelBtn.transform = CGAffineTransform.init(scaleX: 0.01, y: 1)
+        rx_action.value = false
+        field.frame =  CGRect(x: mScreenW - 70, y: 9, width: 0, height: 26)
+        cancelBtn.transform = CGAffineTransform.init(translationX: mScreenW, y: 0)
+        self.isHidden = true
+        field.resignFirstResponder()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if canSearch() {
+            rx_action.value = true
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func canSearch() -> Bool {
+        if self.field.text == nil {
+            return false
+        }
+        if (field.text?.containsEmoji)! {
+            return false
+        }
+        return true
+    }
 }
 
 

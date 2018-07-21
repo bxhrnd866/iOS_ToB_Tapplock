@@ -125,6 +125,11 @@ class TapplockModel: NSObject, Mappable {
         morseStatus <- map["morseStatus"]
     }
     
+    func updateModel(key: String, seriaNo: String) {
+        self.key1 = key
+        self.serialNo = seriaNo
+    }
+    
 }
 
 

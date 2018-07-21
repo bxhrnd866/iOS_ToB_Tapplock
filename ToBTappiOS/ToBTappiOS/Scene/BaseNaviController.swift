@@ -10,10 +10,16 @@ import UIKit
 
 class BaseNaviController: UINavigationController {
 
+    var serch: SearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        serch = SearchBar(frame: CGRect(x: 0, y: 0, width: mScreenW, height: 44))
+        self.navigationBar.addSubview(serch)
+        
     }
 
     override func didReceiveMemoryWarning() {

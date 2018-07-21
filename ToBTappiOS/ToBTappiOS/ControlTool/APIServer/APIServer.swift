@@ -191,7 +191,7 @@ extension APIServer: TargetType{
                 urlParameters = urlParameters + ["authType": authType!]
             }
             
-            urlParameters = urlParameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id)!, "corpId": (ConfigModel.default.user.value?.corpId)!]
+            urlParameters = urlParameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id) ?? "0000", "corpId": (ConfigModel.default.user.value?.corpId) ?? 11]
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             

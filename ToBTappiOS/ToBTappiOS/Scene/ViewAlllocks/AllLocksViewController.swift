@@ -34,6 +34,21 @@ class AllLocksViewController: BaseViewController {
         }
     }
     
+    
+    @IBAction func searchAction(_ sender: Any) {
+        let nav = self.navigationController as! BaseNaviController
+        nav.serch.serchShow()
+//        nav.serch.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
+        nav.serch.rx_action.asObservable()
+            .subscribe(onNext: { [weak self] bl in
+                if bl == false {
+//                    self?.viewModel.rx_lockName.value = nil
+                } else {
+//                    self?.viewModel.loadAPI()
+                }
+            }).disposed(by: rx.disposeBag)
+    }
+    
     deinit {
         plog("AllLocks 销毁了")
     }

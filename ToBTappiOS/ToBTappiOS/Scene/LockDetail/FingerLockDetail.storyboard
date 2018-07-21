@@ -263,6 +263,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="LAk-NO-q8a" kind="show" identifier="fingerHistorySegue" id="646-VM-HmS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,7 +299,6 @@
                     <connections>
                         <outlet property="bgview" destination="4d4-eP-WSv" id="YaG-Fi-VrU"/>
                         <outlet property="collectView" destination="HZH-VA-et0" id="Q8T-Mi-zpi"/>
-                        <segue destination="LAk-NO-q8a" kind="show" identifier="lockFingerhistory" id="iqg-j4-EHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvi-gt-Hyv" userLabel="First Responder" sceneMemberID="firstResponder"/>

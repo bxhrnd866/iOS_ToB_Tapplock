@@ -172,28 +172,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBK-ZQ-hXy">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-uk-U9X">
-                                        <rect key="frame" x="20" y="0.0" width="50" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="LpP-NF-JbR"/>
-                                        </constraints>
-                                        <state key="normal" image="Home_Hierarchical"/>
-                                        <connections>
-                                            <action selector="showMenu:" destination="vzC-hX-cdc" eventType="touchUpInside" id="IlO-PI-nui"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.92941176469999998" green="0.38823529410000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Mzo-uk-U9X" firstAttribute="top" secondItem="sBK-ZQ-hXy" secondAttribute="top" id="5co-cl-HS3"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mzo-uk-U9X" secondAttribute="bottom" id="8Bo-HP-6az"/>
-                                    <constraint firstItem="Mzo-uk-U9X" firstAttribute="leading" secondItem="sBK-ZQ-hXy" secondAttribute="leading" constant="20" id="ZMe-l0-LQP"/>
-                                    <constraint firstAttribute="height" constant="44" id="dHw-6k-ULd"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-db-ghj">
                                 <rect key="frame" x="0.0" y="133" width="375" height="50"/>
                                 <subviews>
@@ -227,7 +205,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.38823529410000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vbw-Go-Pak" firstAttribute="top" secondItem="whx-JT-9Lv" secondAttribute="bottom" id="1O7-fW-woF"/>
                             <constraint firstItem="whx-JT-9Lv" firstAttribute="leading" secondItem="8J7-0B-NVb" secondAttribute="leading" id="1hb-yE-w7V"/>
@@ -236,15 +214,12 @@
                             <constraint firstItem="iTQ-M0-8OC" firstAttribute="top" secondItem="Vbw-Go-Pak" secondAttribute="bottom" constant="50" id="8MV-oS-yng"/>
                             <constraint firstItem="iTQ-M0-8OC" firstAttribute="top" secondItem="5Hr-db-ghj" secondAttribute="bottom" id="IwS-Nv-2Si"/>
                             <constraint firstItem="nU5-Yp-fsc" firstAttribute="trailing" secondItem="5Hr-db-ghj" secondAttribute="trailing" id="JhG-rw-850"/>
-                            <constraint firstItem="sBK-ZQ-hXy" firstAttribute="top" secondItem="nU5-Yp-fsc" secondAttribute="top" id="OGz-7j-66h"/>
-                            <constraint firstItem="nU5-Yp-fsc" firstAttribute="trailing" secondItem="sBK-ZQ-hXy" secondAttribute="trailing" id="QNx-FR-FBR"/>
                             <constraint firstItem="Vbw-Go-Pak" firstAttribute="leading" secondItem="nU5-Yp-fsc" secondAttribute="leading" id="bDL-rF-fDo"/>
                             <constraint firstItem="tRs-iE-ybb" firstAttribute="top" secondItem="iTQ-M0-8OC" secondAttribute="bottom" id="bz0-xc-CXK"/>
                             <constraint firstItem="iTQ-M0-8OC" firstAttribute="leading" secondItem="8J7-0B-NVb" secondAttribute="leading" id="dQY-mm-Iic"/>
                             <constraint firstItem="nU5-Yp-fsc" firstAttribute="trailing" secondItem="tRs-iE-ybb" secondAttribute="trailing" id="jPZ-hz-wAh"/>
-                            <constraint firstItem="whx-JT-9Lv" firstAttribute="top" secondItem="sBK-ZQ-hXy" secondAttribute="bottom" id="nCf-dB-Qdu"/>
                             <constraint firstItem="tRs-iE-ybb" firstAttribute="leading" secondItem="nU5-Yp-fsc" secondAttribute="leading" id="pKE-r6-CHZ"/>
-                            <constraint firstItem="sBK-ZQ-hXy" firstAttribute="leading" secondItem="nU5-Yp-fsc" secondAttribute="leading" id="pYB-4d-8gx"/>
+                            <constraint firstItem="whx-JT-9Lv" firstAttribute="top" secondItem="nU5-Yp-fsc" secondAttribute="top" id="qfl-FE-YyF"/>
                             <constraint firstItem="5Hr-db-ghj" firstAttribute="leading" secondItem="nU5-Yp-fsc" secondAttribute="leading" id="rWF-6I-sb9"/>
                             <constraint firstAttribute="trailing" secondItem="iTQ-M0-8OC" secondAttribute="trailing" id="vou-Wj-pRI"/>
                             <constraint firstItem="5Hr-db-ghj" firstAttribute="top" secondItem="Vbw-Go-Pak" secondAttribute="bottom" id="vvY-ot-gP7"/>
@@ -255,16 +230,22 @@
                     <navigationItem key="navigationItem" title="My Tapplock" id="L7G-Vk-fKC">
                         <barButtonItem key="leftBarButtonItem" image="Home_Hierarchical" id="bWP-6V-ZR4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="vzC-hX-cdc" id="IbA-RU-GOG"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Home_search" id="21i-Ls-V6M">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="rightSearchAction:" destination="vzC-hX-cdc" id="60O-Vb-q2i"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bleBtn" destination="xN5-hs-BUX" id="uki-JP-I2O"/>
                         <outlet property="fingerBtn" destination="1e8-zE-Y3y" id="Eh9-W4-ygk"/>
-                        <outlet property="naviView" destination="sBK-ZQ-hXy" id="LDm-qG-UPw"/>
+                        <outlet property="groupLab" destination="34k-2T-K0G" id="SNj-c5-UM1"/>
                         <outlet property="tableView" destination="tRs-iE-ybb" id="QkD-cT-0ih"/>
                         <outlet property="underLine" destination="0og-Te-uf7" id="GzQ-S9-0Kl"/>
                         <segue destination="pCW-aX-6E5" kind="show" identifier="showBLELockDetail" id="QlA-9X-iAN"/>
@@ -292,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="56" estimatedRowHeight="20" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QK1-AQ-Lxu">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userGroupCellIdenty" rowHeight="56" id="3J0-oR-Bxs" customClass="UserGroupCell" customModule="ToBTappiOS" customModuleProvider="target">

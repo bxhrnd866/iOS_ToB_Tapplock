@@ -419,14 +419,14 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `FingerLockDetailController`, and contains static references to 1 segues.
     struct fingerLockDetailController {
-      /// Segue identifier `lockFingerhistory`.
-      static let lockFingerhistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, FingerLockDetailController, FingerHistoryController> = Rswift.StoryboardSegueIdentifier(identifier: "lockFingerhistory")
+      /// Segue identifier `fingerHistorySegue`.
+      static let fingerHistorySegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, FingerLockDetailController, FingerHistoryController> = Rswift.StoryboardSegueIdentifier(identifier: "fingerHistorySegue")
       
-      /// Optionally returns a typed version of segue `lockFingerhistory`.
+      /// Optionally returns a typed version of segue `fingerHistorySegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func lockFingerhistory(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, FingerLockDetailController, FingerHistoryController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.fingerLockDetailController.lockFingerhistory, segue: segue)
+      static func fingerHistorySegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, FingerLockDetailController, FingerHistoryController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.fingerLockDetailController.fingerHistorySegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -674,7 +674,7 @@ struct R: Rswift.Validatable {
       /// Segue identifier `ShowTutorialSegue`.
       static let showTutorialSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "ShowTutorialSegue")
       /// Segue identifier `showHomeSB`.
-      static let showHomeSB: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "showHomeSB")
+      static let showHomeSB: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, BaseNaviController> = Rswift.StoryboardSegueIdentifier(identifier: "showHomeSB")
       /// Segue identifier `showLoginSb`.
       static let showLoginSb: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "showLoginSb")
       
@@ -688,7 +688,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `showHomeSB`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showHomeSB(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController>? {
+      static func showHomeSB(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, BaseNaviController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.rootViewController.showHomeSB, segue: segue)
       }
       
@@ -2349,7 +2349,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = BaseNaviController
       
       let bundle = R.hostingBundle
       let name = "Home"

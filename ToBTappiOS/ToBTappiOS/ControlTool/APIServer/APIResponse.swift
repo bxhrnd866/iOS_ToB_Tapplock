@@ -17,6 +17,9 @@ struct APIResponse<T:Mappable>: Mappable {
     var code: Int?
     
     var codeMessage: String? {
+        if code == nil {
+            return "哈哈哈哈哈这是错误的"
+        }
         return APICode.init(code!)?.rawValue
     }
     var success: Bool! {

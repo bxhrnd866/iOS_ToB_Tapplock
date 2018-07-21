@@ -96,6 +96,7 @@
 		55D054A820D8E876003C92B5 /* FingerLockDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A720D8E876003C92B5 /* FingerLockDetailController.swift */; };
 		55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */; };
 		55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */; };
+		55DD15FB21030B5D0091CACA /* EnumTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD15FA21030B5D0091CACA /* EnumTools.swift */; };
 		55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */; };
 		7D05124820D263B90075C681 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D05124720D263B90075C681 /* Setting.storyboard */; };
 		7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124920D263F10075C681 /* SettingViewController.swift */; };
@@ -235,6 +236,7 @@
 		55D054A720D8E876003C92B5 /* FingerLockDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerLockDetailController.swift; sourceTree = "<group>"; };
 		55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueHistoryController.swift; sourceTree = "<group>"; };
 		55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerHistoryController.swift; sourceTree = "<group>"; };
+		55DD15FA21030B5D0091CACA /* EnumTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTools.swift; sourceTree = "<group>"; };
 		55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D05124720D263B90075C681 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7D05124920D263F10075C681 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				557C3F2E20EB1BD400A24D54 /* APIServer */,
 				553E72F920AAB8B100CFFEB8 /* Extension */,
 				556411A921008D4C00F039AF /* SearchBar.swift */,
+				55DD15FA21030B5D0091CACA /* EnumTools.swift */,
 			);
 			path = ControlTool;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				7D05124C20D2650F0075C681 /* MyTapplockController.swift in Sources */,
 				7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */,
 				7D05125020D2654B0075C681 /* ProfileViewController.swift in Sources */,
+				55DD15FB21030B5D0091CACA /* EnumTools.swift in Sources */,
 				7D05125620D265950075C681 /* AllLocksViewController.swift in Sources */,
 				55730F3B20F5FEF7007F5230 /* InviteCodeController.swift in Sources */,
 				55A1126D20EA31460008A4CC /* PeripheralEncrypt.swift in Sources */,

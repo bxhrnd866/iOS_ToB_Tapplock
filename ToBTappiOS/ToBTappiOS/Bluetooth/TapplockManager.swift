@@ -74,7 +74,7 @@ final class TapplockManager: NSObject {
     }
     
     // 从API获取的新锁添加
-    public func addTapplock(_ lock: TapplockModel) {
+    public func addAPITapplock(_ lock: TapplockModel) {
         for myLock in rx_myLocks.value {
             if myLock.mac?.macValue == lock.mac?.macValue {
 //                myLock.update(lock)

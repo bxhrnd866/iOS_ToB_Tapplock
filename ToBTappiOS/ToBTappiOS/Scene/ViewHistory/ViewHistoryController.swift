@@ -39,15 +39,36 @@ class ViewHistoryController: BaseViewController {
         }).disposed(by: rx.disposeBag)
         
     }
-
+    
+    
+    @IBAction func searchAction(_ sender: Any) {
+        let nav = self.navigationController as! BaseNaviController
+        nav.serch.serchShow()
+//        nav.serch.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
+        nav.serch.rx_action.asObservable()
+            .subscribe(onNext: { [weak self] bl in
+                if bl == false {
+//                    self?.viewModel.rx_lockName.value = nil
+                } else {
+//                    self?.viewModel.loadAPI()
+                }
+            }).disposed(by: rx.disposeBag)
+        
+    }
+    
+    @IBAction func searchCalendar(_ sender: Any) {
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
+    deinit {
+        plog("history 销毁了")
+    }
+
     /*
     // MARK: - Navigation
 
