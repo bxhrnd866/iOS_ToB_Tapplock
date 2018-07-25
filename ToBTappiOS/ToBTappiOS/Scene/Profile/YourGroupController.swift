@@ -7,10 +7,14 @@
 //
 
 import UIKit
-
+import RxCocoa
+import RxSwift
 class YourGroupController: UIViewController {
 
     let data = ["xfasxx","ggg","asdfax sfasdfas","xfaqhreheh","Soft xfaqhreheh","xfaqhreheh ware","Soft xfaqhreheh","Soft xfaqhreheh ware"]
+    
+   
+    
     
     @IBOutlet weak var collectView: UICollectionView!
     
@@ -35,28 +39,21 @@ class YourGroupController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension YourGroupController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return (ConfigModel.default.user.value?.rx_groups.value.count)!
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCollectCell", for: indexPath) as! GroupCollectionViewCell
         cell.tagLab.text = data[indexPath.row]
+        
+//        let model = ConfigModel.default.user.value?.rx_groups.value[indexPath.row]
+//        cell.tagLab.text = model?.groupName
         return cell
     }
     
@@ -65,6 +62,9 @@ extension YourGroupController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let text = data[indexPath.row]
+//        let model = ConfigModel.default.user.value?.rx_groups.value[indexPath.row]
+//        let text = model?.groupName ?? "xxxx"
+        
         let size = text.boundingRect(with: CGSize(width: mScreenW - 40, height: 40), options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)], context: nil).size
         
         return CGSize(width: size.width + 30, height: 40)

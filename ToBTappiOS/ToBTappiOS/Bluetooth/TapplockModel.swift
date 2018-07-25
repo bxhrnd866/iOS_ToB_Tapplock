@@ -14,6 +14,7 @@ import CFAlertViewController
 //Tapplock模型类
 class TapplockModel: NSObject, Mappable {
 
+    var battery: String?
     var corpName: String?         // 公司名
     var groupName: String?        //组名字
     var firmwareVersion: String?  //固件版本
@@ -22,6 +23,7 @@ class TapplockModel: NSObject, Mappable {
     var lastUpdateTime: Int?      //最后更新时间
     var latitude: String?         //纬度
     var longitude: String?        //经度
+    var location: String?        //地理位置
     var lockName: String?         //锁名称
     var lockStatus: Int?          //锁状态 0-no action 1-pending 2-complete
     var mac: String?
@@ -111,6 +113,7 @@ class TapplockModel: NSObject, Mappable {
     }
 
     func mapping(map: Map) {
+        battery <- map["battery"]
         corpName <- map["corpName"]
         groupName <- map["groupName"]
         firmwareVersion <- map["firmwareVersion"]
@@ -119,6 +122,7 @@ class TapplockModel: NSObject, Mappable {
         lastUpdateTime <- map["lastUpdateTime"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
+        location <- map["location"]
         lockName <- map["lockName"]
         lockStatus <- map["lockStatus"]
         mac <- map["mac"]

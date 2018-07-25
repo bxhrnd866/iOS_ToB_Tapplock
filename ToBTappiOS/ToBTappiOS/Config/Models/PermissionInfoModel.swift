@@ -18,7 +18,16 @@ class PermissionInfoModel: Mappable {
     var permissionCode: String?  //权限代码
     var permissionDesc: String?  //权限描述
     var permissionType: Int? // 权限类型0-admin 1-operational 2-user app
-  
+    
+    var permissionName: String? {
+        if permissionCode == nil {
+            return nil
+        }
+        let num = permissionCode!.toInt()
+        
+        return APICode.init(num ?? -100).rawValue
+    }
+    
     required init?(map: Map) {
         
     }

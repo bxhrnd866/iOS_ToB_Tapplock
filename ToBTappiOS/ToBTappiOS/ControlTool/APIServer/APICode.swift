@@ -9,29 +9,78 @@
 import Foundation
 
 enum APICode {
+    case nonononoonno
+    // 权限
+    case PermissionManageGroup
+    case PermissionManageAdmins
+    case PermissionFinace
+    case PermissionManageUser
+    case PermissionManageLock
+    case PermissionManageMorseCode
+    case PermissionManageAccess
+    case PermissionAuditReport
+    case PermissionViewAllLocks
+    case PermissionViewAllAccessHistory
+    case PermissionInitateFirmwareUpdate
     
-    case aa
-    case bb
     
-    init?(_ code: Int) {
+    
+    init(_ code: Int) {
         switch code {
-        case 1001:
-            self = .bb
-        case 1002:
-            self = .aa
+        case 100:
+            self = .PermissionManageGroup
+        case 101:
+            self = .PermissionManageAdmins
+        case 102:
+            self = .PermissionFinace
+        case 200:
+            self = .PermissionManageUser
+        case 201:
+            self = .PermissionManageLock
+        case 202:
+            self = .PermissionManageMorseCode
+        case 203:
+            self = .PermissionManageAccess
+        case 204:
+            self = .PermissionAuditReport
+        case 300:
+            self = .PermissionViewAllLocks
+        case 301:
+            self = .PermissionViewAllAccessHistory
+        case 302:
+            self = .PermissionInitateFirmwareUpdate
+            
         default:
-            return nil
+            self = .nonononoonno
         }
     }
     
-    var rawValue: String? {
+    var rawValue: String! {
         switch self {
-        case .aa:
-            return "xxxxx"
-        case .bb:
-            return "ggggg"
+        case .PermissionManageGroup:
+            return R.string.localizable.permissionManageGroup()
+        case .PermissionManageAdmins:
+            return R.string.localizable.permissionManageAdmins()
+        case .PermissionFinace:
+            return R.string.localizable.permissionFinace()
+        case .PermissionManageUser:
+            return R.string.localizable.permissionManageUser()
+        case .PermissionManageLock:
+            return R.string.localizable.permissionManageLock()
+        case .PermissionManageMorseCode:
+            return R.string.localizable.permissionManageMorseCode()
+        case .PermissionManageAccess:
+            return R.string.localizable.permissionManageAccess()
+        case .PermissionAuditReport:
+            return R.string.localizable.permissionAuditReport()
+        case .PermissionViewAllLocks:
+            return R.string.localizable.permissionViewAllLocks()
+        case .PermissionViewAllAccessHistory:
+            return R.string.localizable.permissionViewAllAccessHistory()
+        case .PermissionInitateFirmwareUpdate:
+            return R.string.localizable.permissionInitateFirmwareUpdate()
         default:
-            return nil
+            return "nonononono"
         }
     }
 

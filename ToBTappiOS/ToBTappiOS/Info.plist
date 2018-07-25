@@ -30,7 +30,7 @@
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Tapplock would like access to your Bluetooth. This will let you connect to your Tapplock.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Tapplock would like access to your Camera. This will let you take photos.</string>
+	<string>Tapplock would like access to your Camera. This will allow you to set your profile picture.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Tapplock would like access to your location service. This will let you have access to lock history.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -27,12 +27,14 @@ enum APIServer {
     case checkVerifyCode(mail: String, verifyCode: String) // 校验验证码
     case checkinviteCodes(inviteCode: String) //校验邀请码
     case changePassword(newPassword: String, oldPassword: String)
-    case lockList(lockName: String?, groupId: Int?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
+    case lockList(userId: Int?, lockName: String?, groupId: Int?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
+    case userFingerPrint // 查询用户下的指纹
+    case allGroupslist
     case lockKey(lockId: Int)
     case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, id: Int, latitude: String?, longitude: String?, lockName: String?, morseCode: String?, morseStatus: Int?, syncType: Int) //更新锁信息  更新类型0-地理位置 1-固件 2-其他
-    case historyList(lockId: Int?, userName: String?, beginTime: Int?, endTime: Int?, queryType: Int, size: Int, page: Int)  // 查询类型(逗号分隔）0-fingerprint 1-bluetooth,2-close 3-auth bluetooth 4-auth fingerprint 5-cancel bluetooth 6-cancel fingerprint 7-location 8-firmware 9-other
-    case closeTimeHistory(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
-    case openTimeHistory(corpId: Int, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: String?, unlockFingerprints: [[String : String]]?, unlockType: Int, userId: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
+    case historyList(userId: Int?, lockId: Int?, targetName: String?, beginTime: Int?, endTime: Int?, queryType: Int, size: Int, page: Int)  // 查询类型(逗号分隔）0-fingerprint 1-bluetooth,2-close 3-auth bluetooth 4-auth fingerprint 5-cancel bluetooth 6-cancel fingerprint 7-location 8-firmware 9-other
+    case updateCloseTime(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
+    case updateOpenTime(location: String?, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: [String]?, unlockFingerprints: [[String : String]]?, unlockType: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
     case checkFirmwares(hardwareVersion: String)
     case downloadFingerprint(lockId: Int)  // 下载指纹
     case updateFingerprintSycnState(lockId: Int, fingerprintIds: Int, lockFingerprintIndex: String) // 更新指纹同步状态
@@ -73,17 +75,17 @@ extension APIServer: TargetType{
             return "users"
         case .registerVerifyCode(_, _):
             return "users/get_verify_code"
-        case .lockList(_, _, _, _, _):
+        case .lockList(_,_, _, _, _, _):
             return "locks/for_staff"
         case .lockKey(let id):
             return "locks/\(id)"
         case .updateLock(_, _, _, _, _, _, _, _, _, _):
             return "locks"
-        case .historyList(_, _, _, _, _, _, _):
+        case .historyList(_, _, _, _, _, _, _, _):
             return "lock_histories"
-        case .closeTimeHistory(_, _, _):
+        case .updateCloseTime(_, _, _):
             return "lock_histories/close"
-        case .openTimeHistory(_, _, _, _, _, _, _, _):
+        case .updateOpenTime(_, _, _, _, _, _, _):
             return "lock_histories/open"
         case .oauthToken:
             return "oauth/token"
@@ -103,19 +105,25 @@ extension APIServer: TargetType{
             return "firmwares/\(ConfigModel.default.language.code)/\(hardwareVersion)"
         case .userCheckMail(_):
             return "users"
+        case .userFingerPrint:
+            return "user_fingerprint/\(ConfigModel.default.user.value?.id ?? 1234567890)"
+        case .allGroupslist:
+            return "groups/list"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .lockList(_, _, _, _, _),
+        case .lockList(_,_, _, _, _, _),
              .lockKey(_),
-             .historyList(_, _, _, _, _, _, _),
+             .historyList(_, _, _, _, _, _, _, _),
              .registerVerifyCode(_, _),
              .downloadFingerprint(_),
              .checkinviteCodes(_),
              .checkFirmwares(_),
              .userCheckMail(_),
+             .userFingerPrint,
+             .allGroupslist,
              .checkVerifyCode(_, _):
             return .get
         case .updateLock(_, _, _, _, _, _, _, _, _, _),
@@ -123,8 +131,8 @@ extension APIServer: TargetType{
              .userUpdate(_, _, _, _, _, _, _, _, _),
              .changePassword(_, _):
             return .put
-        case .closeTimeHistory(_, _, _),
-             .openTimeHistory(_, _, _, _, _, _, _, _),
+        case .updateCloseTime(_, _, _),
+             .updateOpenTime(_, _, _, _, _, _, _),
              .oauthToken,
              .userRegister(_, _, _, _, _, _, _, _, _, _),
              .userLog(_, _),
@@ -178,8 +186,11 @@ extension APIServer: TargetType{
             urlParameters = urlParameters + ["type": type, "mail": mail]
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .lockList(let lockName, let groupId, let authType, let page, let size):
+        case .lockList(let userId, let lockName, let groupId, let authType, let page, let size):
             
+            if userId != nil {
+                urlParameters = urlParameters + ["userId": userId!]
+            }
             if lockName != nil {
                 urlParameters = urlParameters + ["lockName": lockName!]
             }
@@ -191,9 +202,17 @@ extension APIServer: TargetType{
                 urlParameters = urlParameters + ["authType": authType!]
             }
             
-            urlParameters = urlParameters + ["page": page, "size": size, "userId": (ConfigModel.default.user.value?.id) ?? "0000", "corpId": (ConfigModel.default.user.value?.corpId) ?? 11]
+            urlParameters = urlParameters + ["page": page, "size": size, "corpId": (ConfigModel.default.user.value?.corpId) ?? 11]
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
+        
+        case .userFingerPrint:
+            
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
+            
+        case .allGroupslist:
+            
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters + ["corpId": ConfigModel.default.user.value?.corpId ?? 1234567])
             
         case .lockKey(_):
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
@@ -230,11 +249,14 @@ extension APIServer: TargetType{
             
             return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
-        case .historyList(let lockId, let userName, let beginTime, let endTime, let queryType, let size, let page):
+        case .historyList(let userId, let lockId, let targetName, let beginTime, let endTime, let queryType, let size, let page):
             
            
-            if userName != nil {
-                urlParameters = urlParameters + ["userName": userName!]
+            if userId != nil {
+                urlParameters = urlParameters + ["userId": userId!]
+            }
+            if targetName != nil {
+                urlParameters = urlParameters + ["targetName": targetName!]
             }
             if beginTime != nil {
                 urlParameters = urlParameters + ["beginTime": beginTime!]
@@ -251,13 +273,16 @@ extension APIServer: TargetType{
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .closeTimeHistory(let corpId, let lockId, let operateTime):
+        case .updateCloseTime(let corpId, let lockId, let operateTime):
             bodyParameters = bodyParameters + ["corpId": corpId, "lockId": lockId, "operateTime": operateTime]
             let data = requestBodyEncrypted(body: bodyParameters)
             return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             
-        case .openTimeHistory(let corpId, let latitude, let longitude, let lockId, let morseOperateTimes, let unlockFingerprints, let unlockType, let userId):
+        case .updateOpenTime(let location, let latitude, let longitude, let lockId, let morseOperateTimes, let unlockFingerprints, let unlockType):
             
+            if location != nil {
+                bodyParameters = bodyParameters + ["location": location!]
+            }
             if latitude != nil {
                 bodyParameters = bodyParameters + ["latitude": latitude!]
             }
@@ -270,11 +295,8 @@ extension APIServer: TargetType{
             if unlockFingerprints != nil {
                 bodyParameters = bodyParameters + ["unlockFingerprints": unlockFingerprints!]
             }
-            if longitude != nil {
-                bodyParameters = bodyParameters + ["longitude": longitude!]
-            }
-            
-            bodyParameters = bodyParameters + ["corpId": corpId, "lockId": lockId, "userId": userId, "unlockType": unlockType]
+           
+            bodyParameters = bodyParameters + ["corpId": ConfigModel.default.user.value?.corpId ?? 0, "lockId": lockId, "userId": (ConfigModel.default.user.value?.id)!, "unlockType": unlockType]
             
             let data = requestBodyEncrypted(body: bodyParameters)
             return .requestCompositeData(bodyData: data, urlParameters: urlParameters)

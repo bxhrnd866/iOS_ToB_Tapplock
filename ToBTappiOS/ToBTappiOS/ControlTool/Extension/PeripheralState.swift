@@ -14,9 +14,9 @@ extension CBPeripheralState {
     var textValue: String {
         switch self {
         case .connected:
-            return "conect"
+            return R.string.localizable.connected()
         default:
-            return "dis"
+            return R.string.localizable.disconnected()
         }
     }
     

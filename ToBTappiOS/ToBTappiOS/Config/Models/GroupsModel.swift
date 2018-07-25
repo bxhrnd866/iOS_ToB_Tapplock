@@ -18,6 +18,9 @@ class GroupsModel: Mappable {
     required init?(map: Map) {
         
     }
+    init() {
+        
+    }
     
     func mapping(map: Map) {
         groupName <- map["groupName"]

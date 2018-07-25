@@ -9,34 +9,59 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import PKHUD
 class AllGroupController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let groups = Variable(["xxx", "222", "344", "55555", "yyyyy"])
+    var groups = Variable([GroupsModel]())
     
-    var block: (()->())?
+    var block: ((GroupsModel)->())?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let model = GroupsModel.init()
+        model.groupName = "All Group"
+        groups.value.append(model)
+        
+        
         groups.asDriver()
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.allGroupCellIdenty.identifier, cellType: AllGroupCell.self)) {
                 (indexPath, model, cell) in
-               
+                cell.groupLab.text = model.groupName
             }.disposed(by: rx.disposeBag)
         
         tableView.rx.modelSelected(GroupsModel.self)
             .subscribe(onNext: { [weak self] model in
                 if self?.block != nil {
-                    self?.block!()
+                    self?.block!(model)
                     self?.navigationController?.popViewController(animated: true)
                 }
                 
             }).disposed(by: rx.disposeBag)
+        loadAPI()
     }
 
+    func loadAPI() {
+        HUD.show(.progress)
+        provider.rx.request(APIServer.allGroupslist)
+            .mapObject(APIResponseData<GroupsModel>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                HUD.hide()
+                if response.success {
+                    if response.data != nil {
+                        self?.groups.value = response.data!
+                    }
+                } else {
+                    self?.showToast(message: response.codeMessage)
+                }
+            
+        }).disposed(by: rx.disposeBag)
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

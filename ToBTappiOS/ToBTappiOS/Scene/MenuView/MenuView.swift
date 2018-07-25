@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import Kingfisher
 class MenuView: UIView {
     
     let timeInterval = 0.35
@@ -43,14 +43,13 @@ class MenuView: UIView {
         self.headerImg = UIImageView(frame: CGRect(x: 76 * mScale, y: 37 * mScale, width: 90 * mScale, height: 90 * mScale))
         self.headerImg.layer.cornerRadius = 4
         self.headerImg.layer.masksToBounds = true
-//        self.headerImg.backgroundColor = UIColor.orange
         self.headerImg.image = R.image.userPlace()
         bgview.addSubview(self.headerImg)
         
         namelab = UILabel(frame: CGRect(x: 0, y: self.headerImg.bottomY + 15 * mScale, width: bgview.width, height: 33))
         namelab.textAlignment = .center
         namelab.font = UIFont(name: font_name, size: 24 * mScale)
-        namelab.text = "朴无敌"
+        namelab.text = "Tapplock"
         bgview.addSubview(self.namelab)
         
         let line = UIView(frame: CGRect(x: 0, y: 27 * mScale + namelab.bottomY, width: bgview.width, height: 1))
@@ -66,7 +65,18 @@ class MenuView: UIView {
         bgview.addSubview(tableView)
         
      
-        // viewhistory  viewalllock
+        ConfigModel.default.user.asDriver().filter {
+            $0 != nil
+            }.drive(onNext: { [weak self] user in
+                self?.namelab.text = "\(user?.firstName ?? "")" + "\(user?.lastName ?? "")"
+                
+                if user?.photoUrl != nil, let url = URL(string: (user?.photoUrl)!) {
+                    self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
+                }
+                
+                
+            }).disposed(by: rx.disposeBag)
+       
     }
     @objc private func tapToRecovery() {
         UIView.animate(withDuration: timeInterval) {
@@ -96,6 +106,7 @@ class MenuView: UIView {
 extension MenuView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return ConfigModel.default.user.value != nil ? (ConfigModel.default.user.value?.meunSoure.count)! : 0
         return viewModel.dataSource.count
     }
     
@@ -103,6 +114,9 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCellIdentifier", for: indexPath) as! MenuTableViewCell
         cell.lable.text = viewModel.dataSource[indexPath.row]
+        
+//        cell.lable.text = ConfigModel.default.user.value?.meunSoure[indexPath.row]
+        
         if indexPath.row == 1 {
             cell.backgroundColor = thembColor
             cell.lable.textColor = UIColor.white

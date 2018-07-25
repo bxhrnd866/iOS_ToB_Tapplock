@@ -82,13 +82,13 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eo-Vu-1lS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="679"/>
                                                 <connections>
-                                                    <segue destination="eFK-1H-KYf" kind="embed" id="gXG-HF-Rwd"/>
+                                                    <segue destination="eFK-1H-KYf" kind="embed" identifier="bleHistoryIdentifer" id="gXG-HF-Rwd"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7of-aX-8Ko">
                                                 <rect key="frame" x="375" y="0.0" width="375" height="679"/>
                                                 <connections>
-                                                    <segue destination="JHn-oG-o31" kind="embed" id="fZI-d6-iR6"/>
+                                                    <segue destination="JHn-oG-o31" kind="embed" identifier="fingerPrintHistoryIdentifier" id="fZI-d6-iR6"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -162,11 +162,20 @@
                         <outlet property="fingerBtn" destination="a47-ar-Gc9" id="i55-oM-CJv"/>
                         <outlet property="scrollView" destination="ctb-Gl-hFp" id="HnU-lK-3Nj"/>
                         <outlet property="underLine" destination="JMX-RR-2fB" id="9HZ-k2-NLm"/>
+                        <segue destination="bre-QM-NKi" kind="presentation" identifier="showHistoryDatePicker" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="my7-4f-7eB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzC-Mh-FJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-434.39999999999998" y="92.364532019704441"/>
+        </scene>
+        <!--HistoryDatePicker-->
+        <scene sceneID="KH9-Hu-YCk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HistoryDatePicker" id="bre-QM-NKi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lx-63-dkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="-256"/>
         </scene>
         <!--Bluetooth History View Controller-->
         <scene sceneID="NBA-w6-zQi">
@@ -290,6 +299,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eFK-1H-KYf" id="OaS-gT-aIr"/>
+                                    <outlet property="delegate" destination="eFK-1H-KYf" id="fFz-Nk-CEQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -399,6 +412,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JHn-oG-o31" id="EpM-DQ-aUe"/>
+                                    <outlet property="delegate" destination="JHn-oG-o31" id="D6s-VA-HkZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

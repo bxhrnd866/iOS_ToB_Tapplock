@@ -39,6 +39,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="unlockAction:" destination="U3T-wn-dSJ" eventType="touchUpInside" id="jpj-RW-aR0"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_bgImg" translatesAutoresizingMaskIntoConstraints="NO" id="zR9-E7-6du">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
@@ -230,13 +233,13 @@
                                     <segue destination="k45-O5-wVg" kind="show" identifier="lockBluetoothHistory" id="XNg-Lv-5j8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-iF-jHt" customClass="morsekGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k" customClass="firmwareGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="416" width="335" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="V55-dS-aIZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="7Jo-Hl-3QR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <state key="normal" title="Morse-code">
+                                <state key="normal" title="Firmware Update">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_fingerprint"/>
@@ -245,26 +248,12 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k">
-                                <rect key="frame" x="20" y="488" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="7Jo-Hl-3QR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                <state key="normal" title="Firmware Update">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted" image="LockDetail_fingerprint"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="firmwareUpdateAction:" destination="U3T-wn-dSJ" eventType="touchUpInside" id="N7G-Ju-QqR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cli-Ng-PNK">
-                                <rect key="frame" x="293" y="608" width="42" height="42"/>
+                                <rect key="frame" x="293" y="536" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="DCh-Gf-5fl"/>
                                     <constraint firstAttribute="width" constant="42" id="oK5-Cv-DPH"/>
@@ -279,10 +268,8 @@
                             <constraint firstItem="qdx-Gk-LGI" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="ErB-aN-VBh"/>
                             <constraint firstItem="CjL-Xb-pfU" firstAttribute="top" secondItem="LbA-p7-3ew" secondAttribute="bottom" constant="42" id="F4O-9e-39n"/>
                             <constraint firstItem="Qz4-Eb-bXi" firstAttribute="centerY" secondItem="gIN-IF-Ykc" secondAttribute="centerY" id="FWD-jh-Dhx"/>
-                            <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="ILK-iF-jHt" secondAttribute="trailing" constant="20" id="GUD-gp-DHo"/>
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="cli-Ng-PNK" secondAttribute="trailing" constant="40" id="Gxf-6q-WmC"/>
                             <constraint firstItem="gIN-IF-Ykc" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="H96-Yv-QBU"/>
-                            <constraint firstItem="GNA-aR-Q4k" firstAttribute="top" secondItem="ILK-iF-jHt" secondAttribute="bottom" constant="22" id="Jir-PJ-9S8"/>
                             <constraint firstItem="qdx-Gk-LGI" firstAttribute="top" secondItem="CjL-Xb-pfU" secondAttribute="bottom" constant="22" id="TZ6-rT-iB0"/>
                             <constraint firstItem="zR9-E7-6du" firstAttribute="trailing" secondItem="eBn-d7-4yW" secondAttribute="trailing" id="Vyb-Ng-yUC"/>
                             <constraint firstItem="zR9-E7-6du" firstAttribute="top" secondItem="Czw-M6-UJU" secondAttribute="top" id="W6m-t0-qEQ"/>
@@ -291,11 +278,10 @@
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="LbA-p7-3ew" secondAttribute="trailing" constant="20" id="er6-97-XJP"/>
                             <constraint firstItem="CjL-Xb-pfU" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="g3N-Im-ArO"/>
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="qdx-Gk-LGI" secondAttribute="trailing" constant="20" id="gK1-Yi-491"/>
-                            <constraint firstItem="ILK-iF-jHt" firstAttribute="top" secondItem="qdx-Gk-LGI" secondAttribute="bottom" constant="22" id="jdy-Nv-YCO"/>
                             <constraint firstItem="GNA-aR-Q4k" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="lgn-NC-URT"/>
                             <constraint firstItem="LbA-p7-3ew" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="nkk-xL-JCh"/>
-                            <constraint firstItem="ILK-iF-jHt" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="nzw-XX-E9g"/>
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="CjL-Xb-pfU" secondAttribute="trailing" constant="20" id="vDS-F0-X3K"/>
+                            <constraint firstItem="GNA-aR-Q4k" firstAttribute="top" secondItem="qdx-Gk-LGI" secondAttribute="bottom" constant="22" id="wz6-NC-gF7"/>
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="GNA-aR-Q4k" secondAttribute="trailing" constant="20" id="x6S-wf-s2i"/>
                             <constraint firstItem="cli-Ng-PNK" firstAttribute="top" secondItem="GNA-aR-Q4k" secondAttribute="bottom" constant="70" id="z2Q-2z-jYk"/>
                         </constraints>
@@ -304,7 +290,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="batteryImg" destination="cU6-S8-GrJ" id="nab-tS-Kvq"/>
+                        <outlet property="battyLab" destination="eUK-7i-iQl" id="3dh-5S-bcB"/>
                         <outlet property="bgview" destination="LbA-p7-3ew" id="C9l-8C-Phb"/>
+                        <outlet property="groupLab" destination="RsG-v8-hig" id="UHs-EE-PRH"/>
+                        <outlet property="lockName" destination="Io6-da-94e" id="Xtb-QO-qhw"/>
+                        <outlet property="lockStatus" destination="E3H-Vm-c3K" id="LLH-gM-drn"/>
+                        <outlet property="navitItle" destination="Qz4-Eb-bXi" id="e9I-VH-NhT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh3-cx-OLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +322,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserPlace" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-n4-vdi">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock_lockicon" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-n4-vdi">
                                                     <rect key="frame" x="21" y="18" width="54" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="54" id="5T3-KB-t1x"/>
@@ -390,9 +382,9 @@
                                                         <constraint firstAttribute="width" constant="15" id="QdG-oD-DLn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr3-UL-K10">
-                                                    <rect key="frame" x="114" y="88.333333333333329" width="246" height="51.333333333333329"/>
-                                                    <color key="backgroundColor" red="0.24313725489999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上奔跑在路上路上奔跑在路上路上奔跑在路上路上奔跑在路上" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr3-UL-K10">
+                                                    <rect key="frame" x="114" y="85.333333333333329" width="246" height="54.333333333333329"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -410,7 +402,7 @@
                                                 <constraint firstItem="3Bj-n4-vdi" firstAttribute="top" secondItem="Zbr-4Z-Opv" secondAttribute="top" constant="18" id="Too-fz-oI8"/>
                                                 <constraint firstItem="mqx-Wp-GH3" firstAttribute="leading" secondItem="3Bj-n4-vdi" secondAttribute="trailing" constant="12" id="VSN-eM-qbD"/>
                                                 <constraint firstAttribute="trailing" secondItem="aPy-0w-afN" secondAttribute="trailing" constant="20" id="bIw-93-2p9"/>
-                                                <constraint firstItem="fr3-UL-K10" firstAttribute="top" secondItem="HV5-Hr-92J" secondAttribute="bottom" constant="6" id="dDu-K2-rpS"/>
+                                                <constraint firstItem="fr3-UL-K10" firstAttribute="top" secondItem="HV5-Hr-92J" secondAttribute="bottom" constant="3" id="dDu-K2-rpS"/>
                                                 <constraint firstItem="HV5-Hr-92J" firstAttribute="leading" secondItem="pmd-Ly-OJZ" secondAttribute="trailing" constant="6" id="dM6-SN-VvQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="mqx-Wp-GH3" secondAttribute="trailing" constant="20" id="eJy-w5-tjv"/>
                                                 <constraint firstItem="W6T-Vh-hWb" firstAttribute="top" secondItem="pmd-Ly-OJZ" secondAttribute="bottom" constant="7" id="f42-RH-Oim"/>
@@ -433,6 +425,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="k45-O5-wVg" id="W4D-Is-O2D"/>
+                                    <outlet property="delegate" destination="k45-O5-wVg" id="PUJ-M1-zv3"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -473,7 +469,6 @@
         <image name="LockDetail_fingerprint" width="16" height="16"/>
         <image name="LockDetail_unlock" width="16" height="16"/>
         <image name="Lock_lockicon" width="139" height="204"/>
-        <image name="UserPlace" width="54" height="54"/>
         <image name="lock_battery_0" width="7" height="10"/>
         <image name="lock_bgImg" width="375" height="196"/>
         <image name="lock_sysn" width="42" height="42"/>

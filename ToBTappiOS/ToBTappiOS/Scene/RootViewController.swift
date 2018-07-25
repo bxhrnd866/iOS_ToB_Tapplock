@@ -43,17 +43,17 @@ class RootViewController: UIViewController {
                 self.performSegue(withIdentifier: R.segue.rootViewController.showHomeSB, sender: self)
                 
             
-//               _ = CLLocationManager.requestLocation().lastValue.done({ (location) in
-//                    _ = provider.rx.request(ApiService.UpdateLocktion(latitude: String(location.coordinate.latitude),
-//                                                                      longitude: String(location.coordinate.longitude),
-//                                                                      uuid: ConfigModel.default.user.value!.uuid))
-//                        .mapObject(APIResponse<EmptyModel>.self)
-//                        .subscribe(onSuccess: { response in
-//
-//                            print(response)
-//                        })
-//                })
-
+                _ = CLLocationManager.promise().firstValue.done({ location in
+                    let xm = CLGeocoder.init()
+                    let md = AddressModel()
+                    md.location = location
+                    _ = xm.reverseGeocode(location: location).firstValue.done({ [weak self] cl in
+                        let add = "\(cl.country ?? "")\(cl.locality ?? "")\(cl.subLocality ?? "")\(cl.thoroughfare ?? "")"
+                        md.address = add
+                        ConfigModel.default.locaiton = md
+                    })
+                })
+            
             } else {
                 self.performSegue(withIdentifier: R.segue.rootViewController.showLoginSb, sender: self)
             }

@@ -146,3 +146,27 @@
 "LockNewFirmwareVersionTotals" = "New firmware update. Please go to Lock Setting > Firmware Update to start";
 "LockOpenLocationService" = "Please turn on the Location service";
 "GoToSetting" = "Go to setting";
+
+
+
+
+// 权限
+
+//权限
+
+"PermissionManageGroup" = "Manage Group";
+"PermissionManageAdmins" = "Manage Admins";
+"PermissionFinace" = "Finace";
+"PermissionManageUser" = "Manage User";
+"PermissionManageLock" = "Manage Lock";
+"PermissionManageMorseCode" = "Manage Morse-Code";
+"PermissionManageAccess" = "Manage Access";
+"PermissionAuditReport" = "Audit Report";
+"PermissionViewAllLocks" = "View All Locks";
+"PermissionViewAllAccessHistory" = "View All Access History";
+"PermissionInitateFirmwareUpdate" = "Initate Firmware Update";
+
+
+
+
+

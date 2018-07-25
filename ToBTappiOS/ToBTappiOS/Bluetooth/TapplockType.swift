@@ -11,6 +11,7 @@ import Foundation
 let aKind = "0001"
 let bKind = "0002"
 
+//"a180"
 // 设备类型
 enum TapplockType: String {
     case typeA = "0001"

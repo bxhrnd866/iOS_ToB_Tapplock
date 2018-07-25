@@ -143,26 +143,26 @@ final class TapplockManager: NSObject {
     }
     
     func showToast() {
-//        let window = UIApplication.shared.delegate?.window!
-//        let x =  window?.rootViewController?.presentedViewController
-//
-//        let alertController = CFAlertViewController(title: R.string.localizable.lockOpenLocationService(),
-//                                                    message: nil,
-//                                                    textAlignment: .left,
-//                                                    preferredStyle: .alert,
-//                                                    didDismissAlertHandler: nil)
-//        alertController.shouldDismissOnBackgroundTap = false
-//        alertController.backgroundStyle = .blur
-//        alertController.backgroundColor = UIColor.clear
-//
-//        let okAction = CFAlertAction(title: R.string.localizable.goToSetting(), style: .Default, alignment: .justified, backgroundColor: UIColor.themeColor, textColor: nil) { (action) in
-//            let url = URL(string: UIApplicationOpenSettingsURLString)
-//            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-//
-//        }
-//
-//        alertController.addAction(okAction)
-//        x?.present(alertController, animated: true, completion: nil)
+        let window = UIApplication.shared.delegate?.window!
+        let x =  window?.rootViewController?.presentedViewController
+
+        let alertController = CFAlertViewController(title: R.string.localizable.lockOpenLocationService(),
+                                                    message: nil,
+                                                    textAlignment: .left,
+                                                    preferredStyle: .alert,
+                                                    didDismissAlertHandler: nil)
+        alertController.shouldDismissOnBackgroundTap = false
+        alertController.backgroundStyle = .blur
+        alertController.backgroundColor = UIColor.clear
+
+        let okAction = CFAlertAction(title: R.string.localizable.goToSetting(), style: .Default, alignment: .justified, backgroundColor: UIColor.themeColor, textColor: nil) { (action) in
+            let url = URL(string: UIApplicationOpenSettingsURLString)
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+
+        }
+
+        alertController.addAction(okAction)
+        x?.present(alertController, animated: true, completion: nil)
     }
 
    
@@ -186,9 +186,8 @@ extension TapplockManager: CBCentralManagerDelegate {
         
         if let data = advertisementData["kCBAdvDataManufacturerData"] {
             let hex = (data as! Data).hexadecimal()
-            plog(hex)
             let mac = hex[4...hex.length - 1].macText
-            
+
             for model in rx_myLocks.value {
                 if model.mac! == mac {
                     plog(model.id)

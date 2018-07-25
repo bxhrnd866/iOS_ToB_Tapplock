@@ -25,7 +25,7 @@ class PermissionController: UIViewController {
         self.collectionView.collectionViewLayout = layout
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        // Do any additional setup after loading the view.
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,25 +34,20 @@ class PermissionController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension PermissionController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return ConfigModel.default.user.value?.permissions != nil ? (ConfigModel.default.user.value?.permissions?.count)! : 0
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.permissionCell.identifier, for: indexPath) as! PermissionCollectionCell
         cell.taglab.text = data[indexPath.row]
+        
+//        let model = ConfigModel.default.user.value?.permissions![indexPath.row]
+//        cell.taglab.text = model?.permissionName
+        
         return cell
     }
 }

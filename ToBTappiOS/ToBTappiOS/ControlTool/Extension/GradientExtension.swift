@@ -68,7 +68,7 @@ class HistoryGradientBtn: UIButton {
 }
 
 
-class morsekGradientBtn: UIButton {
+class firmwareGradientBtn: UIButton {
     override func draw(_ rect: CGRect) {
         let layer = CAGradientLayer.normalgradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.dLeftColor, colorB: UIColor.dLightColor)
         self.layer.insertSublayer(layer, at: 0)

@@ -11,6 +11,7 @@ import Moya_ObjectMapper
 import ObjectMapper
 import RxCocoa
 import RxSwift
+import CoreLocation
 //用户模型,参考网络通信接口文档
 class UserModel: Mappable {
     
@@ -40,6 +41,32 @@ class UserModel: Mappable {
     
     var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())
     
+    var meunSoure: [String]! {
+        
+        let x = "View All Locks"
+        let y = "View History"
+        
+        var data =  ["Profile","Tapplock","Tutorial","Setting","Log out"]
+        if permissions != nil {
+            for item in permissions! {
+                if item.permissionCode == "301" {
+                    data.insert(x, at: 2)
+                }
+                
+                if item.permissionCode == "302" {
+                    if data[2] == x {
+                        data.insert(y, at: 3)
+                    } else {
+                        data.insert(y, at: 2)
+                    }
+                }
+            }
+        }
+        
+        return data
+    }
+    
+    
     
     // MARK: JSON
     required init?(map: Map) {
@@ -66,4 +93,9 @@ class UserModel: Mappable {
         sex <- map["sex"]
     }
     
+}
+
+class AddressModel {
+    var location: CLLocation?
+    var address: String?
 }

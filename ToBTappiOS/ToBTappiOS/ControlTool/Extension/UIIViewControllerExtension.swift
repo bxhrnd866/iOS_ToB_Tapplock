@@ -70,6 +70,12 @@ extension UIViewController {
         }
     }
     
+    var searchBar: SearchBar? {
+        let nav = self.navigationController as? BaseNaviController
+        return nav?.serch
+    }
+    
+    
     func popToController(controller: AnyClass) {
         for vc in (self.navigationController?.viewControllers)! {
             if vc.isKind(of: controller) {
@@ -78,14 +84,5 @@ extension UIViewController {
         }
     }
     
-    // 调整controllers
-    func navigationChildController() {
-        var child = self.navigationController?.viewControllers
-        
-        if (child?.count)! <= 2 {
-            return
-        }
-        child?.remove(at: 1)
-        self.navigationController?.viewControllers = child!
-    }
+   
 }

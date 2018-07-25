@@ -205,6 +205,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="firstName" destination="8DQ-3f-tMs" id="RDQ-YA-2QR"/>
+                        <outlet property="headerImg" destination="XS3-Gx-Pzd" id="Z6m-sx-tfJ"/>
+                        <outlet property="lastName" destination="Lbo-S0-tVV" id="Qnb-fC-Yfc"/>
+                        <outlet property="mailNum" destination="q7B-hM-HP9" id="j9a-Xo-y83"/>
+                        <outlet property="phoneNum" destination="hDA-a7-DJC" id="FQu-xU-M5O"/>
+                        <outlet property="sexLab" destination="Sc6-0r-Vmh" id="zqd-WD-oAV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZt-5V-Wfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

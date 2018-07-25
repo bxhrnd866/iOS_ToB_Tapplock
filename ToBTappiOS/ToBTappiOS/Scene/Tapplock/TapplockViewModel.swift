@@ -22,9 +22,15 @@ class TapplockViewModel: NSObject {
     
     override init() {
         super.init()
-        TapplockManager.default.rx_myLocks
-            .asObservable().bind(to: rx_lockList)
-            .disposed(by: rx.disposeBag)
+//        TapplockManager.default.rx_myLocks
+//            .asObservable().bind(to: rx_lockList)
+//            .disposed(by: rx.disposeBag)
+        
+        for _ in 0...10 {
+            let tap = TapplockModel()
+            rx_lockList.value.insert(tap)
+        }
+        
     }
     
   
@@ -44,7 +50,7 @@ class TapplockViewModel: NSObject {
     
     func loadAPI() {
         
-        provider.rx.request(APIServer.lockList(lockName: rx_lockName.value, groupId: rx_groupId.value, authType: rx_authType.value, page: page, size: 20))
+        provider.rx.request(APIServer.lockList(userId: ConfigModel.default.user.value?.id ?? 9001,lockName: rx_lockName.value, groupId: rx_groupId.value, authType: rx_authType.value, page: page, size: 20))
             .mapObject(APIResponse<ListModel<TapplockModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
                 

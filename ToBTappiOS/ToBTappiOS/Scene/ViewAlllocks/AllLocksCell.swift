@@ -14,7 +14,11 @@ class AllLocksCell: UITableViewCell {
     
     @IBOutlet weak var lockName: UILabel!
     
-    @IBOutlet weak var typeImg: UIImageView!
+    var model: TapplockModel? {
+        didSet {
+            lockName.text = model?.lockName
+        }
+    }
     
     
     override func awakeFromNib() {

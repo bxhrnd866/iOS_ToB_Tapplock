@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ConfigModel: NSObject {
     
+    static let `default` = ConfigModel()
     // 用户模型
     var user: Variable<UserModel?> = Variable(nil)
     
@@ -18,8 +19,7 @@ class ConfigModel: NSObject {
     //推送Token
     var pushToken: String?
     
-    static let `default` = ConfigModel()
-    
+    var locaiton:  AddressModel? // 定位
     
     //Set推送Token
     func setpushToken(data: String) {
@@ -71,4 +71,5 @@ class ConfigModel: NSObject {
         }).disposed(by: rx.disposeBag)
     }
 }
+
 

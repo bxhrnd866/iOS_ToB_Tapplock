@@ -137,26 +137,54 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCZ-VU-hTK">
                                 <rect key="frame" x="20" y="265" width="335" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWB-sC-g3N">
-                                        <rect key="frame" x="25" y="23.666666666666686" width="49" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWB-sC-g3N">
+                                        <rect key="frame" x="25" y="23.666666666666686" width="48" height="23"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                         <color key="textColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sv-jO-VCw">
-                                        <rect key="frame" x="266" y="24.666666666666686" width="44" height="22.333333333333329"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brH-uL-c91">
+                                        <rect key="frame" x="210" y="0.0" width="50" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Njp-t5-66o"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Left">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCl-qO-He3">
+                                        <rect key="frame" x="260" y="0.0" width="50" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="gh9-qU-VMk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
+                                        <state key="normal" title="Right">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fn-AF-ydx">
+                                        <rect key="frame" x="220" y="69" width="30" height="1"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="FSo-Fi-Lr7"/>
+                                            <constraint firstAttribute="height" constant="1" id="gEO-kB-JsI"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="uCl-qO-He3" firstAttribute="top" secondItem="YCZ-VU-hTK" secondAttribute="top" id="4JF-CF-ZZJ"/>
                                     <constraint firstAttribute="height" constant="70" id="525-2c-Qkc"/>
+                                    <constraint firstItem="3Fn-AF-ydx" firstAttribute="centerX" secondItem="brH-uL-c91" secondAttribute="centerX" id="69E-MG-gOA"/>
+                                    <constraint firstItem="brH-uL-c91" firstAttribute="top" secondItem="YCZ-VU-hTK" secondAttribute="top" id="BVS-OM-yfx"/>
                                     <constraint firstItem="nWB-sC-g3N" firstAttribute="centerY" secondItem="YCZ-VU-hTK" secondAttribute="centerY" id="ZfF-xK-ubA"/>
-                                    <constraint firstItem="8sv-jO-VCw" firstAttribute="centerY" secondItem="nWB-sC-g3N" secondAttribute="centerY" id="bfo-lc-ygP"/>
+                                    <constraint firstItem="uCl-qO-He3" firstAttribute="leading" secondItem="brH-uL-c91" secondAttribute="trailing" id="aGV-Ng-zBe"/>
                                     <constraint firstItem="nWB-sC-g3N" firstAttribute="leading" secondItem="YCZ-VU-hTK" secondAttribute="leading" constant="25" id="d0Z-C7-r1X"/>
-                                    <constraint firstAttribute="trailing" secondItem="8sv-jO-VCw" secondAttribute="trailing" constant="25" id="hLL-eS-aGw"/>
+                                    <constraint firstAttribute="bottom" secondItem="uCl-qO-He3" secondAttribute="bottom" id="eCp-Su-oY3"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Fn-AF-ydx" secondAttribute="bottom" id="hBc-af-j7X"/>
+                                    <constraint firstAttribute="bottom" secondItem="brH-uL-c91" secondAttribute="bottom" id="hgW-oV-dc7"/>
+                                    <constraint firstAttribute="trailing" secondItem="uCl-qO-He3" secondAttribute="trailing" constant="25" id="uiV-FE-WSP"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -299,6 +327,14 @@
                     <connections>
                         <outlet property="bgview" destination="4d4-eP-WSv" id="YaG-Fi-VrU"/>
                         <outlet property="collectView" destination="HZH-VA-et0" id="Q8T-Mi-zpi"/>
+                        <outlet property="groupName" destination="2D7-O1-fwk" id="3ij-l9-15k"/>
+                        <outlet property="leftBtn" destination="brH-uL-c91" id="9AT-41-HL1"/>
+                        <outlet property="lockBattyImg" destination="Vo4-ZR-Hr6" id="nyM-aE-rQF"/>
+                        <outlet property="lockBattylab" destination="ZvQ-Qy-Y3I" id="wfP-dz-KGd"/>
+                        <outlet property="lockName" destination="RYg-Rp-2xd" id="aEF-0B-fZ4"/>
+                        <outlet property="naviTitle" destination="HKL-SR-Gf0" id="DrA-xr-cHU"/>
+                        <outlet property="rightBtn" destination="uCl-qO-He3" id="bpS-Qw-3a9"/>
+                        <outlet property="underLine" destination="3Fn-AF-ydx" id="fg4-zF-ZPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvi-gt-Hyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,6 +425,10 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LAk-NO-q8a" id="RTp-8j-dnN"/>
+                                    <outlet property="delegate" destination="LAk-NO-q8a" id="LOh-jW-sbf"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -412,6 +452,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="BMd-CO-9QQ" id="JFD-DC-ls2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adA-Ev-rda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

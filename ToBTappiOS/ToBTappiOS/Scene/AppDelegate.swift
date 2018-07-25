@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in}
         application.registerForRemoteNotifications()
         
-        self.window?.addSubview(MenuView.instance)
+        
+        
+        
         
         
       

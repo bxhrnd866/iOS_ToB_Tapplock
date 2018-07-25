@@ -23,9 +23,8 @@ class MyTapplockController: BaseViewController {
     @IBOutlet weak var groupLab: UILabel!
     
     
-   
-    
     let viewModel = TapplockViewModel()
+    
     
     var isBLE: Bool! {
         if self.underLine.transform.tx == mScreenW / 2 {
@@ -76,10 +75,9 @@ class MyTapplockController: BaseViewController {
         
         
         tableView.rx.modelSelected(TapplockModel.self).subscribe(onNext: { [weak self] model in
-            
+             TapplockManager.default.editingLock = model
             if self?.isBLE == true {
                 self?.performSegue(withIdentifier: R.segue.myTapplockController.showBLELockDetail, sender: self)
-            
             } else {
                 self?.performSegue(withIdentifier: R.segue.myTapplockController.showFingerLockDetail, sender: self)
             }
@@ -87,13 +85,13 @@ class MyTapplockController: BaseViewController {
         
 
         tableView.mj_header  = HeaderRefresh.init { [weak self] in
-            self?.viewModel.loadAPI()
+            self?.viewModel.loadRefresh()
         }
 
         tableView.mj_footer = FooterRefresh.init(refreshingBlock: { [weak self] in
             self?.viewModel.loadMore()
         })
-//
+
         viewModel.rx_step
             .asObservable()
             .subscribe(onNext: { [weak self] step in
@@ -114,16 +112,15 @@ class MyTapplockController: BaseViewController {
     
     @IBAction func rightSearchAction(_ sender: Any) {
         
-        let nav = self.navigationController as! BaseNaviController
-        nav.serch.serchShow()
-        nav.serch.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
-        nav.serch.rx_action.asObservable()
+        self.searchBar?.serchShow()
+        searchBar?.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
+        searchBar?.rx_action.asObservable()
             .subscribe(onNext: { [weak self] bl in
-                if bl == false {
-                    self?.viewModel.rx_lockName.value = nil
-                } else {
-
+               
+                if bl {
                     self?.tableView.mj_header.beginRefreshing()
+                } else {
+                    self?.viewModel.rx_lockName.value = nil
                 }
         }).disposed(by: rx.disposeBag)
     }
@@ -132,7 +129,18 @@ class MyTapplockController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        
+        if viewModel.rx_lockName.value != nil, viewModel.rx_lockName.value?.length != 0 {
+            self.searchBar?.isHidden = false
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if viewModel.rx_lockName.value?.length == 0 || viewModel.rx_lockName.value == nil {
+            self.searchBar?.cancelHidde()
+        } else  {
+            self.searchBar?.isHidden = true
+        }
     }
 
     
@@ -153,6 +161,7 @@ class MyTapplockController: BaseViewController {
                 self?.tableView.mj_header.beginRefreshing()
             }
         }
+        
     }
  
 

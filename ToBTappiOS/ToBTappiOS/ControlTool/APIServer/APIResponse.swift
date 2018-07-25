@@ -16,11 +16,9 @@ struct APIResponse<T:Mappable>: Mappable {
     var message: String?
     var code: Int?
     
-    var codeMessage: String? {
-        if code == nil {
-            return "哈哈哈哈哈这是错误的"
-        }
-        return APICode.init(code!)?.rawValue
+    var codeMessage: String! {
+        guard let co = code else { return "哈哈哈哈哈这是错误的" }
+        return APICode.init(co).rawValue
     }
     var success: Bool! {
         guard let co = code else { return false }
@@ -49,8 +47,9 @@ struct APIResponseString: Mappable {
     var message: String?
     var code: Int?
 
-    var codeMessage: String? {
-        return APICode.init(code!)?.rawValue
+    var codeMessage: String! {
+        guard let co = code else { return "哈哈哈哈哈这是错误的" }
+        return APICode.init(co).rawValue
     }
     
     var success: Bool! {
@@ -81,8 +80,9 @@ struct APIResponseData<T: Mappable>: Mappable{
     var message: String?
     var code: Int?
     
-    var codeMessage: String? {
-        return APICode.init(code!)?.rawValue
+    var codeMessage: String! {
+        guard let co = code else { return "哈哈哈哈哈这是错误的" }
+        return APICode.init(co).rawValue
     }
     var success: Bool! {
         guard let co = code else { return false }

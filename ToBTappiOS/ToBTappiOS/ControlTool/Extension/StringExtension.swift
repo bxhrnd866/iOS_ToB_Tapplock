@@ -105,6 +105,14 @@ extension String {
     var passwordTooShort: Bool {
         return self.length < passwordLenthMin
     }
+    
+    var operateTime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timeText = dateFormatter.string(from: Date.init(timeIntervalSince1970: (Double(self) ?? 0)))
+        return timeText
+    }
+    
  
 }
 

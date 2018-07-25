@@ -30,8 +30,8 @@
                                     <constraint firstAttribute="height" constant="1" id="3lz-C9-Kjn"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Software Group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hch-Ad-4Up">
-                                <rect key="frame" x="20" y="88" width="108" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hch-Ad-4Up">
+                                <rect key="frame" x="19.999999999999996" y="88" width="63.666666666666657" height="52"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NF2-wj-uzJ">
                                                     <rect key="frame" x="20" y="0.0" width="335" height="81"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_lock1_n" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-kJ-bPg">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_lock2_n" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-kJ-bPg">
                                                             <rect key="frame" x="23" y="13" width="36" height="54"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="36" id="ldf-zX-NJC"/>
@@ -78,19 +78,10 @@
                                                             <color key="textColor" red="0.2627450980392157" green="0.28235294117647058" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="xh0-4Z-EZ3">
-                                                            <rect key="frame" x="295" y="30" width="21" height="21"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="21" id="XGu-lI-q7w"/>
-                                                                <constraint firstAttribute="height" constant="21" id="aUD-UO-T9Q"/>
-                                                            </constraints>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.95686274510000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="xh0-4Z-EZ3" firstAttribute="centerY" secondItem="NF2-wj-uzJ" secondAttribute="centerY" id="5w9-dp-zfb"/>
                                                         <constraint firstItem="BeQ-O8-HUk" firstAttribute="centerY" secondItem="NF2-wj-uzJ" secondAttribute="centerY" id="HgZ-LY-Qxu"/>
-                                                        <constraint firstAttribute="trailing" secondItem="xh0-4Z-EZ3" secondAttribute="trailing" constant="19" id="dNx-zT-7Wd"/>
                                                         <constraint firstAttribute="height" constant="81" id="iPe-fI-nyK"/>
                                                         <constraint firstItem="dN7-kJ-bPg" firstAttribute="centerY" secondItem="NF2-wj-uzJ" secondAttribute="centerY" id="mSS-i4-URh"/>
                                                         <constraint firstItem="dN7-kJ-bPg" firstAttribute="leading" secondItem="NF2-wj-uzJ" secondAttribute="leading" constant="23" id="pE2-9y-8eS"/>
@@ -112,7 +103,6 @@
                                         <connections>
                                             <outlet property="lockImg" destination="dN7-kJ-bPg" id="Nhb-6u-LhG"/>
                                             <outlet property="lockName" destination="BeQ-O8-HUk" id="6Gb-rw-wF1"/>
-                                            <outlet property="typeImg" destination="xh0-4Z-EZ3" id="KCO-mW-kTJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -152,6 +142,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="groupLab" destination="Hch-Ad-4Up" id="uiq-i0-c29"/>
                         <outlet property="tableView" destination="YeX-F8-3eH" id="ai8-NZ-Os2"/>
                     </connections>
                 </viewController>
@@ -184,10 +175,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeK-tp-xj8">
+                                                    <rect key="frame" x="0.0" y="55" width="375" height="1"/>
+                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="TIo-Ux-iYH"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GJu-0B-hUw" firstAttribute="centerY" secondItem="1yS-B1-MbL" secondAttribute="centerY" id="0gU-zX-TLp"/>
                                                 <constraint firstItem="GJu-0B-hUw" firstAttribute="leading" secondItem="1yS-B1-MbL" secondAttribute="leading" constant="23" id="1L4-rx-hCA"/>
+                                                <constraint firstItem="SeK-tp-xj8" firstAttribute="leading" secondItem="1yS-B1-MbL" secondAttribute="leading" id="7J5-Jq-dbX"/>
+                                                <constraint firstAttribute="bottom" secondItem="SeK-tp-xj8" secondAttribute="bottom" id="EOW-rb-fyQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="SeK-tp-xj8" secondAttribute="trailing" id="OMU-nT-2Yf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -226,9 +227,8 @@
     <resources>
         <image name="Back_Arrow" width="11" height="18"/>
         <image name="Home_Hierarchical" width="17" height="14"/>
-        <image name="Home_lock1_n" width="37" height="54"/>
+        <image name="Home_lock2_n" width="33" height="56"/>
         <image name="Home_right" width="16" height="16"/>
         <image name="Home_search" width="17" height="17"/>
-        <image name="bluetooth" width="17" height="24"/>
     </resources>
 </document>

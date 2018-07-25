@@ -59,7 +59,7 @@ class SearchBar: UIView, UITextFieldDelegate {
         }) { bl in
             
         }
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: 0.6, animations: {
             self.cancelBtn.transform = CGAffineTransform.identity
         })
     }
@@ -70,6 +70,7 @@ class SearchBar: UIView, UITextFieldDelegate {
         cancelBtn.transform = CGAffineTransform.init(translationX: mScreenW, y: 0)
         self.isHidden = true
         field.resignFirstResponder()
+        field.text = nil
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,7 +85,7 @@ class SearchBar: UIView, UITextFieldDelegate {
         return true
     }
     
-    func canSearch() -> Bool {
+    private func canSearch() -> Bool {
         if self.field.text == nil {
             return false
         }
@@ -100,8 +101,7 @@ class SerchTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.tintColor = UIColor.themeColor
-        let left = UIImageView(image: R.image.home_search())
-        left.backgroundColor = UIColor.red
+        let left = UIImageView(image: R.image.naivsearch())
         self.leftView = left
         self.leftViewMode = .always
         self.backgroundColor = UIColor.white
