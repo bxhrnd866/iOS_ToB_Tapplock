@@ -110,14 +110,5 @@ extension AppDelegate {
     }
     
     
-    
-    func getBasicToken() {
-        provider.rx.request(APIServer.oauthToken)
-            .mapObject(BasicTokenModel.self)
-            .subscribe(onSuccess: { [weak self] response in
-                
-                UserDefaults.standard.set(response.access_token, forKey: basicToKenKey)
 
-        }).disposed(by: rx.disposeBag)
-    }
 }

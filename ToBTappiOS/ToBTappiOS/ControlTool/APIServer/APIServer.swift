@@ -18,7 +18,7 @@ let provider = MoyaProvider<APIServer>(plugins: [NetworkLoggerPlugin(verbose: tr
 
 enum APIServer {
     
-    case oauthToken // 初次获取token  password client_credentials
+    case oauthToken(grant_type: String, refresh_token: String?) // 初次获取token  password client_credentials
     case userRegister(corpId: Int?, fcmDeviceToken: String?, inviteCode: String, firstName: String, lastName: String, mail: String, password: String, phone: String, photoUrl: String, sex: Int)  //0-男 1-女
     case userLog(mail: String, password: String)
     case userUpdate(fcmDeviceToken: String?, firstName: String?, groupIds: [String]?, id: String, lastName: String?, permissionIds: [Int]?, phone: String?, photoUrl: String?, sex: Int?) // 更新用户信息
@@ -93,7 +93,7 @@ extension APIServer: TargetType{
             return "lock_histories/close"
         case .updateOpenTime(_, _, _, _, _, _, _):
             return "lock_histories/open"
-        case .oauthToken:
+        case .oauthToken(_,_):
             return "oauth/token"
         case .downloadFingerprint(_):
             return "auth_rels/to_be_downloaded"
@@ -139,7 +139,7 @@ extension APIServer: TargetType{
             return .put
         case .updateCloseTime(_, _, _),
              .updateOpenTime(_, _, _, _, _, _, _),
-             .oauthToken,
+             .oauthToken(_,_),
              .userRegister(_, _, _, _, _, _, _, _, _, _),
              .userLog(_, _),
              .feedBack(_, _, _, _, _):
@@ -179,9 +179,13 @@ extension APIServer: TargetType{
             urlParameters = urlParameters + ["mail": mail]
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .oauthToken:
-    
-            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters + ["grant_type": "client_credentials"])
+        case .oauthToken(let grant_type, let refresh_token):
+            
+            urlParameters = urlParameters + ["grant_type": grant_type]
+            if refresh_token != nil {
+                urlParameters = urlParameters + ["refresh_token": refresh_token!]
+            }
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .registerVerifyCode(let type, let mail):
             

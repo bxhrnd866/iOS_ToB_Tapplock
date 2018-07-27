@@ -63,6 +63,8 @@ let ble_notficationKye = "ble_notficationKye_Response"
 
 let ble_disconnectKey = "ble_disconnectKeyDisconnect"
 
+let notificaitonName_postDFUUpate = "notificaitonName_postDFUUpate"
+
 let language_model_key = "language_model_key"
 
 let user_saveKey = "user_saveKey"
@@ -70,6 +72,10 @@ let user_saveKey = "user_saveKey"
 let basicToKenKey = "basicTokenUserDefaultKey"
 
 let refreshTokenKey = "refreshbasicTokenUserDefaultKey"
+
+let oauth_refresh_token = "refresh_token"
+
+let oauth_client_credentials = "client_credentials"
 
 
 var basicToken_UserKey: String? {

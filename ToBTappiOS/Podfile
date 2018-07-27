@@ -24,4 +24,5 @@ pod 'ReachabilitySwift'
 pod 'Cloudinary'
 pod 'IQKeyboardManagerSwift'
 pod 'PromiseKit/CoreLocation'
+pod 'iOSDFULibrary'
 end

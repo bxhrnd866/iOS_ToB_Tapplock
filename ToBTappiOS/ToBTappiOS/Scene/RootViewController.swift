@@ -16,8 +16,17 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        if ConfigModel.default.user.value == nil {
+            provider.rx.request(APIServer.oauthToken(grant_type: oauth_client_credentials, refresh_token: nil)).mapObject(BasicTokenModel.self) .subscribe(onSuccess: { response in
+                 UserDefaults.standard.set(response.access_token, forKey: basicToKenKey)
+            }).disposed(by: rx.disposeBag)
+        }
+        
     }
+    
+    let oauth_refresh_token = "refresh_token"
+    
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,6 +39,7 @@ class RootViewController: UIViewController {
         //查询是初次使用
         let used = UserDefaults.standard.bool(forKey: "used")
         
+        
         //此处需要延时执行,页面刚启动时Segue没有初始化完成跳转会失效
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             //初次使用=>showTutorialSegue
@@ -38,7 +48,7 @@ class RootViewController: UIViewController {
                 UserDefaults.standard.synchronize()
                 self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialSegue, sender: self)
             }
-            else if ConfigModel.default.user.value == nil {
+            else if ConfigModel.default.user.value != nil {
                 
                 self.performSegue(withIdentifier: R.segue.rootViewController.showHomeSB, sender: self)
                 
@@ -55,6 +65,8 @@ class RootViewController: UIViewController {
                 })
             
             } else {
+                
+                
                 self.performSegue(withIdentifier: R.segue.rootViewController.showLoginSb, sender: self)
             }
         }

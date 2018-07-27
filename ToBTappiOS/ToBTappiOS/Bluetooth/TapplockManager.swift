@@ -242,5 +242,4 @@ extension TapplockManager: CBCentralManagerDelegate {
         }
     }
     
-    
 }

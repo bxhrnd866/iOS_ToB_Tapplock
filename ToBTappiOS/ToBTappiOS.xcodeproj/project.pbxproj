@@ -370,7 +370,7 @@
 				7DFE108620CD407900C94FA3 /* BaseViewController.swift */,
 				7DFE108220CD405000C94FA3 /* RootViewController.swift */,
 				553E72A320AAAD8E00CFFEB8 /* Main.storyboard */,
-				5589411821087243005F2324 /* SupportView */,
+				5589411821087243005F2324 /* Support */,
 				553FD1C320EDE84200A43F5D /* Tutorial */,
 				55D0549E20D8D273003C92B5 /* LockDetail */,
 				7D05124620D263990075C681 /* Setting */,
@@ -485,7 +485,7 @@
 			path = MenuView;
 			sourceTree = "<group>";
 		};
-		5589411821087243005F2324 /* SupportView */ = {
+		5589411821087243005F2324 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				556411A921008D4C00F039AF /* SearchBar.swift */,
@@ -496,7 +496,7 @@
 				55226CD22109D56100F2074F /* UpdateLoadingController.swift */,
 				55B3DAE3210AC722001697D3 /* DFUViewModel.swift */,
 			);
-			path = SupportView;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		55A1125F20EA31460008A4CC /* Bluetooth */ = {

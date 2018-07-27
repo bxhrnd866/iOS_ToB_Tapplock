@@ -40,10 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
      
         
-        provider.rx.request(APIServer.oauthToken).subscribe(onSuccess: { response in
-            
-            plog(response)
-        }).disposed(by: rx.disposeBag)
+       
         
         return true
     }
