@@ -12,6 +12,9 @@
 		5507B82120F897DA00C499DB /* LockHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507B82020F897DA00C499DB /* LockHistoryModel.swift */; };
 		5507B82320F89ADE00C499DB /* FirmwareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507B82220F89ADE00C499DB /* FirmwareModel.swift */; };
 		5507B82520F89E9700C499DB /* DownloadFingerprintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507B82420F89E9700C499DB /* DownloadFingerprintModel.swift */; };
+		55226CCF2109D4FE00F2074F /* UpdateDFU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */; };
+		55226CD12109D52100F2074F /* UpdateDFUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55226CD02109D52100F2074F /* UpdateDFUController.swift */; };
+		55226CD32109D56100F2074F /* UpdateLoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55226CD22109D56100F2074F /* UpdateLoadingController.swift */; };
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
@@ -68,8 +71,6 @@
 		55894117210821AD005F2324 /* LockHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55894116210821AD005F2324 /* LockHistoryViewModel.swift */; };
 		5589411A21087295005F2324 /* HistoryDatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5589411921087295005F2324 /* HistoryDatePicker.storyboard */; };
 		5589411C210872AD005F2324 /* HistoryDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589411B210872AD005F2324 /* HistoryDateController.swift */; };
-		5589411E21087B93005F2324 /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589411D21087B93005F2324 /* SelectDateViewController.swift */; };
-		5589412021087B9D005F2324 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589411F21087B9D005F2324 /* SelectTimeViewController.swift */; };
 		55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126020EA31460008A4CC /* BLECommand.swift */; };
 		55A1126B20EA31460008A4CC /* BLEPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126120EA31460008A4CC /* BLEPeripheral.swift */; };
 		55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126220EA31460008A4CC /* BLEResponse.swift */; };
@@ -92,6 +93,7 @@
 		55AEEE7120EF3E2200D219BD /* BluetoothHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE6A20EF3E2200D219BD /* BluetoothHistoryViewController.swift */; };
 		55AEEE7820EF438D00D219BD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE7720EF438D00D219BD /* ListModel.swift */; };
 		55AEEE7A20EF5A2200D219BD /* FingerPrintListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEEE7920EF5A2200D219BD /* FingerPrintListCollectionCell.swift */; };
+		55B3DAE4210AC722001697D3 /* DFUViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DAE3210AC722001697D3 /* DFUViewModel.swift */; };
 		55CFD86F2105DB1E00CBBDDC /* BlueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFD86E2105DB1E00CBBDDC /* BlueDetailViewModel.swift */; };
 		55D054A020D8D2C0003C92B5 /* LockDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0549F20D8D2C0003C92B5 /* LockDetailController.swift */; };
 		55D054A220D8D2D2003C92B5 /* LockDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D054A120D8D2D2003C92B5 /* LockDetail.storyboard */; };
@@ -101,6 +103,7 @@
 		55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */; };
 		55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */; };
 		55DD15FB21030B5D0091CACA /* EnumTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD15FA21030B5D0091CACA /* EnumTools.swift */; };
+		55E1B9BA210AE43900DDFA36 /* ViewHistorySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E1B9B9210AE43900DDFA36 /* ViewHistorySearchController.swift */; };
 		55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */; };
 		7D05124820D263B90075C681 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D05124720D263B90075C681 /* Setting.storyboard */; };
 		7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124920D263F10075C681 /* SettingViewController.swift */; };
@@ -147,6 +150,9 @@
 		5507B82020F897DA00C499DB /* LockHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockHistoryModel.swift; sourceTree = "<group>"; };
 		5507B82220F89ADE00C499DB /* FirmwareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareModel.swift; sourceTree = "<group>"; };
 		5507B82420F89E9700C499DB /* DownloadFingerprintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFingerprintModel.swift; sourceTree = "<group>"; };
+		55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateDFU.storyboard; sourceTree = "<group>"; };
+		55226CD02109D52100F2074F /* UpdateDFUController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDFUController.swift; sourceTree = "<group>"; };
+		55226CD22109D56100F2074F /* UpdateLoadingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLoadingController.swift; sourceTree = "<group>"; };
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
@@ -212,8 +218,6 @@
 		55894116210821AD005F2324 /* LockHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockHistoryViewModel.swift; sourceTree = "<group>"; };
 		5589411921087295005F2324 /* HistoryDatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryDatePicker.storyboard; sourceTree = "<group>"; };
 		5589411B210872AD005F2324 /* HistoryDateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDateController.swift; sourceTree = "<group>"; };
-		5589411D21087B93005F2324 /* SelectDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
-		5589411F21087B9D005F2324 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
 		55A1126020EA31460008A4CC /* BLECommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECommand.swift; sourceTree = "<group>"; };
 		55A1126120EA31460008A4CC /* BLEPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheral.swift; sourceTree = "<group>"; };
 		55A1126220EA31460008A4CC /* BLEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEResponse.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 		55AEEE6A20EF3E2200D219BD /* BluetoothHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothHistoryViewController.swift; sourceTree = "<group>"; };
 		55AEEE7720EF438D00D219BD /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		55AEEE7920EF5A2200D219BD /* FingerPrintListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPrintListCollectionCell.swift; sourceTree = "<group>"; };
+		55B3DAE3210AC722001697D3 /* DFUViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFUViewModel.swift; sourceTree = "<group>"; };
 		55CFD86E2105DB1E00CBBDDC /* BlueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueDetailViewModel.swift; sourceTree = "<group>"; };
 		55D0549F20D8D2C0003C92B5 /* LockDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailController.swift; sourceTree = "<group>"; };
 		55D054A120D8D2D2003C92B5 /* LockDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LockDetail.storyboard; sourceTree = "<group>"; };
@@ -245,6 +250,7 @@
 		55D054A920D8E8BD003C92B5 /* BlueHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueHistoryController.swift; sourceTree = "<group>"; };
 		55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerHistoryController.swift; sourceTree = "<group>"; };
 		55DD15FA21030B5D0091CACA /* EnumTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTools.swift; sourceTree = "<group>"; };
+		55E1B9B9210AE43900DDFA36 /* ViewHistorySearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHistorySearchController.swift; sourceTree = "<group>"; };
 		55EB7BFB20FDD38F003CFE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D05124720D263B90075C681 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7D05124920D263F10075C681 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -484,9 +490,11 @@
 			children = (
 				556411A921008D4C00F039AF /* SearchBar.swift */,
 				5589411B210872AD005F2324 /* HistoryDateController.swift */,
-				5589411D21087B93005F2324 /* SelectDateViewController.swift */,
-				5589411F21087B9D005F2324 /* SelectTimeViewController.swift */,
 				5589411921087295005F2324 /* HistoryDatePicker.storyboard */,
+				55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */,
+				55226CD02109D52100F2074F /* UpdateDFUController.swift */,
+				55226CD22109D56100F2074F /* UpdateLoadingController.swift */,
+				55B3DAE3210AC722001697D3 /* DFUViewModel.swift */,
 			);
 			path = SupportView;
 			sourceTree = "<group>";
@@ -597,6 +605,7 @@
 				7D05125920D266210075C681 /* ViewHistory.storyboard */,
 				7D05125B20D266420075C681 /* ViewHistoryController.swift */,
 				55894116210821AD005F2324 /* LockHistoryViewModel.swift */,
+				55E1B9B9210AE43900DDFA36 /* ViewHistorySearchController.swift */,
 				55AEEE6820EF3E2200D219BD /* Bluetooth */,
 				55AEEE6320EF3E2100D219BD /* Fingerprint */,
 			);
@@ -767,6 +776,7 @@
 				55EB7BFC20FDD38F003CFE2F /* GoogleService-Info.plist in Resources */,
 				7D05125A20D266210075C681 /* ViewHistory.storyboard in Resources */,
 				553E72C420AAB38C00CFFEB8 /* InfoPlist.strings in Resources */,
+				55226CCF2109D4FE00F2074F /* UpdateDFU.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +900,7 @@
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
 				557C3F3620EB1E8A00A24D54 /* AppDelegate+Method.swift in Sources */,
 				5532F88720FF4ACC00D4E9C5 /* TappLockListCell.swift in Sources */,
+				55B3DAE4210AC722001697D3 /* DFUViewModel.swift in Sources */,
 				55AEEE7820EF438D00D219BD /* ListModel.swift in Sources */,
 				55AEEE5E20EF159300D219BD /* AboutUSViewController.swift in Sources */,
 				7DFE10F520CD4AC700C94FA3 /* RegisterUserImageUploader.swift in Sources */,
@@ -898,17 +909,20 @@
 				55D054AA20D8E8BD003C92B5 /* BlueHistoryController.swift in Sources */,
 				55AEEE6220EF18FB00D219BD /* SendFeedbackController.swift in Sources */,
 				55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */,
+				55226CD32109D56100F2074F /* UpdateLoadingController.swift in Sources */,
 				55730F3920F5F3EA007F5230 /* PermissionInfoModel.swift in Sources */,
 				557E6FC720DA02DD003C7975 /* YourGroupController.swift in Sources */,
 				553E730920AAB8C100CFFEB8 /* UITextfieldExtension.swift in Sources */,
 				7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */,
 				553FD1C520EDEA5D00A43F5D /* TutorialController.swift in Sources */,
 				7DFE10F420CD4AC700C94FA3 /* RegistVerficationController.swift in Sources */,
+				55E1B9BA210AE43900DDFA36 /* ViewHistorySearchController.swift in Sources */,
 				55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */,
 				7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */,
 				5507B81D20F87DDF00C499DB /* APICode.swift in Sources */,
 				55641184210070B500F039AF /* AllLockViewModel.swift in Sources */,
 				55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */,
+				55226CD12109D52100F2074F /* UpdateDFUController.swift in Sources */,
 				553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */,
 				55A5A8082107207D0077C3AD /* FingerPrintModel.swift in Sources */,
 				55730F3720F5F147007F5230 /* GroupsModel.swift in Sources */,
@@ -967,12 +981,10 @@
 				553E730420AAB8C100CFFEB8 /* DataExtension.swift in Sources */,
 				55A1126E20EA31460008A4CC /* PeripheralHistory.swift in Sources */,
 				55A5A80A210721F90077C3AD /* FingerDetailViewModel.swift in Sources */,
-				5589411E21087B93005F2324 /* SelectDateViewController.swift in Sources */,
 				7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */,
 				557C3F3320EB1BD400A24D54 /* APIResponse.swift in Sources */,
 				55D054A020D8D2C0003C92B5 /* LockDetailController.swift in Sources */,
 				557C3F3220EB1BD400A24D54 /* APIEncrypt.swift in Sources */,
-				5589412021087B9D005F2324 /* SelectTimeViewController.swift in Sources */,
 				553E730620AAB8C100CFFEB8 /* DictionaryExtension.swift in Sources */,
 				7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */,
 				5507B82320F89ADE00C499DB /* FirmwareModel.swift in Sources */,

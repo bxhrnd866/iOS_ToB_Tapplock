@@ -233,14 +233,15 @@
                                     <segue destination="k45-O5-wVg" kind="show" identifier="lockBluetoothHistory" id="XNg-Lv-5j8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k" customClass="firmwareGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k">
                                 <rect key="frame" x="20" y="416" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7Jo-Hl-3QR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                 <state key="normal" title="Firmware Update">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted" image="LockDetail_fingerprint"/>
                                 <userDefinedRuntimeAttributes>
@@ -297,11 +298,20 @@
                         <outlet property="lockName" destination="Io6-da-94e" id="Xtb-QO-qhw"/>
                         <outlet property="lockStatus" destination="E3H-Vm-c3K" id="LLH-gM-drn"/>
                         <outlet property="navitItle" destination="Qz4-Eb-bXi" id="e9I-VH-NhT"/>
+                        <segue destination="ZoE-VO-N4W" kind="show" identifier="showUpdateDFU" id="3de-vL-Qhv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh3-cx-OLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2930" y="1564"/>
+        </scene>
+        <!--UpdateDFU-->
+        <scene sceneID="TM0-2c-9AL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UpdateDFU" id="ZoE-VO-N4W" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXz-tB-He7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2930" y="2002"/>
         </scene>
         <!--Bluetooth History-->
         <scene sceneID="lQB-th-4Kb">
@@ -449,6 +459,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="History_calender" id="Wu8-gu-Niq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="VgB-Gd-jcL" kind="presentation" identifier="showHistoryDate" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="5Ix-k3-qgG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -459,6 +472,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqZ-R5-pEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2090.4000000000001" y="1563.5467980295566"/>
+        </scene>
+        <!--HistoryDatePicker-->
+        <scene sceneID="Z4w-vO-wFn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HistoryDatePicker" id="VgB-Gd-jcL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldO-lg-1FR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1406" y="1490"/>
         </scene>
     </scenes>
     <resources>

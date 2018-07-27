@@ -1,15 +1,17 @@
 //
-//  SelectTimeViewController.swift
+//  UpdateDFUController.swift
 //  ToBTappiOS
 //
-//  Created by TapplockiOS on 2018/7/25.
+//  Created by TapplockiOS on 2018/7/26.
 //  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
 import UIKit
 
-class SelectTimeViewController: UIViewController {
-
+class UpdateDFUController: UIViewController {
+    @IBOutlet weak var introuceLab: UILabel!
+    @IBOutlet weak var updateContent: UILabel!
+//    var updateModel: UpdateFWModel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,11 @@ class SelectTimeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func actionSelect(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: R.segue.updateDFUController.showUpdateLoading, sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

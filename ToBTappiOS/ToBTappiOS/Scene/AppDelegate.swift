@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 import UserNotifications
-
+import SwiftDate
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
@@ -38,24 +38,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
         
         
+     
         
+        provider.rx.request(APIServer.oauthToken).subscribe(onSuccess: { response in
+            
+            plog(response)
+        }).disposed(by: rx.disposeBag)
         
-        
-        
-      
-        
-
         return true
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        plog("deviceToken----> \(deviceToken)")
+//        plog("deviceToken----> \(deviceToken)")
     
         Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        plog("fcmToken ------>  \(fcmToken)---")
+//        plog("fcmToken ------>  \(fcmToken)---")
         ConfigModel.default.setpushToken(data: fcmToken)
     }
     func applicationWillResignActive(_ application: UIApplication) {

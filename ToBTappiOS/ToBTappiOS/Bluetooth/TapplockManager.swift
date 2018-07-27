@@ -189,7 +189,7 @@ extension TapplockManager: CBCentralManagerDelegate {
             let mac = hex[4...hex.length - 1].macText
 
             for model in rx_myLocks.value {
-                if model.mac! == mac {
+                if model.mac?.uppercased() == mac {
                     plog(model.id)
                     peripheral.lockId = model.id
                     break

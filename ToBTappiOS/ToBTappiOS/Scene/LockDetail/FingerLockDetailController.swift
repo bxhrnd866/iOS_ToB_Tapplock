@@ -131,7 +131,9 @@ class FingerLockDetailController: UIViewController {
 
     
     
-  
+    deinit {
+        plog("销毁了")
+    }
     
     
     override func didReceiveMemoryWarning() {

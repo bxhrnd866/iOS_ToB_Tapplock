@@ -15,20 +15,13 @@ class BlueHistoryController: UIViewController {
     
     var data = Variable(["22","333","22","333","22","333","22","333","22","333"])
     
-    let viewModel = LockHistoryViewModel()
+    let viewModel = LockHistoryViewModel(type: 1)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-//        data.asDriver()
-//            .drive(tableview.rx.items(cellIdentifier: R.reuseIdentifier.bluetoothHistoryCell.identifier,
-//                                      cellType: BluetoothHistoryCell.self)) { (indexPath, model, cell) in
-//                                      cell.locationLabel.text = "这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊这是一个地址吗好开心啊"
-//            }
-//            .disposed(by: rx.disposeBag)
+
         
         tableview.mj_header  = HeaderRefresh.init { [weak self] in
             self?.viewModel.loadRefresh()
@@ -56,6 +49,17 @@ class BlueHistoryController: UIViewController {
         self.viewModel.loadAPI()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = R.segue.fingerHistoryController.showHistoryDate(segue: segue) {
+            vc.destination.block = { [weak self] tuple in
+                self?.viewModel.rx_beginTime.value = tuple.0
+                self?.viewModel.rx_endTime.value = tuple.1
+                self?.tableview.mj_header.beginRefreshing()
+            }
+            
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,6 +70,10 @@ class BlueHistoryController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)       
      
+    }
+    
+    deinit {
+        plog("销毁了")
     }
 }
 

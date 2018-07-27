@@ -8,16 +8,21 @@
 
 import Foundation
 
+
 let aKind = "0001"
 let bKind = "0002"
+let cKind = "a180"
 
-//"a180"
+
+
+
 // 设备类型
 enum TapplockType: String {
     case typeA = "0001"
     case typeB = "0100"
     case typeC = "0002"
     case typeD = "0200"
+    case typeE = "a180"
     
     var deviceType: String! {
         switch self {
@@ -25,6 +30,8 @@ enum TapplockType: String {
             return aKind
         case .typeC,.typeD:
             return bKind
+        case .typeE:
+            return cKind
         }
     }
     

@@ -30,9 +30,11 @@ class LockHistoryViewModel: NSObject {
     
     
     
-    override init() {
-      super.init()
+    init(type: Int) {
+        super.init()
+        self.quertType = type
     }
+    
     func loadRefresh() {
         page = 1
         self.loadAPI()

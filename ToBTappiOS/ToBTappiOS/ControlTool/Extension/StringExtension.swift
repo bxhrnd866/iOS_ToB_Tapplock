@@ -113,7 +113,16 @@ extension String {
         return timeText
     }
     
- 
+    // 字符串转时间错
+    var timeStamp: Int {
+        let datefmatter = DateFormatter()
+        datefmatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = datefmatter.date(from: self)
+        let dateStam = date!.timeIntervalSince1970
+        return Int(dateStam)
+    }
+
+    
 }
 
 // 进制转换

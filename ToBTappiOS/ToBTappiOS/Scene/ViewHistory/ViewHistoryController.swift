@@ -15,6 +15,12 @@ enum HistoryTab {
     case fingerprint
 }
 
+enum RefreshTap {
+    case none
+    case blue
+    case finger
+}
+
 class ViewHistoryController: UIViewController {
     
     @IBOutlet weak var bleBtn: UIButton!
@@ -22,11 +28,20 @@ class ViewHistoryController: UIViewController {
     @IBOutlet weak var underLine: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
  
+    
     var rx_tab = Variable(HistoryTab.bluetooth)
-    var rx_lockName: Variable<String?> = Variable(nil)
+    var rx_refresh = Variable(RefreshTap.none)
+    
+    
+    
+    var rx_targetName: Variable<String?> = Variable(nil)
     var rx_beginTime: Variable<Int?> = Variable(nil)
     var rx_endTime: Variable<Int?> = Variable(nil)
-
+    var startLab: String?
+    var endLab: String?
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,43 +75,28 @@ class ViewHistoryController: UIViewController {
         }).disposed(by: rx.disposeBag)
         
         
-    }
-    
-    
-    @IBAction func searchAction(_ sender: Any) {
-        self.searchBar?.serchShow()
-        searchBar?.rx_text.asDriver().drive(self.rx_lockName).disposed(by: rx.disposeBag)
-        searchBar?.rx_action.asObservable()
-            .subscribe(onNext: { [weak self] bl in
-
-                if bl {
-                
-                } else {
-                    self?.rx_lockName.value = nil
-                }
-            }).disposed(by: rx.disposeBag)
+     
         
     }
     
-    @IBAction func searchCalendar(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.viewHistoryController.showHistoryDatePicker, sender: self)
+    
+    @IBAction func searchActionSelect(_ sender: Any) {
+
+        self.performSegue(withIdentifier: R.segue.viewHistoryController.showSearchViewIdentifier, sender: self)
+        
     }
     
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        if self.rx_lockName.value != nil, self.rx_lockName.value?.length != 0 {
-            self.searchBar?.isHidden = false
-        }
+      
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if self.rx_lockName.value?.length == 0 || self.rx_lockName.value == nil {
-            self.searchBar?.cancelHidde()
-        } else  {
-            self.searchBar?.isHidden = true
-        }
+     
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,6 +118,23 @@ class ViewHistoryController: UIViewController {
         if let vc = R.segue.viewHistoryController.fingerPrintHistoryIdentifier(segue: segue) {
             vc.destination.controller = self
         }
+        
+        if let vc = R.segue.viewHistoryController.showSearchViewIdentifier(segue: segue) {
+            vc.destination.controller = self
+            vc.destination.callblock = { [weak self] in
+                self?.startLab = vc.destination.Startlab.text
+                self?.endLab = vc.destination.endLab.text
+                self?.rx_targetName.value = vc.destination.textfield.text
+                self?.rx_beginTime.value = vc.destination.rx_startTime.value
+                self?.rx_endTime.value = vc.destination.rx_endTime.value
+                
+                if self?.rx_tab.value == .bluetooth {
+                    self?.rx_refresh.value = RefreshTap.blue
+                } else {
+                    self?.rx_refresh.value = RefreshTap.finger
+                }
+            }
+        }
     }
  
 
@@ -125,13 +142,6 @@ class ViewHistoryController: UIViewController {
 
 extension ViewHistoryController: UIScrollViewDelegate {
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-//        let x = scrollView.contentOffset.x
-//
-//        let distance =   mScreenW * 3 / 4
-//
-    }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset)
         if scrollView.contentOffset.x == 0 {

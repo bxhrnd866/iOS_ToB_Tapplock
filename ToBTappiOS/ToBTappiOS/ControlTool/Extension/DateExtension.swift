@@ -37,7 +37,6 @@ extension Date {
             return 1522378147
         }
 
-//        let newdate = MorseCode.getLoacalTime(date!)
         let newdate = NSDate()
         
         let dateStamp:TimeInterval = newdate.timeIntervalSince1970

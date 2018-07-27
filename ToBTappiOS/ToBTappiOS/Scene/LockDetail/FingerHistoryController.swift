@@ -11,7 +11,7 @@ import UIKit
 class FingerHistoryController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let viewModel = LockHistoryViewModel()
+    let viewModel = LockHistoryViewModel(type: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +49,22 @@ class FingerHistoryController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = R.segue.fingerHistoryController.showHistoryDate(segue: segue) {
+            vc.destination.block = { [weak self] tuple in
+                self?.viewModel.rx_beginTime.value = tuple.0
+                self?.viewModel.rx_endTime.value = tuple.1
+                self?.tableView.mj_header.beginRefreshing()
+            }
+            
+        }
+    }
+    
+    deinit {
+        plog("销毁了")
     }
     
 }

@@ -48,7 +48,7 @@ extension APIServer: TargetType{
     
         switch self {
         case .oauthToken:
-            let value = "clientIdPassword:secret".toBase64()
+            let value = "tapplock-b2b-ios:iossecret".toBase64()
             return ["Content-type": "application/json", "Authorization": "Basic \(value)"]
         case .registerVerifyCode:
            
@@ -57,11 +57,17 @@ extension APIServer: TargetType{
             return ["Content-type": "application/json", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg")]
         }
         
-        
+       
+
     }
     
     var baseURL: URL {
-        return URL(string: APIHost + "/api/\(APIVersion)/")!
+        switch self {
+        case .oauthToken:
+            return URL(string: APIHost)!
+        default:
+            return URL(string: APIHost + "/api/\(APIVersion)/")!
+        }
     }
     
     
@@ -143,7 +149,7 @@ extension APIServer: TargetType{
     }
     
     var task: Task {
-//        + hmacSign()
+
         var urlParameters = [String: Any]()
         
         var bodyParameters = [String: Any]()
@@ -174,12 +180,8 @@ extension APIServer: TargetType{
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .oauthToken:
-           
-            bodyParameters = bodyParameters + ["grant_type": "client_credentials"]
-            
-            let data = requestBodyEncrypted(body: bodyParameters)
-            
-            return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
+    
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters + ["grant_type": "client_credentials"])
             
         case .registerVerifyCode(let type, let mail):
             

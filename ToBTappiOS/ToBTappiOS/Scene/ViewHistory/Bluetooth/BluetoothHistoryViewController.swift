@@ -19,16 +19,21 @@ class BluetoothHistoryViewController: UIViewController {
     
     weak var controller: ViewHistoryController?
     
-    let viewModel = LockHistoryViewModel()
+    let viewModel = LockHistoryViewModel(type: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        controller?.rx_lockName.asObservable().bind(to: viewModel.rx_targetName).disposed(by: rx.disposeBag)
+        controller?.rx_targetName.asObservable().bind(to: viewModel.rx_targetName).disposed(by: rx.disposeBag)
         controller?.rx_endTime.asObservable().bind(to: viewModel.rx_endTime).disposed(by: rx.disposeBag)
         controller?.rx_beginTime.asObservable().bind(to: viewModel.rx_beginTime).disposed(by: rx.disposeBag)
         
+        controller?.rx_refresh.asDriver().drive(onNext: { [weak self] tap in
+            if tap ==  RefreshTap.blue {
+                self?.tableView.mj_header.beginRefreshing()
+            }
+        }).disposed(by: rx.disposeBag)
         
         tableView.mj_header  = HeaderRefresh.init { [weak self] in
             self?.viewModel.loadRefresh()

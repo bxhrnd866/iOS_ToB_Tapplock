@@ -449,6 +449,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="History_calender" id="HRU-T4-CXl">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="cTo-Rg-ysX" kind="presentation" identifier="showHistoryDate" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="C3N-9s-cZx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -459,6 +462,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adA-Ev-rda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="496.80000000000001" y="-146.30541871921181"/>
+        </scene>
+        <!--HistoryDatePicker-->
+        <scene sceneID="goh-dt-sgW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HistoryDatePicker" id="cTo-Rg-ysX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qg-21-eM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="-195"/>
         </scene>
     </scenes>
     <resources>

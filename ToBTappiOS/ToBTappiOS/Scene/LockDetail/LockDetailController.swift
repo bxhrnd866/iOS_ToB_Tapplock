@@ -124,7 +124,10 @@ class LockDetailController: UIViewController {
     
     @IBAction func firmwareUpdateAction(_ sender: Any) {
         
-        
+          self.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+    }
+    deinit {
+        plog("销毁了")
     }
     /*
     // MARK: - Navigation

@@ -1,15 +1,22 @@
 //
-//  SelectDateViewController.swift
+//  UpdateLoadingController.swift
 //  ToBTappiOS
 //
-//  Created by TapplockiOS on 2018/7/25.
+//  Created by TapplockiOS on 2018/7/26.
 //  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
 import UIKit
 
-class SelectDateViewController: UIViewController {
+class UpdateLoadingController: UIViewController {
 
+    @IBOutlet weak var statusLab: UILabel!
+    
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    @IBOutlet weak var progressLab: UILabel!
+    
+    let viewModel = DFUViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 

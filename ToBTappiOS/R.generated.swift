@@ -77,12 +77,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 41 images.
+  /// This `R.image` struct is generated, and contains static references to 45 images.
   struct image {
     /// Image `About_Logo`.
     static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
     /// Image `Back_Arrow`.
     static let back_Arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Back_Arrow")
+    /// Image `DFU-Hierarchical`.
+    static let dfuHierarchical = Rswift.ImageResource(bundle: R.hostingBundle, name: "DFU-Hierarchical")
     /// Image `History_calender`.
     static let history_calender = Rswift.ImageResource(bundle: R.hostingBundle, name: "History_calender")
     /// Image `History_closethelock`.
@@ -135,6 +137,8 @@ struct R: Rswift.Validatable {
     static let userPlace = Rswift.ImageResource(bundle: R.hostingBundle, name: "UserPlace")
     /// Image `bluetooth`.
     static let bluetooth = Rswift.ImageResource(bundle: R.hostingBundle, name: "bluetooth")
+    /// Image `bottomArrow`.
+    static let bottomArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottomArrow")
     /// Image `fingerprint`.
     static let fingerprint = Rswift.ImageResource(bundle: R.hostingBundle, name: "fingerprint")
     /// Image `icon_check`.
@@ -159,8 +163,12 @@ struct R: Rswift.Validatable {
     static let lock_fingerprint_high = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock_fingerprint_high")
     /// Image `lock_sysn`.
     static let lock_sysn = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock_sysn")
+    /// Image `loudou`.
+    static let loudou = Rswift.ImageResource(bundle: R.hostingBundle, name: "loudou")
     /// Image `placeholder_lock`.
     static let placeholder_lock = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_lock")
+    /// Image `rightArrow`.
+    static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightArrow")
     
     /// `UIImage(named: "About_Logo", bundle: ..., traitCollection: ...)`
     static func about_Logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -170,6 +178,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Back_Arrow", bundle: ..., traitCollection: ...)`
     static func back_Arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back_Arrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "DFU-Hierarchical", bundle: ..., traitCollection: ...)`
+    static func dfuHierarchical(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.dfuHierarchical, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "History_calender", bundle: ..., traitCollection: ...)`
@@ -302,6 +315,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.bluetooth, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "bottomArrow", bundle: ..., traitCollection: ...)`
+    static func bottomArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bottomArrow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "fingerprint", bundle: ..., traitCollection: ...)`
     static func fingerprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.fingerprint, compatibleWith: traitCollection)
@@ -362,9 +380,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.lock_sysn, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "loudou", bundle: ..., traitCollection: ...)`
+    static func loudou(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loudou, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "placeholder_lock", bundle: ..., traitCollection: ...)`
     static func placeholder_lock(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholder_lock, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "rightArrow", bundle: ..., traitCollection: ...)`
+    static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -407,7 +435,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 16 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 19 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -419,6 +447,36 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func showAllGroupSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AllLocksViewController, AllGroupController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.allLocksViewController.showAllGroupSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `BlueHistoryController`, and contains static references to 1 segues.
+    struct blueHistoryController {
+      /// Segue identifier `showHistoryDate`.
+      static let showHistoryDate: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BlueHistoryController, HistoryDateController> = Rswift.StoryboardSegueIdentifier(identifier: "showHistoryDate")
+      
+      /// Optionally returns a typed version of segue `showHistoryDate`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showHistoryDate(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BlueHistoryController, HistoryDateController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.blueHistoryController.showHistoryDate, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `FingerHistoryController`, and contains static references to 1 segues.
+    struct fingerHistoryController {
+      /// Segue identifier `showHistoryDate`.
+      static let showHistoryDate: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, FingerHistoryController, HistoryDateController> = Rswift.StoryboardSegueIdentifier(identifier: "showHistoryDate")
+      
+      /// Optionally returns a typed version of segue `showHistoryDate`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showHistoryDate(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, FingerHistoryController, HistoryDateController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.fingerHistoryController.showHistoryDate, segue: segue)
       }
       
       fileprivate init() {}
@@ -529,16 +587,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `LockDetailController`, and contains static references to 1 segues.
+    /// This struct is generated for `LockDetailController`, and contains static references to 2 segues.
     struct lockDetailController {
       /// Segue identifier `lockBluetoothHistory`.
       static let lockBluetoothHistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LockDetailController, BlueHistoryController> = Rswift.StoryboardSegueIdentifier(identifier: "lockBluetoothHistory")
+      /// Segue identifier `showUpdateDFU`.
+      static let showUpdateDFU: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LockDetailController, UpdateDFUController> = Rswift.StoryboardSegueIdentifier(identifier: "showUpdateDFU")
       
       /// Optionally returns a typed version of segue `lockBluetoothHistory`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func lockBluetoothHistory(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LockDetailController, BlueHistoryController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.lockDetailController.lockBluetoothHistory, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `showUpdateDFU`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showUpdateDFU(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LockDetailController, UpdateDFUController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.lockDetailController.showUpdateDFU, segue: segue)
       }
       
       fileprivate init() {}
@@ -709,6 +776,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This struct is generated for `UpdateDFUController`, and contains static references to 1 segues.
+    struct updateDFUController {
+      /// Segue identifier `showUpdateLoading`.
+      static let showUpdateLoading: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UpdateDFUController, UpdateLoadingController> = Rswift.StoryboardSegueIdentifier(identifier: "showUpdateLoading")
+      
+      /// Optionally returns a typed version of segue `showUpdateLoading`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showUpdateLoading(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UpdateDFUController, UpdateLoadingController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.updateDFUController.showUpdateLoading, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `VerificationCodeViewController`, and contains static references to 1 segues.
     struct verificationCodeViewController {
       /// Segue identifier `NewPasswordSegue`.
@@ -730,8 +812,8 @@ struct R: Rswift.Validatable {
       static let bleHistoryIdentifer: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewHistoryController, BluetoothHistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "bleHistoryIdentifer")
       /// Segue identifier `fingerPrintHistoryIdentifier`.
       static let fingerPrintHistoryIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewHistoryController, FingerprintHistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "fingerPrintHistoryIdentifier")
-      /// Segue identifier `showHistoryDatePicker`.
-      static let showHistoryDatePicker: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewHistoryController, HistoryDateController> = Rswift.StoryboardSegueIdentifier(identifier: "showHistoryDatePicker")
+      /// Segue identifier `showSearchViewIdentifier`.
+      static let showSearchViewIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewHistoryController, ViewHistorySearchController> = Rswift.StoryboardSegueIdentifier(identifier: "showSearchViewIdentifier")
       
       /// Optionally returns a typed version of segue `bleHistoryIdentifer`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -747,11 +829,11 @@ struct R: Rswift.Validatable {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewHistoryController.fingerPrintHistoryIdentifier, segue: segue)
       }
       
-      /// Optionally returns a typed version of segue `showHistoryDatePicker`.
+      /// Optionally returns a typed version of segue `showSearchViewIdentifier`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showHistoryDatePicker(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewHistoryController, HistoryDateController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewHistoryController.showHistoryDatePicker, segue: segue)
+      static func showSearchViewIdentifier(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewHistoryController, ViewHistorySearchController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewHistoryController.showSearchViewIdentifier, segue: segue)
       }
       
       fileprivate init() {}
@@ -760,7 +842,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 13 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 14 storyboards.
   struct storyboard {
     /// Storyboard `FingerLockDetail`.
     static let fingerLockDetail = _R.storyboard.fingerLockDetail()
@@ -784,6 +866,8 @@ struct R: Rswift.Validatable {
     static let register = _R.storyboard.register()
     /// Storyboard `Setting`.
     static let setting = _R.storyboard.setting()
+    /// Storyboard `UpdateDFU`.
+    static let updateDFU = _R.storyboard.updateDFU()
     /// Storyboard `ViewAlllock`.
     static let viewAlllock = _R.storyboard.viewAlllock()
     /// Storyboard `ViewHistory`.
@@ -842,6 +926,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Setting", bundle: ...)`
     static func setting(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.setting)
+    }
+    
+    /// `UIStoryboard(name: "UpdateDFU", bundle: ...)`
+    static func updateDFU(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.updateDFU)
     }
     
     /// `UIStoryboard(name: "ViewAlllock", bundle: ...)`
@@ -2485,6 +2574,7 @@ struct _R: Rswift.Validatable {
       try main.validate()
       try myTapplock.validate()
       try logIn.validate()
+      try updateDFU.validate()
       try setting.validate()
       try home.validate()
       try register.validate()
@@ -2667,6 +2757,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct updateDFU: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UpdateDFUController
+      
+      let bundle = R.hostingBundle
+      let name = "UpdateDFU"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'UpdateDFU', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "DFU-Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'DFU-Hierarchical' is used in storyboard 'UpdateDFU', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct viewAlllock: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = AllLocksViewController
       
@@ -2691,11 +2795,12 @@ struct _R: Rswift.Validatable {
       let name = "ViewHistory"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "History_calender") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_calender' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "rightArrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rightArrow' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "History_openedthelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_openedthelock' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Home_search") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_search' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "loudou") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'loudou' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Historylocation") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Historylocation' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Naivsearch") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Naivsearch' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "placeholder_lock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'placeholder_lock' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
         if UIKit.UIImage(named: "UserPlace") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UserPlace' is used in storyboard 'ViewHistory', but couldn't be loaded.") }
       }

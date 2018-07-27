@@ -125,6 +125,10 @@ extension PeripheralModel: CBPeripheralDelegate {
                 return
             }
             
+            if self.rx_hardware.value == cKind {
+                self.sendGetDeviceMacCommand()
+                return
+            }
             sendGetRandom()
             
         case .GetRandomData:
