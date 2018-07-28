@@ -15,7 +15,16 @@ import CoreLocation
 //用户模型,参考网络通信接口文档
 class UserModel: Mappable {
     
-    var accessToken: String?
+    var accessToken: String? {
+        didSet {
+            UserDefaults.standard.set(accessToken, forKey: n_basicToKenKey)
+        }
+    }
+    var refreshToken: String? {
+        didSet {
+            UserDefaults.standard.set(refreshToken, forKey: n_refreshTokenKey)
+        }
+    }
     var corpId: Int?
     var corpName: String?
     var entryFingerprint: Int?
@@ -36,7 +45,6 @@ class UserModel: Mappable {
     var permissions: [PermissionInfoModel]?  //拥有的权限
     var phone: String?
     var photoUrl: String?
-    var refreshToken: String?
     var sex: Int?
     
     var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())

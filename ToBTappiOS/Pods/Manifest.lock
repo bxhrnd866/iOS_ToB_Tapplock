@@ -33,6 +33,8 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - Instructions (1.1.0)
+  - iOSDFULibrary (4.1.3):
+    - Zip (~> 1.0)
   - IQKeyboardManagerSwift (6.0.4)
   - Kingfisher (4.6.4)
   - MJRefresh (3.1.15.3)
@@ -81,6 +83,7 @@ PODS:
   - SwiftDate (4.5.1)
   - TOCropViewController (2.3.6)
   - WXImageCompress (0.1.1)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
   - CFAlertViewController
@@ -89,6 +92,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - Instructions
+  - iOSDFULibrary
   - IQKeyboardManagerSwift
   - Kingfisher
   - MJRefresh
@@ -120,6 +124,7 @@ SPEC REPOS:
     - FirebaseMessaging
     - GoogleToolboxForMac
     - Instructions
+    - iOSDFULibrary
     - IQKeyboardManagerSwift
     - Kingfisher
     - MJRefresh
@@ -141,6 +146,7 @@ SPEC REPOS:
     - SwiftDate
     - TOCropViewController
     - WXImageCompress
+    - Zip
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -155,6 +161,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Instructions: ff5738d6a637a46d1638a77d77261649f4da36a7
+  iOSDFULibrary: 921bc0e250ad204a68ffe0cc98a7cb6ac8b13b9f
   IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -176,7 +183,8 @@ SPEC CHECKSUMS:
   SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
   TOCropViewController: 6d972f2c609372312648f96758e13a7f689efbc0
   WXImageCompress: 4003213a788574c3e307faec0130359c52e43887
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: d2729f4f3dfcd331c43ce75f8b18f18d21ca9d33
+PODFILE CHECKSUM: d768fececef860ce001e43d0e69fcb7313b2e4a3
 
 COCOAPODS: 1.5.3

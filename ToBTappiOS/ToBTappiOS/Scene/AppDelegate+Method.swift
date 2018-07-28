@@ -109,6 +109,12 @@ extension AppDelegate {
         
     }
     
-    
+    func refreshToken() {
+        provider.rx.request(APIServer.oauthToken(grant_type: oauth_refresh_token, refresh_token: refreshbasicToken_UserKey))
+            .mapObject(BasicTokenModel.self)
+            .subscribe(onSuccess: { [weak self] response in
+                plog(response)
+        }).disposed(by: rx.disposeBag)
+    }
 
 }

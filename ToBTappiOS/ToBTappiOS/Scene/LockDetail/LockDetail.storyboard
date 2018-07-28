@@ -253,14 +253,6 @@
                                     <action selector="firmwareUpdateAction:" destination="U3T-wn-dSJ" eventType="touchUpInside" id="N7G-Ju-QqR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cli-Ng-PNK">
-                                <rect key="frame" x="293" y="536" width="42" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="DCh-Gf-5fl"/>
-                                    <constraint firstAttribute="width" constant="42" id="oK5-Cv-DPH"/>
-                                </constraints>
-                                <state key="normal" image="lock_sysn"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -269,7 +261,6 @@
                             <constraint firstItem="qdx-Gk-LGI" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="ErB-aN-VBh"/>
                             <constraint firstItem="CjL-Xb-pfU" firstAttribute="top" secondItem="LbA-p7-3ew" secondAttribute="bottom" constant="42" id="F4O-9e-39n"/>
                             <constraint firstItem="Qz4-Eb-bXi" firstAttribute="centerY" secondItem="gIN-IF-Ykc" secondAttribute="centerY" id="FWD-jh-Dhx"/>
-                            <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="cli-Ng-PNK" secondAttribute="trailing" constant="40" id="Gxf-6q-WmC"/>
                             <constraint firstItem="gIN-IF-Ykc" firstAttribute="leading" secondItem="eBn-d7-4yW" secondAttribute="leading" constant="20" id="H96-Yv-QBU"/>
                             <constraint firstItem="qdx-Gk-LGI" firstAttribute="top" secondItem="CjL-Xb-pfU" secondAttribute="bottom" constant="22" id="TZ6-rT-iB0"/>
                             <constraint firstItem="zR9-E7-6du" firstAttribute="trailing" secondItem="eBn-d7-4yW" secondAttribute="trailing" id="Vyb-Ng-yUC"/>
@@ -284,7 +275,6 @@
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="CjL-Xb-pfU" secondAttribute="trailing" constant="20" id="vDS-F0-X3K"/>
                             <constraint firstItem="GNA-aR-Q4k" firstAttribute="top" secondItem="qdx-Gk-LGI" secondAttribute="bottom" constant="22" id="wz6-NC-gF7"/>
                             <constraint firstItem="eBn-d7-4yW" firstAttribute="trailing" secondItem="GNA-aR-Q4k" secondAttribute="trailing" constant="20" id="x6S-wf-s2i"/>
-                            <constraint firstItem="cli-Ng-PNK" firstAttribute="top" secondItem="GNA-aR-Q4k" secondAttribute="bottom" constant="70" id="z2Q-2z-jYk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eBn-d7-4yW"/>
                     </view>
@@ -492,6 +482,5 @@
         <image name="Lock_lockicon" width="139" height="204"/>
         <image name="lock_battery_0" width="7" height="10"/>
         <image name="lock_bgImg" width="375" height="196"/>
-        <image name="lock_sysn" width="42" height="42"/>
     </resources>
 </document>

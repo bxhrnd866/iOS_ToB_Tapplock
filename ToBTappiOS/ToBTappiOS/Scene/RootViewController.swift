@@ -18,15 +18,13 @@ class RootViewController: UIViewController {
         
         if ConfigModel.default.user.value == nil {
             provider.rx.request(APIServer.oauthToken(grant_type: oauth_client_credentials, refresh_token: nil)).mapObject(BasicTokenModel.self) .subscribe(onSuccess: { response in
-                 UserDefaults.standard.set(response.access_token, forKey: basicToKenKey)
+                 plog(response)
+//                 UserDefaults.standard.set(response.access_token, forKey: n_basicToKenKey)
             }).disposed(by: rx.disposeBag)
         }
         
     }
     
-    let oauth_refresh_token = "refresh_token"
-    
-  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -30,6 +30,7 @@ class LoginViewModel: NSObject {
             provider.rx.request(APIServer.userLog(mail: mail!, password: password!))
                 .mapObject(APIResponse<UserModel>.self)
                 .subscribe(onSuccess: { [weak self] response in
+                    plog(response)
                     HUD.hide()
                     if response.success {
                         ConfigModel.default.user.value = response.data!

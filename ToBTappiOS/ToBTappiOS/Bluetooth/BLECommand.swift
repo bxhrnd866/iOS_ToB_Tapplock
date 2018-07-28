@@ -29,8 +29,9 @@ let CMD_SetDeviceName = CDM_PREFIX + "8901"
 let CMD_SetDeviceNameII = CDM_PREFIX + "8a01"
 let CMD_GetRandomData = CDM_PREFIX + "01030000"
 let CMD_VerifyRandom = CDM_PREFIX + "02030C00"
-
-
+let CMD_SendFingerprintStart = CDM_PREFIX + "89020200"
+let CMD_SendFingerprintData = CDM_PREFIX + "e0"
+let CMD_SendFingerprintEnd = CDM_PREFIX + "8a020000"
 
 //蓝牙通信指令,参考蓝牙通信文档
 enum BluetoothCommand {
@@ -53,6 +54,10 @@ enum BluetoothCommand {
     case SetDeviceNameII(lastname: String)
     case GetRandomData
     case VerifyRandom(key: String)
+    case SendFingerprintStart(index: String)
+    case SendFingerprintData(data: String)
+    case SendFingerprintEnd
+    
     var commandString: String {
         switch self {
         case .GetDeviceMac:
@@ -102,6 +107,12 @@ enum BluetoothCommand {
             return CMD_GetRandomData
         case .VerifyRandom(let key):
             return CMD_VerifyRandom + key
+        case .SendFingerprintStart(let index):
+            return CMD_SendFingerprintStart + index
+        case .SendFingerprintData(let data):
+            return CMD_SendFingerprintData + data
+        case .SendFingerprintEnd:
+            return CMD_SendFingerprintEnd
         }
     }
 

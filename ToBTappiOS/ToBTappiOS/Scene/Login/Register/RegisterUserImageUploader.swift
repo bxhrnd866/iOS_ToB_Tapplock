@@ -33,32 +33,45 @@ class RegisterUserImageUploader: NSObject, Uploader {
     }
 
     func upload(image: UIImage) {
-//        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: nil, progress: { (progress) in
-//            print(progress)
-//        }, completionHandler: { (result, error) in
-//
-//            if error != nil {
-//                self.rx_sucess.value = false
-//            } else {
-//                self.rx_sucess.value = true
-//                self.callBack((result?.url)!)
-//            }
-//        })
+        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: nil, progress: { (progress) in
+            print(progress)
+        }, completionHandler: { (result, error) in
+
+            if error != nil {
+                self.rx_sucess.value = false
+            } else {
+                self.rx_sucess.value = true
+                
+                self.callBack((result?.url)!)
+                
+                if ConfigModel.default.user.value != nil {
+                    self.saveToApi(url: (result?.url)!)
+                }
+            }
+        })
     }
 
     //用户信息上传接口
     func saveToApi(url: String) {
-//        _ = provider.rx.request(APIService.EditUserConfiguration(mai: (ConfigModel.default.user.value?.mail)!, deviceToken: nil, firstName: nil, lastName: url, imageURL: nil, push: nil, showBattery: nil))
-//                .mapObject(APIResponse<UserModel>.self)
-//                .subscribe(onSuccess: { response in
-//                    if let user = response.data {
-//                        self.rx_sucess.value = true
-//                        
-//                        ConfigModel.default.user.value = user
-//                    } else if let errorMessage = response.message {
-//                        self.rx_errorMessage.value = errorMessage
-//                    }
-//                })
+
+        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: nil,
+                                                 firstName: nil,
+                                                 groupIds: nil,
+                                                 lastName: nil,
+                                                 permissionIds: nil,
+                                                 phone: nil,
+                                                 photoUrl: url,
+                                                 sex: nil))
+            .mapObject(APIResponse<UserModel>.self).subscribe(onSuccess: { [weak self] response in
+                
+                if let user = response.data {
+                    self?.rx_sucess.value = true
+                    ConfigModel.default.user.value = user
+                } else if let errorMessage = response.message {
+                    self?.rx_errorMessage.value = errorMessage
+                }
+            }).disposed(by: rx.disposeBag)
+        
     }
 
 }

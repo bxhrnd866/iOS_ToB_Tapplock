@@ -25,11 +25,21 @@ class ConfigModel: NSObject {
     func setpushToken(data: String) {
         pushToken = data
         if (pushToken != nil && user.value != nil) {
-//            _ = provider.rx.request(ApiService.EditUserConfiguration(mai: (user.value!.mail)!, deviceToken: pushToken, firstName: nil, lastName: nil, imageURL: nil, push: nil, showBattery: nil))
-//                .mapObject(APIResponse<UserModel>.self)
-//                .subscribe(onSuccess: { response in
-//                    plog(response)
-//                })
+
+            
+            provider.rx.request(APIServer.userUpdate(fcmDeviceToken: pushToken,
+                                                     firstName: nil,
+                                                     groupIds: nil,
+                                                     lastName: nil,
+                                                     permissionIds: nil,
+                                                     phone: nil,
+                                                     photoUrl: nil,
+                                                     sex: nil))
+                .mapObject(APIResponse<UserModel>.self).subscribe(onSuccess: { [weak self] response in
+                    
+                    plog(response)
+                }).disposed(by: rx.disposeBag)
+            
         }
     }
     

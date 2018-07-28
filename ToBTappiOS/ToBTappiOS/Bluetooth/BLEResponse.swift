@@ -25,8 +25,7 @@ let RCM_GMTTime = RCM_PREFIX + "1002"
 let RCM_SetDeviceName = RCM_PREFIX + "8901"
 let RCM_GetRandomData = RCM_PREFIX + "0103"
 let RCM_VerifyRandom = RCM_PREFIX + "0203"
-
-
+let RCM_FingerprintEnd = RCM_PREFIX + "8a02"
 
 //蓝牙通信响应,参考蓝牙通信文档
 enum BluetoothResponse {
@@ -48,6 +47,7 @@ enum BluetoothResponse {
     case T2AllHistory(value: String)
     case GetRandomData(value: String)
     case VerifyRandom(value: String)
+    case FingerprintEnd(value: String)
     typealias RawValue = String
     var rawValue: RawValue {
         switch self {
@@ -69,6 +69,7 @@ enum BluetoothResponse {
              .SetDeviceName(let value),
              .GetRandomData(let value),
              .VerifyRandom(let value),
+             .FingerprintEnd(let value),
              .T2AllHistory(let value):
             return value
         }
@@ -128,6 +129,8 @@ enum BluetoothResponse {
         case RCM_VerifyRandom:
             plog("验证密文\(response)")
             self = .VerifyRandom(value: response)
+        case RCM_FingerprintEnd:
+            self = .FingerprintEnd(value: response)
         default:
             return nil
         }
@@ -225,7 +228,7 @@ enum BluetoothResponse {
 
     var fingerprintID: String? {
         switch self {
-        case .EnrollFingerprint(_):
+        case .FingerprintEnd(_):
             return (self.success ? self.value : nil)
         default:
             return nil
@@ -298,6 +301,9 @@ enum BluetoothResponse {
             return nil
         }
     }
+    
+    
+    
     
     
     var value: String? {

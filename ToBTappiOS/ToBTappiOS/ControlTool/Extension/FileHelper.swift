@@ -57,6 +57,14 @@ extension FileManager {
             print("不存在的路径")
         }
     }
+    
+   public static func removeFileUrl(url: URL) -> Void {
+        do {
+            try fileManger.removeItem(at: url)
+        } catch let err {
+            plog(err)
+        }
+    }
     // 获取文件大小
     func getfileSize(_ path: String) -> Int {
         var size: UInt64 = 0
@@ -91,7 +99,19 @@ extension FileManager {
         
     }
     
-    
+    func dictionaryOfData(_ fileName: String) -> NSMutableDictionary {
+        let path = self.cache
+        
+        let filePath = path.appendingPathComponent(fileName)
+        var dic: NSMutableDictionary?
+        
+        if let dict = NSMutableDictionary(contentsOf: filePath)  { //从文件加载数据
+            dic = dict
+        } else {
+            dic = NSMutableDictionary()
+        }
+        return dic!
+    }
     
     
     

@@ -8,7 +8,7 @@
 
 import Foundation
 import RxSwift
-//import iOSDFULibrary
+import iOSDFULibrary
 import CoreBluetooth
 enum UpdateStatus {
     case none
@@ -20,21 +20,22 @@ enum UpdateStatus {
     case updatefail
 }
 
-class DFUViewModel {
+class DFUViewModel: NSObject {
     
     var rx_step: Variable<UpdateStatus> = Variable(.none)
     var rx_progress: Variable<Float> = Variable(0.0)
-//    var dfuController: DFUServiceController?
+    var dfuController: DFUServiceController?
     var dfuUrl: URL?
     var downloadUrl: String?
     var periphal: CBPeripheral?
     
-    init() {
-
+    override init() {
+        super.init()
+        
         TapplockManager.default.rx_dfuLock.asObservable().filter({ $0 != nil }).map({ $0! }).subscribe(onNext: { [weak self] ble in
             self?.UpdateTapplockDFU(peropheral: ble)
-            TapplockManager.default.rx_dfuLock.value = nil
-        })
+            TapplockManager.default .rx_dfuLock.value = nil
+        }).disposed(by: rx.disposeBag)
         
 
         NotificationCenter.default.addObserver(self, selector: #selector(enterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
@@ -46,8 +47,8 @@ class DFUViewModel {
             if self.periphal != nil {
                 TapplockManager.default.manager.cancelPeripheralConnection(self.periphal!)
                 
-//                self.dfuController?.pause()
-//                _ = dfuController?.abort()
+                self.dfuController?.pause()
+                _ = dfuController?.abort()
             }
             
 //            self.scanAgin()
@@ -56,48 +57,46 @@ class DFUViewModel {
     }
     // 下载固件
     func downloadFirmware() {
-//        plog("开始下载")
-//        self.rx_step.value = .downloading
-//        DownloadManager.default.download(downloadUrl!).downloadProgress(progress: { [weak self] progress in
-//            self?.rx_progress.value = Float(progress)
-//        }).response { [weak self] result in
-//
-//            switch result {
-//            case .success:
-//                self?.rx_step.value = .downSucess
-//                plog("下载成功")
-//                self?.rx_progress.value = 0
-//                guard let downurl = self?.downloadUrl else {
-//                    self?.rx_step.value = .downfail
-//                    return
-//                }
-//                self?.dfuUrl = DownloadManager.default.downloadFilePath(downurl)
-//                //                let xm = Bundle.main.path(forResource: "DFU_TAPP_X1003", ofType: "zip")
-//                //                let url = URL(fileURLWithPath: xm!)
-//                //                self?.dfuUrl = url
-//                self?.checkBlueWithAlert()
-//            default:
-//                plog("失败")
-//                self?.rx_step.value = .downfail
-//            }
-//        }
-//
-        
+        self.rx_step.value = .downloading
+        DownloadManager.default.download(downloadUrl!).downloadProgress(progress: { [weak self] progress in
+            self?.rx_progress.value = Float(progress)
+        }).response { [weak self] result in
+
+            switch result {
+            case .success:
+                self?.rx_step.value = .downSucess
+                plog("下载成功")
+                self?.rx_progress.value = 0
+                guard let downurl = self?.downloadUrl else {
+                    self?.rx_step.value = .downfail
+                    return
+                }
+                self?.dfuUrl = DownloadManager.default.downloadFilePath(downurl)
+                //                let xm = Bundle.main.path(forResource: "DFU_TAPP_X1003", ofType: "zip")
+                //                let url = URL(fileURLWithPath: xm!)
+                //                self?.dfuUrl = url
+                self?.checkBlueWithAlert()
+            default:
+                plog("失败")
+                self?.rx_step.value = .downfail
+            }
+        }
+
     }
     
     public func UpdateTapplockDFU(peropheral: CBPeripheral) -> Void {
         
-//        let firmware = DFUFirmware(urlToZipFile: self.dfuUrl!, type: .softdeviceBootloaderApplication)
-//        let initiator = DFUServiceInitiator(centralManager: TapplockManager.instance.manager, target: peropheral)
-//        initiator.forceDfu = dfu_force_dfu
-//        initiator.packetReceiptNotificationParameter = dfu_number_of_packets
-//        initiator.logger =  self
-//        initiator.delegate = self
-//        initiator.progressDelegate = self
-//        initiator.enableUnsafeExperimentalButtonlessServiceInSecureDfu = true
-//        dfuController = initiator.with(firmware: firmware!).start()
-//
-//        self.periphal = peropheral
+        let firmware = DFUFirmware(urlToZipFile: self.dfuUrl!, type: .softdeviceBootloaderApplication)
+        let initiator = DFUServiceInitiator(centralManager: TapplockManager.default.manager, target: peropheral)
+        initiator.forceDfu = false
+        initiator.packetReceiptNotificationParameter = 12
+        initiator.logger =  self
+        initiator.delegate = self
+        initiator.progressDelegate = self
+        initiator.enableUnsafeExperimentalButtonlessServiceInSecureDfu = true
+        dfuController = initiator.with(firmware: firmware!).start()
+
+        self.periphal = peropheral
 //
         
     }
@@ -127,8 +126,8 @@ class DFUViewModel {
     }
 }
 // DFU代理
-/*
-extension UpdateViewModel: DFUServiceDelegate,DFUProgressDelegate,LoggerDelegate {
+
+extension DFUViewModel: DFUServiceDelegate,DFUProgressDelegate,LoggerDelegate {
     
     //MARK: - LoggerDelegate
     func logWith(_ level: LogLevel, message: String) {
@@ -175,8 +174,9 @@ extension UpdateViewModel: DFUServiceDelegate,DFUProgressDelegate,LoggerDelegate
             plog("Disconnecting...")
         case .completed:
             plog("Upload complete")
+
+            FileManager.removeFileUrl(url: self.dfuUrl!)
             
-            fileMR.removeFileUrl(url: self.dfuUrl!)
             self.rx_step.value = .updateSucess
             
             scanAgin()
@@ -197,6 +197,7 @@ extension UpdateViewModel: DFUServiceDelegate,DFUProgressDelegate,LoggerDelegate
         }
         scanAgin()
     
+        
         self.rx_step.value = .updatefail
     }
     //MARK: - DFUProgressDelegate
@@ -215,4 +216,4 @@ extension UpdateViewModel: DFUServiceDelegate,DFUProgressDelegate,LoggerDelegate
     }
 
 }
- */
+

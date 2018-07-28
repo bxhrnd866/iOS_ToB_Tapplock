@@ -21,14 +21,13 @@ enum APIServer {
     case oauthToken(grant_type: String, refresh_token: String?) // 初次获取token  password client_credentials
     case userRegister(corpId: Int?, fcmDeviceToken: String?, inviteCode: String, firstName: String, lastName: String, mail: String, password: String, phone: String, photoUrl: String, sex: Int)  //0-男 1-女
     case userLog(mail: String, password: String)
-    case userUpdate(fcmDeviceToken: String?, firstName: String?, groupIds: [String]?, id: String, lastName: String?, permissionIds: [Int]?, phone: String?, photoUrl: String?, sex: Int?) // 更新用户信息
+    case userUpdate(fcmDeviceToken: String?, firstName: String?, groupIds: [String]?, lastName: String?, permissionIds: [Int]?, phone: String?, photoUrl: String?, sex: Int?) // 更新用户信息
     case userCheckMail(mail: String)
     case registerVerifyCode(mail: String, type: Int)  // 0-注册 1-忘记密码
     case checkVerifyCode(mail: String, verifyCode: String) // 校验验证码
     case checkinviteCodes(inviteCode: String) //校验邀请码
     case changePassword(newPassword: String, oldPassword: String)
     case lockList(userId: Int?, lockName: String?, groupId: Int?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
-    case userFingerPrint // 查询用户下的指纹
     case allGroupslist
     case lockKey(lockId: Int)
     case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, id: Int, latitude: String?, longitude: String?, lockName: String?, morseCode: String?, morseStatus: Int?, syncType: Int) //更新锁信息  更新类型0-地理位置 1-固件 2-其他
@@ -36,9 +35,11 @@ enum APIServer {
     case updateCloseTime(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
     case updateOpenTime(location: String?, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: [String]?, unlockFingerprints: [[String : String]]?, unlockType: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
     case checkFirmwares(hardwareVersion: String)
+    case feedBack(content: String, title: String, corpId: Int, source: Int, platform: Int) // 反馈
+    case userFingerPrint // 查询用户下的指纹
     case downloadFingerprint(lockId: Int)  // 下载指纹
     case updateFingerprintSycnState(lockId: Int, fingerprintIds: Int, lockFingerprintIndex: String) // 更新指纹同步状态
-    case feedBack(content: String, title: String, corpId: Int, source: Int, platform: Int) // 反馈
+
 
 }
 
@@ -48,13 +49,13 @@ extension APIServer: TargetType{
     
         switch self {
         case .oauthToken:
-            let value = "tapplock-b2b-ios:iossecret".toBase64()
-            return ["Content-type": "application/json", "Authorization": "Basic \(value)"]
+//            let value = "tapplock-b2b-client:tapplock123!@#".toBase64()
+            return ["Content-type": "application/json", "Authorization": "Basic dGFwcGxvY2stYjJiLWNsaWVudDp0YXBwbG9jazEyMyFAIw==", "clientType": "1"]
         case .registerVerifyCode:
            
-            return ["Content-type": "application/json", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg"), "lang": ConfigModel.default.language.code]
+            return ["Content-type": "application/json", "clientType": "1", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg"), "lang": ConfigModel.default.language.code]
         default:
-            return ["Content-type": "application/json", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg")]
+            return ["Content-type": "application/json", "clientType": "1", "Authorization": "Bearer " + (basicToken_UserKey ?? "ggggg")]
         }
         
        
@@ -77,7 +78,7 @@ extension APIServer: TargetType{
             return "users/register"
         case .userLog(_, _):
             return "users/login"
-        case .userUpdate(_, _, _, _, _, _, _, _, _):
+        case .userUpdate(_, _, _, _, _, _, _, _):
             return "users"
         case .registerVerifyCode(_, _):
             return "users/get_verify_code"
@@ -134,7 +135,7 @@ extension APIServer: TargetType{
             return .get
         case .updateLock(_, _, _, _, _, _, _, _, _, _),
              .updateFingerprintSycnState(_, _, _),
-             .userUpdate(_, _, _, _, _, _, _, _, _),
+             .userUpdate(_, _, _, _, _, _, _, _),
              .changePassword(_, _):
             return .put
         case .updateCloseTime(_, _, _),
@@ -316,7 +317,7 @@ extension APIServer: TargetType{
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .userUpdate(let fcmDeviceToken, let firstName, let groupIds, let id, let lastName, let permissionIds, let phone, let photoUrl, let sex):
+        case .userUpdate(let fcmDeviceToken, let firstName, let groupIds, let lastName, let permissionIds, let phone, let photoUrl, let sex):
             
             if fcmDeviceToken != nil {
                 bodyParameters = bodyParameters + ["fcmDeviceToken": fcmDeviceToken!]
@@ -343,7 +344,7 @@ extension APIServer: TargetType{
                 bodyParameters = bodyParameters + ["sex": sex!]
             }
             
-            bodyParameters = bodyParameters + ["id": id]
+            bodyParameters = bodyParameters + ["id": (ConfigModel.default.user.value?.id)!]
             let data = requestBodyEncrypted(body: bodyParameters)
             return .requestCompositeData(bodyData: data, urlParameters: urlParameters)
             

@@ -16,16 +16,16 @@ class TapplockModel: NSObject, Mappable {
 
     var battery: String?
     var corpName: String?         // 公司名
-    var groupName: String?        //组名字
-    var firmwareVersion: String?  //固件版本
-    var hardwareVersion: String?  //硬件版本
-    var id: Int?                  //锁id
-    var lastUpdateTime: Int?      //最后更新时间
-    var latitude: String?         //纬度
-    var longitude: String?        //经度
-    var location: String?        //地理位置
-    var lockName: String?         //锁名称
-    var lockStatus: Int?          //锁状态 0-no action 1-pending 2-complete
+    var groupName: String?        // 组名字
+    var firmwareVersion: String?  // 固件版本
+    var hardwareVersion: String?  // 硬件版本
+    var id: Int?                  // 锁id
+    var lastUpdateTime: Int?      // 最后更新时间
+    var latitude: String?         // 纬度
+    var longitude: String?        // 经度
+    var location: String?         // 地理位置
+    var lockName: String?         // 锁名称
+    var lockStatus: Int?          // 锁状态-1-等待删除 0-指纹未同步 1-已同步
     var mac: String?
     var morseStatus: Int?        //摩斯码状态0-未同步 1-已同步
     

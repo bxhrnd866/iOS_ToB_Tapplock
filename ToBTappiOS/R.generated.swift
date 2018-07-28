@@ -77,7 +77,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 45 images.
+  /// This `R.image` struct is generated, and contains static references to 46 images.
   struct image {
     /// Image `About_Logo`.
     static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
@@ -125,6 +125,8 @@ struct R: Rswift.Validatable {
     static let root_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Root_logo")
     /// Image `Sexgroup`.
     static let sexgroup = Rswift.ImageResource(bundle: R.hostingBundle, name: "Sexgroup")
+    /// Image `Takepic`.
+    static let takepic = Rswift.ImageResource(bundle: R.hostingBundle, name: "Takepic")
     /// Image `Tutorial - 01`.
     static let tutorial01 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Tutorial - 01")
     /// Image `Tutorial - 02`.
@@ -285,6 +287,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.sexgroup, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "Takepic", bundle: ..., traitCollection: ...)`
+    static func takepic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.takepic, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "Tutorial - 01", bundle: ..., traitCollection: ...)`
     static func tutorial01(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tutorial01, compatibleWith: traitCollection)
@@ -411,7 +418,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AllGroupCellIdenty`.
     static let allGroupCellIdenty: Rswift.ReuseIdentifier<AllGroupCell> = Rswift.ReuseIdentifier(identifier: "AllGroupCellIdenty")
@@ -425,6 +432,12 @@ struct R: Rswift.Validatable {
     static let groupCollectCell: Rswift.ReuseIdentifier<GroupCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "GroupCollectCell")
     /// Reuse identifier `PermissionCell`.
     static let permissionCell: Rswift.ReuseIdentifier<PermissionCollectionCell> = Rswift.ReuseIdentifier(identifier: "PermissionCell")
+    /// Reuse identifier `PhotoAlbumCell`.
+    static let photoAlbumCell: Rswift.ReuseIdentifier<ImagePickerTableViewCell> = Rswift.ReuseIdentifier(identifier: "PhotoAlbumCell")
+    /// Reuse identifier `SelectPictureCameraCell`.
+    static let selectPictureCameraCell: Rswift.ReuseIdentifier<CameraCell> = Rswift.ReuseIdentifier(identifier: "SelectPictureCameraCell")
+    /// Reuse identifier `SelectPicturePhotoCell`.
+    static let selectPicturePhotoCell: Rswift.ReuseIdentifier<SelectPicturePhotoCell> = Rswift.ReuseIdentifier(identifier: "SelectPicturePhotoCell")
     /// Reuse identifier `TapplockListCellIdenty`.
     static let tapplockListCellIdenty: Rswift.ReuseIdentifier<TappLockListCell> = Rswift.ReuseIdentifier(identifier: "TapplockListCellIdenty")
     /// Reuse identifier `allLocksListCellIdenty`.
@@ -435,7 +448,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 19 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 20 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -659,12 +672,14 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `ProfileViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `ProfileViewController`, and contains static references to 3 segues.
     struct profileViewController {
       /// Segue identifier `profileGroupIdentifier`.
       static let profileGroupIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, YourGroupController> = Rswift.StoryboardSegueIdentifier(identifier: "profileGroupIdentifier")
       /// Segue identifier `profilePermissionIdentifier`.
       static let profilePermissionIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, PermissionController> = Rswift.StoryboardSegueIdentifier(identifier: "profilePermissionIdentifier")
+      /// Segue identifier `showImagepickerIdentifier`.
+      static let showImagepickerIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, SelectPictureViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showImagepickerIdentifier")
       
       /// Optionally returns a typed version of segue `profileGroupIdentifier`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -680,13 +695,29 @@ struct R: Rswift.Validatable {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.profilePermissionIdentifier, segue: segue)
       }
       
+      /// Optionally returns a typed version of segue `showImagepickerIdentifier`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showImagepickerIdentifier(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProfileViewController, SelectPictureViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.showImagepickerIdentifier, segue: segue)
+      }
+      
       fileprivate init() {}
     }
     
-    /// This struct is generated for `RegistInformationController`, and contains static references to 1 segues.
+    /// This struct is generated for `RegistInformationController`, and contains static references to 2 segues.
     struct registInformationController {
+      /// Segue identifier `showImagePickerIdentifier`.
+      static let showImagePickerIdentifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistInformationController, SelectPictureViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showImagePickerIdentifier")
       /// Segue identifier `showSexSelect`.
       static let showSexSelect: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistInformationController, SexSelectController> = Rswift.StoryboardSegueIdentifier(identifier: "showSexSelect")
+      
+      /// Optionally returns a typed version of segue `showImagePickerIdentifier`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showImagePickerIdentifier(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistInformationController, SelectPictureViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registInformationController.showImagePickerIdentifier, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `showSexSelect`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -776,6 +807,30 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This struct is generated for `SelectPictureViewController`, and contains static references to 2 segues.
+    struct selectPictureViewController {
+      /// Segue identifier `PhotoAlbumSegue`.
+      static let photoAlbumSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SelectPictureViewController, PhotoAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "PhotoAlbumSegue")
+      /// Segue identifier `progress`.
+      static let progress: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SelectPictureViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "progress")
+      
+      /// Optionally returns a typed version of segue `PhotoAlbumSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func photoAlbumSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SelectPictureViewController, PhotoAlbumViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.selectPictureViewController.photoAlbumSegue, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `progress`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func progress(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SelectPictureViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.selectPictureViewController.progress, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `UpdateDFUController`, and contains static references to 1 segues.
     struct updateDFUController {
       /// Segue identifier `showUpdateLoading`.
@@ -842,7 +897,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 14 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 15 storyboards.
   struct storyboard {
     /// Storyboard `FingerLockDetail`.
     static let fingerLockDetail = _R.storyboard.fingerLockDetail()
@@ -850,6 +905,8 @@ struct R: Rswift.Validatable {
     static let historyDatePicker = _R.storyboard.historyDatePicker()
     /// Storyboard `Home`.
     static let home = _R.storyboard.home()
+    /// Storyboard `ImagePicker`.
+    static let imagePicker = _R.storyboard.imagePicker()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `LockDetail`.
@@ -886,6 +943,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Home", bundle: ...)`
     static func home(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.home)
+    }
+    
+    /// `UIStoryboard(name: "ImagePicker", bundle: ...)`
+    static func imagePicker(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.imagePicker)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -2582,6 +2644,7 @@ struct _R: Rswift.Validatable {
       try lockDetail.validate()
       try viewHistory.validate()
       try viewAlllock.validate()
+      try imagePicker.validate()
       try profile.validate()
     }
     
@@ -2628,6 +2691,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct imagePicker: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = SelectPictureViewController
+      
+      let bundle = R.hostingBundle
+      let name = "ImagePicker"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'ImagePicker', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Takepic") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Takepic' is used in storyboard 'ImagePicker', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -2647,7 +2724,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "History_calender") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_calender' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "History_openedthelock") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'History_openedthelock' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Lock_lockicon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Lock_lockicon' is used in storyboard 'LockDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "lock_sysn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_sysn' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Historylocation") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Historylocation' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LockDetail_fingerprint") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LockDetail_fingerprint' is used in storyboard 'LockDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock_bgImg") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock_bgImg' is used in storyboard 'LockDetail', but couldn't be loaded.") }

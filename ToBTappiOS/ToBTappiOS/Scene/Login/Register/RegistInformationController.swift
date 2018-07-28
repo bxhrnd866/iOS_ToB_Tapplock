@@ -104,10 +104,10 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let imagePicker = R.segue.registInformationController.imagePickerSegue(segue: segue) {
-//            imagePicker.destination.topViewController = self
-//            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
-//        }
+        if let imagePicker = R.segue.registInformationController.showImagePickerIdentifier(segue: segue) {
+            imagePicker.destination.topViewController = self
+            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
+        }
         
         if let sexvc = R.segue.registInformationController.showSexSelect(segue: segue) {
             sexvc.destination.preferredContentSize = CGSize(width: 150, height: 120)

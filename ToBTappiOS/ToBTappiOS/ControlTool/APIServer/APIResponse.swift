@@ -15,6 +15,10 @@ struct APIResponse<T:Mappable>: Mappable {
     var data: T?
     var message: String?
     var code: Int?
+    var error: String?
+    var error_description: String?
+    
+    
     
     var codeMessage: String! {
         guard let co = code else { return "哈哈哈哈哈这是错误的" }
@@ -36,6 +40,8 @@ struct APIResponse<T:Mappable>: Mappable {
         data <- map["data"]
         message <- map["message"]
         code <- map["code"]
+        error <- map["error"]
+        error_description <- map["error_description"]
     }
 
 }
@@ -46,7 +52,9 @@ struct APIResponseString: Mappable {
     var data: String?
     var message: String?
     var code: Int?
-
+    var error: String?
+    var error_description: String?
+    
     var codeMessage: String! {
         guard let co = code else { return "哈哈哈哈哈这是错误的" }
         return APICode.init(co).rawValue
@@ -69,6 +77,8 @@ struct APIResponseString: Mappable {
         data <- map["data"]
         message <- map["message"]
         code <- map["code"]
+        error <- map["error"]
+        error_description <- map["error_description"]
     }
 
 }
@@ -79,6 +89,8 @@ struct APIResponseData<T: Mappable>: Mappable{
     var data: [T]?
     var message: String?
     var code: Int?
+    var error: String?
+    var error_description: String?
     
     var codeMessage: String! {
         guard let co = code else { return "哈哈哈哈哈这是错误的" }
@@ -100,6 +112,8 @@ struct APIResponseData<T: Mappable>: Mappable{
         data <- map["data"]
         message <- map["message"]
         code <- map["code"]
+        error <- map["error"]
+        error_description <- map["error_description"]
     }
 }
 

@@ -37,17 +37,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in}
         application.registerForRemoteNotifications()
         
+//        self.refreshToken()
+
         
-     
+      
         
        
+        
+        
+    
+        
+        
+        
+        
         
         return true
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 //        plog("deviceToken----> \(deviceToken)")
-    
         Messaging.messaging().apnsToken = deviceToken
     }
     

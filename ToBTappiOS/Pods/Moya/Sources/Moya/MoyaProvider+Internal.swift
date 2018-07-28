@@ -1,6 +1,7 @@
 import Foundation
 import Result
 import CryptoSwift
+
 // MARK: - Method
 
 extension Method {
