@@ -28,29 +28,32 @@ class TapplockModel: NSObject, Mappable {
     var lockStatus: Int?          // 锁状态-1-等待删除 0-指纹未同步 1-已同步
     var mac: String?
     var morseStatus: Int?        //摩斯码状态0-未同步 1-已同步
-    
+
     var key1: String?
     var serialNo: String?
+    var authKey: String?
+   
     
-
-
+    //物理层蓝牙类
+    var peripheralModel: PeripheralModel? {
+        didSet {
+            peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
+            
+            peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
+            
+            rx_status.asObservable().subscribe(onNext: { [weak self] status in
+                if status == .disconnected {
+                    self?.peripheralModel = nil
+                }
+            }).disposed(by: rx.disposeBag)
+        }
+    }
+    
     //连接状态
     public var rx_status: Variable<CBPeripheralState?> = Variable(.disconnected)
     //可观察设备电量
     public var rx_battery: Variable<Int?> = Variable(nil)
     
-    //物理层蓝牙类
-    var peripheralModel: PeripheralModel? {
-        didSet {
-            peripheralModel?.key1 = self.key1
-
-            peripheralModel?.serialNumber = self.serialNo
-            if peripheralModel?.isFirstPairing == false {
-                peripheralModel?.sendPairingCommand()
-            }
-        }
-    }
-
     //Tapplock模型是否与物理蓝牙设备为同一个设备
     public func contains(_ peripheralModel: PeripheralModel) -> Bool {
         
@@ -58,52 +61,25 @@ class TapplockModel: NSObject, Mappable {
             return peripheralModel == self.peripheralModel
         } else if peripheralModel.rx_mac.value?.macValue == mac?.macValue {
             self.peripheralModel = peripheralModel
-            bindData()
             return true
         } else {
             return false
         }
     }
-
-    //绑定Tapplock数据,设置回掉
-    func bindData() {
-        
-       peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
-        
-        peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
-        
-        rx_status.asObservable().subscribe(onNext: { [weak self] status in
-            if status == .disconnected {
-                self?.peripheralModel = nil
-            }
-        }).disposed(by: rx.disposeBag)
-        
-        if self.peripheralModel?.isFirstPairing == false {
-            peripheralModel?.rx_hardware.asObservable().filter({ $0 != nil }).map({ $0! }).subscribe(onNext: { [weak self] hv in
-                
-                let fv = self?.peripheralModel?.rx_firmware.value?.toInt()
-                plog("--------------> \(hv)")
-                if fv != nil {
-                    self?.checkFirwareVersion(hv: hv, fv: fv!)
-                }
-            }).disposed(by: rx.disposeBag)
-        }
-    }
-    
-    // 查看固件版本
-    func checkFirwareVersion(hv: String,fv: Int) {
-//        _ = provider.rx.request(ApiService.UpdateFirmware(hardVersion: hv)).mapObject(APIResponse<UpdateFWModel>.self).subscribe(onSuccess: { [weak self] (response) in
-//            if let list = response.data {
-//                let max = list.currentVersion?.toInt()
-//                if max! > fv {
-//                    self?.showToast()
-//                }
-//            }
-//        })
-    }
     
 
-
+    //更新Tapplock信息
+    public func update(_ model: TapplockModel) {
+        battery = model.battery
+        hardwareVersion = model.hardwareVersion
+        lastUpdateTime = model.lastUpdateTime
+        latitude = model.latitude
+        longitude = model.longitude
+        lockName = model.lockName
+        lockStatus = model.lockStatus
+        morseStatus = model.morseStatus
+    }
+    
     required init?(map: Map) {
         super.init()
     }
@@ -127,12 +103,15 @@ class TapplockModel: NSObject, Mappable {
         lockStatus <- map["lockStatus"]
         mac <- map["mac"]
         morseStatus <- map["morseStatus"]
+        key1 <- map["key1"]
+        serialNo <- map["serialNo"]
+        authKey <- map["authKey"]
     }
     
-    func updateModel(key: String, seriaNo: String) {
-        self.key1 = key
-        self.serialNo = seriaNo
-    }
+
+    
+    
+   
     
 }
 

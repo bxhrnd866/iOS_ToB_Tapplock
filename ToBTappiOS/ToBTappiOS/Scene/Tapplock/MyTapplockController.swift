@@ -50,6 +50,7 @@ class MyTapplockController: BaseViewController {
             self?.viewModel.rx_authType.value = 0
             self?.tableView.mj_header.beginRefreshing()
             
+            
         }).disposed(by: rx.disposeBag)
         
         fingerBtn.rx.tap.subscribe(onNext: { [weak self] in
@@ -63,13 +64,14 @@ class MyTapplockController: BaseViewController {
             
             self?.viewModel.rx_authType.value = 1
             self?.tableView.mj_header.beginRefreshing()
-            
+
         }).disposed(by: rx.disposeBag)
         
         
         viewModel.rx_lockList.asDriver()
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.tapplockListCellIdenty.identifier, cellType: TappLockListCell.self)) {
                 (indexPath, model, cell) in
+                cell.model = model
                 
         }.disposed(by: rx.disposeBag)
         
@@ -105,6 +107,16 @@ class MyTapplockController: BaseViewController {
                 }
             
         }).disposed(by: rx.disposeBag)
+        
+        viewModel.rx_loadAll.asDriver()
+            .drive(onNext: { [weak self] all in
+                
+                if all {
+                    self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self?.tableView.mj_footer.resetNoMoreData()
+                }
+            }).disposed(by: rx.disposeBag)
         
         self.viewModel.loadAPI()
         

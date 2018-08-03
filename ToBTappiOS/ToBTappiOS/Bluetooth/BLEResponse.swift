@@ -26,6 +26,7 @@ let RCM_SetDeviceName = RCM_PREFIX + "8901"
 let RCM_GetRandomData = RCM_PREFIX + "0103"
 let RCM_VerifyRandom = RCM_PREFIX + "0203"
 let RCM_FingerprintEnd = RCM_PREFIX + "8a02"
+let RCM_Unlock = RCM_PREFIX + "8102"
 
 //蓝牙通信响应,参考蓝牙通信文档
 enum BluetoothResponse {
@@ -48,6 +49,7 @@ enum BluetoothResponse {
     case GetRandomData(value: String)
     case VerifyRandom(value: String)
     case FingerprintEnd(value: String)
+    case Unlock(value: String)
     typealias RawValue = String
     var rawValue: RawValue {
         switch self {
@@ -70,6 +72,7 @@ enum BluetoothResponse {
              .GetRandomData(let value),
              .VerifyRandom(let value),
              .FingerprintEnd(let value),
+             .Unlock(let value),
              .T2AllHistory(let value):
             return value
         }
@@ -131,6 +134,8 @@ enum BluetoothResponse {
             self = .VerifyRandom(value: response)
         case RCM_FingerprintEnd:
             self = .FingerprintEnd(value: response)
+        case RCM_Unlock:
+            self = .Unlock(value: response)
         default:
             return nil
         }
@@ -242,9 +247,9 @@ enum BluetoothResponse {
                 return nil
             } else {
                 switch self.value {
-                case "0100"?:
+                case "0100":
                     return R.string.localizable.errorMessage_EnrollTemplateExisted()
-                case "02100"?:
+                case "02100":
                     return R.string.localizable.errorMessage_EnrollNoSpace()
                 case "0300"?:
                     return R.string.localizable.errorMessage_EnrollMismatch()
@@ -302,10 +307,7 @@ enum BluetoothResponse {
         }
     }
     
-    
-    
-    
-    
+
     var value: String? {
         switch self {
         case .History(_):

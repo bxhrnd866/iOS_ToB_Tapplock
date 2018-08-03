@@ -49,6 +49,16 @@ class AllLocksViewController: BaseViewController {
                 
             }).disposed(by: rx.disposeBag)
         
+        viewModel.rx_loadAll.asDriver()
+            .drive(onNext: { [weak self] all in
+                
+                if all {
+                    self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self?.tableView.mj_footer.resetNoMoreData()
+                }
+            }).disposed(by: rx.disposeBag)
+        
         self.viewModel.loadAPI()
     }
 

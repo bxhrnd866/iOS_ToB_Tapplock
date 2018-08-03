@@ -7,13 +7,49 @@
 //
 
 import UIKit
-
+import PKHUD
 class SendFeedbackController: UIViewController {
 
+   
+    @IBOutlet weak var titlefIeld: UITextField!
+    
+    @IBOutlet weak var content: UITextView!
+    
+    @IBOutlet weak var sendBtn: UIBarButtonItem!
+    
+    let viewModel = EditUserViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        titlefIeld.rx.text.bind(to: viewModel.rx_title).disposed(by: rx.disposeBag)
+        content.rx.text.bind(to: viewModel.rx_description).disposed(by: rx.disposeBag)
+        
+        sendBtn.rx.tap.subscribe({ [weak self] _ in
+            self?.viewModel.sendFeedBack()
+        }).disposed(by: rx.disposeBag)
+        
+
+        viewModel.rx_step.asDriver().drive(onNext: { [weak self] step in
+            
+            switch step {
+            case .loading:
+                HUD.show(.progress)
+            case .sucess:
+                HUD.hide()
+                self?.showToast(message: R.string.localizable.successMessage_Feedback(),
+                                didDismiss: { _ in
+                                    self?.navigationController?.popViewController(animated: true)
+                })
+            case .errorMessage(let mesg):
+                HUD.hide()
+                self?.showToast(message: mesg)
+            default:
+                break
+            }
+            
+            
+        }).disposed(by: rx.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

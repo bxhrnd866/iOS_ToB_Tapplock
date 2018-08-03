@@ -18,7 +18,7 @@ class FingerPrintModel: Mappable {
     var sn: String?
     var finger: Finger {
         get {
-            return Finger(rawValue: fingerType!)!
+            return Finger(rawValue: self.fingerType!)!
         }
     }
     

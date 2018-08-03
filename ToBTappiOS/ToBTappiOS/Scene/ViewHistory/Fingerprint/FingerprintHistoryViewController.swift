@@ -38,6 +38,16 @@ class FingerprintHistoryViewController: UIViewController {
             self?.viewModel.loadMore()
         })
         
+        viewModel.rx_loadAll.asDriver()
+            .drive(onNext: { [weak self] all in
+                
+                if all {
+                    self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self?.tableView.mj_footer.resetNoMoreData()
+                }
+            }).disposed(by: rx.disposeBag)
+        
         viewModel.rx_step
             .asObservable()
             .subscribe(onNext: { [weak self] step in
@@ -96,7 +106,7 @@ extension FingerprintHistoryViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.bluetoothHistoryCell.identifier, for: indexPath) as! FingerPrintListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.fingerprintHistoryCell.identifier, for: indexPath) as! FingerPrintListCell
         
         let key = [String](viewModel.dictSource.keys)[indexPath.section]
         let source = viewModel.dictSource[key]!

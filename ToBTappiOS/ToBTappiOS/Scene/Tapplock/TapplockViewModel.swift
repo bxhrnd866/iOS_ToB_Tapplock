@@ -19,18 +19,13 @@ class TapplockViewModel: NSObject {
     var page = 1
     var totalPage = 1
     var rx_step: Variable<RequestStep> = Variable(.none)
+    var rx_loadAll = Variable(false)
     
     override init() {
         super.init()
-//        TapplockManager.default.rx_myLocks
-//            .asObservable().bind(to: rx_lockList)
-//            .disposed(by: rx.disposeBag)
-        
-        for _ in 0...10 {
-            let tap = TapplockModel()
-            rx_lockList.value.insert(tap)
-        }
-        
+        TapplockManager.default.rx_myLocks
+            .asObservable().bind(to: rx_lockList)
+            .disposed(by: rx.disposeBag)
     }
     
   
@@ -44,7 +39,7 @@ class TapplockViewModel: NSObject {
             page += 1
             self.loadAPI()
         } else {
-            self.rx_step.value = .failed
+            self.rx_loadAll.value = self.page >= self.totalPage
         }
     }
     
@@ -57,11 +52,14 @@ class TapplockViewModel: NSObject {
                 if response.success {
                     self?.rx_step.value = .sucess
                     if let list = response.data?.list {
+                        
+                        self?.page = (response.data?.pageCurrent)!
+                        self?.totalPage = (response.data?.totalPage)!
+                        self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
+                        
                         let _ = list.map({
                             TapplockManager.default.addAPITapplock($0)
                         })
-                        self?.page = (response.data?.pageCurrent)!
-                        self?.totalPage = (response.data?.totalPage)!
                     }
                     
                 } else {

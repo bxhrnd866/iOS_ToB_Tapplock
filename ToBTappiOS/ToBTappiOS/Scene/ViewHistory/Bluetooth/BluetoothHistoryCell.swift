@@ -22,35 +22,36 @@ class BluetoothHistoryCell: UITableViewCell {
         didSet {
             self.emaliLab.text = model?.mail
             self.locationLabel.text = model?.location
-            self.timeLabel.text = model?.operateTime?.operateTime
             
-            let str = R.string.localizable.lockLog((model?.firstName)!, (model?.lockName)!)
+    
+            self.timeLabel.text = model?.timeDate
             
-            let attrStr = NSMutableAttributedString.init(string: str)
             
-            attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 14) ?? UIFont.boldSystemFont(ofSize: 14),
-                                   NSAttributedStringKey.foregroundColor: UIColor("#30bdde")],
-                                  range: NSRange.init(location: 0, length: str.length))
             
-            if model?.firstName != nil && (model?.firstName!.length)! > 0 {
-                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 14),
+            if let first = model?.firstName, let lock = model?.lockName {
+                let str = R.string.localizable.lockLog(first, lock)
+                
+                let attrStr = NSMutableAttributedString.init(string: str)
+                
+                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
                                        NSAttributedStringKey.foregroundColor: UIColor("#30bdde")],
-                                      range: NSRange((str.range(of: (model?.firstName)!))!, in: str))
+                                      range: NSRange((str.range(of: first))!, in: str))
+                
+                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
+                                       NSAttributedStringKey.foregroundColor: UIColor.themeColor],
+                                      range: NSRange((str.range(of: lock))!, in: str))
+                
+                descriptionLabel.attributedText = attrStr
             }
-        
-            attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 14),
-                                   NSAttributedStringKey.foregroundColor: UIColor.themeColor],
-                                  range: NSRange((str.range(of: (model?.lockName)!))!, in: str))
-            
-            descriptionLabel.attributedText = attrStr
             
             
-            guard let ul = model?.imageUrl else {
+            guard let ul = model?.photoUrl else {
                 self.portraitImageView.image = R.image.userPlace()
                 return
             }
             if let url = URL(string: ul) {
-                self.portraitImageView.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
+                
+                self.portraitImageView.kf.setImage(with: ImageResource.init(downloadURL: url), placeholder: R.image.userPlace(), options: [.processor(kfProcessor)])
             } else {
                 self.portraitImageView.image = R.image.userPlace()
             }

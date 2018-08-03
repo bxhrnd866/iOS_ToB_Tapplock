@@ -23,16 +23,18 @@ extension UIViewController {
     }
     
     @IBAction func showMenu(_ sender: Any) {
-        MenuView.instance.commeTransform()
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.menuView?.showLeftMenuView()
     }
     
     //页面按钮点击时,检查蓝牙状态
     func checkBlueWithAlert() -> Bool {
-        if TapplockManager.default.bluetoothState != .poweredOn {
-            self.showToast(message: "R.string.localizable.errorMessage_BluetoothOff()")
+        if TapplockManager.default.manager.state != .poweredOn {
+            self.showToast(message: R.string.localizable.errorMessage_BluetoothOff())
             return false
-        } else if TapplockManager.default.editingLock?.peripheralModel?.rx_status.value == .connected {
-            self.showToast(message: "R.string.localizable.errorMessage_LockDisconnected()")
+        } else if TapplockManager.default.editingLock?.peripheralModel?.rx_status.value != .connected {
+            self.showToast(message: R.string.localizable.errorMessage_LockDisconnected())
             TapplockManager.default.scan()
             return false
         } else {

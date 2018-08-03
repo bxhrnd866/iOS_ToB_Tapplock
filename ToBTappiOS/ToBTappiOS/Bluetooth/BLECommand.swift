@@ -20,7 +20,6 @@ let CMD_EnrollFingerprint = CDM_PREFIX + "92020000"
 let CMD_DeleteFingerprint = CDM_PREFIX + "45020200"
 let CMD_FactoryReset = CDM_PREFIX + "E3010000"
 let CMD_MorseCode = CDM_PREFIX + "EB020200"
-let CMD_History = CDM_PREFIX + "9A020000"
 let CMD_NewHistory = CDM_PREFIX + "9B020000"
 let CMD_DFU = CDM_PREFIX + "27010000"
 let CMD_GetFirmWareVersion = CDM_PREFIX + "45010000"
@@ -29,7 +28,7 @@ let CMD_SetDeviceName = CDM_PREFIX + "8901"
 let CMD_SetDeviceNameII = CDM_PREFIX + "8a01"
 let CMD_GetRandomData = CDM_PREFIX + "01030000"
 let CMD_VerifyRandom = CDM_PREFIX + "02030C00"
-let CMD_SendFingerprintStart = CDM_PREFIX + "89020200"
+let CMD_SendFingerprintStart = CDM_PREFIX + "89020000"
 let CMD_SendFingerprintData = CDM_PREFIX + "e0"
 let CMD_SendFingerprintEnd = CDM_PREFIX + "8a020000"
 
@@ -44,7 +43,6 @@ enum BluetoothCommand {
     case EnrollFingerprint
     case DeleteFingerprint(index: String)
     case FactoryReset
-    case History
     case NewHistory
     case MorseCode(code: String)
     case DFUModel
@@ -54,7 +52,7 @@ enum BluetoothCommand {
     case SetDeviceNameII(lastname: String)
     case GetRandomData
     case VerifyRandom(key: String)
-    case SendFingerprintStart(index: String)
+    case SendFingerprintStart
     case SendFingerprintData(data: String)
     case SendFingerprintEnd
     
@@ -85,9 +83,6 @@ enum BluetoothCommand {
             return CMD_FactoryReset
         case .MorseCode(let code):
             return CMD_MorseCode + code
-        case .History:
-            plog("History:" + CMD_History)
-            return CMD_History
         case .NewHistory:
              plog("NewHistory:" + CMD_NewHistory)
             return CMD_NewHistory
@@ -107,8 +102,8 @@ enum BluetoothCommand {
             return CMD_GetRandomData
         case .VerifyRandom(let key):
             return CMD_VerifyRandom + key
-        case .SendFingerprintStart(let index):
-            return CMD_SendFingerprintStart + index
+        case .SendFingerprintStart:
+            return CMD_SendFingerprintStart
         case .SendFingerprintData(let data):
             return CMD_SendFingerprintData + data
         case .SendFingerprintEnd:

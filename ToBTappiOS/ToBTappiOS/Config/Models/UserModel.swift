@@ -15,16 +15,8 @@ import CoreLocation
 //用户模型,参考网络通信接口文档
 class UserModel: Mappable {
     
-    var accessToken: String? {
-        didSet {
-            UserDefaults.standard.set(accessToken, forKey: n_basicToKenKey)
-        }
-    }
-    var refreshToken: String? {
-        didSet {
-            UserDefaults.standard.set(refreshToken, forKey: n_refreshTokenKey)
-        }
-    }
+    var accessToken: String?
+    var refreshToken: String?
     var corpId: Int?
     var corpName: String?
     var entryFingerprint: Int?
@@ -32,8 +24,11 @@ class UserModel: Mappable {
     var lastName: String?
     var groups: [GroupsModel]? {
         didSet {
-            if groups != nil {
-                rx_groups.value = groups!
+            if self.groups != nil {
+                let grop = GroupsModel()
+                grop.groupName = R.string.localizable.allGroup()
+                self.rx_groups.value = self.groups!
+                self.rx_groups.value.insert(grop, at: 0)
             }
         }
     }
@@ -47,32 +42,8 @@ class UserModel: Mappable {
     var photoUrl: String?
     var sex: Int?
     
-    var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())
     
-    var meunSoure: [String]! {
-        
-        let x = "View All Locks"
-        let y = "View History"
-        
-        var data =  ["Profile","Tapplock","Tutorial","Setting","Log out"]
-        if permissions != nil {
-            for item in permissions! {
-                if item.permissionCode == "301" {
-                    data.insert(x, at: 2)
-                }
-                
-                if item.permissionCode == "302" {
-                    if data[2] == x {
-                        data.insert(y, at: 3)
-                    } else {
-                        data.insert(y, at: 2)
-                    }
-                }
-            }
-        }
-        
-        return data
-    }
+    var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())
     
     
     

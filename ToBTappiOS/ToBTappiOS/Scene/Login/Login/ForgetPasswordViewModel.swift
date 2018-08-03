@@ -13,32 +13,11 @@ class ForgetPasswordViewModel: NSObject {
     var rx_mail: Variable<String?> = Variable(nil)
     var rx_vCode: Variable<String?> = Variable(nil)
     var rx_password: Variable<String?> = Variable(nil)
-    var rx_confirmPassword: Variable<String?> = Variable(nil)
     var rx_resendVCodeTime: Variable<Int?> = Variable(nil)
-
-    var vCodeMd5 = ""
-    public var rx_errorMessage: Variable<String?> = Variable(nil)
-    public var rx_upLoading: Variable<Bool> = Variable(false)
-    public var rx_checkMailSuccess: Variable<Bool> = Variable(false)
-    public var rx_setPasswordSuccess: Variable<Bool> = Variable(false)
-
-    var canVCodeGoNext: Bool {
-        get {
-            if self.vCodeMd5 == self.rx_vCode.value?.md5() {
-                self.rx_errorMessage.value = nil
-                return true
-            } else if self.rx_vCode.value == nil || self.rx_vCode.value!.length == 0 {
-                self.rx_errorMessage.value = R.string.localizable.errorMessage_vCodeEmpty()
-                return false
-            } else {
-                self.rx_errorMessage.value = R.string.localizable.errorMessage_vCodeWrong()
-                return false
-            }
-        }
-    }
-
+    
+    var rx_step: Variable<RequestStep> = Variable(.none)
+    
     func sendVCodeAction() {
-
         if canSendVCodeAction() {
             self.rx_resendVCodeTime.value = 120
             let codeTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
@@ -50,17 +29,16 @@ class ForgetPasswordViewModel: NSObject {
                         codeTimer.cancel()
                     }
                 }
-
             })
+            
             codeTimer.resume()
-
             provider.rx.request(APIServer.registerVerifyCode(mail: rx_mail.value!, type: 1))
                 .mapObject(APIResponseString.self)
                 .subscribe(onSuccess: { [weak self] response in
                     if response.success {
                         
                     } else {
-                        self?.rx_errorMessage.value = response.codeMessage
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
                     }
                 }).disposed(by: rx.disposeBag)
         }
@@ -68,13 +46,13 @@ class ForgetPasswordViewModel: NSObject {
 
     func canSendVCodeAction() -> Bool {
         if rx_mail.value == nil || rx_mail.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailEmpty())
             return false
         } else if (rx_mail.value?.containsEmoji)! {
-            self.rx_errorMessage.value = R.string.localizable.errorMessage_Emoji()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
             return false
         } else if !rx_mail.value!.isMail {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailIncorrect()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailIncorrect())
             return false
         } else if rx_resendVCodeTime.value != nil && rx_resendVCodeTime.value! > 0 {
             return false
@@ -83,83 +61,47 @@ class ForgetPasswordViewModel: NSObject {
         }
     }
 
-    func forgetPasswordNextAction() {
-        if checkMail() {
-            rx_upLoading.value = true
-            
-            provider.rx.request(APIServer.userCheckMail(mail: rx_mail.value!))
-                .mapObject(APIResponse<EmptyModel>.self)
-                .subscribe(onSuccess: { [weak self] response in
-                    self?.rx_upLoading.value = false
-                    if response.success {
-                        self?.rx_errorMessage.value = nil
-                        self?.rx_checkMailSuccess.value = true
-                    } else {
-                        self?.rx_errorMessage.value = response.codeMessage
-                    }
-                }).disposed(by: rx.disposeBag)
-        }
-    }
 
-    func checkMail() -> Bool {
-        if rx_mail.value == nil || rx_mail.value?.count == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailEmpty()
-            return false
-        } else if !rx_mail.value!.isMail {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailIncorrect()
-            return false
-        } else {
-            self.rx_errorMessage.value = nil
-            return true
-        }
-    }
-
-    func newPasswordOkAction() {
+    func saveOkAction() {
         if canSetNewPassword() {
-            rx_upLoading.value = true
-//            _ = provider.rx.request(APIService.ForgetPassword(mail: rx_mail.value!, newPassword: rx_password.value!, verifyCode: rx_vCode.value!))
-//                    .mapObject(APIResponse<EmptyModel>.self)
-//                    .subscribe(onSuccess: { [weak self] response in
-//                        self?.rx_upLoading.value = false
-//                        if response.success {
-//                            self?.rx_errorMessage.value = nil
-//                            self?.rx_setPasswordSuccess.value = true
-//                        } else {
-//                            self?.rx_errorMessage.value = response.message
-//                        }
-//                    })
+            rx_step.value = .loading
+            provider.rx.request(APIServer.forgetPassword(mail: rx_mail.value!, newPassword: rx_password.value!, verifyCode: rx_vCode.value!))
+                    .mapObject(APIResponse<EmptyModel>.self)
+                    .subscribe(onSuccess: { [weak self] response in
+                        
+                        if response.success {
+                            self?.rx_step.value = RequestStep.sucess
+                        } else {
+                            self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                        }
+                    }).disposed(by: rx.disposeBag)
         }
     }
 
     func canSetNewPassword() -> Bool {
 
         if rx_mail.value == nil || rx_mail.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailEmpty()
+
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailEmpty())
             return false
         } else if !rx_mail.value!.isMail {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailIncorrect()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailIncorrect())
             return false
         } else if rx_password.value == nil || rx_password.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_PasswordEmpty())
             return false
         } else if rx_password.value!.passwordTooShort {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordTooShort(passwordLenthMin)
+          
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_PasswordTooShort(passwordLenthMin))
             return false
         } else if rx_password.value!.passwordOverlength {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordOverLenth(passwordLenthMax)
-            return false
-        } else if rx_confirmPassword.value == nil || rx_confirmPassword.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordConfirmEmpty()
-            return false
-        } else if rx_confirmPassword.value != rx_password.value {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordConfirmWrong()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_PasswordOverLenth(passwordLenthMax))
             return false
         } else if rx_vCode.value == nil || rx_vCode.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_vCodeEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_vCodeEmpty())
             return false
-        }
-        else if rx_vCode.value != "???"{
-            rx_errorMessage.value = R.string.localizable.errorMessage_vCodeWrong()
+        } else if rx_vCode.value == "???"{
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_vCodeWrong())
             return false
         }
         else {

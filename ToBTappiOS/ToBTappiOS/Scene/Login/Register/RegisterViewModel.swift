@@ -10,22 +10,19 @@ import UIKit
 import RxSwift
 
 class RegisterViewModel: NSObject {
-    var rx_url: Variable<String?> = Variable("")
+    var rx_url: Variable<String?> = Variable(nil)
     var rx_firstName: Variable<String?> = Variable(nil)
     var rx_lastName: Variable<String?> = Variable(nil)
     var rx_mail: Variable<String?> = Variable(nil)
-    var rx_vCode: Variable<String?> = Variable(nil)
     var rx_password: Variable<String?> = Variable(nil)
     var rx_inviteCode: Variable<String?> = Variable(nil)
     var rx_iphone: Variable<String?> = Variable(nil)
-    var rx_sex: Variable<Int?> = Variable(nil)
-    
-    
-    
-    public var rx_errorMessage: Variable<String?> = Variable(nil)
-    public var rx_success: Variable<Bool> = Variable(false)
-    public var rx_upLoading: Variable<Bool> = Variable(false)
+    var rx_sex: Variable<Int> = Variable(0)
+    var rx_corpId: Variable<Int?> = Variable(nil)
 
+    
+
+    var rx_step: Variable<RequestStep> = Variable(.none)
 
     func setImageURL(_ url: String) {
         rx_url.value = url
@@ -33,9 +30,9 @@ class RegisterViewModel: NSObject {
 
     func okButtonAction() {
         if canRegist() {
-            rx_upLoading.value = true
+            rx_step.value = .loading
 
-            provider.rx.request(APIServer.userRegister(corpId: nil,
+            provider.rx.request(APIServer.userRegister(corpId: rx_corpId.value!,
                                                        fcmDeviceToken: nil,
                                                        inviteCode: rx_inviteCode.value!,
                                                        firstName: rx_firstName.value!,
@@ -43,15 +40,14 @@ class RegisterViewModel: NSObject {
                                                        mail: rx_mail.value!,
                                                        password: rx_password.value!,
                                                        phone: rx_iphone.value!,
-                                                       photoUrl: rx_url.value!,
-                                                       sex: rx_sex.value!))
+                                                       photoUrl: rx_url.value,
+                                                       sex: rx_sex.value))
                 .mapObject(APIResponse<EmptyModel>.self).subscribe(onSuccess: { [weak self] response in
-                        self?.rx_upLoading.value = false
-                        if response.success {
-                            self?.rx_success.value = true
-                        } else {
-                            self?.rx_errorMessage.value = response.message
-                        }
+                    if response.success {
+                        self?.rx_step.value = RequestStep.sucess
+                    } else {
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                    }
             }).disposed(by: rx.disposeBag)
         }
     }
@@ -59,25 +55,28 @@ class RegisterViewModel: NSObject {
     //数据检查
     func canRegist() -> Bool {
         if rx_firstName.value == nil || rx_firstName.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_FirstNameEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_FirstNameEmpty())
             return false
         } else if (rx_firstName.value?.containsEmoji)! {
-            self.rx_errorMessage.value = R.string.localizable.errorMessage_Emoji()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
             return false
         } else if rx_firstName.value!.nameOverlength {
-            rx_errorMessage.value = R.string.localizable.errorMessage_FirstNameOverLenth(nameLenthMax)
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_FirstNameOverLenth(nameLenthMax))
             return false
         } else if rx_lastName.value == nil || rx_lastName.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_LastNameEmpty()
+
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_LastNameEmpty())
             return false
         } else if (rx_lastName.value?.containsEmoji)! {
-            self.rx_errorMessage.value = R.string.localizable.errorMessage_Emoji()
+            
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
             return false
         } else if rx_lastName.value!.nameOverlength {
-            rx_errorMessage.value = R.string.localizable.errorMessage_LastNameOverLenth(nameLenthMax)
+            
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_LastNameOverLenth(nameLenthMax))
             return false
         } else if rx_iphone.value?.isPurnInt == false {
-            rx_errorMessage.value = "请输入数字"
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.enterthenumber())
             return false
         } else {
             return true

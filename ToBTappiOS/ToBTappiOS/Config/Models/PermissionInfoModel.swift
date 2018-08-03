@@ -25,7 +25,7 @@ class PermissionInfoModel: Mappable {
         }
         let num = permissionCode!.toInt()
         
-        return APICode.init(num ?? -100).rawValue
+        return APICode(code: num ?? -100).rawValue
     }
     
     required init?(map: Map) {

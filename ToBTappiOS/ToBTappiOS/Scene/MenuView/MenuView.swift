@@ -14,17 +14,13 @@ class MenuView: UIView {
     
     let timeInterval = 0.35
     
-    
     var rx_SelectIndex: Variable<Int> = Variable(1)
-    var rx_logout: Variable<Bool> = Variable(false)
-    
-    
+
     private var headerImg: UIImageView!
     private var namelab: UILabel!
     private var tableView: UITableView!
-    private let viewModel = MenuViewModel()
+    let viewModel = MenuViewModel()
     
-    static let instance: MenuView = MenuView(frame: CGRect(x: -mScreenW, y: TopBarHeight, width: mScreenW, height: mScreenH - TopBarHeight))
     override init(frame: CGRect) {
         super.init(frame: frame)
   
@@ -34,11 +30,14 @@ class MenuView: UIView {
         bgview.backgroundColor = UIColor.white
         addSubview(bgview)
         
-        let rightBg = UIView(frame: CGRect(x: bgview.rightX, y: 0, width: mScreenW - 242 * mScale, height: mScreenH - TopBarHeight))
-        rightBg.backgroundColor = UIColor.clear
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapToRecovery))
-        rightBg.addGestureRecognizer(tap)
-        addSubview(rightBg)
+      
+        let rightBtn = UIButton(type: .custom)
+        rightBtn.frame = CGRect(x: bgview.rightX, y: 0, width: mScreenW - 242 * mScale, height: mScreenH - TopBarHeight)
+        rightBtn.rx.tap.subscribe(onNext: { [weak self] in
+            self?.hiddenMenuView()
+        }).disposed(by: rx.disposeBag)
+        
+        addSubview(rightBtn)
         
         self.headerImg = UIImageView(frame: CGRect(x: 76 * mScale, y: 37 * mScale, width: 90 * mScale, height: 90 * mScale))
         self.headerImg.layer.cornerRadius = 4
@@ -62,6 +61,7 @@ class MenuView: UIView {
         tableView.separatorStyle = .none
         let nib = UINib(nibName: "MenuTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "tableviewCellIdentifier")
+        
         bgview.addSubview(tableView)
         
      
@@ -69,22 +69,15 @@ class MenuView: UIView {
             $0 != nil
             }.drive(onNext: { [weak self] user in
                 self?.namelab.text = "\(user?.firstName ?? "")" + "\(user?.lastName ?? "")"
-                
+
                 if user?.photoUrl != nil, let url = URL(string: (user?.photoUrl)!) {
                     self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
                 }
-                
-                
+
             }).disposed(by: rx.disposeBag)
-       
-    }
-    @objc private func tapToRecovery() {
-        UIView.animate(withDuration: timeInterval) {
-            self.transform = CGAffineTransform.identity
-        }
     }
     
-    public func commeTransform() {
+    public func showLeftMenuView() {
         let wind = UIApplication.shared.delegate?.window!
         wind?.bringSubview(toFront: self)
         UIView.animate(withDuration: timeInterval) {
@@ -92,11 +85,12 @@ class MenuView: UIView {
         }
     }
     
-    public func recovery() {
+    public func hiddenMenuView() {
         UIView.animate(withDuration: timeInterval) {
             self.transform = CGAffineTransform.identity
         }
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -106,21 +100,15 @@ class MenuView: UIView {
 extension MenuView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return ConfigModel.default.user.value != nil ? (ConfigModel.default.user.value?.meunSoure.count)! : 0
-        return viewModel.dataSource.count
+        return viewModel.rx_list.value.count
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCellIdentifier", for: indexPath) as! MenuTableViewCell
-        cell.lable.text = viewModel.dataSource[indexPath.row]
+        cell.model = viewModel.rx_list.value[indexPath.row]
         
-//        cell.lable.text = ConfigModel.default.user.value?.meunSoure[indexPath.row]
-        
-        if indexPath.row == 1 {
-            cell.backgroundColor = thembColor
-            cell.lable.textColor = UIColor.white
-        }
         return cell
     }
     
@@ -129,22 +117,18 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MenuTableViewCell
-        
-        if indexPath.row == 6 {
-            rx_logout.value = true
-            self.recovery()
-            return
-        }
-        
+       
         if rx_SelectIndex.value != indexPath.row {
-            let before = tableView.cellForRow(at: IndexPath(row: rx_SelectIndex.value, section: 0)) as! MenuTableViewCell
-            before.backgroundColor = UIColor.white
-            before.lable.textColor = UIColor.black
-            cell.backgroundColor = thembColor
-            cell.lable.textColor = UIColor.white
+            
+            let model = viewModel.rx_list.value[rx_SelectIndex.value]
+            model.select = false
+            let m2 = viewModel.rx_list.value[indexPath.row]
+            m2.select = true
             rx_SelectIndex.value = indexPath.row
-            self.recovery()
+            self.tableView.reloadData()
+            
+            self.hiddenMenuView()
         }
+
     }
 }

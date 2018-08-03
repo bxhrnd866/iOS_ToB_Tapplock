@@ -54,8 +54,12 @@ class ProfileViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let imagePicker = R.segue.profileViewController.showImagepickerIdentifier(segue: segue) {
-            imagePicker.destination.topViewController = self
-            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: self.setImageUrl)
+//            imagePicker.destination.topViewController = self
+//            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: self.setImageUrl)
         }
+    }
+    
+    deinit {
+        plog("Profile 销毁了")
     }
 }

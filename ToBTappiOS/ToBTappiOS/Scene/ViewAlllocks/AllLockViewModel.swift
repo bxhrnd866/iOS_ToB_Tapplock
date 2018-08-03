@@ -19,12 +19,10 @@ class AllLockViewModel: NSObject {
     var page = 1
     var totalPage = 1
     var rx_step: Variable<RequestStep> = Variable(.none)
+    var rx_loadAll = Variable(false)
     
     override init() {
-        for _ in 0...10 {
-            let md = TapplockModel()
-            rx_locks.value.append(md)
-        }
+       
     }
     
     
@@ -40,7 +38,7 @@ class AllLockViewModel: NSObject {
                     
                         self?.page = (response.data?.pageCurrent)!
                         self?.totalPage = (response.data?.totalPage)!
-                        
+                        self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
                         if self?.page == 1 {
                             self?.rx_locks.value = list
                         } else {
@@ -65,7 +63,7 @@ class AllLockViewModel: NSObject {
             page += 1
             self.loadAPI()
         } else {
-            self.rx_step.value = .failed
+            self.rx_loadAll.value = self.page >= self.totalPage
         }
     }
 }

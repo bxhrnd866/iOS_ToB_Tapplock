@@ -230,7 +230,7 @@ private extension MoyaProvider {
 
         let completionHandler: RequestableCompletion = { response, request, data, error in
             var newdata: Data? = nil
-            
+
             if data != nil {
                 let text = String(data: data!, encoding: String.Encoding.utf8)
                 let base = Data(base64Encoded: text!)

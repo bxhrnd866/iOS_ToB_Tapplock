@@ -22,11 +22,6 @@ class AllGroupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let model = GroupsModel.init()
-        model.groupName = "All Group"
-        groups.value.append(model)
-        
-        
         groups.asDriver()
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.allGroupCellIdenty.identifier, cellType: AllGroupCell.self)) {
                 (indexPath, model, cell) in
@@ -53,6 +48,9 @@ class AllGroupController: UIViewController {
                 if response.success {
                     if response.data != nil {
                         self?.groups.value = response.data!
+                        let model = GroupsModel.init()
+                        model.groupName = R.string.localizable.allGroup()
+                        self?.groups.value.insert(model, at: 0)
                     }
                 } else {
                     self?.showToast(message: response.codeMessage)

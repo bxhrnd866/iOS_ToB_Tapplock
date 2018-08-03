@@ -13,31 +13,31 @@ import NSObject_Rx
 import CryptoSwift
 import Moya_ObjectMapper
 import ObjectMapper
-import PKHUD
 class LoginViewModel: NSObject {
     public var rx_email: Variable<String?> = Variable(nil)
     public var rx_password: Variable<String?> = Variable(nil)
-    public var rx_user: Variable<UserModel?> = Variable(nil)
-    public var rx_errorMessage: Variable<String?> = Variable(nil)
-
+    var rx_step: Variable<RequestStep> = Variable(.none)
+    
     public func onLogin() {
         let password = rx_password.value
         let mail = rx_email.value
         if canLogin(password: password, mail: mail) {
             
-
-            HUD.show(.progress)
+            self.rx_step.value = RequestStep.loading
             provider.rx.request(APIServer.userLog(mail: mail!, password: password!))
                 .mapObject(APIResponse<UserModel>.self)
                 .subscribe(onSuccess: { [weak self] response in
-                    plog(response)
-                    HUD.hide()
+                    
                     if response.success {
+                        UserDefaults.standard.set(response.data?.accessToken, forKey: key_basicToken)
+                        UserDefaults.standard.set(response.data?.refreshToken, forKey: key_refreshToken)
+
                         ConfigModel.default.user.value = response.data!
+                        self?.rx_step.value = RequestStep.sucess
+                        
                     } else {
-                        self?.rx_errorMessage.value = response.codeMessage
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
                     }
-                
                 
             }).disposed(by: rx.disposeBag)
         }
@@ -46,21 +46,39 @@ class LoginViewModel: NSObject {
     //上传数据检查
     private func canLogin(password: String?, mail: String?) -> Bool {
         if rx_email.value == nil || rx_email.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_MailEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailEmpty())
             return false
         } else if (rx_email.value?.containsEmoji)! {
-            self.rx_errorMessage.value = R.string.localizable.errorMessage_Emoji()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
             return false
         }
         else if rx_password.value == nil || rx_password.value?.length == 0 {
-            rx_errorMessage.value = R.string.localizable.errorMessage_PasswordEmpty()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_PasswordEmpty())
             return false
         } else if (rx_password.value?.containsEmoji)! {
-            self.rx_errorMessage.value = R.string.localizable.errorMessage_Emoji()
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
             return false
-        }
-        else {
+        } else {
             return true
         }
+    }
+    
+    
+    func getAccessToken() {
+        if ConfigModel.default.user.value == nil {
+            provider.rx.request(APIServer.oauthToken(grant_type: "client_credentials", refresh_token: nil))
+                .mapObject(BasicTokenModel.self)
+                .subscribe(onSuccess: { response in
+                    
+                    if response.error == nil {
+                        UserDefaults.standard.set(response.access_token, forKey: key_access_token)
+                    } else {
+                        plog("失败 继续调用")
+//                        self?.getAccessToken()
+                    }
+                
+            }).disposed(by: rx.disposeBag)
+        }
+
     }
 }

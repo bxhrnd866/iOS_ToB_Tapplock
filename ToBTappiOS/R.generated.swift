@@ -418,7 +418,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 13 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AllGroupCellIdenty`.
     static let allGroupCellIdenty: Rswift.ReuseIdentifier<AllGroupCell> = Rswift.ReuseIdentifier(identifier: "AllGroupCellIdenty")
@@ -442,13 +442,15 @@ struct R: Rswift.Validatable {
     static let tapplockListCellIdenty: Rswift.ReuseIdentifier<TappLockListCell> = Rswift.ReuseIdentifier(identifier: "TapplockListCellIdenty")
     /// Reuse identifier `allLocksListCellIdenty`.
     static let allLocksListCellIdenty: Rswift.ReuseIdentifier<AllLocksCell> = Rswift.ReuseIdentifier(identifier: "allLocksListCellIdenty")
+    /// Reuse identifier `notificationCenterIdentifier`.
+    static let notificationCenterIdentifier: Rswift.ReuseIdentifier<NotifactionCell> = Rswift.ReuseIdentifier(identifier: "notificationCenterIdentifier")
     /// Reuse identifier `userGroupCellIdenty`.
     static let userGroupCellIdenty: Rswift.ReuseIdentifier<UserGroupCell> = Rswift.ReuseIdentifier(identifier: "userGroupCellIdenty")
     
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 20 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 18 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -510,22 +512,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `ForgetPasswordViewController`, and contains static references to 1 segues.
-    struct forgetPasswordViewController {
-      /// Segue identifier `VerificationCodeSegue`.
-      static let verificationCodeSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ForgetPasswordViewController, VerificationCodeViewController> = Rswift.StoryboardSegueIdentifier(identifier: "VerificationCodeSegue")
-      
-      /// Optionally returns a typed version of segue `VerificationCodeSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func verificationCodeSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ForgetPasswordViewController, VerificationCodeViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.forgetPasswordViewController.verificationCodeSegue, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `HomeViewController`, and contains static references to 6 segues.
+    /// This struct is generated for `HomeViewController`, and contains static references to 7 segues.
     struct homeViewController {
       /// Segue identifier `pushMyTapplock`.
       static let pushMyTapplock: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, HomeViewController, MyTapplockController> = Rswift.StoryboardSegueIdentifier(identifier: "pushMyTapplock")
@@ -539,6 +526,8 @@ struct R: Rswift.Validatable {
       static let pushViewAlllock: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, HomeViewController, AllLocksViewController> = Rswift.StoryboardSegueIdentifier(identifier: "pushViewAlllock")
       /// Segue identifier `pushViewHistory`.
       static let pushViewHistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, HomeViewController, ViewHistoryController> = Rswift.StoryboardSegueIdentifier(identifier: "pushViewHistory")
+      /// Segue identifier `showNotification`.
+      static let showNotification: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, HomeViewController, NotificationController> = Rswift.StoryboardSegueIdentifier(identifier: "showNotification")
       
       /// Optionally returns a typed version of segue `pushMyTapplock`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -582,19 +571,26 @@ struct R: Rswift.Validatable {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.homeViewController.pushViewHistory, segue: segue)
       }
       
+      /// Optionally returns a typed version of segue `showNotification`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showNotification(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, HomeViewController, NotificationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.homeViewController.showNotification, segue: segue)
+      }
+      
       fileprivate init() {}
     }
     
     /// This struct is generated for `InviteCodeController`, and contains static references to 1 segues.
     struct inviteCodeController {
-      /// Segue identifier `showVerificaitonCode`.
-      static let showVerificaitonCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, InviteCodeController, RegistVerficationController> = Rswift.StoryboardSegueIdentifier(identifier: "showVerificaitonCode")
+      /// Segue identifier `showPassword`.
+      static let showPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, InviteCodeController, RegisterPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "showPassword")
       
-      /// Optionally returns a typed version of segue `showVerificaitonCode`.
+      /// Optionally returns a typed version of segue `showPassword`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showVerificaitonCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, InviteCodeController, RegistVerficationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.inviteCodeController.showVerificaitonCode, segue: segue)
+      static func showPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, InviteCodeController, RegisterPasswordController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.inviteCodeController.showPassword, segue: segue)
       }
       
       fileprivate init() {}
@@ -731,14 +727,14 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `RegistMailController`, and contains static references to 1 segues.
     struct registMailController {
-      /// Segue identifier `showInviationCode`.
-      static let showInviationCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistMailController, InviteCodeController> = Rswift.StoryboardSegueIdentifier(identifier: "showInviationCode")
+      /// Segue identifier `showVerificaitonCode`.
+      static let showVerificaitonCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistMailController, RegistVerficationController> = Rswift.StoryboardSegueIdentifier(identifier: "showVerificaitonCode")
       
-      /// Optionally returns a typed version of segue `showInviationCode`.
+      /// Optionally returns a typed version of segue `showVerificaitonCode`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showInviationCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistMailController, InviteCodeController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registMailController.showInviationCode, segue: segue)
+      static func showVerificaitonCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistMailController, RegistVerficationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registMailController.showVerificaitonCode, segue: segue)
       }
       
       fileprivate init() {}
@@ -746,14 +742,14 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `RegistVerficationController`, and contains static references to 1 segues.
     struct registVerficationController {
-      /// Segue identifier `showPassword`.
-      static let showPassword: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistVerficationController, RegisterPasswordController> = Rswift.StoryboardSegueIdentifier(identifier: "showPassword")
+      /// Segue identifier `showInviationCode`.
+      static let showInviationCode: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RegistVerficationController, InviteCodeController> = Rswift.StoryboardSegueIdentifier(identifier: "showInviationCode")
       
-      /// Optionally returns a typed version of segue `showPassword`.
+      /// Optionally returns a typed version of segue `showInviationCode`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showPassword(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistVerficationController, RegisterPasswordController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registVerficationController.showPassword, segue: segue)
+      static func showInviationCode(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RegistVerficationController, InviteCodeController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.registVerficationController.showInviationCode, segue: segue)
       }
       
       fileprivate init() {}
@@ -807,25 +803,16 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `SelectPictureViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `SelectPictureViewController`, and contains static references to 1 segues.
     struct selectPictureViewController {
       /// Segue identifier `PhotoAlbumSegue`.
       static let photoAlbumSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SelectPictureViewController, PhotoAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "PhotoAlbumSegue")
-      /// Segue identifier `progress`.
-      static let progress: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SelectPictureViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "progress")
       
       /// Optionally returns a typed version of segue `PhotoAlbumSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func photoAlbumSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SelectPictureViewController, PhotoAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.selectPictureViewController.photoAlbumSegue, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `progress`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func progress(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SelectPictureViewController, UIKit.UIViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.selectPictureViewController.progress, segue: segue)
       }
       
       fileprivate init() {}
@@ -841,21 +828,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func showUpdateLoading(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UpdateDFUController, UpdateLoadingController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.updateDFUController.showUpdateLoading, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `VerificationCodeViewController`, and contains static references to 1 segues.
-    struct verificationCodeViewController {
-      /// Segue identifier `NewPasswordSegue`.
-      static let newPasswordSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, VerificationCodeViewController, NewPasswordViewController> = Rswift.StoryboardSegueIdentifier(identifier: "NewPasswordSegue")
-      
-      /// Optionally returns a typed version of segue `NewPasswordSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func newPasswordSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, VerificationCodeViewController, NewPasswordViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.verificationCodeViewController.newPasswordSegue, segue: segue)
       }
       
       fileprivate init() {}
@@ -897,7 +869,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 15 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 16 storyboards.
   struct storyboard {
     /// Storyboard `FingerLockDetail`.
     static let fingerLockDetail = _R.storyboard.fingerLockDetail()
@@ -917,6 +889,8 @@ struct R: Rswift.Validatable {
     static let main = _R.storyboard.main()
     /// Storyboard `MyTapplock`.
     static let myTapplock = _R.storyboard.myTapplock()
+    /// Storyboard `NotificationCenter`.
+    static let notificationCenter = _R.storyboard.notificationCenter()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
     /// Storyboard `Register`.
@@ -973,6 +947,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "MyTapplock", bundle: ...)`
     static func myTapplock(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.myTapplock)
+    }
+    
+    /// `UIStoryboard(name: "NotificationCenter", bundle: ...)`
+    static func notificationCenter(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.notificationCenter)
     }
     
     /// `UIStoryboard(name: "Profile", bundle: ...)`
@@ -1065,7 +1044,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 137 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 173 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1123,6 +1102,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let alert = Rswift.StringResource(key: "Alert", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: All Group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let allGroup = Rswift.StringResource(key: "AllGroup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Are you sure you want to delete this Tapplock?
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1133,8 +1116,8 @@ struct R: Rswift.Validatable {
       static let ensureMessage_Logout = Rswift.StringResource(key: "EnsureMessage_Logout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Audit Report
       /// 
-      /// Locales: en
-      static let permissionAuditReport = Rswift.StringResource(key: "PermissionAuditReport", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionAuditReport = Rswift.StringResource(key: "PermissionAuditReport", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1163,6 +1146,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_Synchronizing = Rswift.StringResource(key: "ErrorMessage_Synchronizing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Data does not exist or has been deleted
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400000 = Rswift.StringResource(key: "Code400000", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Delete Failed
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1199,6 +1186,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let editShareUser = Rswift.StringResource(key: "EditShareUser", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Email already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400001 = Rswift.StringResource(key: "Code400001", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Email not exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400010 = Rswift.StringResource(key: "Code400010", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: End Date
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1221,8 +1216,8 @@ struct R: Rswift.Validatable {
       static let successMessage_Feedback = Rswift.StringResource(key: "SuccessMessage_Feedback", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Finace
       /// 
-      /// Locales: en
-      static let permissionFinace = Rswift.StringResource(key: "PermissionFinace", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionFinace = Rswift.StringResource(key: "PermissionFinace", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Fingerprint
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1243,18 +1238,34 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_MailIncorrect = Rswift.StringResource(key: "ErrorMessage_MailIncorrect", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Incurrect Email or password
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400006 = Rswift.StringResource(key: "Code400006", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Index
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let indexFinger = Rswift.StringResource(key: "IndexFinger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Initate Firmware Update
       /// 
-      /// Locales: en
-      static let permissionInitateFirmwareUpdate = Rswift.StringResource(key: "PermissionInitateFirmwareUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionInitateFirmwareUpdate = Rswift.StringResource(key: "PermissionInitateFirmwareUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Installation failed, please install again
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let installationfailed = Rswift.StringResource(key: "Installationfailed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Invalid Verification code
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let invalidVerificationcode = Rswift.StringResource(key: "InvalidVerificationcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Invalid invitation code
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let invalidinvitationcode = Rswift.StringResource(key: "Invalidinvitationcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Invitation code is invalid
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400004 = Rswift.StringResource(key: "Code400004", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: It can't be all short codes Please set some long codes
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1275,6 +1286,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let littleFinger = Rswift.StringResource(key: "LittleFinger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Log out
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuLogout = Rswift.StringResource(key: "MenuLogout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: MANAGE FINGERPRINTS Click here to manage fingerprints
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1285,28 +1300,28 @@ struct R: Rswift.Validatable {
       static let tutorial_MorseCode = Rswift.StringResource(key: "Tutorial_MorseCode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Access
       /// 
-      /// Locales: en
-      static let permissionManageAccess = Rswift.StringResource(key: "PermissionManageAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageAccess = Rswift.StringResource(key: "PermissionManageAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Admins
       /// 
-      /// Locales: en
-      static let permissionManageAdmins = Rswift.StringResource(key: "PermissionManageAdmins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageAdmins = Rswift.StringResource(key: "PermissionManageAdmins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Group
       /// 
-      /// Locales: en
-      static let permissionManageGroup = Rswift.StringResource(key: "PermissionManageGroup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageGroup = Rswift.StringResource(key: "PermissionManageGroup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Lock
       /// 
-      /// Locales: en
-      static let permissionManageLock = Rswift.StringResource(key: "PermissionManageLock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageLock = Rswift.StringResource(key: "PermissionManageLock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Morse-Code
       /// 
-      /// Locales: en
-      static let permissionManageMorseCode = Rswift.StringResource(key: "PermissionManageMorseCode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageMorseCode = Rswift.StringResource(key: "PermissionManageMorseCode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage User
       /// 
-      /// Locales: en
-      static let permissionManageUser = Rswift.StringResource(key: "PermissionManageUser", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionManageUser = Rswift.StringResource(key: "PermissionManageUser", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Middle
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1351,6 +1366,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let itmeNext = Rswift.StringResource(key: "ItmeNext", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Notification
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuNotification = Rswift.StringResource(key: "MenuNotification", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: OK
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1439,6 +1458,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_PasswordConfirmEmpty = Rswift.StringResource(key: "ErrorMessage_PasswordConfirmEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Please enter the number
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let enterthenumber = Rswift.StringResource(key: "enterthenumber", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Please fill in email
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1487,10 +1510,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_FeedbackDescriptionEmpty = Rswift.StringResource(key: "ErrorMessage_FeedbackDescriptionEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Please remove all locks before you delete the group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400019 = Rswift.StringResource(key: "Code400019", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Please turn on the Location service
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let lockOpenLocationService = Rswift.StringResource(key: "LockOpenLocationService", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Profile
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuProfile = Rswift.StringResource(key: "MenuProfile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Registered Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1523,6 +1554,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let successMessage_Save = Rswift.StringResource(key: "SuccessMessage_Save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Setting
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuSetting = Rswift.StringResource(key: "MenuSetting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Share Access Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1539,6 +1574,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let setStartTime = Rswift.StringResource(key: "SetStartTime", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: TLBOX is using by company, you cannot delete it
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400015 = Rswift.StringResource(key: "Code400015", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Tapplock
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuTapplock = Rswift.StringResource(key: "MenuTapplock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Tapplock Name Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1547,10 +1590,58 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_LockDisconnected = Rswift.StringResource(key: "ErrorMessage_LockDisconnected", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The MAC already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400014 = Rswift.StringResource(key: "Code400014", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The TLBOX is not belong the company
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400020 = Rswift.StringResource(key: "Code400020", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The authorization has been revoded
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400022 = Rswift.StringResource(key: "Code400022", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The data has been changed. Please try again
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400013 = Rswift.StringResource(key: "Code400013", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The fingerprint already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400016 = Rswift.StringResource(key: "Code400016", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The group already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400011 = Rswift.StringResource(key: "Code400011", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The invitation code has been expired
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400023 = Rswift.StringResource(key: "Code400023", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The lock name already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400021 = Rswift.StringResource(key: "Code400021", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The old password is incurrect
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400018 = Rswift.StringResource(key: "Code400018", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: The start time must not exceed the end time
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_ShareStartTimeEndTime = Rswift.StringResource(key: "ErrorMessage_ShareStartTimeEndTime", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The user has been approved
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400003 = Rswift.StringResource(key: "Code400003", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The user is unprocessed or has been set to leave or freeze
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400005 = Rswift.StringResource(key: "Code400005", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: The verification code is incorrect
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400002 = Rswift.StringResource(key: "Code400002", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: There is a new update for the App. Please update to the latest version.
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1575,6 +1666,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let ensureMessage_Notification = Rswift.StringResource(key: "EnsureMessage_Notification", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Tutorial
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuTutorial = Rswift.StringResource(key: "MenuTutorial", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Update content
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1587,6 +1682,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let updatingDontTurnOff = Rswift.StringResource(key: "UpdatingDontTurnOff", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: User doesn't have permission to log into the Enterprice system
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400008 = Rswift.StringResource(key: "Code400008", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: User status is abnormal
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400007 = Rswift.StringResource(key: "Code400007", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Username Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1597,16 +1700,36 @@ struct R: Rswift.Validatable {
       static let errorMessage_vCodeWrong = Rswift.StringResource(key: "ErrorMessage_vCodeWrong", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: View All Access History
       /// 
-      /// Locales: en
-      static let permissionViewAllAccessHistory = Rswift.StringResource(key: "PermissionViewAllAccessHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionViewAllAccessHistory = Rswift.StringResource(key: "PermissionViewAllAccessHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: View All Locks
       /// 
-      /// Locales: en
-      static let permissionViewAllLocks = Rswift.StringResource(key: "PermissionViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, ja, ko, cs, sk
+      static let menuViewAllLocks = Rswift.StringResource(key: "MenuViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View All Locks
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let permissionViewAllLocks = Rswift.StringResource(key: "PermissionViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View History
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let menuViewHistory = Rswift.StringResource(key: "MenuViewHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: YES
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: You cannot Delete until remove all users from the compnay
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400009 = Rswift.StringResource(key: "Code400009", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: You cannot delete the group until remove all users from group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400012 = Rswift.StringResource(key: "Code400012", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: You don't have Manage Morse-code permission
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let code400017 = Rswift.StringResource(key: "Code400017", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Your Tapplock has been upgraded to the latest version.
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1714,6 +1837,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Alert", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: All Group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func allGroup(_: Void = ()) -> String {
+        return NSLocalizedString("AllGroup", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Are you sure you want to delete this Tapplock?
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1730,7 +1860,7 @@ struct R: Rswift.Validatable {
       
       /// en translation: Audit Report
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionAuditReport(_: Void = ()) -> String {
         return NSLocalizedString("PermissionAuditReport", bundle: R.hostingBundle, comment: "")
       }
@@ -1782,6 +1912,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func errorMessage_Synchronizing(_: Void = ()) -> String {
         return NSLocalizedString("ErrorMessage_Synchronizing", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Data does not exist or has been deleted
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400000(_: Void = ()) -> String {
+        return NSLocalizedString("Code400000", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Delete Failed
@@ -1847,6 +1984,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("EditShareUser", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Email already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400001(_: Void = ()) -> String {
+        return NSLocalizedString("Code400001", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Email not exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400010(_: Void = ()) -> String {
+        return NSLocalizedString("Code400010", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: End Date
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1884,7 +2035,7 @@ struct R: Rswift.Validatable {
       
       /// en translation: Finace
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionFinace(_: Void = ()) -> String {
         return NSLocalizedString("PermissionFinace", bundle: R.hostingBundle, comment: "")
       }
@@ -1924,6 +2075,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_MailIncorrect", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Incurrect Email or password
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400006(_: Void = ()) -> String {
+        return NSLocalizedString("Code400006", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Index
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1933,7 +2091,7 @@ struct R: Rswift.Validatable {
       
       /// en translation: Initate Firmware Update
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionInitateFirmwareUpdate(_: Void = ()) -> String {
         return NSLocalizedString("PermissionInitateFirmwareUpdate", bundle: R.hostingBundle, comment: "")
       }
@@ -1943,6 +2101,27 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func installationfailed(_: Void = ()) -> String {
         return NSLocalizedString("Installationfailed", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Invalid Verification code
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func invalidVerificationcode(_: Void = ()) -> String {
+        return NSLocalizedString("InvalidVerificationcode", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Invalid invitation code
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func invalidinvitationcode(_: Void = ()) -> String {
+        return NSLocalizedString("Invalidinvitationcode", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Invitation code is invalid
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400004(_: Void = ()) -> String {
+        return NSLocalizedString("Code400004", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: It can't be all short codes Please set some long codes
@@ -1980,6 +2159,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("LittleFinger", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Log out
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuLogout(_: Void = ()) -> String {
+        return NSLocalizedString("MenuLogout", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: MANAGE FINGERPRINTS Click here to manage fingerprints
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1996,42 +2182,42 @@ struct R: Rswift.Validatable {
       
       /// en translation: Manage Access
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageAccess(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageAccess", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Admins
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageAdmins(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageAdmins", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Group
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageGroup(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageGroup", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Lock
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageLock(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageLock", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Morse-Code
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageMorseCode(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageMorseCode", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage User
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionManageUser(_: Void = ()) -> String {
         return NSLocalizedString("PermissionManageUser", bundle: R.hostingBundle, comment: "")
       }
@@ -2111,6 +2297,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func itmeNext(_: Void = ()) -> String {
         return NSLocalizedString("ItmeNext", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Notification
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuNotification(_: Void = ()) -> String {
+        return NSLocalizedString("MenuNotification", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: OK
@@ -2267,6 +2460,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_PasswordConfirmEmpty", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please enter the number
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func enterthenumber(_: Void = ()) -> String {
+        return NSLocalizedString("enterthenumber", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please fill in email
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2351,11 +2551,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_FeedbackDescriptionEmpty", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please remove all locks before you delete the group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400019(_: Void = ()) -> String {
+        return NSLocalizedString("Code400019", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please turn on the Location service
       /// 
       /// Locales: en, ja, ko, cs, sk
       static func lockOpenLocationService(_: Void = ()) -> String {
         return NSLocalizedString("LockOpenLocationService", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Profile
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuProfile(_: Void = ()) -> String {
+        return NSLocalizedString("MenuProfile", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Registered Successfully
@@ -2414,6 +2628,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("SuccessMessage_Save", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Setting
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuSetting(_: Void = ()) -> String {
+        return NSLocalizedString("MenuSetting", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Share Access Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2442,6 +2663,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("SetStartTime", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: TLBOX is using by company, you cannot delete it
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400015(_: Void = ()) -> String {
+        return NSLocalizedString("Code400015", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Tapplock
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuTapplock(_: Void = ()) -> String {
+        return NSLocalizedString("MenuTapplock", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Tapplock Name Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2456,11 +2691,95 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_LockDisconnected", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: The MAC already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400014(_: Void = ()) -> String {
+        return NSLocalizedString("Code400014", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The TLBOX is not belong the company
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400020(_: Void = ()) -> String {
+        return NSLocalizedString("Code400020", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The authorization has been revoded
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400022(_: Void = ()) -> String {
+        return NSLocalizedString("Code400022", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The data has been changed. Please try again
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400013(_: Void = ()) -> String {
+        return NSLocalizedString("Code400013", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The fingerprint already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400016(_: Void = ()) -> String {
+        return NSLocalizedString("Code400016", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The group already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400011(_: Void = ()) -> String {
+        return NSLocalizedString("Code400011", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The invitation code has been expired
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400023(_: Void = ()) -> String {
+        return NSLocalizedString("Code400023", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The lock name already exists
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400021(_: Void = ()) -> String {
+        return NSLocalizedString("Code400021", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The old password is incurrect
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400018(_: Void = ()) -> String {
+        return NSLocalizedString("Code400018", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: The start time must not exceed the end time
       /// 
       /// Locales: en, ja, ko, cs, sk
       static func errorMessage_ShareStartTimeEndTime(_: Void = ()) -> String {
         return NSLocalizedString("ErrorMessage_ShareStartTimeEndTime", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The user has been approved
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400003(_: Void = ()) -> String {
+        return NSLocalizedString("Code400003", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The user is unprocessed or has been set to leave or freeze
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400005(_: Void = ()) -> String {
+        return NSLocalizedString("Code400005", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The verification code is incorrect
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400002(_: Void = ()) -> String {
+        return NSLocalizedString("Code400002", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: There is a new update for the App. Please update to the latest version.
@@ -2505,6 +2824,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("EnsureMessage_Notification", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Tutorial
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuTutorial(_: Void = ()) -> String {
+        return NSLocalizedString("MenuTutorial", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Update content
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2526,6 +2852,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("UpdatingDontTurnOff", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: User doesn't have permission to log into the Enterprice system
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400008(_: Void = ()) -> String {
+        return NSLocalizedString("Code400008", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: User status is abnormal
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400007(_: Void = ()) -> String {
+        return NSLocalizedString("Code400007", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Username Saved Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2542,16 +2882,30 @@ struct R: Rswift.Validatable {
       
       /// en translation: View All Access History
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
       static func permissionViewAllAccessHistory(_: Void = ()) -> String {
         return NSLocalizedString("PermissionViewAllAccessHistory", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: View All Locks
       /// 
-      /// Locales: en
+      /// Locales: en, ja, ko, cs, sk
+      static func menuViewAllLocks(_: Void = ()) -> String {
+        return NSLocalizedString("MenuViewAllLocks", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: View All Locks
+      /// 
+      /// Locales: en, ja, ko, cs, sk
       static func permissionViewAllLocks(_: Void = ()) -> String {
         return NSLocalizedString("PermissionViewAllLocks", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: View History
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func menuViewHistory(_: Void = ()) -> String {
+        return NSLocalizedString("MenuViewHistory", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: YES
@@ -2559,6 +2913,27 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func yes(_: Void = ()) -> String {
         return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You cannot Delete until remove all users from the compnay
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400009(_: Void = ()) -> String {
+        return NSLocalizedString("Code400009", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You cannot delete the group until remove all users from group
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400012(_: Void = ()) -> String {
+        return NSLocalizedString("Code400012", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You don't have Manage Morse-code permission
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func code400017(_: Void = ()) -> String {
+        return NSLocalizedString("Code400017", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Your Tapplock has been upgraded to the latest version.
@@ -2636,6 +3011,7 @@ struct _R: Rswift.Validatable {
       try main.validate()
       try myTapplock.validate()
       try logIn.validate()
+      try notificationCenter.validate()
       try updateDFU.validate()
       try setting.validate()
       try home.validate()
@@ -2699,7 +3075,7 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'ImagePicker', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Takepic") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Takepic' is used in storyboard 'ImagePicker', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "imageView:aMO-M5-YUt:image") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'imageView:aMO-M5-YUt:image' is used in storyboard 'ImagePicker', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -2782,6 +3158,19 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_lock2_n") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_lock2_n' is used in storyboard 'MyTapplock', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct notificationCenter: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NotificationController
+      
+      let bundle = R.hostingBundle
+      let name = "NotificationCenter"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'NotificationCenter', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

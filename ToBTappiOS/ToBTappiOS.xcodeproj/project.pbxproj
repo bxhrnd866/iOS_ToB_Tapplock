@@ -21,12 +21,17 @@
 		551CAD44210C57350066D4C9 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551CAD3B210C57350066D4C9 /* PhotoAlbumViewController.swift */; };
 		551CAD45210C57350066D4C9 /* SelectPicturePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551CAD3C210C57350066D4C9 /* SelectPicturePhotoCell.swift */; };
 		551CAD46210C57350066D4C9 /* SelectPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551CAD3D210C57350066D4C9 /* SelectPictureViewController.swift */; };
+		551F00CD21118C15005CBC3C /* EditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F00CC21118C15005CBC3C /* EditUserViewModel.swift */; };
 		55226CCF2109D4FE00F2074F /* UpdateDFU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */; };
 		55226CD12109D52100F2074F /* UpdateDFUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55226CD02109D52100F2074F /* UpdateDFUController.swift */; };
 		55226CD32109D56100F2074F /* UpdateLoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55226CD22109D56100F2074F /* UpdateLoadingController.swift */; };
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
+		5528F8002112E7CF009775B7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F7FF2112E7CF009775B7 /* NotificationController.swift */; };
+		5528F8022112E85D009775B7 /* NotifactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F8012112E85D009775B7 /* NotifactionCell.swift */; };
+		5528F8062112E8A7009775B7 /* NotificationCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5528F8052112E8A7009775B7 /* NotificationCenter.storyboard */; };
+		5528F8082112E9BC009775B7 /* NotificaitonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F8072112E9BC009775B7 /* NotificaitonViewModel.swift */; };
 		5532F88320FF398200D4E9C5 /* TapplockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532F88220FF398200D4E9C5 /* TapplockViewModel.swift */; };
 		5532F88720FF4ACC00D4E9C5 /* TappLockListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532F88620FF4ACC00D4E9C5 /* TappLockListCell.swift */; };
 		553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553E72A320AAAD8E00CFFEB8 /* Main.storyboard */; };
@@ -51,6 +56,12 @@
 		553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */; };
 		5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */; };
 		55437EA520ECC4CA00C25143 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55437EA420ECC4CA00C25143 /* MenuModel.swift */; };
+		55446567210FFB2900C425FD /* SyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55446566210FFB2900C425FD /* SyncView.swift */; };
+		5544656B210FFEB500C425FD /* BLEUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544656A210FFEB500C425FD /* BLEUpdate.swift */; };
+		5544656F21106D6A00C425FD /* PeripheralCommander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544656E21106D6A00C425FD /* PeripheralCommander.swift */; };
+		5544657121106D9200C425FD /* PeripheralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544657021106D9200C425FD /* PeripheralModel.swift */; };
+		5559DEE7210F0F0500D2BC98 /* InviteCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5559DEE6210F0F0500D2BC98 /* InviteCodeModel.swift */; };
+		5559DEED210F3FE600D2BC98 /* FingerprintDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5559DEEC210F3FE600D2BC98 /* FingerprintDataModel.swift */; };
 		5564117C210061AD00F039AF /* UserGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117B210061AD00F039AF /* UserGroupController.swift */; };
 		5564117E210061F100F039AF /* UserGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117D210061F100F039AF /* UserGroupCell.swift */; };
 		5564118021006C2000F039AF /* AllGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564117F21006C2000F039AF /* AllGroupController.swift */; };
@@ -81,11 +92,8 @@
 		5589411A21087295005F2324 /* HistoryDatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5589411921087295005F2324 /* HistoryDatePicker.storyboard */; };
 		5589411C210872AD005F2324 /* HistoryDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589411B210872AD005F2324 /* HistoryDateController.swift */; };
 		55A1126A20EA31460008A4CC /* BLECommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126020EA31460008A4CC /* BLECommand.swift */; };
-		55A1126B20EA31460008A4CC /* BLEPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126120EA31460008A4CC /* BLEPeripheral.swift */; };
 		55A1126C20EA31460008A4CC /* BLEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126220EA31460008A4CC /* BLEResponse.swift */; };
 		55A1126D20EA31460008A4CC /* PeripheralEncrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126320EA31460008A4CC /* PeripheralEncrypt.swift */; };
-		55A1126E20EA31460008A4CC /* PeripheralHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126420EA31460008A4CC /* PeripheralHistory.swift */; };
-		55A1126F20EA31460008A4CC /* PeripheralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126520EA31460008A4CC /* PeripheralService.swift */; };
 		55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126620EA31460008A4CC /* TapplockManager.swift */; };
 		55A1127220EA31460008A4CC /* TapplockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126820EA31460008A4CC /* TapplockModel.swift */; };
 		55A1127320EA31460008A4CC /* TapplockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1126920EA31460008A4CC /* TapplockType.swift */; };
@@ -141,9 +149,7 @@
 		7DFE10DE20CD4A7E00C94FA3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */; };
 		7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */; };
 		7DFE10E420CD4A8E00C94FA3 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */; };
-		7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */; };
 		7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */; };
-		7DFE10E720CD4A8E00C94FA3 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */; };
 		7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */; };
 		7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */; };
 		7DFE10F320CD4AC700C94FA3 /* RegistMailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */; };
@@ -168,12 +174,17 @@
 		551CAD3B210C57350066D4C9 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		551CAD3C210C57350066D4C9 /* SelectPicturePhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPicturePhotoCell.swift; sourceTree = "<group>"; };
 		551CAD3D210C57350066D4C9 /* SelectPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPictureViewController.swift; sourceTree = "<group>"; };
+		551F00CC21118C15005CBC3C /* EditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModel.swift; sourceTree = "<group>"; };
 		55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateDFU.storyboard; sourceTree = "<group>"; };
 		55226CD02109D52100F2074F /* UpdateDFUController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDFUController.swift; sourceTree = "<group>"; };
 		55226CD22109D56100F2074F /* UpdateLoadingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLoadingController.swift; sourceTree = "<group>"; };
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		5528F7FF2112E7CF009775B7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		5528F8012112E85D009775B7 /* NotifactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifactionCell.swift; sourceTree = "<group>"; };
+		5528F8052112E8A7009775B7 /* NotificationCenter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationCenter.storyboard; sourceTree = "<group>"; };
+		5528F8072112E9BC009775B7 /* NotificaitonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaitonViewModel.swift; sourceTree = "<group>"; };
 		5532F88220FF398200D4E9C5 /* TapplockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplockViewModel.swift; sourceTree = "<group>"; };
 		5532F88620FF4ACC00D4E9C5 /* TappLockListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappLockListCell.swift; sourceTree = "<group>"; };
 		553E729C20AAAD8E00CFFEB8 /* ToBTappiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBTappiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +215,12 @@
 		553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCollectionCell.swift; sourceTree = "<group>"; };
 		5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexSelectController.swift; sourceTree = "<group>"; };
 		55437EA420ECC4CA00C25143 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		55446566210FFB2900C425FD /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
+		5544656A210FFEB500C425FD /* BLEUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEUpdate.swift; sourceTree = "<group>"; };
+		5544656E21106D6A00C425FD /* PeripheralCommander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCommander.swift; sourceTree = "<group>"; };
+		5544657021106D9200C425FD /* PeripheralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralModel.swift; sourceTree = "<group>"; };
+		5559DEE6210F0F0500D2BC98 /* InviteCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeModel.swift; sourceTree = "<group>"; };
+		5559DEEC210F3FE600D2BC98 /* FingerprintDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintDataModel.swift; sourceTree = "<group>"; };
 		5564117B210061AD00F039AF /* UserGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupController.swift; sourceTree = "<group>"; };
 		5564117D210061F100F039AF /* UserGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupCell.swift; sourceTree = "<group>"; };
 		5564117F21006C2000F039AF /* AllGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupController.swift; sourceTree = "<group>"; };
@@ -237,11 +254,8 @@
 		5589411921087295005F2324 /* HistoryDatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryDatePicker.storyboard; sourceTree = "<group>"; };
 		5589411B210872AD005F2324 /* HistoryDateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDateController.swift; sourceTree = "<group>"; };
 		55A1126020EA31460008A4CC /* BLECommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECommand.swift; sourceTree = "<group>"; };
-		55A1126120EA31460008A4CC /* BLEPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheral.swift; sourceTree = "<group>"; };
 		55A1126220EA31460008A4CC /* BLEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEResponse.swift; sourceTree = "<group>"; };
 		55A1126320EA31460008A4CC /* PeripheralEncrypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralEncrypt.swift; sourceTree = "<group>"; };
-		55A1126420EA31460008A4CC /* PeripheralHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralHistory.swift; sourceTree = "<group>"; };
-		55A1126520EA31460008A4CC /* PeripheralService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralService.swift; sourceTree = "<group>"; };
 		55A1126620EA31460008A4CC /* TapplockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockManager.swift; sourceTree = "<group>"; };
 		55A1126820EA31460008A4CC /* TapplockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockModel.swift; sourceTree = "<group>"; };
 		55A1126920EA31460008A4CC /* TapplockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapplockType.swift; sourceTree = "<group>"; };
@@ -306,9 +320,7 @@
 		7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
-		7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
-		7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistInformationController.swift; sourceTree = "<group>"; };
 		7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPasswordController.swift; sourceTree = "<group>"; };
 		7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistMailController.swift; sourceTree = "<group>"; };
@@ -363,6 +375,17 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		5528F7FE2112E7AD009775B7 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5528F7FF2112E7CF009775B7 /* NotificationController.swift */,
+				5528F8012112E85D009775B7 /* NotifactionCell.swift */,
+				5528F8072112E9BC009775B7 /* NotificaitonViewModel.swift */,
+				5528F8052112E8A7009775B7 /* NotificationCenter.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		553E729320AAAD8E00CFFEB8 = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +434,7 @@
 				7DFE108620CD407900C94FA3 /* BaseViewController.swift */,
 				7DFE108220CD405000C94FA3 /* RootViewController.swift */,
 				553E72A320AAAD8E00CFFEB8 /* Main.storyboard */,
+				5528F7FE2112E7AD009775B7 /* Notification */,
 				5589411821087243005F2324 /* Support */,
 				553FD1C320EDE84200A43F5D /* Tutorial */,
 				55D0549E20D8D273003C92B5 /* LockDetail */,
@@ -493,6 +517,8 @@
 				5507B82420F89E9700C499DB /* DownloadFingerprintModel.swift */,
 				55A5A8072107207D0077C3AD /* FingerPrintModel.swift */,
 				55A5A80B210723F60077C3AD /* Finger.swift */,
+				5559DEE6210F0F0500D2BC98 /* InviteCodeModel.swift */,
+				5559DEEC210F3FE600D2BC98 /* FingerprintDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -538,6 +564,7 @@
 				55226CD22109D56100F2074F /* UpdateLoadingController.swift */,
 				55B3DAE3210AC722001697D3 /* DFUViewModel.swift */,
 				551CAD31210C57350066D4C9 /* ImagePicker */,
+				55446566210FFB2900C425FD /* SyncView.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -547,10 +574,10 @@
 			children = (
 				55A1126620EA31460008A4CC /* TapplockManager.swift */,
 				55A1126820EA31460008A4CC /* TapplockModel.swift */,
-				55A1126120EA31460008A4CC /* BLEPeripheral.swift */,
-				55A1126520EA31460008A4CC /* PeripheralService.swift */,
-				55A1126420EA31460008A4CC /* PeripheralHistory.swift */,
+				5544657021106D9200C425FD /* PeripheralModel.swift */,
+				5544656E21106D6A00C425FD /* PeripheralCommander.swift */,
 				55A1126320EA31460008A4CC /* PeripheralEncrypt.swift */,
+				5544656A210FFEB500C425FD /* BLEUpdate.swift */,
 				55A1126020EA31460008A4CC /* BLECommand.swift */,
 				55A1126220EA31460008A4CC /* BLEResponse.swift */,
 				55A1126920EA31460008A4CC /* TapplockType.swift */,
@@ -663,6 +690,7 @@
 				55AEEE5D20EF159300D219BD /* AboutUSViewController.swift */,
 				55AEEE5F20EF18D600D219BD /* ChangePassWordController.swift */,
 				55AEEE6120EF18FB00D219BD /* SendFeedbackController.swift */,
+				551F00CC21118C15005CBC3C /* EditUserViewModel.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -700,8 +728,6 @@
 				7DFE10D920CD4A3800C94FA3 /* LogIn.storyboard */,
 				7DFE10E020CD4A8D00C94FA3 /* ForgetPasswordViewModel.swift */,
 				7DFE10E220CD4A8E00C94FA3 /* ForgetPasswordViewController.swift */,
-				7DFE10E120CD4A8D00C94FA3 /* VerificationCodeViewController.swift */,
-				7DFE10E320CD4A8E00C94FA3 /* NewPasswordViewController.swift */,
 				7DFE10DD20CD4A7D00C94FA3 /* LoginViewController.swift */,
 				7DFE10DC20CD4A7D00C94FA3 /* LoginViewModel.swift */,
 			);
@@ -712,8 +738,8 @@
 			isa = PBXGroup;
 			children = (
 				7DFE10EC20CD4AC600C94FA3 /* RegistMailController.swift */,
-				55730F3A20F5FEF7007F5230 /* InviteCodeController.swift */,
 				7DFE10ED20CD4AC700C94FA3 /* RegistVerficationController.swift */,
+				55730F3A20F5FEF7007F5230 /* InviteCodeController.swift */,
 				7DFE10EB20CD4AC600C94FA3 /* RegisterPasswordController.swift */,
 				7DFE10EA20CD4AC600C94FA3 /* RegistInformationController.swift */,
 				5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */,
@@ -810,6 +836,7 @@
 				557C3F3820EB1EBD00A24D54 /* api_tapplock_com.cer in Resources */,
 				7DFE108920CD41AA00C94FA3 /* Root_logo.png in Resources */,
 				7D05124E20D2651A0075C681 /* MyTapplock.storyboard in Resources */,
+				5528F8062112E8A7009775B7 /* NotificationCenter.storyboard in Resources */,
 				7DFE108120CD3FD500C94FA3 /* Century Gothic.ttf in Resources */,
 				557C3F4520EB57B800A24D54 /* MenuTableViewCell.xib in Resources */,
 				7D05124820D263B90075C681 /* Setting.storyboard in Resources */,
@@ -948,6 +975,7 @@
 				5532F88320FF398200D4E9C5 /* TapplockViewModel.swift in Sources */,
 				557E6FC920DA2875003C7975 /* ProfileModel.swift in Sources */,
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
+				55446567210FFB2900C425FD /* SyncView.swift in Sources */,
 				557C3F3620EB1E8A00A24D54 /* AppDelegate+Method.swift in Sources */,
 				5532F88720FF4ACC00D4E9C5 /* TappLockListCell.swift in Sources */,
 				55B3DAE4210AC722001697D3 /* DFUViewModel.swift in Sources */,
@@ -966,7 +994,10 @@
 				551CAD42210C57350066D4C9 /* ImagePickerModel.swift in Sources */,
 				7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */,
 				553FD1C520EDEA5D00A43F5D /* TutorialController.swift in Sources */,
+				5559DEED210F3FE600D2BC98 /* FingerprintDataModel.swift in Sources */,
 				7DFE10F420CD4AC700C94FA3 /* RegistVerficationController.swift in Sources */,
+				5528F8022112E85D009775B7 /* NotifactionCell.swift in Sources */,
+				5544656F21106D6A00C425FD /* PeripheralCommander.swift in Sources */,
 				55E1B9BA210AE43900DDFA36 /* ViewHistorySearchController.swift in Sources */,
 				55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */,
 				7DFE108720CD407900C94FA3 /* BaseViewController.swift in Sources */,
@@ -987,12 +1018,11 @@
 				55CFD86F2105DB1E00CBBDDC /* BlueDetailViewModel.swift in Sources */,
 				55AEEE6020EF18D600D219BD /* ChangePassWordController.swift in Sources */,
 				55437EA520ECC4CA00C25143 /* MenuModel.swift in Sources */,
-				55A1126F20EA31460008A4CC /* PeripheralService.swift in Sources */,
+				5544656B210FFEB500C425FD /* BLEUpdate.swift in Sources */,
 				7DFE10DE20CD4A7E00C94FA3 /* LoginViewModel.swift in Sources */,
 				55AEEE7020EF3E2200D219BD /* BluetoothHistoryCell.swift in Sources */,
 				55A1127220EA31460008A4CC /* TapplockModel.swift in Sources */,
 				5507B82120F897DA00C499DB /* LockHistoryModel.swift in Sources */,
-				7DFE10E720CD4A8E00C94FA3 /* NewPasswordViewController.swift in Sources */,
 				7D05125C20D266420075C681 /* ViewHistoryController.swift in Sources */,
 				5507B82520F89E9700C499DB /* DownloadFingerprintModel.swift in Sources */,
 				7DFE10D620CD480800C94FA3 /* UIFontExtension.swift in Sources */,
@@ -1002,11 +1032,11 @@
 				7DFE10F120CD4AC700C94FA3 /* RegistInformationController.swift in Sources */,
 				7DFE10F620CD4AC700C94FA3 /* RegisterViewModel.swift in Sources */,
 				55730F3520F5E3C8007F5230 /* FooterRefresh.m in Sources */,
-				7DFE10E520CD4A8E00C94FA3 /* VerificationCodeViewController.swift in Sources */,
 				556411862100728500F039AF /* AllLocksCell.swift in Sources */,
 				55AEEE7A20EF5A2200D219BD /* FingerPrintListCollectionCell.swift in Sources */,
 				551CAD30210C1CD50066D4C9 /* RequestManager.swift in Sources */,
 				553E730520AAB8C100CFFEB8 /* DateExtension.swift in Sources */,
+				5528F8002112E7CF009775B7 /* NotificationController.swift in Sources */,
 				5564117C210061AD00F039AF /* UserGroupController.swift in Sources */,
 				7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */,
 				557F272D20F4B09B0032A662 /* APIServer.swift in Sources */,
@@ -1016,12 +1046,12 @@
 				7D8D774220CE41A700C218D0 /* HomeViewController.swift in Sources */,
 				7DFE108520CD406A00C94FA3 /* BaseNaviController.swift in Sources */,
 				553E730D20AAB8C100CFFEB8 /* UIColorExtension.swift in Sources */,
-				55A1126B20EA31460008A4CC /* BLEPeripheral.swift in Sources */,
 				7D05124C20D2650F0075C681 /* MyTapplockController.swift in Sources */,
 				7DFE10E620CD4A8E00C94FA3 /* ForgetPasswordViewController.swift in Sources */,
 				7D05125020D2654B0075C681 /* ProfileViewController.swift in Sources */,
 				55DD15FB21030B5D0091CACA /* EnumTools.swift in Sources */,
 				7D05125620D265950075C681 /* AllLocksViewController.swift in Sources */,
+				5544657121106D9200C425FD /* PeripheralModel.swift in Sources */,
 				55730F3B20F5FEF7007F5230 /* InviteCodeController.swift in Sources */,
 				55A1126D20EA31460008A4CC /* PeripheralEncrypt.swift in Sources */,
 				553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */,
@@ -1031,14 +1061,15 @@
 				5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */,
 				553E732120AABB5B00CFFEB8 /* UserModel.swift in Sources */,
 				553E730420AAB8C100CFFEB8 /* DataExtension.swift in Sources */,
-				55A1126E20EA31460008A4CC /* PeripheralHistory.swift in Sources */,
 				551CAD46210C57350066D4C9 /* SelectPictureViewController.swift in Sources */,
 				55A5A80A210721F90077C3AD /* FingerDetailViewModel.swift in Sources */,
 				7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */,
 				557C3F3320EB1BD400A24D54 /* APIResponse.swift in Sources */,
+				5559DEE7210F0F0500D2BC98 /* InviteCodeModel.swift in Sources */,
 				55D054A020D8D2C0003C92B5 /* LockDetailController.swift in Sources */,
 				557C3F3220EB1BD400A24D54 /* APIEncrypt.swift in Sources */,
 				553E730620AAB8C100CFFEB8 /* DictionaryExtension.swift in Sources */,
+				551F00CD21118C15005CBC3C /* EditUserViewModel.swift in Sources */,
 				7DFE10F220CD4AC700C94FA3 /* RegisterPasswordController.swift in Sources */,
 				5507B82320F89ADE00C499DB /* FirmwareModel.swift in Sources */,
 				55A5A80C210723F60077C3AD /* Finger.swift in Sources */,
@@ -1058,6 +1089,7 @@
 				556B11A220AD774D00BF5F18 /* FileHelper.swift in Sources */,
 				553E730B20AAB8C100CFFEB8 /* MethodExtension.swift in Sources */,
 				553E72F420AAB85C00CFFEB8 /* Global.swift in Sources */,
+				5528F8082112E9BC009775B7 /* NotificaitonViewModel.swift in Sources */,
 				557C3F4420EB57B800A24D54 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

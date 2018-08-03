@@ -22,14 +22,14 @@ extension CBPeripheralState {
     
 }
 
-var cbLockid = "cbLockid"
+var mactext = "mactext"
 extension CBPeripheral {
-    var lockId: Int? {
+    var mac: String? {
         get {
-            return (objc_getAssociatedObject(self, &cbLockid) as? Int)
+            return (objc_getAssociatedObject(self, &mactext) as? String)
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &cbLockid, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &mactext, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 }

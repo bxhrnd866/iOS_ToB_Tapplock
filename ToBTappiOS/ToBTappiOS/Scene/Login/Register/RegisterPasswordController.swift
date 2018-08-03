@@ -12,8 +12,8 @@ class RegisterPasswordController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     var mail: String!
-    var verCode: String!
     var inviteCode: String!
+    var corpId: Int!
     
     @IBOutlet weak var confirmTextfield: UITextField!
     
@@ -34,10 +34,10 @@ class RegisterPasswordController: UIViewController {
     }
     
     @IBAction func nextAction(_ sender: Any) {
-//        if isPasswordCheck() {
-//            self.performSegue(withIdentifier: R.segue.registerPasswordController.showPersonalInformation, sender: self)
-//        }
-        self.performSegue(withIdentifier: R.segue.registerPasswordController.showPersonalInformation, sender: self)
+        if isPasswordCheck() {
+            self.performSegue(withIdentifier: R.segue.registerPasswordController.showPersonalInformation, sender: self)
+        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,8 +45,8 @@ class RegisterPasswordController: UIViewController {
         if let vc = R.segue.registerPasswordController.showPersonalInformation(segue: segue) {
             vc.destination.mail = mail
             vc.destination.password = textField.text
-            vc.destination.verCode = verCode
             vc.destination.inviteCode = inviteCode
+            vc.destination.corpId = corpId
         }
     }
     

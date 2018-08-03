@@ -28,11 +28,12 @@
                         <segue destination="8A9-4l-p5i" kind="show" identifier="pushViewHistory" animates="NO" id="Zxh-UT-6AX"/>
                         <segue destination="eCx-22-qPz" kind="show" identifier="pushSetting" animates="NO" id="trU-Wp-kCi"/>
                         <segue destination="hl2-4c-Rg2" kind="show" identifier="pushTutorial" animates="NO" id="ELa-GM-nsK"/>
+                        <segue destination="t8O-UO-hJV" kind="show" identifier="showNotification" id="tAr-hA-wQ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2i0-S9-nBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098" y="317"/>
+            <point key="canvasLocation" x="671" y="299"/>
         </scene>
         <!--Tutorial-->
         <scene sceneID="zxh-4d-EdM">
@@ -104,6 +105,14 @@
             </objects>
             <point key="canvasLocation" x="1712" y="417"/>
         </scene>
+        <!--NotificationCenter-->
+        <scene sceneID="eUD-a1-z7S">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NotificationCenter" id="t8O-UO-hJV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iC0-XA-z5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="481"/>
+        </scene>
         <!--Base Navi Controller-->
         <scene sceneID="x2B-oA-pMp">
             <objects>
@@ -129,7 +138,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djr-km-kNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="317"/>
+            <point key="canvasLocation" x="-121" y="299"/>
         </scene>
     </scenes>
     <resources>

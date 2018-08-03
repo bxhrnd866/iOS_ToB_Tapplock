@@ -7,9 +7,14 @@
 //
 
 import Foundation
+
 class MenuModel {
     
     var text: String!
     var select = false
     var index = 0
+    
+    init(_ text: String) {
+        self.text = text
+    }
 }

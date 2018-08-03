@@ -16,13 +16,7 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if ConfigModel.default.user.value == nil {
-            provider.rx.request(APIServer.oauthToken(grant_type: oauth_client_credentials, refresh_token: nil)).mapObject(BasicTokenModel.self) .subscribe(onSuccess: { response in
-                 plog(response)
-//                 UserDefaults.standard.set(response.access_token, forKey: n_basicToKenKey)
-            }).disposed(by: rx.disposeBag)
-        }
-        
+
     }
     
 

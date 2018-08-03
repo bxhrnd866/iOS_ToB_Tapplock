@@ -11,6 +11,21 @@ import UIKit
 class MenuTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lable: UILabel!
+    
+    var model: MenuModel? {
+        didSet {
+            lable.text = self.model?.text
+            
+            if self.model?.select == true {
+                self.contentView.backgroundColor = thembColor
+                self.lable.textColor = UIColor.white
+            } else {
+                self.contentView.backgroundColor = UIColor.white
+                self.lable.textColor = UIColor.black
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

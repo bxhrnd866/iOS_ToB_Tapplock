@@ -11,7 +11,7 @@ import Foundation
 
 let aKind = "0001"
 let bKind = "0002"
-let cKind = "a180"
+let cKind = "80a1"
 
 
 
@@ -22,7 +22,7 @@ enum TapplockType: String {
     case typeB = "0100"
     case typeC = "0002"
     case typeD = "0200"
-    case typeE = "a180"
+    case typeE = "80a1"
     
     var deviceType: String! {
         switch self {

@@ -9,11 +9,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import PKHUD
 class RegistVerficationController: UIViewController {
 
     var mail: String!
-    var inviteCode: String!
+ 
     
     @IBOutlet weak var textA: UITextView!
     
@@ -23,23 +23,25 @@ class RegistVerficationController: UIViewController {
 
     @IBOutlet weak var textD: UITextView!
     
-    @IBOutlet weak var textE: UITextView!
-
-    @IBOutlet weak var TextF: UITextView!
+    @IBOutlet weak var resendBtn: UIButton!
     
-    @IBOutlet weak var resendTime: UILabel!
-    var rx_resendVCodeTime: Variable<Int> = Variable(120)
+    var rx_resendVCodeTime: Variable<Int> = Variable(0)
     
     var code: String = ""
-    var apiCode: String?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rx_resendVCodeTime.asObservable().subscribe(onNext: { [weak self] num in
-            self?.resendTime.text = "Resend after " + "\(num)" + "s"
-        }).disposed(by: rx.disposeBag)
+         rx_resendVCodeTime.asDriver().drive(onNext: { [weak self] time in
+            if time > 0 {
+                self?.resendBtn.setTitle(R.string.localizable.resendCount(time), for: .normal)
+                
+                } else {
+                    self?.resendBtn.setTitle(R.string.localizable.resend(), for: .normal)
+                }
+            }).disposed(by: rx.disposeBag)
         
         sendVCodeAction()
     }
@@ -57,131 +59,81 @@ class RegistVerficationController: UIViewController {
         self.popToController(controller: LoginViewController.self)
     }
     @IBAction func nextAction(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.registVerficationController.showPassword, sender: self)
         
+        if isCheckCode() {
+            HUD.show(.progress)
+            provider.rx.request(APIServer.checkVerifyCode(mail: mail, verifyCode: code))
+                .mapObject(APIResponse<EmptyModel>.self)
+                .subscribe(onSuccess: { [weak self] response in
+                    HUD.hide()
+                    if response.success {
+                        
+                        self?.performSegue(withIdentifier: R.segue.registVerficationController.showInviationCode, sender: self)
+                    } else {
+                        self?.showToast(message: response.codeMessage)
+                    }
+                    
+                }).disposed(by: rx.disposeBag)
+        }
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let confirm = R.segue.registVerficationController.showPassword(segue: segue) {
+        if let confirm = R.segue.registVerficationController.showInviationCode(segue: segue) {
             confirm.destination.mail = mail
-            confirm.destination.verCode = code
-            confirm.destination.inviteCode = inviteCode
         }
     }
-//    // 验证码
-//    func showCode(text: String) {
-//        let num = text.length
-//        if text.length == 0 {
-//            labA.text = ""
-//            labB.text = ""
-//            labC.text = ""
-//            labD.text = ""
-//            labE.text = ""
-//            labF.text = ""
-//            return
-//        }
-//        let str = text.inserting(separator: ",", every: 1)
-//        let arr = str.components(separatedBy: ",")
-//
-//        switch num {
-//        case 1:
-//            labA.text = arr[0]
-//            labB.text = ""
-//            labC.text = ""
-//            labD.text = ""
-//            labE.text = ""
-//            labF.text = ""
-//        case 2:
-//            labA.text = arr[0]
-//            labB.text = arr[1]
-//            labC.text = ""
-//            labD.text = ""
-//            labE.text = ""
-//            labF.text = ""
-//        case 3:
-//            labA.text = arr[0]
-//            labB.text = arr[1]
-//            labC.text = arr[2]
-//            labD.text = ""
-//            labE.text = ""
-//            labF.text = ""
-//        case 4:
-//            labA.text = arr[0]
-//            labB.text = arr[1]
-//            labC.text = arr[2]
-//            labD.text = arr[3]
-//            labE.text = ""
-//            labF.text = ""
-//        case 5:
-//            labA.text = arr[0]
-//            labB.text = arr[1]
-//            labC.text = arr[2]
-//            labD.text = arr[3]
-//            labE.text = arr[4]
-//            labF.text = ""
-//        case 6:
-//            labA.text = arr[0]
-//            labB.text = arr[1]
-//            labC.text = arr[2]
-//            labD.text = arr[3]
-//            labE.text = arr[4]
-//            labF.text = arr[5]
-//        default:
-//            break
-//        }
-//    }
+
     // 校验验证码
     func isCheckCode() -> Bool {
-        
-//        if labA.text != nil {
-//            code += labA.text!
-//        } else if labB.text != nil {
-//            code += labB.text!
-//        } else if labC.text != nil {
-//            code += labC.text!
-//        } else if labD.text != nil {
-//            code += labD.text!
-//        } else if labE.text != nil {
-//            code += labE.text!
-//        } else if labF.text != nil {
-//            code += labF.text!
-//        }
-        
-        if code.length == 0 || code.length != 6 {
+        code = textA.text + textB.text + textC.text + textD.text
+        plog(code)
+        if code.length == 0 || code.length != 4 {
             self.showToast(message: R.string.localizable.errorMessage_vCodeEmpty())
             return false
         } else if code.containsEmoji {
             self.showToast(message: R.string.localizable.errorMessage_Emoji())
             return false
-        } else if code != apiCode {
-            return false
         }
         return true
     }
 
-    func sendVCodeAction() {
-        
-//        _ = provider.rx.request(APIServer.registerVerifyCode(mail: mail, type: 0))
-//            .mapObject(APIResponse<EmptyModel>.self)
-//            .subscribe(onSuccess: { response in
-//                if response.success {
-//                    
-//                    self.rx_resendVCodeTime.value = 120
-//                    let codeTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
-//                    codeTimer.schedule(deadline: .now(), repeating: .milliseconds(1000))
-//                    codeTimer.setEventHandler(handler: {
-//                        self.rx_resendVCodeTime.value = self.rx_resendVCodeTime.value - 1
-//                        if self.rx_resendVCodeTime.value <= 0 {
-//                            self.rx_resendVCodeTime.value = 120
-//                            codeTimer.cancel()
-//                        }
-//                    })
-//                    codeTimer.resume()
-//                } else {
-//                    
-//                }
-//            })
+    //数据检查
+    func canSendVCodeAction() -> Bool {
+        if mail.length == 0 {
+            self.showToast(message: R.string.localizable.errorMessage_MailEmpty())
+            return false
+        } else if rx_resendVCodeTime.value > 0 {
+            return false
+        } else {
+            return true
+        }
     }
+    
+    func sendVCodeAction() {
+        if canSendVCodeAction() {
+            
+            provider.rx.request(APIServer.registerVerifyCode(mail: mail, type: 0)).mapObject(APIResponse<EmptyModel>.self).subscribe(onSuccess: { response in
+                if response.success {
+                    
+                    self.rx_resendVCodeTime.value = 120
+                    let codeTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+                    codeTimer.schedule(deadline: .now(), repeating: .milliseconds(1000))
+                    codeTimer.setEventHandler(handler: {
+                        self.rx_resendVCodeTime.value = self.rx_resendVCodeTime.value - 1
+                        if self.rx_resendVCodeTime.value <= 0 {
+                            codeTimer.cancel()
+                        }
+                    })
+                    codeTimer.resume()
+                } else {
+                    
+                }
+            }).disposed(by: rx.disposeBag)
+        }
+    }
+    
+    
     deinit {
         plog("销毁了")
     }
@@ -202,13 +154,7 @@ extension RegistVerficationController: UITextViewDelegate {
             self.textD.becomeFirstResponder()
         }
         if self.textD.text.length == 1 {
-            self.textE.becomeFirstResponder()
-        }
-        if self.textE.text.length == 1 {
-            self.TextF.becomeFirstResponder()
-        }
-        if self.TextF.text.length == 1 {
-            self.TextF.resignFirstResponder()
+            self.textD.resignFirstResponder()
         }
     }
 }

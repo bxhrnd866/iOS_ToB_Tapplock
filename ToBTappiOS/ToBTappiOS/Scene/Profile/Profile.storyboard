@@ -21,7 +21,7 @@
                 <viewControllerPlaceholder storyboardName="ImagePicker" id="8JA-iO-LZM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57T-2D-n2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-812" y="180"/>
+            <point key="canvasLocation" x="-706" y="503"/>
         </scene>
         <!--Profile-->
         <scene sceneID="zP6-0c-2k7">

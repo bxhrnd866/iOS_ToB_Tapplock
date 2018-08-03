@@ -10,54 +10,61 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CFAlertViewController
+import Reachability
 class HomeViewController: BaseViewController {
-
-    @IBOutlet weak var myTapplcokView: UIView!
-    @IBOutlet weak var profileView: UIView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let window = UIApplication.shared.delegate?.window!
-        window?.addSubview(MenuView.instance)
         
-        MenuView.instance.rx_SelectIndex.value = 1
-        MenuView.instance.rx_logout.value = false
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.addMenuView()
         
-        MenuView.instance.rx_logout.asObservable().filter({ $0 != false }).subscribe(onNext: { [weak self] logout in
-            self?.logOut()
-        }).disposed(by: rx.disposeBag)
+        self.performSegue(withIdentifier: R.segue.homeViewController.pushMyTapplock, sender: self)
         
-         self.performSegue(withIdentifier: R.segue.homeViewController.pushMyTapplock, sender: self)
-        
-        MenuView.instance.rx_SelectIndex.asObservable().subscribe(onNext: { [weak self] index in
-            
-            if index == 1 {
-                var child = self?.navigationController?.viewControllers
+        delegate.menuView!.rx_SelectIndex.asDriver()
+            .drive(onNext: { [weak self] index in
                 
-                if (child?.count)! == 2 {
-                    return
+                let model = delegate.menuView!.viewModel.rx_list.value[index]
+                switch model.text {
+                case R.string.localizable.menuProfile():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.pushProfile, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuTapplock():
+                    
+                    var child = self?.navigationController?.viewControllers
+                    if (child?.count)! == 2 {
+                        return
+                    }
+                    if (child?.count)! == 3 {
+                        child?.remove(at: 2)
+                        self?.navigationController?.viewControllers = child!
+                    }
+                case R.string.localizable.menuViewAllLocks():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.pushViewAlllock, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuViewHistory():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.pushViewHistory, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuNotification():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.showNotification, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuTutorial():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.pushTutorial, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuSetting():
+                    self?.performSegue(withIdentifier: R.segue.homeViewController.pushSetting, sender: self)
+                    self?.navigationChildController()
+                case R.string.localizable.menuLogout():
+                    self?.logOut()
+                
+                default:
+                    break
                 }
-                if (child?.count)! == 3 {
-                    child?.remove(at: 2)
-                    self?.navigationController?.viewControllers = child!
-                    return
-                }
-            }
-            if index == 0 {
-                self?.performSegue(withIdentifier: R.segue.homeViewController.pushProfile, sender: self)
-            } else if index == 2 {
-                self?.performSegue(withIdentifier: R.segue.homeViewController.pushViewAlllock, sender: self)
-            } else if index == 3 {
-                self?.performSegue(withIdentifier: R.segue.homeViewController.pushViewHistory, sender: self)
-            } else if index == 4 {
-                self?.performSegue(withIdentifier: R.segue.homeViewController.pushTutorial, sender: self)
-            } else if index == 5 {
-                self?.performSegue(withIdentifier: R.segue.homeViewController.pushSetting, sender: self)
-            }
-            self?.navigationChildController()
-            
+                
+
         }).disposed(by: rx.disposeBag)
+        
+        
     }
 
     private func logOut() {
@@ -72,7 +79,11 @@ class HomeViewController: BaseViewController {
                                      backgroundColor: UIColor.themeColor,
                                      textColor: nil,
                                      handler: { _ in
+                                        
                                         ConfigModel.default.user.value = nil
+                                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                                        delegate.removeMenuView()
+                                        
                                         self.dismiss(animated: true)
         })
         alertController.addAction(okAction)
@@ -104,7 +115,7 @@ class HomeViewController: BaseViewController {
     }
     
     
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

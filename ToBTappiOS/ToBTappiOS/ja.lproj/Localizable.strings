@@ -147,5 +147,58 @@
 "GoToSetting" = "設定に移動";
 
 
+// 权限
 
+//权限
 
+"PermissionManageGroup" = "Manage Group";
+"PermissionManageAdmins" = "Manage Admins";
+"PermissionFinace" = "Finace";
+"PermissionManageUser" = "Manage User";
+"PermissionManageLock" = "Manage Lock";
+"PermissionManageMorseCode" = "Manage Morse-Code";
+"PermissionManageAccess" = "Manage Access";
+"PermissionAuditReport" = "Audit Report";
+"PermissionViewAllLocks" = "View All Locks";
+"PermissionViewAllAccessHistory" = "View All Access History";
+"PermissionInitateFirmwareUpdate" = "Initate Firmware Update";
+
+"Code400000" = "Data does not exist or has been deleted";
+"Code400001" = "Email already exists";
+"Code400002" = "The verification code is incorrect";
+"Code400003" = "The user has been approved";
+"Code400004" = "Invitation code is invalid";
+"Code400005" = "The user is unprocessed or has been set to leave or freeze";
+"Code400006" = "Incurrect Email or password";
+"Code400007" = "User status is abnormal";
+"Code400008" = "User doesn't have permission to log into the Enterprice system";
+"Code400009" = "You cannot Delete until remove all users from the compnay";
+"Code400010" = "Email not exists";
+"Code400011" = "The group already exists";
+"Code400012" = "You cannot delete the group until remove all users from group";
+"Code400013" = "The data has been changed. Please try again";
+"Code400014" = "The MAC already exists";
+"Code400015" = "TLBOX is using by company, you cannot delete it";
+"Code400016" = "The fingerprint already exists";
+"Code400017" = "You don't have Manage Morse-code permission";
+"Code400018" = "The old password is incurrect";
+"Code400019" = "Please remove all locks before you delete the group";
+"Code400020" = "The TLBOX is not belong the company";
+"Code400021" = "The lock name already exists";
+"Code400022" = "The authorization has been revoded";
+"Code400023" = "The invitation code has been expired";
+
+//ToB 提示
+"Invalidinvitationcode" = "Invalid invitation code";
+"InvalidVerificationcode" = "Invalid Verification code";
+"enterthenumber" = "Please enter the number";
+"AllGroup" = "All Group";
+
+"MenuProfile" = "Profile";
+"MenuTapplock" = "Tapplock";
+"MenuViewAllLocks" = "View All Locks";
+"MenuViewHistory" = "View History";
+"MenuTutorial" = "Tutorial";
+"MenuNotification" = "Notification";
+"MenuSetting" = "Setting";
+"MenuLogout" = "Log out";

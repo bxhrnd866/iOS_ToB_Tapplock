@@ -40,8 +40,20 @@ class BluetoothHistoryViewController: UIViewController {
         }
         
         tableView.mj_footer = FooterRefresh.init(refreshingBlock: { [weak self] in
+          
             self?.viewModel.loadMore()
         })
+        
+        
+        viewModel.rx_loadAll.asDriver()
+            .drive(onNext: { [weak self] all in
+                
+                if all {
+                    self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self?.tableView.mj_footer.resetNoMoreData()
+                }
+            }).disposed(by: rx.disposeBag)
         
         viewModel.rx_step
             .asObservable()
@@ -73,7 +85,12 @@ extension BluetoothHistoryViewController: UITableViewDelegate, UITableViewDataSo
         return source ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 155
+        let key = [String](viewModel.dictSource.keys)[indexPath.section]
+        let source = viewModel.dictSource[key]!
+        let model = source[indexPath.row]
+        
+        let height = model.cellHeight ?? 20
+        return 100 + height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

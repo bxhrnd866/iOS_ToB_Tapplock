@@ -17,6 +17,7 @@ class LockHistoryViewModel: NSObject {
     var page = 1
     var totalPage = 1
     var rx_step: Variable<RequestStep> = Variable(.none)
+    var rx_loadAll = Variable(false)
     
     var userId: Int?
     var lockId: Int?
@@ -45,7 +46,7 @@ class LockHistoryViewModel: NSObject {
             page += 1
             self.loadAPI()
         } else {
-            self.rx_step.value = .failed
+            self.rx_loadAll.value = self.page >= self.totalPage
         }
     }
     
@@ -56,8 +57,8 @@ class LockHistoryViewModel: NSObject {
                                                   targetName: rx_targetName.value,
                                                   beginTime: rx_beginTime.value,
                                                   endTime: rx_endTime.value,
-                                                  queryType: quertType,
-                                                  size: 20,
+                                                  accessType: quertType,
+                                                  size: 10,
                                                   page: page))
             .mapObject(APIResponse<ListModel<LockHistoryModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
@@ -67,6 +68,7 @@ class LockHistoryViewModel: NSObject {
                     if let list = response.data?.list {
                         self?.page = (response.data?.pageCurrent)!
                         self?.totalPage = (response.data?.totalPage)!
+                        self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
                         if response.data?.pageCurrent == 1 {
                             self?.dictSource.removeAll()
                         }

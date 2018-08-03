@@ -8,21 +8,27 @@
 
 import Foundation
 import ObjectMapper
-
+import RxCocoa
+import RxSwift
 //网络请求同用响应模型
 struct APIResponse<T:Mappable>: Mappable {
 
     var data: T?
     var message: String?
     var code: Int?
-    var error: String?
+    var error: String? {
+        didSet {
+            if self.error == "invalid_grant" {
+                ConfigModel.default.refreshToken()
+            }
+        }
+    }
     var error_description: String?
     
     
-    
     var codeMessage: String! {
-        guard let co = code else { return "哈哈哈哈哈这是错误的" }
-        return APICode.init(co).rawValue
+        guard let co = code else { return "no code" }
+        return APICode(code: co).rawValue
     }
     var success: Bool! {
         guard let co = code else { return false }
@@ -42,6 +48,7 @@ struct APIResponse<T:Mappable>: Mappable {
         code <- map["code"]
         error <- map["error"]
         error_description <- map["error_description"]
+       
     }
 
 }
@@ -52,12 +59,19 @@ struct APIResponseString: Mappable {
     var data: String?
     var message: String?
     var code: Int?
-    var error: String?
+    
+    var error: String? {
+        didSet {
+            if self.error == "invalid_grant" {
+                ConfigModel.default.refreshToken()
+            }
+        }
+    }
     var error_description: String?
     
     var codeMessage: String! {
-        guard let co = code else { return "哈哈哈哈哈这是错误的" }
-        return APICode.init(co).rawValue
+        guard let co = code else { return "no code" }
+        return APICode(code: co).rawValue
     }
     
     var success: Bool! {
@@ -89,13 +103,21 @@ struct APIResponseData<T: Mappable>: Mappable{
     var data: [T]?
     var message: String?
     var code: Int?
-    var error: String?
+    
+    var error: String? {
+        didSet {
+            if self.error == "invalid_grant" {
+                ConfigModel.default.refreshToken()
+            }
+        }
+    }
     var error_description: String?
     
     var codeMessage: String! {
-        guard let co = code else { return "哈哈哈哈哈这是错误的" }
-        return APICode.init(co).rawValue
+        guard let co = code else { return "no code" }
+        return APICode(code: co).rawValue
     }
+    
     var success: Bool! {
         guard let co = code else { return false }
         if co == 0 {

@@ -13,7 +13,13 @@
 - (void)prepare {
     [super prepare];
     
-    self.stateLabel.hidden = YES;
-   
+//    self.stateLabel.hidden = YES;
+    
+    [self setTitle:@"" forState:MJRefreshStateIdle];
+    [self setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+    [self setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    [self setTitle:@"No more Data" forState:MJRefreshStateNoMoreData];
 }
 @end
+
+

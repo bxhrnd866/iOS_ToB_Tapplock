@@ -15,38 +15,56 @@ class ForgetPasswordViewController: UIViewController {
     @IBOutlet weak var mailTextInput: UITextField!
     @IBOutlet weak var nextButton: normalGradientBtn!
 
+    @IBOutlet weak var codeText: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var sendCode: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mailTextInput.rx.text.bind(to: viewModel.rx_mail).disposed(by: rx.disposeBag)
-
-        viewModel.rx_errorMessage.asDriver()
-                .filter {
-                    $0 != nil
+        password.rx.text.bind(to: viewModel.rx_password).disposed(by: rx.disposeBag)
+        codeText.rx.text.bind(to: viewModel.rx_vCode).disposed(by: rx.disposeBag)
+        
+        
+        viewModel.rx_step.asDriver()
+            .drive(onNext: { [weak self] step in
+                switch step {
+                case .loading:
+                    HUD.show(.progress)
+                case .sucess:
+                    HUD.hide()
+                    self?.navigationController?.popViewController(animated: true)
+                case .errorMessage(let mesg):
+                    HUD.hide()
+                    self?.showToast(message: mesg)
+                default:
+                    break
                 }
-                .drive(onNext: { [weak self](message) in
-                    self?.showToast(message: message!)
-                })
-                .disposed(by: rx.disposeBag)
+            
+        }).disposed(by: rx.disposeBag)
 
-        _ = viewModel.rx_checkMailSuccess.asDriver()
-                .asDriver()
-                .filter {
-                    $0
+        
+        viewModel.rx_resendVCodeTime.asDriver().filter {
+            $0 != nil
+            }.drive(onNext: { [weak self]  time in
+                if time! > 0 {
+                    self?.sendCode.setTitle(R.string.localizable.resendCount(time!), for: .normal)
+                } else {
+                    self?.sendCode.setTitle(R.string.localizable.resend(), for: .normal)
                 }
-                .drive(onNext: { [weak self] _ in
-                    self?.performSegue(withIdentifier: R.segue.forgetPasswordViewController.verificationCodeSegue, sender: self)
-                })
-                .disposed(by: rx.disposeBag)
+            }).disposed(by: rx.disposeBag)
 
-        viewModel.rx_upLoading.asDriver()
-                .drive(onNext: { uploading in
-                    (uploading ? HUD.show(.progress) : HUD.hide())
-                })
-                .disposed(by: rx.disposeBag)
 
         nextButton.rx.tap.subscribe({ [weak self] _ in
-            self?.viewModel.forgetPasswordNextAction()
+            self?.viewModel.saveOkAction()
         }).disposed(by: rx.disposeBag)
+        
+        
+        sendCode.rx.tap.subscribe({ [weak self] _ in
+            self?.viewModel.sendVCodeAction()
+        }).disposed(by: rx.disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,10 +77,5 @@ class ForgetPasswordViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vCodeSegue = R.segue.forgetPasswordViewController.verificationCodeSegue(segue: segue) {
-            vCodeSegue.destination.viewModel = viewModel
-        }
-    }
 
 }

@@ -109,12 +109,63 @@ extension AppDelegate {
         
     }
     
-    func refreshToken() {
-        provider.rx.request(APIServer.oauthToken(grant_type: oauth_refresh_token, refresh_token: refreshbasicToken_UserKey))
-            .mapObject(BasicTokenModel.self)
-            .subscribe(onSuccess: { [weak self] response in
-                plog(response)
-        }).disposed(by: rx.disposeBag)
+    func networkOff() {
+      
+        reachability.whenUnreachable = { [weak self] _ in
+            self?.showtotals()
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            plog("Unable to start notifier")
+        }
+
+    }
+    
+    private func showtotals() {
+        let alertController = CFAlertViewController(title: nil,
+                                                message: R.string.localizable.errorMessage_NetOff(),
+                                                textAlignment: .left,
+                                                preferredStyle: .alert,
+                                                didDismissAlertHandler: { [weak self] _ in
+                                                    if self?.reachability.connection == .none {
+                                                        self?.showtotals()
+                                                    }
+        })
+        
+        
+        let okAction = CFAlertAction(title: R.string.localizable.yes(),
+                                     style: .Default,
+                                     alignment: .justified,
+                                     backgroundColor: UIColor.themeColor,
+                                     textColor: nil,
+                                     handler: { _ in
+                                        
+        })
+        alertController.addAction(okAction)
+        alertController.backgroundStyle = .blur
+        alertController.backgroundColor = UIColor.clear
+        
+    
+        if let presnt = self.window?.rootViewController?.presentedViewController {
+            presnt.present(alertController, animated: true, completion: nil)
+        } else {
+            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    
+    
+    
+    func addMenuView() {
+        self.menuView = MenuView(frame: CGRect(x: -mScreenW, y: TopBarHeight, width: mScreenW, height: mScreenH - TopBarHeight))
+        self.window?.addSubview(self.menuView!)
+    }
+    
+    func removeMenuView() {
+        self.menuView?.removeFromSuperview()
+        self.menuView = nil
     }
 
 }

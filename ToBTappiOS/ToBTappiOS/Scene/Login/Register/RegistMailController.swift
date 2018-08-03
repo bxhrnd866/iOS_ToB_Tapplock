@@ -15,8 +15,6 @@ class RegistMailController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,14 +25,13 @@ class RegistMailController: UIViewController {
     
     @IBAction func mailNextAction(_ sender: Any) {
         
-//        if isMailCheck() {
-//            self.performSegue(withIdentifier: R.segue.registMailController.showInviationCode, sender: self)
-//        }
-        self.performSegue(withIdentifier: R.segue.registMailController.showInviationCode, sender: self)
+        if isMailCheck() {
+            self.performSegue(withIdentifier: R.segue.registMailController.showVerificaitonCode, sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let verficaiton = R.segue.registMailController.showInviationCode(segue: segue) {
+        if let verficaiton = R.segue.registMailController.showVerificaitonCode(segue: segue) {
             verficaiton.destination.mail = textField.text
         }
     }
@@ -56,7 +53,6 @@ class RegistMailController: UIViewController {
             self.showToast(message: R.string.localizable.errorMessage_MailIncorrect())
             return false
         }
-        
         return true
     }
     deinit {

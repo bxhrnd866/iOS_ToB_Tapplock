@@ -11,16 +11,19 @@ import IQKeyboardManagerSwift
 import Firebase
 import UserNotifications
 import SwiftDate
+import Reachability
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
+    var menuView: MenuView?
+    
+    let reachability = Reachability()!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
                 
         IQKeyboardManager.shared.enable = true
-        
-//        getBasicToken()
         
         /**************设置语言**************/
         let myLanguage: String? = UserDefaults.standard.object(forKey: language_model_key) as? String
@@ -37,31 +40,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in}
         application.registerForRemoteNotifications()
         
-//        self.refreshToken()
-
         
-      
+        SyncView.instance.rx_hidden.value = true
         
-       
-        
-        
-    
-        
-        
-        
-        
+        networkOff()
         
         return true
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        plog("deviceToken----> \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
 //        plog("fcmToken ------>  \(fcmToken)---")
-        ConfigModel.default.setpushToken(data: fcmToken)
+        ConfigModel.default.pushToken = fcmToken
     }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

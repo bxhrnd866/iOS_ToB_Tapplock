@@ -30,8 +30,8 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
     
     var mail: String!
     var password: String!
-    var verCode: String!
     var inviteCode: String!
+    var corpId: Int!
     
     let viewModel = RegisterViewModel.init()
     
@@ -44,11 +44,10 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
         lastFeild.rx.text.bind(to: viewModel.rx_lastName).disposed(by: rx.disposeBag)
         phoneFeild.rx.text.bind(to: viewModel.rx_iphone).disposed(by: rx.disposeBag)
         
-
         viewModel.rx_mail.value = mail
         viewModel.rx_password.value = password
-        viewModel.rx_vCode.value = verCode
         viewModel.rx_inviteCode.value = inviteCode
+        viewModel.rx_corpId.value = corpId
         
         viewModel.rx_url.asDriver().filter {
             $0 != nil
@@ -59,32 +58,22 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
             }).disposed(by: rx.disposeBag)
         
 
-        
-        //状态绑定
-        viewModel.rx_errorMessage.asDriver()
-            .filter {
-                $0 != nil
-            }
-            .drive(onNext: { [weak self] (message) in
-                self?.showToast(message: message!)
-            })
-            .disposed(by: rx.disposeBag)
-
-        viewModel.rx_upLoading.asDriver()
-            .drive(onNext: { uploading in
-                (uploading ? HUD.show(.progress) : HUD.hide())
+        viewModel.rx_step.asDriver()
+            .drive(onNext: { [weak self] step in
+                switch step {
+                case .loading:
+                    HUD.show(.progress)
+                case .sucess:
+                    HUD.hide()
+                    self?.navigationController?.popToRootViewController(animated: true)
+                case .errorMessage(let mesg):
+                    HUD.hide()
+                    self?.showToast(message: mesg)
+                default:
+                    break
+                }
                 
-            })
-            .disposed(by: rx.disposeBag)
-        
-        viewModel.rx_success.asDriver()
-            .filter {
-                $0
-            }
-            .drive(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: rx.disposeBag)
+            }).disposed(by: rx.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,8 +94,8 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imagePicker = R.segue.registInformationController.showImagePickerIdentifier(segue: segue) {
-            imagePicker.destination.topViewController = self
-            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
+//            imagePicker.destination.topViewController = self
+//            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
         }
         
         if let sexvc = R.segue.registInformationController.showSexSelect(segue: segue) {
