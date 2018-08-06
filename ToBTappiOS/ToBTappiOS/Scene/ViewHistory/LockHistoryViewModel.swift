@@ -51,7 +51,7 @@ class LockHistoryViewModel: NSObject {
     }
     
     func loadAPI() {
-        
+     
         provider.rx.request(APIServer.historyList(userId: userId,
                                                   lockId: lockId,
                                                   targetName: rx_targetName.value,
@@ -59,7 +59,8 @@ class LockHistoryViewModel: NSObject {
                                                   endTime: rx_endTime.value,
                                                   accessType: quertType,
                                                   size: 10,
-                                                  page: page))
+                                                  page: page,
+                                                  groupIds: ConfigModel.default.user.value?.groupIds))
             .mapObject(APIResponse<ListModel<LockHistoryModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
                 

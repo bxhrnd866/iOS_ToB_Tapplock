@@ -15,27 +15,37 @@ struct APICode {
         
         switch code {
         case 100:
-            return R.string.localizable.permissionManageGroup()
+            return R.string.localizable.pmManageAllUsers()
         case 101:
-            return R.string.localizable.permissionManageAdmins()
+            return R.string.localizable.pmManageAllLocks()
         case 102:
-            return R.string.localizable.permissionFinace()
+            return R.string.localizable.pmManageAllAccess()
+        case 103:
+            return R.string.localizable.pmManageAdmins()
+        case 104:
+            return R.string.localizable.pmViewAllGroupsInfo()
+        case 105:
+            return R.string.localizable.pmManageGroups()
         case 200:
-            return R.string.localizable.permissionManageUser()
+            return R.string.localizable.pmManageUsers()
         case 201:
-            return R.string.localizable.permissionManageLock()
+            return R.string.localizable.pmManageLock()
         case 202:
-            return R.string.localizable.permissionManageMorseCode()
+            return R.string.localizable.pmManageAccess()
         case 203:
-            return R.string.localizable.permissionManageAccess()
+            return R.string.localizable.pmManageMorsecod()
         case 204:
-            return R.string.localizable.permissionAuditReport()
+            return R.string.localizable.pmViewHistory()
+        case 205:
+            return R.string.localizable.pmManageOperationalPermission()
         case 300:
-            return R.string.localizable.permissionViewAllLocks()
+            return R.string.localizable.pmAssignedgroups()
         case 301:
-            return R.string.localizable.permissionViewAllAccessHistory()
+            return R.string.localizable.pmAccesshistory()
         case 302:
-            return R.string.localizable.permissionInitateFirmwareUpdate()
+            return R.string.localizable.pmReceivenotifications()
+        case 303:
+            return R.string.localizable.pmInitiatefirmwareupdates()
         case 400000:
             return R.string.localizable.code400000()
         case 400001:

@@ -75,7 +75,6 @@ let key_basicToken = "basicTokenUserDefaultKey"
 
 let key_refreshToken = "refreshbasicTokenUserDefaultKey"
 
-let key_access_token = "key_access_token"
 
 
 

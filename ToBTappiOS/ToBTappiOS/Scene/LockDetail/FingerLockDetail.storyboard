@@ -353,7 +353,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FingerprintHistoryCell" rowHeight="84" id="epN-NP-2FG" customClass="FingerPrintListCell" customModule="ToBTappiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellFingerHistory" rowHeight="84" id="epN-NP-2FG" customClass="FingerLockDetailCell" customModule="ToBTappiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="epN-NP-2FG" id="8G7-bK-vdt">
@@ -423,6 +423,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="descriptionLab" destination="OJu-Td-YJW" id="udT-I1-oBT"/>
+                                            <outlet property="lockImg" destination="nWq-hq-U1F" id="pWg-Le-LQb"/>
+                                            <outlet property="mailLab" destination="7x1-Ph-TSI" id="vOR-Bc-uiP"/>
+                                            <outlet property="timeLab" destination="ZGg-qa-zb9" id="9Ux-gy-S0i"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -469,7 +475,7 @@
                 <viewControllerPlaceholder storyboardName="HistoryDatePicker" id="cTo-Rg-ysX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qg-21-eM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="-195"/>
+            <point key="canvasLocation" x="1129" y="-146"/>
         </scene>
     </scenes>
     <resources>

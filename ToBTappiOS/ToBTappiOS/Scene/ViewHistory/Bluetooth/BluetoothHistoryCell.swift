@@ -42,6 +42,8 @@ class BluetoothHistoryCell: UITableViewCell {
                                       range: NSRange((str.range(of: lock))!, in: str))
                 
                 descriptionLabel.attributedText = attrStr
+            }  else {
+                descriptionLabel.text = ""
             }
             
             

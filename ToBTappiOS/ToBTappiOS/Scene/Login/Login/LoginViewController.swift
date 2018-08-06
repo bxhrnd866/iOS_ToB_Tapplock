@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate, UIText
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        viewModel.getAccessToken()
+        
     }
     
     override func viewDidLoad() {

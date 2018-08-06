@@ -153,18 +153,24 @@
 // 权限
 
 //权限
+"PMManageAllUsers" = "Manage All Users";
+"PMManageAllLocks" = "Manage All Locks";
+"PMManageAllAccess" = "Manage All Access";
+"PMManageAdmins" = "Manage Admins";
+"PMViewAllGroupsInfo" = "View All Groups Info";
+"PMManageGroups" = "Manage Groups";
+"PMManageUsers" = "Manage Users";
+"PMManageLock" = "Manage Lock";
+"PMManageAccess" = "Manage Access";
+"PMManageMorsecod" = "Manage Morse-cod";
+"PMViewHistory" = "View History";
+"PMManageOperationalPermission" = "Manage Operational Permission";
+"PMAssignedgroups" = "View all locks in assigned groups";
+"PMAccesshistory" = "View all access history";
+"PMReceivenotifications" = "Receive Bluetooth / connect notifications";
+"PMInitiatefirmwareupdates" = "Initiate firmware updates";
 
-"PermissionManageGroup" = "Manage Group";
-"PermissionManageAdmins" = "Manage Admins";
-"PermissionFinace" = "Finace";
-"PermissionManageUser" = "Manage User";
-"PermissionManageLock" = "Manage Lock";
-"PermissionManageMorseCode" = "Manage Morse-Code";
-"PermissionManageAccess" = "Manage Access";
-"PermissionAuditReport" = "Audit Report";
-"PermissionViewAllLocks" = "View All Locks";
-"PermissionViewAllAccessHistory" = "View All Access History";
-"PermissionInitateFirmwareUpdate" = "Initate Firmware Update";
+
 
 "Code400000" = "Data does not exist or has been deleted";
 

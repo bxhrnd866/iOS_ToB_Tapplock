@@ -387,10 +387,10 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="decriptionLab" destination="z9L-rV-GbU" id="v2T-Zv-h5o"/>
-                                            <outlet property="emailLab" destination="TIc-1R-wxX" id="CRE-UR-ZML"/>
-                                            <outlet property="lockImg" destination="vSA-qp-0tR" id="Jwr-W9-baX"/>
-                                            <outlet property="timeLab" destination="ewh-vs-Hfz" id="Wcd-z0-0NM"/>
+                                            <outlet property="decriptionLab" destination="z9L-rV-GbU" id="eV2-sb-Ozr"/>
+                                            <outlet property="emailLab" destination="TIc-1R-wxX" id="HQd-8O-QgD"/>
+                                            <outlet property="lockImg" destination="vSA-qp-0tR" id="Q30-CT-ghj"/>
+                                            <outlet property="timeLab" destination="ewh-vs-Hfz" id="KSw-kN-Pxy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

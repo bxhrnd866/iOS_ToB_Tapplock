@@ -65,8 +65,16 @@ class HomeViewController: BaseViewController {
         }).disposed(by: rx.disposeBag)
         
         
+        
+        let us = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
+        
+        let dict = us?.object(forKey: "cuncudict") as? [String: Any]
+        let x = us?.object(forKey: "model") as? String
+        plog("----> \(dict)-------\(x)")
+        
     }
 
+    
     private func logOut() {
         let alertController = CFAlertViewController(title: nil,
                                                     message: R.string.localizable.ensureMessage_Logout(),

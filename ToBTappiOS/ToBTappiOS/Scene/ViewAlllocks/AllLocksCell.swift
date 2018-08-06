@@ -16,7 +16,7 @@ class AllLocksCell: UITableViewCell {
     
     var model: TapplockModel? {
         didSet {
-            lockName.text = model?.lockName
+            lockName.text = self.model?.lockName
         }
     }
     

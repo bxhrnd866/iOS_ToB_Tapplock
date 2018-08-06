@@ -46,12 +46,25 @@ class BlueHistoryController: UIViewController {
                 
             }).disposed(by: rx.disposeBag)
         
+        
+        
+        viewModel.rx_loadAll.asDriver()
+            .drive(onNext: { [weak self] all in
+                
+                if all {
+                    self?.tableview.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self?.tableview.mj_footer.resetNoMoreData()
+                }
+            }).disposed(by: rx.disposeBag)
+        
+        
         self.viewModel.loadAPI()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let vc = R.segue.fingerHistoryController.showHistoryDate(segue: segue) {
+        if let vc = R.segue.blueHistoryController.showHistoryDate(segue: segue) {
             vc.destination.block = { [weak self] tuple in
                 self?.viewModel.rx_beginTime.value = tuple.0
                 self?.viewModel.rx_endTime.value = tuple.1
@@ -87,7 +100,12 @@ extension BlueHistoryController: UITableViewDelegate, UITableViewDataSource  {
         return source ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 155
+        let key = [String](viewModel.dictSource.keys)[indexPath.section]
+        let source = viewModel.dictSource[key]!
+        let model = source[indexPath.row]
+        
+        let height = model.cellHeight ?? 20
+        return 100 + height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,11 +131,13 @@ extension BlueHistoryController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.bluetoothHistoryCell.identifier, for: indexPath) as! BluetoothHistoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.blueLockDetailIdentyCell.identifier , for: indexPath) as! BlueLockDetailCell
         
         let key = [String](viewModel.dictSource.keys)[indexPath.section]
         let source = viewModel.dictSource[key]!
         cell.model = source[indexPath.row]
+        
+        
         return cell
     }
     

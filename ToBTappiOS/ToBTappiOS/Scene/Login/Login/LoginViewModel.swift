@@ -62,23 +62,5 @@ class LoginViewModel: NSObject {
             return true
         }
     }
-    
-    
-    func getAccessToken() {
-        if ConfigModel.default.user.value == nil {
-            provider.rx.request(APIServer.oauthToken(grant_type: "client_credentials", refresh_token: nil))
-                .mapObject(BasicTokenModel.self)
-                .subscribe(onSuccess: { response in
-                    
-                    if response.error == nil {
-                        UserDefaults.standard.set(response.access_token, forKey: key_access_token)
-                    } else {
-                        plog("失败 继续调用")
-//                        self?.getAccessToken()
-                    }
-                
-            }).disposed(by: rx.disposeBag)
-        }
 
-    }
 }

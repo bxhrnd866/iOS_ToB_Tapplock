@@ -23,9 +23,7 @@ final class TapplockManager: NSObject {
     var manager: CBCentralManager!
     
     var rx_peripherals = Variable(Set<PeripheralModel>())
-    
-    var rx_myLocks: Variable<Set<TapplockModel>> = Variable(Set<TapplockModel>())
-    
+
     var isConnectPeripheral = Set<CBPeripheral>()
 
     var editingLock: TapplockModel? = nil
@@ -46,7 +44,6 @@ final class TapplockManager: NSObject {
     //Reset方法,用户退出时调用
     public func reset() {
         stop()
-        rx_myLocks.value = []
         rx_peripherals.value = []
         editingLock = nil
     }
@@ -73,24 +70,8 @@ final class TapplockManager: NSObject {
             
         }
     }
-    // 从API获取的新锁添加
-    public func addAPITapplock(_ lock: TapplockModel) {
-        for myLock in rx_myLocks.value {
-            if myLock.mac?.macValue == lock.mac?.macValue {
-                myLock.update(lock)
-                return
-            }
-        }
-        
-        rx_myLocks.value.insert(lock)
-    }
-    
-    // BLE与锁模型关联
-    func peripheralContactTapplockModel(_ peripheralModel: PeripheralModel) {
-        if self.rx_myLocks.value.reduce(false, { $0 || $1.contains(peripheralModel) }) {
-            plog("找到一个")
-        }
-    }
+  
+
 }
 
 // MARK: 蓝牙相关

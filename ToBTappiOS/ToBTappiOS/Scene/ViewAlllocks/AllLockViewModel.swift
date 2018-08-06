@@ -27,8 +27,9 @@ class AllLockViewModel: NSObject {
     
     
     func loadAPI() {
-        
-        provider.rx.request(APIServer.lockList(userId: nil,lockName: rx_lockName.value, groupId: rx_groupId.value, authType: 0, page: page, size: 20))
+       plog(ConfigModel.default.user.value?.groupIds)
+    
+        provider.rx.request(APIServer.lockList(userId: nil,lockName: rx_lockName.value, groupIds: rx_groupId.value != nil ? String(self.rx_groupId.value ?? -1) : ConfigModel.default.user.value?.groupIds, authType: nil, page: page, size: 20))
             .mapObject(APIResponse<ListModel<TapplockModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
                 

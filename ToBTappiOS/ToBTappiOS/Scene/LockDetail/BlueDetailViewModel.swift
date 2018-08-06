@@ -70,8 +70,17 @@ class BlueDetailViewModel: NSObject {
                    self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
                 }
             }).disposed(by: rx.disposeBag)
-        
-        
+
+    }
+    
+    func hardVersionUpdate() {
+        provider.rx.request(APIServer.checkFirmwares(hardwareVersion: (lock?.hardwareVersion)!))
+            .mapObject(APIResponse<FirmwareModel>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                
+                
+            
+        }).disposed(by: rx.disposeBag)
         
     }
     

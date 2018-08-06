@@ -1,28 +1,33 @@
 //
-//  FingerPrintListCell.swift
-//  Tapplock2
+//  BlueLockDetailCell.swift
+//  ToBTappiOS
 //
-//  Created by Jiang Xiaoming on 2017/12/20.
-//  Copyright © 2017年 Tapplock. All rights reserved.
+//  Created by TapplockiOS on 2018/8/6.
+//  Copyright © 2018年 TapplockiOS. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
-class FingerPrintListCell: UITableViewCell {
 
-    @IBOutlet weak var lockImg: UIImageView!
+class BlueLockDetailCell: UITableViewCell {
+
+    @IBOutlet weak var LockImg: UIImageView!
     
-    @IBOutlet weak var decriptionLab: UILabel!
+    @IBOutlet weak var descriptionLab: UILabel!
     
     @IBOutlet weak var emailLab: UILabel!
     
+    @IBOutlet weak var locationLab: UILabel!
+    
     @IBOutlet weak var timeLab: UILabel!
+    
     
     var model: LockHistoryModel? {
         didSet {
             
             self.emailLab.text = model?.mail
-        
+            self.locationLab.text = model?.location
+            
             self.timeLab.text = model?.timeDate
             
             if let first = model?.firstName, let lock = model?.lockName {
@@ -38,21 +43,34 @@ class FingerPrintListCell: UITableViewCell {
                                        NSAttributedStringKey.foregroundColor: UIColor.themeColor],
                                       range: NSRange((str.range(of: lock))!, in: str))
                 
-                decriptionLab.attributedText = attrStr
+                descriptionLab.attributedText = attrStr
             }  else {
-                decriptionLab.text = ""
+                descriptionLab.text = ""
             }
-           
+            
             
             guard let ul = model?.photoUrl else {
-                self.lockImg.image = R.image.userPlace()
+                self.LockImg.image = R.image.userPlace()
                 return
             }
             if let url = URL(string: ul) {
-                self.lockImg.kf.setImage(with: ImageResource.init(downloadURL: url), placeholder: R.image.userPlace(), options: [.processor(kfProcessor)])
+                
+                self.LockImg.kf.setImage(with: ImageResource.init(downloadURL: url), placeholder: R.image.userPlace(), options: [.processor(kfProcessor)])
             } else {
-                self.lockImg.image = R.image.userPlace()
+                self.LockImg.image = R.image.userPlace()
             }
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 }

@@ -107,9 +107,6 @@ extension PeripheralModel {
             
             sendTimeCommd()
             
-            TapplockManager.default.peripheralContactTapplockModel(self)
-            
-            
         case .GMTTime:
             sendGetHistory()
             

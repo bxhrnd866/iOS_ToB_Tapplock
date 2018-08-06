@@ -45,15 +45,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         networkOff()
         
+   
+    
+        if launchOptions != nil {
+            let userInfor = launchOptions![UIApplicationLaunchOptionsKey.remoteNotification]
+            plog("1111111111111111-----> \(userInfor)")
+        }
+
         return true
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+       
         Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-//        plog("fcmToken ------>  \(fcmToken)---")
+        plog("fcmToken ------>  \(fcmToken)---")
         ConfigModel.default.pushToken = fcmToken
     }
     func applicationWillResignActive(_ application: UIApplication) {
@@ -81,5 +89,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+//                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//
+//        print(userInfo)
+//        Messaging.messaging().appDidReceiveMessage(userInfo)
+//        completionHandler(UIBackgroundFetchResult.newData)
+//    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let user = notification.request.content.userInfo
+        
+        plog("222222222222222222------>\(user)")
+        
+        
+        completionHandler(UNNotificationPresentationOptions.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let user = response.notification.request.content.userInfo
+    
+        plog("33333333333333-------->\(user)")
+        
+    }
+    
 }
 

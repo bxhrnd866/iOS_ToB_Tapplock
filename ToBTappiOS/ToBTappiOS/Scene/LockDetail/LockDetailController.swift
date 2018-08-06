@@ -102,6 +102,8 @@ class LockDetailController: UIViewController {
                 
             }).disposed(by: rx.disposeBag)
         
+        viewModel.hardVersionUpdate()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,19 +126,23 @@ class LockDetailController: UIViewController {
     
     @IBAction func firmwareUpdateAction(_ sender: Any) {
         
-          self.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+//          self.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+        
     }
+    
     deinit {
         plog("销毁了")
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let vc = R.segue.lockDetailController.showUpdateDFU(segue: segue) {
+            
+        }
     }
-    */
+ 
 
 }

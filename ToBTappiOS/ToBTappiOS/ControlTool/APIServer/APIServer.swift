@@ -30,10 +30,10 @@ enum APIServer {
     case checkinviteCodes(inviteCode: String) //校验邀请码
     case chagePassword(newPassword: String, oldPassword: String) //修改密码
     case forgetPassword(mail: String, newPassword: String, verifyCode: String)
-    case lockList(userId: Int?, lockName: String?, groupId: Int?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
+    case lockList(userId: Int?, lockName: String?, groupIds: String?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
     case allGroupslist
     case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, id: Int, latitude: String?, longitude: String?, lockName: String?, morseCode: String?, morseStatus: Int?, syncTypes: [Int]) //更新锁信息  更新类型0-地理位置 1-固件 2-其他
-    case historyList(userId: Int?, lockId: Int?, targetName: String?, beginTime: Int?, endTime: Int?, accessType: Int, size: Int, page: Int)  // 查询类型(逗号分隔）0-fingerprint 1-bluetooth,2-close 3-auth bluetooth 4-auth fingerprint 5-cancel bluetooth 6-cancel fingerprint 7-location 8-firmware 9-other
+    case historyList(userId: Int?, lockId: Int?, targetName: String?, beginTime: Int?, endTime: Int?, accessType: Int, size: Int, page: Int, groupIds: String?)  // 查询类型(逗号分隔）0-fingerprint 1-bluetooth,2-close 3-auth bluetooth 4-auth fingerprint 5-cancel bluetooth 6-cancel fingerprint 7-location 8-firmware 9-other
     case updateCloseTime(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
     case updateOpenTime(location: String?, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: [String]?, unlockFingerprints: [[String : String]]?, unlockType: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
     case checkFirmwares(hardwareVersion: String)
@@ -60,12 +60,12 @@ extension APIServer: TargetType{
              .checkinviteCodes(_),
              .checkVerifyCode(_, _),
              .chagePassword(_, _):
-            let accseToken = UserDefaults.standard.object(forKey: key_access_token) as? String
+            
         
-            return ["Content-type": "application/json", "clientType": "1", "Authorization": "Bearer " + (accseToken ?? "aaaaaa")]
+            return ["Content-type": "application/json", "clientType": "1"]
         case .registerVerifyCode(_, _):
-            let accseToken = UserDefaults.standard.object(forKey: key_access_token) as? String
-            return ["Content-type": "application/json", "clientType": "1", "Authorization": "Bearer " + (accseToken ?? "aaaaaa"), "lang": ConfigModel.default.language.code]
+           
+            return ["Content-type": "application/json", "clientType": "1", "lang": ConfigModel.default.language.code]
         default:
             
             let basicToken = UserDefaults.standard.object(forKey: key_basicToken) as? String
@@ -108,7 +108,7 @@ extension APIServer: TargetType{
             return "locks/for_staff"
         case .updateLock(_, _, _, _, _, _, _, _, _, _):
             return "locks"
-        case .historyList(_, _, _, _, _, _, _, _):
+        case .historyList(_, _, _, _, _, _, _, _, _):
             return "lock_histories/access_history"
         case .updateCloseTime(_, _, _):
             return "lock_histories/close"
@@ -131,7 +131,7 @@ extension APIServer: TargetType{
         case .checkFirmwares(let hardwareVersion):
             return "firmwares/\(ConfigModel.default.language.code)/\(hardwareVersion)"
         case .userFingerPrint:
-            return "user_fingerprint/\(ConfigModel.default.user.value?.id ?? 1234567890)"
+            return "fingerprints/user_fingerprint/\(ConfigModel.default.user.value?.id ?? 1234567890)"
         case .allGroupslist:
             return "groups/list"
         case .chagePassword(_, _):
@@ -148,7 +148,7 @@ extension APIServer: TargetType{
     var method: Moya.Method {
         switch self {
         case .lockList(_,_, _, _, _, _),
-             .historyList(_, _, _, _, _, _, _, _),
+             .historyList(_, _, _, _, _, _, _, _, _),
              .registerVerifyCode(_, _),
              .downloadFingerprint(_),
              .checkinviteCodes(_),
@@ -230,7 +230,7 @@ extension APIServer: TargetType{
             urlParameters = urlParameters + ["type": type, "mail": mail]
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .lockList(let userId, let lockName, let groupId, let authType, let page, let size):
+        case .lockList(let userId, let lockName, let groupIds, let authType, let page, let size):
             
             if userId != nil {
                 urlParameters = urlParameters + ["userId": userId!]
@@ -239,8 +239,8 @@ extension APIServer: TargetType{
                 urlParameters = urlParameters + ["lockName": lockName!]
             }
             
-            if groupId != nil {
-                urlParameters = urlParameters + ["groupId": groupId!]
+            if groupIds != nil {
+                urlParameters = urlParameters + ["groupIds": groupIds!]
             }
             if authType != nil {
                 urlParameters = urlParameters + ["authType": authType!]
@@ -289,7 +289,7 @@ extension APIServer: TargetType{
             
             return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
             
-        case .historyList(let userId, let lockId, let targetName, let beginTime, let endTime, let accessType, let size, let page):
+        case .historyList(let userId, let lockId, let targetName, let beginTime, let endTime, let accessType, let size, let page, let groupIds):
             
            
             if userId != nil {
@@ -309,6 +309,9 @@ extension APIServer: TargetType{
                  urlParameters = urlParameters + ["lockId": lockId!]
             }
             
+            if groupIds != nil {
+                 urlParameters = urlParameters + ["groupIds": groupIds!]
+            }
             urlParameters = urlParameters + ["accessType": accessType, "page": page, "size": size, "corpId": ConfigModel.default.user.value?.corpId ?? 1234567]
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)

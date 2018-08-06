@@ -418,12 +418,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 13 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 15 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AllGroupCellIdenty`.
     static let allGroupCellIdenty: Rswift.ReuseIdentifier<AllGroupCell> = Rswift.ReuseIdentifier(identifier: "AllGroupCellIdenty")
+    /// Reuse identifier `BlueLockDetailIdentyCell`.
+    static let blueLockDetailIdentyCell: Rswift.ReuseIdentifier<BlueLockDetailCell> = Rswift.ReuseIdentifier(identifier: "BlueLockDetailIdentyCell")
     /// Reuse identifier `BluetoothHistoryCell`.
     static let bluetoothHistoryCell: Rswift.ReuseIdentifier<BluetoothHistoryCell> = Rswift.ReuseIdentifier(identifier: "BluetoothHistoryCell")
+    /// Reuse identifier `CellFingerHistory`.
+    static let cellFingerHistory: Rswift.ReuseIdentifier<FingerLockDetailCell> = Rswift.ReuseIdentifier(identifier: "CellFingerHistory")
     /// Reuse identifier `FingerprintHistoryCell`.
     static let fingerprintHistoryCell: Rswift.ReuseIdentifier<FingerPrintListCell> = Rswift.ReuseIdentifier(identifier: "FingerprintHistoryCell")
     /// Reuse identifier `FingerprintListCollectCell`.
@@ -1044,7 +1048,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 173 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 178 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1114,10 +1118,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let ensureMessage_Logout = Rswift.StringResource(key: "EnsureMessage_Logout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Audit Report
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let permissionAuditReport = Rswift.StringResource(key: "PermissionAuditReport", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1214,10 +1214,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let successMessage_Feedback = Rswift.StringResource(key: "SuccessMessage_Feedback", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Finace
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let permissionFinace = Rswift.StringResource(key: "PermissionFinace", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Fingerprint
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1246,10 +1242,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let indexFinger = Rswift.StringResource(key: "IndexFinger", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Initate Firmware Update
+      /// en translation: Initiate firmware updates
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionInitateFirmwareUpdate = Rswift.StringResource(key: "PermissionInitateFirmwareUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let pmInitiatefirmwareupdates = Rswift.StringResource(key: "PMInitiatefirmwareupdates", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Installation failed, please install again
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1301,27 +1297,43 @@ struct R: Rswift.Validatable {
       /// en translation: Manage Access
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageAccess = Rswift.StringResource(key: "PermissionManageAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let pmManageAccess = Rswift.StringResource(key: "PMManageAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Admins
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageAdmins = Rswift.StringResource(key: "PermissionManageAdmins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Manage Group
+      static let pmManageAdmins = Rswift.StringResource(key: "PMManageAdmins", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage All Access
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageGroup = Rswift.StringResource(key: "PermissionManageGroup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let pmManageAllAccess = Rswift.StringResource(key: "PMManageAllAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage All Locks
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmManageAllLocks = Rswift.StringResource(key: "PMManageAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage All Users
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmManageAllUsers = Rswift.StringResource(key: "PMManageAllUsers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage Groups
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmManageGroups = Rswift.StringResource(key: "PMManageGroups", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Manage Lock
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageLock = Rswift.StringResource(key: "PermissionManageLock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Manage Morse-Code
+      static let pmManageLock = Rswift.StringResource(key: "PMManageLock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage Morse-cod
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageMorseCode = Rswift.StringResource(key: "PermissionManageMorseCode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Manage User
+      static let pmManageMorsecod = Rswift.StringResource(key: "PMManageMorsecod", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage Operational Permission
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionManageUser = Rswift.StringResource(key: "PermissionManageUser", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let pmManageOperationalPermission = Rswift.StringResource(key: "PMManageOperationalPermission", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Manage Users
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmManageUsers = Rswift.StringResource(key: "PMManageUsers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Middle
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1522,6 +1534,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let menuProfile = Rswift.StringResource(key: "MenuProfile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Receive Bluetooth / connect notifications
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmReceivenotifications = Rswift.StringResource(key: "PMReceivenotifications", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Registered Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1698,22 +1714,30 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_vCodeWrong = Rswift.StringResource(key: "ErrorMessage_vCodeWrong", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: View All Access History
+      /// en translation: View All Groups Info
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let permissionViewAllAccessHistory = Rswift.StringResource(key: "PermissionViewAllAccessHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let pmViewAllGroupsInfo = Rswift.StringResource(key: "PMViewAllGroupsInfo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: View All Locks
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let menuViewAllLocks = Rswift.StringResource(key: "MenuViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: View All Locks
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let permissionViewAllLocks = Rswift.StringResource(key: "PermissionViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: View History
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let menuViewHistory = Rswift.StringResource(key: "MenuViewHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View History
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmViewHistory = Rswift.StringResource(key: "PMViewHistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View all access history
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmAccesshistory = Rswift.StringResource(key: "PMAccesshistory", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View all locks in assigned groups
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmAssignedgroups = Rswift.StringResource(key: "PMAssignedgroups", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: YES
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1856,13 +1880,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func ensureMessage_Logout(_: Void = ()) -> String {
         return NSLocalizedString("EnsureMessage_Logout", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Audit Report
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func permissionAuditReport(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionAuditReport", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
@@ -2033,13 +2050,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("SuccessMessage_Feedback", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Finace
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func permissionFinace(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionFinace", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Fingerprint
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2089,11 +2099,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("IndexFinger", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Initate Firmware Update
+      /// en translation: Initiate firmware updates
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionInitateFirmwareUpdate(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionInitateFirmwareUpdate", bundle: R.hostingBundle, comment: "")
+      static func pmInitiatefirmwareupdates(_: Void = ()) -> String {
+        return NSLocalizedString("PMInitiatefirmwareupdates", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Installation failed, please install again
@@ -2183,43 +2193,71 @@ struct R: Rswift.Validatable {
       /// en translation: Manage Access
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageAccess(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageAccess", bundle: R.hostingBundle, comment: "")
+      static func pmManageAccess(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageAccess", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Admins
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageAdmins(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageAdmins", bundle: R.hostingBundle, comment: "")
+      static func pmManageAdmins(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageAdmins", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Manage Group
+      /// en translation: Manage All Access
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageGroup(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageGroup", bundle: R.hostingBundle, comment: "")
+      static func pmManageAllAccess(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageAllAccess", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Manage All Locks
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmManageAllLocks(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageAllLocks", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Manage All Users
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmManageAllUsers(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageAllUsers", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Manage Groups
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmManageGroups(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageGroups", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Manage Lock
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageLock(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageLock", bundle: R.hostingBundle, comment: "")
+      static func pmManageLock(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageLock", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Manage Morse-Code
+      /// en translation: Manage Morse-cod
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageMorseCode(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageMorseCode", bundle: R.hostingBundle, comment: "")
+      static func pmManageMorsecod(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageMorsecod", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Manage User
+      /// en translation: Manage Operational Permission
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionManageUser(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionManageUser", bundle: R.hostingBundle, comment: "")
+      static func pmManageOperationalPermission(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageOperationalPermission", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Manage Users
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmManageUsers(_: Void = ()) -> String {
+        return NSLocalizedString("PMManageUsers", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Middle
@@ -2572,6 +2610,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("MenuProfile", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Receive Bluetooth / connect notifications
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmReceivenotifications(_: Void = ()) -> String {
+        return NSLocalizedString("PMReceivenotifications", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Registered Successfully
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2880,11 +2925,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_vCodeWrong", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: View All Access History
+      /// en translation: View All Groups Info
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func permissionViewAllAccessHistory(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionViewAllAccessHistory", bundle: R.hostingBundle, comment: "")
+      static func pmViewAllGroupsInfo(_: Void = ()) -> String {
+        return NSLocalizedString("PMViewAllGroupsInfo", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: View All Locks
@@ -2894,18 +2939,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("MenuViewAllLocks", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: View All Locks
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func permissionViewAllLocks(_: Void = ()) -> String {
-        return NSLocalizedString("PermissionViewAllLocks", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: View History
       /// 
       /// Locales: en, ja, ko, cs, sk
       static func menuViewHistory(_: Void = ()) -> String {
         return NSLocalizedString("MenuViewHistory", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: View History
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmViewHistory(_: Void = ()) -> String {
+        return NSLocalizedString("PMViewHistory", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: View all access history
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmAccesshistory(_: Void = ()) -> String {
+        return NSLocalizedString("PMAccesshistory", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: View all locks in assigned groups
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmAssignedgroups(_: Void = ()) -> String {
+        return NSLocalizedString("PMAssignedgroups", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: YES

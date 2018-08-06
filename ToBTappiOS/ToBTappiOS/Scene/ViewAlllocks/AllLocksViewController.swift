@@ -24,7 +24,7 @@ class AllLocksViewController: BaseViewController {
         viewModel.rx_locks.asDriver()
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.allLocksListCellIdenty.identifier, cellType: AllLocksCell.self)) {
                 (indexPath, model, cell) in
-
+                cell.model = model
             }.disposed(by: rx.disposeBag)
         
         tableView.mj_header  = HeaderRefresh.init { [weak self] in

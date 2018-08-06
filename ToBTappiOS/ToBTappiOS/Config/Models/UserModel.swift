@@ -29,19 +29,28 @@ class UserModel: Mappable {
                 grop.groupName = R.string.localizable.allGroup()
                 self.rx_groups.value = self.groups!
                 self.rx_groups.value.insert(grop, at: 0)
+                
+                for model in groups! {
+                    if groupIds == nil {
+                        groupIds = String(model.id ?? -1)
+                    } else {
+                        groupIds = groupIds! + "," + String(model.id ?? -1)
+                    }
+                }
             }
         }
     }
+    
     var id: Int?
     var lastLoginTime: String?
     var mail: String?
-    var master: Int?
-    var permissionType: Int?  //0-ADMIN 1-MANAGER 2-USER
+    var permissionType: Int?  // -1 MANAGER  0-ADMIN  1-MANAGER 2-USER
     var permissions: [PermissionInfoModel]?  //拥有的权限
     var phone: String?
     var photoUrl: String?
     var sex: Int?
     
+    var groupIds: String?
     
     var rx_groups: Variable<[GroupsModel]> = Variable([GroupsModel]())
     
@@ -63,7 +72,6 @@ class UserModel: Mappable {
         id <- map["id"]
         lastLoginTime <- map["lastLoginTime"]
         mail <- map["mail"]
-        master <- map["master"]
         permissionType <- map["permissionType"]
         permissions <- map["permissions"]
         phone <- map["phone"]

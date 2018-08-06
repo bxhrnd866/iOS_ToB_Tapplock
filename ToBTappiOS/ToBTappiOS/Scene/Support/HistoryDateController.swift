@@ -148,9 +148,8 @@ class HistoryDateController: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         if canSave() {
-            self.dismissAction(true)
-            //tomark
             if self.block != nil {
+                self.dismiss(animated: true, completion: nil)
                 self.block!((rx_startTime.value,rx_endTime.value))
             }
         }
