@@ -145,7 +145,7 @@
 "LockNewFirmwareVersionTotals" = "Nová aktualizace firmwaru. Chcete-li začít, přejděte do části Nastavení zámku> Aktualizace firmwaru";
 "LockOpenLocationService" = "Zapněte službu Umístění";
 "GoToSetting" = "Jdi do nastavení";
-
+"cancel" = "cancel";
 // 权限
 
 //权限

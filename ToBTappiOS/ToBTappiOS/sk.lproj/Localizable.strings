@@ -145,7 +145,7 @@
 "LockNewFirmwareVersionTotals" = "Nová aktualizácia firmvéru. Prejdite do časti Nastavenie zámky> Aktualizácia firmvéru";
 "LockOpenLocationService" = "Zapnite službu Umiestnenie";
 "GoToSetting" = "Choď do nastavení";
-
+"cancel" = "cancel";
 
 // 权限
 

@@ -20,7 +20,12 @@ class MenuViewModel {
         var m3: MenuModel? = nil
         
 
-        if let permissions = ConfigModel.default.user.value?.permissions {
+        if ConfigModel.default.user.value?.permissionType == -1 {
+            
+            m2 = MenuModel(R.string.localizable.menuViewAllLocks())
+            m3 = MenuModel(R.string.localizable.menuViewHistory())
+            
+        } else if let permissions = ConfigModel.default.user.value?.permissions {
             
             for model in permissions {
                 if model.permissionCode == "100" || model.permissionCode == "201" || model.permissionCode == "300" {

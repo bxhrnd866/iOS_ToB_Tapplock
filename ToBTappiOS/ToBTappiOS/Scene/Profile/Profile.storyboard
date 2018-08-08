@@ -21,7 +21,7 @@
                 <viewControllerPlaceholder storyboardName="ImagePicker" id="8JA-iO-LZM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57T-2D-n2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706" y="503"/>
+            <point key="canvasLocation" x="-732" y="582"/>
         </scene>
         <!--Profile-->
         <scene sceneID="zP6-0c-2k7">
@@ -225,9 +225,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="firstName" destination="8DQ-3f-tMs" id="RDQ-YA-2QR"/>
+                        <outlet property="groupLab" destination="Dc8-tP-6Wd" id="pVz-1R-Xg4"/>
+                        <outlet property="groupView" destination="CxX-5p-tM6" id="ZRA-b2-zAE"/>
                         <outlet property="headerImg" destination="XS3-Gx-Pzd" id="Z6m-sx-tfJ"/>
                         <outlet property="lastName" destination="Lbo-S0-tVV" id="Qnb-fC-Yfc"/>
                         <outlet property="mailNum" destination="q7B-hM-HP9" id="j9a-Xo-y83"/>
+                        <outlet property="permissionLab" destination="qya-02-7bA" id="ORv-YD-EKb"/>
+                        <outlet property="permissionView" destination="gMG-YY-5Wu" id="rOU-qS-Pfb"/>
                         <outlet property="phoneNum" destination="hDA-a7-DJC" id="FQu-xU-M5O"/>
                         <outlet property="sexLab" destination="Sc6-0r-Vmh" id="zqd-WD-oAV"/>
                     </connections>

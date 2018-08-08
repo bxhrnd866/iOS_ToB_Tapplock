@@ -164,11 +164,11 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fn-AF-ydx">
-                                        <rect key="frame" x="220" y="69" width="30" height="1"/>
+                                        <rect key="frame" x="220" y="68" width="30" height="2"/>
                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="FSo-Fi-Lr7"/>
-                                            <constraint firstAttribute="height" constant="1" id="gEO-kB-JsI"/>
+                                            <constraint firstAttribute="height" constant="2" id="gEO-kB-JsI"/>
                                         </constraints>
                                     </view>
                                 </subviews>

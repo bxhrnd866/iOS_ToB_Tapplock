@@ -56,7 +56,9 @@ class AllGroupController: UIViewController {
                     self?.showToast(message: response.codeMessage)
                 }
             
-        }).disposed(by: rx.disposeBag)
+            }) { ( error) in
+                HUD.hide()
+            }.disposed(by: rx.disposeBag)
         
         
     }

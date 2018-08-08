@@ -48,7 +48,9 @@ class RegisterViewModel: NSObject {
                     } else {
                         self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
                     }
-            }).disposed(by: rx.disposeBag)
+                }){ ( error) in
+                    self.rx_step.value = .failed
+                }.disposed(by: rx.disposeBag)
         }
     }
     

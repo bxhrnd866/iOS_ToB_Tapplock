@@ -22,9 +22,29 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var headerImg: UIImageView!
     
+    @IBOutlet weak var groupLab: UILabel!
+    
+    @IBOutlet weak var groupView: UIView!
+    
+    
+    @IBOutlet weak var permissionLab: UILabel!
+    
+    @IBOutlet weak var permissionView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if ConfigModel.default.user.value?.permissionType == -1 {
+            self.permissionLab.isHidden = true
+            self.permissionView.isHidden = true
+            self.groupLab.isHidden = true
+            self.groupView.isHidden = true
+        }
+        
+        
+        
+        
         
         ConfigModel.default.user.asDriver().filter {
             $0 != nil
@@ -54,8 +74,8 @@ class ProfileViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let imagePicker = R.segue.profileViewController.showImagepickerIdentifier(segue: segue) {
-//            imagePicker.destination.topViewController = self
-//            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: self.setImageUrl)
+            imagePicker.destination.topViewController = self
+            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: self.setImageUrl)
         }
     }
     

@@ -43,7 +43,9 @@ class InviteCodeController: UIViewController {
                 } else {
                     self?.showToast(message: response.codeMessage)
                 }
-            }).disposed(by: rx.disposeBag)
+            }){ ( error) in
+                HUD.hide()
+            }.disposed(by: rx.disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

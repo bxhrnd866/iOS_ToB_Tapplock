@@ -145,7 +145,7 @@
 "LockNewFirmwareVersionTotals" = "새로운 펌웨어 업데이트. 업데이트를 시작하려면 설정 > 펌웨어 업데이트로 이동하십시오";
 "LockOpenLocationService" = "위치 서비스를 켜십시오.";
 "GoToSetting" = "설정으로 바로 가기";
-
+"cancel" = "cancel";
 // 权限
 
 //权限

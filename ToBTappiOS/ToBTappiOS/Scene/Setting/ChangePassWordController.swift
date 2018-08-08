@@ -44,6 +44,8 @@ class ChangePassWordController: UIViewController {
             case .errorMessage(let mesg):
                  HUD.hide()
                 self?.showToast(message: mesg)
+            case .failed:
+                HUD.hide()
             default:
                 break
             }

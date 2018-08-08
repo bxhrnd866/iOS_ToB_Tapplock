@@ -107,6 +107,7 @@
 "Confirm delete" = "Confirm delete";
 "AdddNewLock" = "Add A New Tapplock";
 "ItmeNext" = "Next";
+"cancel" = "cancel";
 
 "Tutorial_AddShareAccess" = "ADD SHARE ACCESS\nWant to share your lock to a friend?";
 "Tutorial_OneTimeAccess" = "ONE TIME ACCESS\nGive the shared person a temporary 10 min access within the set time.";

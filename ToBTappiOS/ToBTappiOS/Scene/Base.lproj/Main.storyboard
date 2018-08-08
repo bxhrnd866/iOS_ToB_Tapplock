@@ -63,7 +63,7 @@
                 <viewControllerPlaceholder storyboardName="LogIn" id="hLA-4J-Go9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj8-MR-nVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="-235"/>
+            <point key="canvasLocation" x="730" y="-2"/>
         </scene>
         <!--Home-->
         <scene sceneID="Mb5-29-PEF">
@@ -71,7 +71,7 @@
                 <viewControllerPlaceholder storyboardName="Home" id="S33-P0-oSD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0M-cb-uMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="179"/>
+            <point key="canvasLocation" x="731" y="65"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="b6L-4Y-qDs">
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkl-lm-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="771"/>
+            <point key="canvasLocation" x="124" y="766"/>
         </scene>
         <!--1-->
         <scene sceneID="GUc-6S-K4d">

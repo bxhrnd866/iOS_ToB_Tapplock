@@ -16,10 +16,7 @@ class SearchBar: UIView, UITextFieldDelegate {
     var rx_text: Variable<String?> = Variable(nil)
     var rx_action: Variable<Bool> = Variable(false)
     
-    
-    
-    
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -34,8 +31,8 @@ class SearchBar: UIView, UITextFieldDelegate {
         
         self.addSubview(field)
         
-        cancelBtn = UIButton(frame: CGRect(x: field.rightX, y: 0, width: 50, height: self.height))
-        cancelBtn.setTitle("取消", for: .normal)
+        cancelBtn = UIButton(frame: CGRect(x: field.rightX, y: 0, width: 70, height: self.height))
+        cancelBtn.setTitle(R.string.localizable.cancel(), for: .normal)
         cancelBtn.setTitleColor(UIColor.white, for: .normal)
         cancelBtn.titleLabel?.font = UIFont(name: font_name, size: 15)
         

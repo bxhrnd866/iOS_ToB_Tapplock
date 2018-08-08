@@ -44,7 +44,7 @@ class ConfigModel: NSObject {
         if ConfigModel.default.user.value != nil {
             let refresh = UserDefaults.standard.object(forKey: key_refreshToken) as? String
             
-            provider.rx.request(APIServer.oauthToken(grant_type: "refresh_token", refresh_token: refresh))
+            provider.rx.request(APIServer.oauthToken(grant_type: "refresh_token", refresh_token: refresh, access_token: nil))
                 .mapObject(BasicTokenModel.self)
                 .subscribe(onSuccess: { response in
                     if response.error == nil {
@@ -64,6 +64,23 @@ class ConfigModel: NSObject {
         }
     }
     
+    
+    func deleteToken() {
+        if ConfigModel.default.user.value != nil {
+            
+            let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
+            provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
+                .mapObject(BasicTokenModel.self)
+                .subscribe(onSuccess: { response in
+                    ConfigModel.default.user.value = nil
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    delegate.removeMenuView()
+                    let vc =  delegate.window?.rootViewController?.presentedViewController
+                    vc?.dismiss(animated: true)
+                }).disposed(by: rx.disposeBag)
+            
+        }
+    }
     
     
     private override init() {

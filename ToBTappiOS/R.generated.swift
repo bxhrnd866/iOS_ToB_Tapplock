@@ -1048,7 +1048,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 178 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 179 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1762,6 +1762,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_EnrollMismatch = Rswift.StringResource(key: "ErrorMessage_EnrollMismatch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: cancel
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       
       /// en translation: %@ opened the lock %@
       /// 
@@ -3007,6 +3011,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func errorMessage_EnrollMismatch(_: Void = ()) -> String {
         return NSLocalizedString("ErrorMessage_EnrollMismatch", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: cancel
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func cancel(_: Void = ()) -> String {
+        return NSLocalizedString("cancel", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

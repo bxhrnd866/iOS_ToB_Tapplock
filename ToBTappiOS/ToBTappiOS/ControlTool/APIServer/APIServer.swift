@@ -10,9 +10,9 @@ import Foundation
 import Foundation
 import Moya
 
-let APIHost = "http://192.168.7.213:8781"
+//let APIHost = "http://192.168.7.213:8781"
 
-//let APIHost = "https://api.tapplock.com"
+let APIHost = "https://entapi.tapplock.com"
 
 let APILock = "/lock/api/v1/"
 let APIUser = "/user/api/v1/"
@@ -21,7 +21,7 @@ let provider = MoyaProvider<APIServer>(plugins: [NetworkLoggerPlugin(verbose: tr
 
 enum APIServer {
     
-    case oauthToken(grant_type: String, refresh_token: String?) // 初次获取token  password client_credentials
+    case oauthToken(grant_type: String?, refresh_token: String?, access_token: String?) // 初次获取token  password client_credentials
     case userRegister(corpId: Int, fcmDeviceToken: String?, inviteCode: String, firstName: String, lastName: String, mail: String, password: String, phone: String, photoUrl: String?, sex: Int)  //0-男 1-女
     case userLog(mail: String, password: String)
     case userUpdate(fcmDeviceToken: String?, firstName: String?, groupIds: [String]?, lastName: String?, permissionIds: [Int]?, phone: String?, photoUrl: String?, sex: Int?) // 更新用户信息
@@ -52,7 +52,7 @@ extension APIServer: TargetType{
     var headers: [String : String]? {
     
         switch self {
-        case .oauthToken:
+        case .oauthToken(_, _, _):
             return ["Content-type": "application/json", "Authorization": "Basic dGFwcGxvY2stYjJiLWNsaWVudDp0YXBwbG9jazEyMyFAIw==", "clientType": "1"]
         case .userLog(_, _),
              .forgetPassword(_, _, _),
@@ -114,7 +114,7 @@ extension APIServer: TargetType{
             return "lock_histories/close"
         case .updateOpenTime(_, _, _, _, _, _, _):
             return "lock_histories/open"
-        case .oauthToken(_,_):
+        case .oauthToken(_,_, _):
             return "uaa/oauth/token"
         case .downloadFingerprint(_):
             return "fingerprints/to_be_downloaded"
@@ -166,7 +166,7 @@ extension APIServer: TargetType{
             return .put
         case .updateCloseTime(_, _, _),
              .updateOpenTime(_, _, _, _, _, _, _),
-             .oauthToken(_,_),
+             .oauthToken(_,_, _),
              .userRegister(_, _, _, _, _, _, _, _, _, _),
              .userLog(_, _),
              .forgetPassword(_, _, _),
@@ -217,11 +217,17 @@ extension APIServer: TargetType{
            
             return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
             
-        case .oauthToken(let grant_type, let refresh_token):
+        case .oauthToken(let grant_type, let refresh_token, let access_token):
             
-            urlParameters = urlParameters + ["grant_type": grant_type]
+            
             if refresh_token != nil {
                 urlParameters = urlParameters + ["refresh_token": refresh_token!]
+            }
+            if grant_type != nil {
+                urlParameters = urlParameters + ["grant_type": grant_type!]
+            }
+            if access_token != nil {
+                urlParameters = urlParameters + ["access_token": access_token!]
             }
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
