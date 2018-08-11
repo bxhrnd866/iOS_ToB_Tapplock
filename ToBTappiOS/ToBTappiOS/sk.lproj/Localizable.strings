@@ -117,10 +117,6 @@
 "Tutorial_FingerprintHand" = "PRIDAŤ ODTLAČOK\nVyberte ruku..";
 "Tutorial_FingerprintFinger" = "PRIDAŤ ODTLAČOK\nVyberte prst.";
 "Tutorial_FingerprintAddOwner" = "Pridať vlastníka odtlačku\nChcete pridať viac mien?\n Kliknite tu";
-"Tutorial_Tab0" = "Práve sa nachádzate na domovskej stránke.";
-"Tutorial_Tab1" = "Tu môžete zdieľať prístup s ostatnými.";
-"Tutorial_Tab2" = "Toto je stránka histórie prístupov.";
-"Tutorial_Tab3" = "Informácie a pomoc s používateľským účtom.";
 "Tutorial_TapplockAdd" = "PRIDAŤ NOVÝ TAPPLOCK\nKliknite pre pridanie zámku..";
 "Tutorial_TapplockLockCell" = "DETAILY O ZÁMKU\nKliknite pre pridanie zámku..";
 "Tutorial_DetailUnlock" = "ODOMKNUTIE CEZ BLUETOOTH\nPre otvorenie zámku počas pripojenia k Bluetooth kliknite tu..";
@@ -193,6 +189,9 @@
 "Code400021" = "The lock name already exists";
 "Code400022" = "The authorization has been revoded";
 "Code400023" = "The invitation code has been expired";
+"Servererror" = "Server error";
+
+
 
 //ToB 提示
 "Invalidinvitationcode" = "Invalid invitation code";
@@ -211,3 +210,8 @@
 "MenuSetting" = "Setting";
 "MenuLogout" = "Log out";
 
+"InstructionsMenu" = "Here is the menu";
+"InstructionsHistorylist" = "This is the access history page";
+"InstructionDateSelct" = "set the time search criteria";
+"InstructionLeftFingerPrint" = "Click here to see the left hand fingerprint";
+"InstructionRightFingerPrint" = "Click here to see the right hand fingerprint";

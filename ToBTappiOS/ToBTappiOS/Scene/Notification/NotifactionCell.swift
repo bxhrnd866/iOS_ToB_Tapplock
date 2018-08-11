@@ -10,7 +10,15 @@ import UIKit
 
 class NotifactionCell: UITableViewCell {
 
-    var model: String?
+    var model: NoficationModel? {
+        didSet {
+            self.labtext.text = self.model?.body
+            self.titlelab.text = self.model?.title
+        }
+    }
+    
+    
+    @IBOutlet weak var titlelab: UILabel!
     
     @IBOutlet weak var labtext: UILabel!
     

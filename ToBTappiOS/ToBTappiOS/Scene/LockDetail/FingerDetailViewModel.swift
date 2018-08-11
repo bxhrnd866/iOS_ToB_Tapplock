@@ -31,7 +31,7 @@ class FingerDetailViewModel: NSObject {
             .subscribe(onSuccess: { [weak self] response in
               
                 if response.success {
-                   self?.rx_step.value = RequestStep.sucess
+                   
                     if response.data != nil {
                         for model in response.data! {
                             if model.handType == 0 {
@@ -40,7 +40,9 @@ class FingerDetailViewModel: NSObject {
                                 self?.rightSource.append(model)
                             }
                         }
+                        
                     }
+                    self?.rx_step.value = RequestStep.sucess
                     
                 } else {
                     self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)

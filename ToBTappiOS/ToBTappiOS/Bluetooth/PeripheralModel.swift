@@ -77,14 +77,15 @@ extension PeripheralModel {
             plog("未被处理的数据\(none)")
             return
         }
-        
+       
         self.rx_response.value = response
         
         switch response {
             
         case .GetFiremwareVersion:
             
-            sendGetRandom()
+//            sendGetRandom()
+            randomKeyServeEncrpted(numer: "01020304")
             
         case .GetRandomData:
             guard let num = response.randomNumer else { return }
@@ -110,11 +111,15 @@ extension PeripheralModel {
         case .GMTTime:
             sendGetHistory()
             
-        case .History:
+        case .T2AllHistory:
             
             plog("xxxxxx")
             
             // 数据历史获取完成
+            
+            if self.lockStatus != -1 {
+                self.bleUpdate?.updateLockInfor()
+            }
             
             switch self.lockStatus {
             case -1:

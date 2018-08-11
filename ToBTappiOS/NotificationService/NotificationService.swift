@@ -21,32 +21,47 @@ class NotificationService: UNNotificationServiceExtension {
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+    
             
+            let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
             
+            let userStr: String? = usermanger?.value(forKey: "user_saveKey") as? String
             
-            let us = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
-            
-            let dict = self.bestAttemptContent?.userInfo as? [String: Any]
-            
-            if dict != nil {
-                us?.set(dict, forKey: "cuncudict")
+            if userStr == nil {
+                return
             }
-            us?.set("22222", forKey: "model")
+            
+
+            let data = bestAttemptContent.userInfo as! [String: Any]
+            
+            let type = data["type"] as? String
+            
+            if type == "-1" {
+                usermanger?.set(type, forKey: "NotificationType")
+                usermanger?.removeObject(forKey: "NotificationContent")
+                return
+            }
+            
+            
+            let dict = ["title": bestAttemptContent.title, "body": bestAttemptContent.body]
+        
+            var array = usermanger?.object(forKey: "NotificationContent") as? [[String: String]]
+
+            
+            if array != nil {
+                array?.insert(dict, at: 0)
+            } else {
+                array = [dict]
+            }
+
+            usermanger?.set(array, forKey: "NotificationContent")
+    
+            
             
             
             contentHandler(bestAttemptContent)
             
         }
-        
-       
-        
-        
- 
-        
-        
-        
-        
     }
     
     override func serviceExtensionTimeWillExpire() {

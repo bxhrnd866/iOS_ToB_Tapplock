@@ -77,7 +77,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 46 images.
+  /// This `R.image` struct is generated, and contains static references to 87 images.
   struct image {
     /// Image `About_Logo`.
     static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
@@ -143,6 +143,88 @@ struct R: Rswift.Validatable {
     static let bottomArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottomArrow")
     /// Image `fingerprint`.
     static let fingerprint = Rswift.ImageResource(bundle: R.hostingBundle, name: "fingerprint")
+    /// Image `gif_0`.
+    static let gif_0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_0")
+    /// Image `gif_10`.
+    static let gif_10 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_10")
+    /// Image `gif_11`.
+    static let gif_11 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_11")
+    /// Image `gif_12`.
+    static let gif_12 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_12")
+    /// Image `gif_13`.
+    static let gif_13 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_13")
+    /// Image `gif_14`.
+    static let gif_14 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_14")
+    /// Image `gif_15`.
+    static let gif_15 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_15")
+    /// Image `gif_16`.
+    static let gif_16 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_16")
+    /// Image `gif_17`.
+    static let gif_17 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_17")
+    /// Image `gif_18`.
+    static let gif_18 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_18")
+    /// Image `gif_19`.
+    static let gif_19 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_19")
+    /// Image `gif_1`.
+    static let gif_1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_1")
+    /// Image `gif_20`.
+    static let gif_20 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_20")
+    /// Image `gif_21`.
+    static let gif_21 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_21")
+    /// Image `gif_22`.
+    static let gif_22 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_22")
+    /// Image `gif_23`.
+    static let gif_23 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_23")
+    /// Image `gif_24`.
+    static let gif_24 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_24")
+    /// Image `gif_25`.
+    static let gif_25 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_25")
+    /// Image `gif_26`.
+    static let gif_26 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_26")
+    /// Image `gif_27`.
+    static let gif_27 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_27")
+    /// Image `gif_28`.
+    static let gif_28 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_28")
+    /// Image `gif_29`.
+    static let gif_29 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_29")
+    /// Image `gif_2`.
+    static let gif_2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_2")
+    /// Image `gif_30`.
+    static let gif_30 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_30")
+    /// Image `gif_31`.
+    static let gif_31 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_31")
+    /// Image `gif_32`.
+    static let gif_32 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_32")
+    /// Image `gif_33`.
+    static let gif_33 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_33")
+    /// Image `gif_34`.
+    static let gif_34 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_34")
+    /// Image `gif_35`.
+    static let gif_35 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_35")
+    /// Image `gif_36`.
+    static let gif_36 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_36")
+    /// Image `gif_37`.
+    static let gif_37 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_37")
+    /// Image `gif_38`.
+    static let gif_38 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_38")
+    /// Image `gif_39`.
+    static let gif_39 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_39")
+    /// Image `gif_3`.
+    static let gif_3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_3")
+    /// Image `gif_40`.
+    static let gif_40 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_40")
+    /// Image `gif_4`.
+    static let gif_4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_4")
+    /// Image `gif_5`.
+    static let gif_5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_5")
+    /// Image `gif_6`.
+    static let gif_6 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_6")
+    /// Image `gif_7`.
+    static let gif_7 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_7")
+    /// Image `gif_8`.
+    static let gif_8 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_8")
+    /// Image `gif_9`.
+    static let gif_9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "gif_9")
     /// Image `icon_check`.
     static let icon_check = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_check")
     /// Image `lock_battery_0`.
@@ -330,6 +412,211 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "fingerprint", bundle: ..., traitCollection: ...)`
     static func fingerprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.fingerprint, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_0", bundle: ..., traitCollection: ...)`
+    static func gif_0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_0, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_1", bundle: ..., traitCollection: ...)`
+    static func gif_1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_10", bundle: ..., traitCollection: ...)`
+    static func gif_10(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_10, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_11", bundle: ..., traitCollection: ...)`
+    static func gif_11(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_11, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_12", bundle: ..., traitCollection: ...)`
+    static func gif_12(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_12, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_13", bundle: ..., traitCollection: ...)`
+    static func gif_13(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_13, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_14", bundle: ..., traitCollection: ...)`
+    static func gif_14(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_14, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_15", bundle: ..., traitCollection: ...)`
+    static func gif_15(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_15, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_16", bundle: ..., traitCollection: ...)`
+    static func gif_16(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_16, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_17", bundle: ..., traitCollection: ...)`
+    static func gif_17(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_17, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_18", bundle: ..., traitCollection: ...)`
+    static func gif_18(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_18, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_19", bundle: ..., traitCollection: ...)`
+    static func gif_19(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_19, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_2", bundle: ..., traitCollection: ...)`
+    static func gif_2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_20", bundle: ..., traitCollection: ...)`
+    static func gif_20(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_20, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_21", bundle: ..., traitCollection: ...)`
+    static func gif_21(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_21, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_22", bundle: ..., traitCollection: ...)`
+    static func gif_22(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_22, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_23", bundle: ..., traitCollection: ...)`
+    static func gif_23(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_23, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_24", bundle: ..., traitCollection: ...)`
+    static func gif_24(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_24, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_25", bundle: ..., traitCollection: ...)`
+    static func gif_25(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_25, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_26", bundle: ..., traitCollection: ...)`
+    static func gif_26(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_26, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_27", bundle: ..., traitCollection: ...)`
+    static func gif_27(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_27, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_28", bundle: ..., traitCollection: ...)`
+    static func gif_28(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_28, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_29", bundle: ..., traitCollection: ...)`
+    static func gif_29(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_29, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_3", bundle: ..., traitCollection: ...)`
+    static func gif_3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_3, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_30", bundle: ..., traitCollection: ...)`
+    static func gif_30(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_30, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_31", bundle: ..., traitCollection: ...)`
+    static func gif_31(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_31, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_32", bundle: ..., traitCollection: ...)`
+    static func gif_32(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_32, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_33", bundle: ..., traitCollection: ...)`
+    static func gif_33(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_33, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_34", bundle: ..., traitCollection: ...)`
+    static func gif_34(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_34, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_35", bundle: ..., traitCollection: ...)`
+    static func gif_35(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_35, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_36", bundle: ..., traitCollection: ...)`
+    static func gif_36(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_36, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_37", bundle: ..., traitCollection: ...)`
+    static func gif_37(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_37, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_38", bundle: ..., traitCollection: ...)`
+    static func gif_38(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_38, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_39", bundle: ..., traitCollection: ...)`
+    static func gif_39(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_39, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_4", bundle: ..., traitCollection: ...)`
+    static func gif_4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_4, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_40", bundle: ..., traitCollection: ...)`
+    static func gif_40(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_40, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_5", bundle: ..., traitCollection: ...)`
+    static func gif_5(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_5, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_6", bundle: ..., traitCollection: ...)`
+    static func gif_6(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_6, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_7", bundle: ..., traitCollection: ...)`
+    static func gif_7(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_7, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_8", bundle: ..., traitCollection: ...)`
+    static func gif_8(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_8, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "gif_9", bundle: ..., traitCollection: ...)`
+    static func gif_9(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.gif_9, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_check", bundle: ..., traitCollection: ...)`
@@ -1048,7 +1335,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 179 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 182 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1078,10 +1365,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let tutorial_AddShareAccess = Rswift.StringResource(key: "Tutorial_AddShareAccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: Account related information and help.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let tutorial_Tab3 = Rswift.StringResource(key: "Tutorial_Tab3", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Add A New Tapplock
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1120,6 +1403,10 @@ struct R: Rswift.Validatable {
       static let ensureMessage_Logout = Rswift.StringResource(key: "EnsureMessage_Logout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
       /// 
+      /// Locales: en
+      static let instructionUnlock = Rswift.StringResource(key: "InstructionUnlock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
+      /// 
       /// Locales: en, ja, ko, cs, sk
       static let tutorial_DetailUnlock = Rswift.StringResource(key: "Tutorial_DetailUnlock", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Bluetooth Connected Failed
@@ -1134,6 +1421,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_MorseOverLenth = Rswift.StringResource(key: "ErrorMessage_MorseOverLenth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Click here to see the left hand fingerprint
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let instructionLeftFingerPrint = Rswift.StringResource(key: "InstructionLeftFingerPrint", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Click here to see the right hand fingerprint
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let instructionRightFingerPrint = Rswift.StringResource(key: "InstructionRightFingerPrint", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Confirm delete
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1226,6 +1521,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let goToSetting = Rswift.StringResource(key: "GoToSetting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Here is the menu
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let instructionsMenu = Rswift.StringResource(key: "InstructionsMenu", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: If the enrollment process is complete, the light will appear green.
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1570,6 +1869,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let successMessage_Save = Rswift.StringResource(key: "SuccessMessage_Save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Server error
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let servererror = Rswift.StringResource(key: "Servererror", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Setting
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1662,18 +1965,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let mustUpdateMessage = Rswift.StringResource(key: "MustUpdateMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: This is the access history page.
+      /// en translation: This is the access history page
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static let tutorial_Tab2 = Rswift.StringResource(key: "Tutorial_Tab2", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: This is the homepage, where we are right now.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let tutorial_Tab0 = Rswift.StringResource(key: "Tutorial_Tab0", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: This is where you can share access to others.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static let tutorial_Tab1 = Rswift.StringResource(key: "Tutorial_Tab1", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      static let instructionsHistorylist = Rswift.StringResource(key: "InstructionsHistorylist", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Thumb
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -1766,6 +2061,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: set the time search criteria
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let instructionDateSelct = Rswift.StringResource(key: "InstructionDateSelct", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       
       /// en translation: %@ opened the lock %@
       /// 
@@ -1814,13 +2113,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func tutorial_AddShareAccess(_: Void = ()) -> String {
         return NSLocalizedString("Tutorial_AddShareAccess", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Account related information and help.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func tutorial_Tab3(_: Void = ()) -> String {
-        return NSLocalizedString("Tutorial_Tab3", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Add A New Tapplock
@@ -1888,6 +2180,13 @@ struct R: Rswift.Validatable {
       
       /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
       /// 
+      /// Locales: en
+      static func instructionUnlock(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionUnlock", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: BLUETOOTH UNLOCKING Click here to open the lock while connected via Bluetooth.
+      /// 
       /// Locales: en, ja, ko, cs, sk
       static func tutorial_DetailUnlock(_: Void = ()) -> String {
         return NSLocalizedString("Tutorial_DetailUnlock", bundle: R.hostingBundle, comment: "")
@@ -1912,6 +2211,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func errorMessage_MorseOverLenth(_ value1: Int) -> String {
         return String(format: NSLocalizedString("ErrorMessage_MorseOverLenth", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Click here to see the left hand fingerprint
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func instructionLeftFingerPrint(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionLeftFingerPrint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Click here to see the right hand fingerprint
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func instructionRightFingerPrint(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionRightFingerPrint", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Confirm delete
@@ -2073,6 +2386,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func goToSetting(_: Void = ()) -> String {
         return NSLocalizedString("GoToSetting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Here is the menu
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func instructionsMenu(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionsMenu", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: If the enrollment process is complete, the light will appear green.
@@ -2677,6 +2997,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("SuccessMessage_Save", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Server error
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func servererror(_: Void = ()) -> String {
+        return NSLocalizedString("Servererror", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Setting
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2838,25 +3165,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("MustUpdateMessage", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: This is the access history page.
+      /// en translation: This is the access history page
       /// 
       /// Locales: en, ja, ko, cs, sk
-      static func tutorial_Tab2(_: Void = ()) -> String {
-        return NSLocalizedString("Tutorial_Tab2", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: This is the homepage, where we are right now.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func tutorial_Tab0(_: Void = ()) -> String {
-        return NSLocalizedString("Tutorial_Tab0", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: This is where you can share access to others.
-      /// 
-      /// Locales: en, ja, ko, cs, sk
-      static func tutorial_Tab1(_: Void = ()) -> String {
-        return NSLocalizedString("Tutorial_Tab1", bundle: R.hostingBundle, comment: "")
+      static func instructionsHistorylist(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionsHistorylist", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Thumb
@@ -3018,6 +3331,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func cancel(_: Void = ()) -> String {
         return NSLocalizedString("cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: set the time search criteria
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func instructionDateSelct(_: Void = ()) -> String {
+        return NSLocalizedString("InstructionDateSelct", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

@@ -27,7 +27,7 @@ class AllLocksViewController: BaseViewController {
                 cell.model = model
             }.disposed(by: rx.disposeBag)
         
-        tableView.mj_header  = HeaderRefresh.init { [weak self] in
+        tableView.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }
         
@@ -77,6 +77,7 @@ class AllLocksViewController: BaseViewController {
     @IBAction func searchAction(_ sender: Any) {
         
         self.searchBar?.serchShow()
+        self.hiddenMenu()
         searchBar?.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
         searchBar?.rx_action.asObservable()
             .subscribe(onNext: { [weak self] bl in

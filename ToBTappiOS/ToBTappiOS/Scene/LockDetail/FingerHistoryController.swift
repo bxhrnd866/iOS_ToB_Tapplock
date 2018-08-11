@@ -15,7 +15,7 @@ class FingerHistoryController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.mj_header  = HeaderRefresh.init { [weak self] in
+        tableView.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }
         

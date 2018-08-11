@@ -119,10 +119,7 @@
 "Tutorial_FingerprintHand" = "指紋を追加する\nどの手を選びますか？";
 "Tutorial_FingerprintFinger" = "指紋を追加する\nどの指を選びますか？";
 "Tutorial_FingerprintAddOwner" = "指紋の所有者を追加する\nより多くの名前を追加したいですか？ ここをクリック。";
-"Tutorial_Tab0" = "これは現在のホームページです。";
-"Tutorial_Tab1" = "これは、他のユーザーとのアクセスを共有できる場所です。";
-"Tutorial_Tab2" = "これはアクセス履歴ページです";
-"Tutorial_Tab3" = "アカウント関連の情報とヘルプ。";
+
 "Tutorial_TapplockAdd" = "新しいTapplockを追加\nTapplockを追加するには、ここをクリックしてください。";
 "Tutorial_TapplockLockCell" = "Tapplock詳細\nあなたのTapplockの詳細を見つけるには、ここをクリックしてください。";
 "Tutorial_DetailUnlock" = "Bluetoothによる開錠\nBluetooth経由で接続中にTapplockを開くには、ここをクリックしてください。";
@@ -194,6 +191,10 @@
 "Code400021" = "The lock name already exists";
 "Code400022" = "The authorization has been revoded";
 "Code400023" = "The invitation code has been expired";
+"Servererror" = "Server error";
+
+
+
 
 //ToB 提示
 "Invalidinvitationcode" = "Invalid invitation code";
@@ -209,3 +210,9 @@
 "MenuNotification" = "Notification";
 "MenuSetting" = "Setting";
 "MenuLogout" = "Log out";
+
+"InstructionsMenu" = "Here is the menu";
+"InstructionsHistorylist" = "This is the access history page";
+"InstructionDateSelct" = "set the time search criteria";
+"InstructionLeftFingerPrint" = "Click here to see the left hand fingerprint";
+"InstructionRightFingerPrint" = "Click here to see the right hand fingerprint";

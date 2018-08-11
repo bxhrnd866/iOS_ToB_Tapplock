@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import Instructions
 enum HistoryTab {
     case bluetooth
     case fingerprint
@@ -28,6 +28,7 @@ class ViewHistoryController: UIViewController {
     @IBOutlet weak var underLine: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
  
+    @IBOutlet weak var rightdateBtn: UIBarButtonItem!
     
     var rx_tab = Variable(HistoryTab.bluetooth)
     var rx_refresh = Variable(RefreshTap.none)
@@ -40,7 +41,7 @@ class ViewHistoryController: UIViewController {
     var startLab: String?
     var endLab: String?
     
-    
+     let coachMarksController = CoachMarksController()
     
     
     override func viewDidLoad() {
@@ -75,13 +76,22 @@ class ViewHistoryController: UIViewController {
         }).disposed(by: rx.disposeBag)
         
         
-     
+        let instructionKey = String(describing: type(of: self))
+        let instruction: Bool? = UserDefaults.standard.bool(forKey: instructionKey)
+        if instruction == nil || !instruction! {
+            UserDefaults.standard.set(true, forKey: instructionKey)
+            self.coachMarksController.overlay.color = UIColor.overLayColor
+            self.coachMarksController.overlay.allowTap = true
+            self.coachMarksController.dataSource = self
+            self.coachMarksController.delegate = self
+            self.coachMarksController.start(on: self)
+        }
         
     }
     
     
     @IBAction func searchActionSelect(_ sender: Any) {
-
+        self.hiddenMenu()
         self.performSegue(withIdentifier: R.segue.viewHistoryController.showSearchViewIdentifier, sender: self)
         
     }
@@ -122,12 +132,6 @@ class ViewHistoryController: UIViewController {
         if let vc = R.segue.viewHistoryController.showSearchViewIdentifier(segue: segue) {
             vc.destination.controller = self
             vc.destination.callblock = { [weak self] in
-                self?.startLab = vc.destination.Startlab.text
-                self?.endLab = vc.destination.endLab.text
-                self?.rx_targetName.value = vc.destination.textfield.text
-                self?.rx_beginTime.value = vc.destination.rx_startTime.value
-                self?.rx_endTime.value = vc.destination.rx_endTime.value
-                
                 if self?.rx_tab.value == .bluetooth {
                     self?.rx_refresh.value = RefreshTap.blue
                 } else {
@@ -150,4 +154,35 @@ extension ViewHistoryController: UIScrollViewDelegate {
             self.rx_tab.value = .fingerprint
         }
     }
+}
+//指南实现拓展
+extension ViewHistoryController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        var hintText: String
+        switch index {
+        default:
+            hintText = R.string.localizable.instructionDateSelct()
+        }
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,
+                                                                           arrowOrientation: coachMark.arrowOrientation,
+                                                                           hintText: hintText,
+                                                                           nextText: nil)
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        switch index {
+        
+        default:
+            return coachMarksController.helper.makeCoachMark(for: rightdateBtn.value(forKey: "view") as? UIView)
+        }
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 1
+    }
+    
+    
 }

@@ -60,8 +60,7 @@ extension APIServer: TargetType{
              .checkinviteCodes(_),
              .checkVerifyCode(_, _),
              .chagePassword(_, _):
-            
-        
+    
             return ["Content-type": "application/json", "clientType": "1"]
         case .registerVerifyCode(_, _):
            

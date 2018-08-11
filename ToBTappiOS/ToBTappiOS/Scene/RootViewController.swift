@@ -58,7 +58,6 @@ class RootViewController: UIViewController {
             
             } else {
                 
-                
                 self.performSegue(withIdentifier: R.segue.rootViewController.showLoginSb, sender: self)
             }
         }

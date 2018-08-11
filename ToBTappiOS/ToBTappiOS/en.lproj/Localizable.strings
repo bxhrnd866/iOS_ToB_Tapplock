@@ -116,10 +116,7 @@
 "Tutorial_FingerprintHand" = "ADD FINGERPRINT\nChoose which hand.";
 "Tutorial_FingerprintFinger" = "ADD FINGERPRINT\nChoose which finger.";
 "Tutorial_FingerprintAddOwner" = "ADD FINGERPRINT OWNER\nWant to add more names?\n Click here";
-"Tutorial_Tab0" = "This is the homepage, where we are right now.";
-"Tutorial_Tab1" = "This is where you can share access to others.";
-"Tutorial_Tab2" = "This is the access history page.";
-"Tutorial_Tab3" = "Account related information and help.";
+
 "Tutorial_TapplockAdd" = "ADD A NEW TAPPLOCK\nClick here to add your lock.";
 "Tutorial_TapplockLockCell" = "LOCK DETAILS\nClick here to find more about your lock.";
 "Tutorial_DetailUnlock" = "BLUETOOTH UNLOCKING\nClick here to open the lock while connected via Bluetooth.";
@@ -198,6 +195,7 @@
 "Code400021" = "The lock name already exists";
 "Code400022" = "The authorization has been revoded";
 "Code400023" = "The invitation code has been expired";
+"Servererror" = "Server error";
 
 
 //ToB 提示
@@ -217,7 +215,12 @@
 "MenuLogout" = "Log out";
 
 
-
+"InstructionsMenu" = "Here is the menu";
+"InstructionsHistorylist" = "This is the access history page";
+"InstructionDateSelct" = "set the time search criteria";
+"InstructionUnlock" = "BLUETOOTH UNLOCKING\nClick here to open the lock while connected via Bluetooth.";
+"InstructionLeftFingerPrint" = "Click here to see the left hand fingerprint";
+"InstructionRightFingerPrint" = "Click here to see the right hand fingerprint";
 
 
 

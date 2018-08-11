@@ -75,3 +75,12 @@ class RegisterPasswordController: UIViewController {
     }
 
 }
+extension RegisterPasswordController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string == " " {
+            return false
+        }
+        return true
+    }
+}

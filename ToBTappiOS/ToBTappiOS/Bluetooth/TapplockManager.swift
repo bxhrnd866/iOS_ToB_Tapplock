@@ -49,7 +49,8 @@ final class TapplockManager: NSObject {
     }
 
     public func scan() {
-        manager.stopScan()
+//        manager.stopScan()
+        
         manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE),CBUUID.init(string: DFU_SERVICE)], options: nil)
     }
     
@@ -94,6 +95,12 @@ extension TapplockManager: CBCentralManagerDelegate {
             let mac = hex[4...hex.length - 1].macText
             peripheral.mac = mac
         }
+        
+        
+        peripheral.mac = "00:44:A3:2E:0E:C4"
+        
+        
+        
         
         if peripheral.name  == "TappLock" {
             self.rx_dfuLock.value = peripheral

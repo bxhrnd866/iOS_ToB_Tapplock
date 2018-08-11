@@ -241,6 +241,8 @@
                         <outlet property="bleBtn" destination="xN5-hs-BUX" id="uki-JP-I2O"/>
                         <outlet property="fingerBtn" destination="1e8-zE-Y3y" id="Eh9-W4-ygk"/>
                         <outlet property="groupLab" destination="34k-2T-K0G" id="SNj-c5-UM1"/>
+                        <outlet property="menuBtn" destination="bWP-6V-ZR4" id="3Yd-eP-hfJ"/>
+                        <outlet property="searchBtn" destination="21i-Ls-V6M" id="a7y-wO-sLo"/>
                         <outlet property="tableView" destination="tRs-iE-ybb" id="QkD-cT-0ih"/>
                         <outlet property="underLine" destination="0og-Te-uf7" id="GzQ-S9-0Kl"/>
                         <segue destination="pCW-aX-6E5" kind="show" identifier="showBLELockDetail" id="QlA-9X-iAN"/>

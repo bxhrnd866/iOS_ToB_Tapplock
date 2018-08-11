@@ -30,7 +30,7 @@ class FingerprintHistoryViewController: UIViewController {
             }
         }).disposed(by: rx.disposeBag)
         
-        tableView.mj_header  = HeaderRefresh.init { [weak self] in
+        tableView.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }
         

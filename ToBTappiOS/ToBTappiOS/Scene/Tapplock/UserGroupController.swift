@@ -9,16 +9,37 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PKHUD
 class UserGroupController: UIViewController {
 
     var block: ((GroupsModel)->())?
 
+    let viewModel = UserGroupViewModel()
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        ConfigModel.default.user.value?.rx_groups.asDriver()
+        viewModel.rx_step
+            .asObservable()
+            .subscribe(onNext: { [weak self] step in
+              
+                switch step {
+                case .loading:
+                    HUD.show(.progress)
+                case .sucess:
+                    HUD.hide()
+                case .failed:
+                    HUD.hide()
+                case .errorMessage(let mesg):
+                    HUD.hide()
+                    self?.showToast(message: mesg)
+                default:
+                    break
+                }
+                
+            }).disposed(by: rx.disposeBag)
+        viewModel.rx_data.asDriver()
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.userGroupCellIdenty.identifier, cellType: UserGroupCell.self)) {
                 (indexPath, model, cell) in
                 cell.model = model
@@ -35,6 +56,10 @@ class UserGroupController: UIViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadAPI()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

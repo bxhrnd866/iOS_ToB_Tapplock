@@ -151,6 +151,7 @@
                     <connections>
                         <outlet property="bleBtn" destination="twC-NP-F8h" id="i5W-ar-07Q"/>
                         <outlet property="fingerBtn" destination="a47-ar-Gc9" id="i55-oM-CJv"/>
+                        <outlet property="rightdateBtn" destination="FxZ-so-Czg" id="KNo-FX-hPY"/>
                         <outlet property="scrollView" destination="ctb-Gl-hFp" id="HnU-lK-3Nj"/>
                         <outlet property="underLine" destination="JMX-RR-2fB" id="9HZ-k2-NLm"/>
                         <segue destination="oS2-Ny-4PU" kind="presentation" identifier="showSearchViewIdentifier" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Ezt-bb-PWd"/>
@@ -427,7 +428,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-RK-h29">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzC-03-xWa">
+                                        <rect key="frame" x="0.0" y="235" width="375" height="489"/>
+                                        <connections>
+                                            <action selector="bgBtnAction:" destination="oS2-Ny-4PU" eventType="touchUpInside" id="Bq3-eF-fUy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.27000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zzC-03-xWa" firstAttribute="leading" secondItem="MnY-RK-h29" secondAttribute="leading" id="6le-WN-R3k"/>
+                                    <constraint firstAttribute="trailing" secondItem="zzC-03-xWa" secondAttribute="trailing" id="cj5-Gh-uzf"/>
+                                    <constraint firstAttribute="bottom" secondItem="zzC-03-xWa" secondAttribute="bottom" id="q0g-e5-EQF"/>
+                                    <constraint firstItem="zzC-03-xWa" firstAttribute="top" secondItem="MnY-RK-h29" secondAttribute="top" constant="235" id="xx0-tl-N0u"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-SZ-NhY">
                                 <rect key="frame" x="0.0" y="88" width="375" height="230"/>
@@ -709,6 +724,15 @@
                                     <action selector="dismissAction:" destination="oS2-Ny-4PU" eventType="touchUpInside" id="rad-6B-hCS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0L-M3-DWK">
+                                <rect key="frame" x="0.0" y="44" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6xZ-ob-Xs2"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="dismissAction:" destination="oS2-Ny-4PU" eventType="touchUpInside" id="MWI-c2-q2f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -718,10 +742,13 @@
                             <constraint firstItem="pfv-BL-Tue" firstAttribute="trailing" secondItem="kc6-kl-73w" secondAttribute="trailing" id="8LS-cb-Fj6"/>
                             <constraint firstItem="MnY-RK-h29" firstAttribute="top" secondItem="pfv-BL-Tue" secondAttribute="top" constant="44" id="8zQ-TT-I2W"/>
                             <constraint firstItem="pfv-BL-Tue" firstAttribute="trailing" secondItem="yRZ-JK-pvB" secondAttribute="trailing" id="AG6-Bn-eY4"/>
+                            <constraint firstItem="MnY-RK-h29" firstAttribute="top" secondItem="t0L-M3-DWK" secondAttribute="bottom" id="J1X-wb-RVE"/>
                             <constraint firstItem="MnY-RK-h29" firstAttribute="leading" secondItem="pfv-BL-Tue" secondAttribute="leading" id="PSZ-zC-33R"/>
                             <constraint firstItem="zDO-SZ-NhY" firstAttribute="leading" secondItem="0hs-d9-Awn" secondAttribute="leading" id="ZrJ-su-5xX"/>
                             <constraint firstItem="yRZ-JK-pvB" firstAttribute="top" secondItem="pfv-BL-Tue" secondAttribute="top" id="aTf-dT-bb1"/>
                             <constraint firstItem="zDO-SZ-NhY" firstAttribute="top" secondItem="pfv-BL-Tue" secondAttribute="top" constant="44" id="beh-UW-SEL"/>
+                            <constraint firstItem="t0L-M3-DWK" firstAttribute="leading" secondItem="pfv-BL-Tue" secondAttribute="leading" id="gCs-7x-Fa9"/>
+                            <constraint firstItem="t0L-M3-DWK" firstAttribute="top" secondItem="pfv-BL-Tue" secondAttribute="top" id="laC-vP-ywe"/>
                             <constraint firstAttribute="bottom" secondItem="kc6-kl-73w" secondAttribute="bottom" id="vEd-wZ-odO"/>
                             <constraint firstItem="kc6-kl-73w" firstAttribute="leading" secondItem="pfv-BL-Tue" secondAttribute="leading" id="wCy-Id-lnw"/>
                             <constraint firstAttribute="trailing" secondItem="zDO-SZ-NhY" secondAttribute="trailing" id="zbF-ci-mS0"/>

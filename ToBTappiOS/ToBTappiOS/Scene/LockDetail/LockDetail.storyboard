@@ -233,7 +233,7 @@
                                     <segue destination="k45-O5-wVg" kind="show" identifier="lockBluetoothHistory" id="XNg-Lv-5j8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNA-aR-Q4k">
                                 <rect key="frame" x="20" y="416" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -249,9 +249,6 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="firmwareUpdateAction:" destination="U3T-wn-dSJ" eventType="touchUpInside" id="N7G-Ju-QqR"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -284,10 +281,13 @@
                         <outlet property="batteryImg" destination="cU6-S8-GrJ" id="nab-tS-Kvq"/>
                         <outlet property="battyLab" destination="eUK-7i-iQl" id="3dh-5S-bcB"/>
                         <outlet property="bgview" destination="LbA-p7-3ew" id="C9l-8C-Phb"/>
+                        <outlet property="firmwareUpdate" destination="GNA-aR-Q4k" id="hxG-Ws-KH3"/>
                         <outlet property="groupLab" destination="RsG-v8-hig" id="UHs-EE-PRH"/>
+                        <outlet property="historyBtn" destination="qdx-Gk-LGI" id="rOn-QL-rLU"/>
                         <outlet property="lockName" destination="Io6-da-94e" id="Xtb-QO-qhw"/>
                         <outlet property="lockStatus" destination="E3H-Vm-c3K" id="LLH-gM-drn"/>
                         <outlet property="navitItle" destination="Qz4-Eb-bXi" id="e9I-VH-NhT"/>
+                        <outlet property="unlock" destination="CjL-Xb-pfU" id="u8z-Vx-WBa"/>
                         <segue destination="ZoE-VO-N4W" kind="show" identifier="showUpdateDFU" id="3de-vL-Qhv"/>
                     </connections>
                 </viewController>
@@ -455,6 +455,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="dateBtn" destination="Wu8-gu-Niq" id="cs5-ca-RfT"/>
                         <outlet property="tableview" destination="Iz6-b7-5we" id="Utb-2T-9Sx"/>
                     </connections>
                 </viewController>

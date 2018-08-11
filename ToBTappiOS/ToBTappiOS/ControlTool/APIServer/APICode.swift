@@ -96,7 +96,7 @@ struct APICode {
             return R.string.localizable.code400023()
             
         default:
-            return "Server error"
+            return R.string.localizable.servererror()
         }
         
     }

@@ -328,6 +328,7 @@
                         <outlet property="bgview" destination="4d4-eP-WSv" id="YaG-Fi-VrU"/>
                         <outlet property="collectView" destination="HZH-VA-et0" id="Q8T-Mi-zpi"/>
                         <outlet property="groupName" destination="2D7-O1-fwk" id="3ij-l9-15k"/>
+                        <outlet property="historyBtn" destination="2at-Cj-cQh" id="fyv-L5-OMn"/>
                         <outlet property="leftBtn" destination="brH-uL-c91" id="9AT-41-HL1"/>
                         <outlet property="lockBattyImg" destination="Vo4-ZR-Hr6" id="nyM-aE-rQF"/>
                         <outlet property="lockBattylab" destination="ZvQ-Qy-Y3I" id="wfP-dz-KGd"/>

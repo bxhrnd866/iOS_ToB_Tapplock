@@ -15,6 +15,9 @@ class MenuView: UIView {
     let timeInterval = 0.35
     
     var rx_SelectIndex: Variable<Int> = Variable(1)
+    
+    var rx_logout: Variable<Bool> = Variable(false)
+    
 
     private var headerImg: UIImageView!
     private var namelab: UILabel!
@@ -94,6 +97,9 @@ class MenuView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    deinit {
+        plog("menu销毁了")
+    }
     
 }
 
@@ -117,6 +123,13 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == viewModel.rx_list.value.count - 1 {
+            self.rx_logout.value = true
+            self.hiddenMenuView()
+            return
+        }
+
        
         if rx_SelectIndex.value != indexPath.row {
             
@@ -131,4 +144,6 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
         }
 
     }
+    
+   
 }

@@ -9,21 +9,24 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Instructions
 class BlueHistoryController: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
     
     var data = Variable(["22","333","22","333","22","333","22","333","22","333"])
     
-    let viewModel = LockHistoryViewModel(type: 1)
+    @IBOutlet weak var dateBtn: UIBarButtonItem!
     
+    let viewModel = LockHistoryViewModel(type: 1)
+     let coachMarksController = CoachMarksController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
         
-        tableview.mj_header  = HeaderRefresh.init { [weak self] in
+        tableview.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }
         
@@ -59,7 +62,19 @@ class BlueHistoryController: UIViewController {
             }).disposed(by: rx.disposeBag)
         
         
-        self.viewModel.loadAPI()
+        let instructionKey = String(describing: type(of: self))
+        let instruction: Bool? = UserDefaults.standard.bool(forKey: instructionKey)
+        if instruction == nil || !instruction! {
+            UserDefaults.standard.set(true, forKey: instructionKey)
+            self.coachMarksController.overlay.color = UIColor.overLayColor
+            self.coachMarksController.overlay.allowTap = true
+            self.coachMarksController.dataSource = self
+            self.coachMarksController.delegate = self
+            self.coachMarksController.start(on: self)
+        } else {
+            self.viewModel.loadAPI()
+        }
+       
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -142,6 +157,36 @@ extension BlueHistoryController: UITableViewDelegate, UITableViewDataSource  {
     }
     
 }
-
+//指南实现拓展
+extension BlueHistoryController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        var hintText: String
+        switch index {
+        default:
+            hintText = R.string.localizable.instructionDateSelct()
+        }
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,
+                                                                           arrowOrientation: coachMark.arrowOrientation,
+                                                                           hintText: hintText,
+                                                                           nextText: nil)
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        switch index {
+        
+        default:
+            return coachMarksController.helper.makeCoachMark(for: dateBtn.value(forKey: "view") as? UIView)
+        }
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 1
+    }
+    
+    
+}
 
 

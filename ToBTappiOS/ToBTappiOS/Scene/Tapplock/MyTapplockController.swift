@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PKHUD
+import Instructions
 class MyTapplockController: BaseViewController {
     
     @IBOutlet weak var bleBtn: UIButton!
@@ -22,6 +23,11 @@ class MyTapplockController: BaseViewController {
     
     @IBOutlet weak var groupLab: UILabel!
     
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
+    @IBOutlet weak var searchBtn: UIBarButtonItem!
+    
+    let coachMarksController = CoachMarksController()
     
     let viewModel = TapplockViewModel()
     
@@ -86,7 +92,7 @@ class MyTapplockController: BaseViewController {
         }).disposed(by: rx.disposeBag)
         
 
-        tableView.mj_header  = HeaderRefresh.init { [weak self] in
+        tableView.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }
 
@@ -118,13 +124,28 @@ class MyTapplockController: BaseViewController {
                 }
             }).disposed(by: rx.disposeBag)
         
-        self.viewModel.loadAPI()
+        
+        
+        let instructionKey = String(describing: type(of: self))
+        let instruction: Bool? = UserDefaults.standard.bool(forKey: instructionKey)
+        if instruction == nil || !instruction! {
+            UserDefaults.standard.set(true, forKey: instructionKey)
+            self.coachMarksController.overlay.color = UIColor.overLayColor
+            self.coachMarksController.overlay.allowTap = true
+            self.coachMarksController.dataSource = self
+            self.coachMarksController.delegate = self
+            self.coachMarksController.start(on: self)
+        } else {
+            self.viewModel.loadAPI()
+        }
         
     }
     
     @IBAction func rightSearchAction(_ sender: Any) {
         
         self.searchBar?.serchShow()
+        self.hiddenMenu()
+        
         searchBar?.rx_text.asDriver().drive(viewModel.rx_lockName).disposed(by: rx.disposeBag)
         searchBar?.rx_action.asObservable()
             .subscribe(onNext: { [weak self] bl in
@@ -175,6 +196,60 @@ class MyTapplockController: BaseViewController {
         }
         
     }
- 
+   
+}
 
+
+//指南实现拓展
+extension MyTapplockController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              didHide coachMark: CoachMark,
+                              at index: Int){
+        if index == 4 {
+            //本页指南完成后,加载所列表.
+            self.viewModel.loadAPI()
+        }
+    }
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        var hintText: String
+        switch index {
+        case 0:
+            hintText = R.string.localizable.instructionsMenu()
+        case 1:
+            hintText = R.string.localizable.instructionsMenu()
+        case 2:
+            hintText = R.string.localizable.instructionsMenu()
+        case 3:
+            hintText = R.string.localizable.instructionsMenu()
+        default:
+            hintText = R.string.localizable.instructionsMenu()
+        }
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,
+                                                                           arrowOrientation: coachMark.arrowOrientation,
+                                                                           hintText: hintText,
+                                                                           nextText: nil)
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        switch index {
+        case 0:
+            return coachMarksController.helper.makeCoachMark(for: menuBtn.value(forKey: "view") as? UIView)
+        case 1:
+            return coachMarksController.helper.makeCoachMark(for: searchBtn.value(forKey: "view") as? UIView)
+        case 2:
+            return coachMarksController.helper.makeCoachMark(for: bleBtn)
+        case 3:
+            return coachMarksController.helper.makeCoachMark(for: fingerBtn)
+        default:
+            return coachMarksController.helper.makeCoachMark(for: groupLab)
+        }
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 5
+    }
+    
+    
 }

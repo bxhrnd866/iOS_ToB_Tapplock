@@ -22,12 +22,20 @@ extension PeripheralModel {
                  
                     self?.key1 = data.key1!
                     self?.serialNo = data.serialNo!
-                    self?.secretKey = data.authKey!.hexadecimal()
+
+                    self?.id = data.id
+                    self?.morseStatus = data.morseStatus
+                    self?.lockStatus = data.lockStatus
                     
-                    let hex = self?.encrpted(data: numer.hexadecimal()).hexadecimal()
-                    if let new = hex {
-                        self?.sendVerifyRandom(numer: new[0...23])
-                    }
+                    
+//                    self?.secretKey = data.authKey!.hexadecimal()
+                    
+//                    let hex = self?.encrpted(data: numer.hexadecimal()).hexadecimal()
+//                    if let new = hex {
+//                        self?.sendVerifyRandom(numer: new[0...23])
+//                    }
+                    
+                    self?.sendPairingCommand()
                 } else {
                     plog(response.codeMessage)
                 }

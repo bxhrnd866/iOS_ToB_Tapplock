@@ -56,6 +56,9 @@
                                         <color key="value" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="Rgn-GX-mbX" id="Iim-Oe-xM2"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXs-ye-4ep">
                                 <rect key="frame" x="20" y="240" width="335" height="1"/>
@@ -338,6 +341,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UOT-xn-x9w" id="jLH-1Y-7um"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOJ-Vl-0CX" customClass="normalGradientBtn" customModule="ToBTappiOS" customModuleProvider="target">
                                 <rect key="frame" x="30" y="296" width="315" height="48"/>
@@ -425,6 +431,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5QY-m0-xiO" id="xFc-97-vRG"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sy1-Nu-wqk">
                                 <rect key="frame" x="25" y="239" width="325" height="1"/>
@@ -457,6 +466,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5QY-m0-xiO" id="4V8-BL-kV4"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tw-H1-wiY">
                                 <rect key="frame" x="25" y="272" width="208" height="28"/>
@@ -591,6 +603,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="voA-LN-Yxr" id="k6f-bi-6MS"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nb-c7-OQ5">
                                                 <rect key="frame" x="30" y="264" width="314" height="1"/>
@@ -616,6 +631,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="voA-LN-Yxr" id="gGX-RF-ZY4"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hO3-iM-jdR">
                                                 <rect key="frame" x="30" y="385" width="314" height="1"/>
@@ -641,6 +659,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="voA-LN-Yxr" id="ndG-H8-YJu"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjG-B7-HnV">
                                                 <rect key="frame" x="30" y="506" width="314" height="1"/>

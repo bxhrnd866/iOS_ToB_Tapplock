@@ -12,10 +12,33 @@ import RxSwift
 
 class NotificationViewModel: NSObject {
     
-    var rx_data: Variable<[String]> = Variable(["fa","gg","gasgdasg","asgasgsg","hhhh","koiji","gagagga"])
+    var rx_data: Variable<[NoficationModel]> = Variable([NoficationModel]())
+    
+    var rx_refresh: Variable<Bool> = Variable(false)
     
     override init() {
        
+        super.init()
+        let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
+        let array = usermanger?.object(forKey: "NotificationContent") as? [[String: String]]
+        
+        if array != nil {
+            let _ = array!.map {
+            
+                let model = NoficationModel()
+                
+                model.title = $0["title"]
+                model.body = $0["body"]
+                
+                rx_data.value.append(model)
+            }
+            self.rx_refresh.value = true
+            
+        }
+        
+        
     }
     
 }
+
+

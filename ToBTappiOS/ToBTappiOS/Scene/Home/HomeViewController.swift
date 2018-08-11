@@ -64,14 +64,11 @@ class HomeViewController: BaseViewController {
 
         }).disposed(by: rx.disposeBag)
         
-        
-        
-        let us = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
-        
-        let dict = us?.object(forKey: "cuncudict") as? [String: Any]
-        let x = us?.object(forKey: "model") as? String
-        plog("----> \(dict)-------\(x)")
-        
+        delegate.menuView!.rx_logout.asDriver().drive(onNext: { [weak self] bl in
+            if bl {
+                self?.logOut()
+            }
+        }).disposed(by: rx.disposeBag)
     }
 
     
@@ -91,7 +88,6 @@ class HomeViewController: BaseViewController {
                                         ConfigModel.default.user.value = nil
                                         let delegate = UIApplication.shared.delegate as! AppDelegate
                                         delegate.removeMenuView()
-                                        
                                         self.dismiss(animated: true)
         })
         alertController.addAction(okAction)
@@ -123,6 +119,11 @@ class HomeViewController: BaseViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ConfigModel.default.deleteToken()
+    }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

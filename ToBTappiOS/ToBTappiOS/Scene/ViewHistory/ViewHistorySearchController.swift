@@ -9,6 +9,8 @@
 import UIKit
 import RxCocoa
 import RxSwift
+
+
 class ViewHistorySearchController: UIViewController {
 
     @IBOutlet weak var bgView: UIView!
@@ -39,7 +41,8 @@ class ViewHistorySearchController: UIViewController {
     
     weak var controller: ViewHistoryController?
     
-  
+   
+    
     var rx_startTime: Variable<Int?> = Variable(nil)
     var rx_endTime: Variable<Int?> = Variable(nil)
 
@@ -55,7 +58,7 @@ class ViewHistorySearchController: UIViewController {
         self.textfield.tintColor = UIColor.themeColor
         
         self.textfield.text = controller?.rx_targetName.value
-        
+
         self.rx_endTime.value = controller?.rx_endTime.value
         self.rx_startTime.value = controller?.rx_beginTime.value
         self.Startlab.text = controller?.startLab
@@ -80,6 +83,14 @@ class ViewHistorySearchController: UIViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.textfield.resignFirstResponder()
                 if (self?.canSave())! {
+                    self?.controller?.startLab = self?.Startlab.text
+                    self?.controller?.endLab = self?.endLab.text
+                    self?.controller?.rx_targetName.value = self?.textfield.text
+                    self?.controller?.rx_beginTime.value = self?.rx_startTime.value
+                    self?.controller?.rx_endTime.value = self?.rx_endTime.value
+    
+                    
+                    
                     self?.dismiss(animated: true, completion: nil)
                     if self?.callblock != nil {
                         self?.callblock!()
@@ -132,19 +143,16 @@ class ViewHistorySearchController: UIViewController {
                 self?.dateBtn.setTitleColor(UIColor.black, for: .normal)
                 
         }).disposed(by: rx.disposeBag)
+ 
         
-        
-        
+       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    @IBAction func bgBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-
     @IBAction func cancelBtnSelect(_ sender: Any) {
         showDate(show: false)
     }
@@ -153,11 +161,11 @@ class ViewHistorySearchController: UIViewController {
         
         switch self.rx_date.value {
         case .date:
-            
+
             let da = self.datepicker.date
             let time = da.string(custom: "yyyy-MM-dd")
             let stamp = (time + " 00:00:00").timeStamp
-            
+
             switch self.rx_type.value {
             case .start:
                 self.Startlab.text = time
@@ -166,9 +174,9 @@ class ViewHistorySearchController: UIViewController {
                 self.endLab.text = time
                 self.rx_endTime.value = stamp
             }
-            
+
         case .time:
-            
+
             let da = self.timepicker.date
             let time = da.string(custom: "yyyy-MM-dd HH:mm")
             switch self.rx_type.value {
@@ -180,8 +188,8 @@ class ViewHistorySearchController: UIViewController {
                 self.rx_endTime.value = Int(da.timeIntervalSince1970)
             }
         }
-        
-    
+
+
         showDate(show: false)
     }
     
@@ -211,6 +219,9 @@ class ViewHistorySearchController: UIViewController {
         return true
     }
     
+    deinit {
+        plog("search 销毁了")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

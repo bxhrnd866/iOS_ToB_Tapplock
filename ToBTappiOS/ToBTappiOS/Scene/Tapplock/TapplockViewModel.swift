@@ -59,14 +59,13 @@ class TapplockViewModel: NSObject {
     }
     
     func loadAPI() {
-        
-        plog(ConfigModel.default.user.value?.groupIds)
-        
+                
         provider.rx.request(APIServer.lockList(userId: ConfigModel.default.user.value?.id ?? 9001,lockName: rx_lockName.value, groupIds: rx_groupId.value != nil ? String(self.rx_groupId.value ?? -1) : ConfigModel.default.user.value?.groupIds, authType: rx_authType.value, page: page, size: 20))
             .mapObject(APIResponse<ListModel<TapplockModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
                 
                 if response.success {
+                    ConfigModel.default.setpushToken()
                     self?.rx_step.value = .sucess
                     if let list = response.data?.list {
                         

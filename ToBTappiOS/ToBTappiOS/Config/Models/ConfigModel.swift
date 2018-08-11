@@ -22,22 +22,22 @@ class ConfigModel: NSObject {
     var locaiton:  AddressModel? // 定位
     
     //Set推送Token
-    func setpushToken() {
-     
-        if (pushToken != nil && user.value != nil) {
-            provider.rx.request(APIServer.userUpdate(fcmDeviceToken: pushToken,
-                                                     firstName: nil,
-                                                     groupIds: nil,
-                                                     lastName: nil,
-                                                     permissionIds: nil,
-                                                     phone: nil,
-                                                     photoUrl: nil,
-                                                     sex: nil))
-                .mapObject(APIResponse<UserModel>.self).subscribe(onSuccess: { _ in
-                    
-                }).disposed(by: rx.disposeBag)
-            
-        }
+    func setpushToken(){
+        plog("更新token")
+        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: pushToken,
+                                                 firstName: nil,
+                                                 groupIds: nil,
+                                                 lastName: nil,
+                                                 permissionIds: nil,
+                                                 phone: nil,
+                                                 photoUrl: nil,
+                                                 sex: nil)).subscribe(onSuccess: { [weak self] response in
+                                                    if response.statusCode == 200 {
+                                                        self?.pushToken = nil
+                                                    }
+                                                    
+                                                 }).disposed(by: rx.disposeBag)
+        
     }
     
     func refreshToken() {
@@ -46,19 +46,15 @@ class ConfigModel: NSObject {
             
             provider.rx.request(APIServer.oauthToken(grant_type: "refresh_token", refresh_token: refresh, access_token: nil))
                 .mapObject(BasicTokenModel.self)
-                .subscribe(onSuccess: { response in
+                .subscribe(onSuccess: { [weak self] response in
                     if response.error == nil {
                         UserDefaults.standard.set(response.access_token, forKey: key_basicToken)
                         UserDefaults.standard.set(response.refresh_token, forKey: key_refreshToken)
                         plog("设置成功")
+                       
                     } else {
                         plog("失败 继续调用")
                         
-                        ConfigModel.default.user.value = nil
-                        let delegate = UIApplication.shared.delegate as! AppDelegate
-                        delegate.removeMenuView()
-                        let vc =  delegate.window?.rootViewController?.presentedViewController
-                        vc?.dismiss(animated: true)
                     }
                 }).disposed(by: rx.disposeBag)
         }
@@ -66,20 +62,35 @@ class ConfigModel: NSObject {
     
     
     func deleteToken() {
-        if ConfigModel.default.user.value != nil {
-            
-            let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
-            provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
-                .mapObject(BasicTokenModel.self)
-                .subscribe(onSuccess: { response in
-                    ConfigModel.default.user.value = nil
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    delegate.removeMenuView()
-                    let vc =  delegate.window?.rootViewController?.presentedViewController
-                    vc?.dismiss(animated: true)
-                }).disposed(by: rx.disposeBag)
-            
+        
+        let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
+        let type = usermanger?.object(forKey: "NotificationType") as? String
+        if type == nil {
+            return
         }
+    
+        let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
+        provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
+            .mapObject(APIResponse<EmptyModel>.self)
+            .subscribe(onSuccess: { response in
+            
+                if response.success {
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    ConfigModel.default.user.value = nil
+                    DispatchQueue.main.async(execute: {
+                        delegate.removeMenuView()
+                        if let presnt = delegate.window?.rootViewController?.presentedViewController {
+                            presnt.dismiss(animated: false) {
+                                if let pt = delegate.window?.rootViewController?.presentedViewController {
+                                    pt.dismiss(animated: false, completion: nil)
+                                }
+                            }
+                        }
+                    })
+                }
+                
+            }).disposed(by: rx.disposeBag)
+  
     }
     
     
@@ -97,28 +108,37 @@ class ConfigModel: NSObject {
 
         
         //设置用户
-        let userStr: String? = UserDefaults.standard.value(forKey: user_saveKey) as? String
+        
+        let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
+        let userStr: String? = usermanger?.value(forKey: "user_saveKey") as? String
         if userStr != nil {
             if let user = UserModel(JSONString: userStr!) {
-
                 self.user.value = user
             }
         }
+
+        
         user.asObservable().subscribe(onNext: { [weak self] model in
-            
+            let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
             guard let md = model else {
-                UserDefaults.standard.removeObject(forKey: user_saveKey)
+                usermanger?.removeObject(forKey: "user_saveKey")
+                usermanger?.removeObject(forKey: "NotificationType")
                 TapplockManager.default.reset()
                 return
             }
+            
             if self?.pushToken != nil {
                 self?.setpushToken()
             }
             
-            UserDefaults.standard.set(md.toJSONString(), forKey: user_saveKey)
+            usermanger?.set(md.toJSONString(), forKey: "user_saveKey")
             
         }).disposed(by: rx.disposeBag)
     }
+    
+    
+    
+  
 }
 
 

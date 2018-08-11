@@ -16,21 +16,19 @@
     self.lastUpdatedTimeLabel.hidden = YES;
     self.stateLabel.hidden = YES;
     
-    UIImage *delimg = [UIImage imageNamed:@"1_00025"];
+    UIImage *delimg = [UIImage imageNamed:@"gif_17"];
     NSArray *delarr = @[delimg];
     
     NSMutableArray *data = [NSMutableArray array];
     
 
-    for (int i = 0; i < 50; i ++) {
-        NSString *name = [NSString stringWithFormat:@"1_000%d",i];
-        NSString *path = [[NSBundle mainBundle] pathForResource: name ofType:@"png"];
-        UIImage *image = [UIImage imageWithContentsOfFile:path];
-        [data addObject:image];
+    for (int i = 0; i < 41; i ++) {
+        NSString *name = [NSString stringWithFormat:@"gif_%d",i];
+        UIImage *img = [UIImage imageNamed: [NSString stringWithFormat:@"%@.png",name]];
+        [data addObject:img];
     }
     
     [self setImages:delarr forState:MJRefreshStateIdle];
-    [self setImages:data forState:MJRefreshStatePulling];
     [self setImages:data forState:MJRefreshStateRefreshing];
     [self setImages:delarr forState:MJRefreshStateWillRefresh];
     

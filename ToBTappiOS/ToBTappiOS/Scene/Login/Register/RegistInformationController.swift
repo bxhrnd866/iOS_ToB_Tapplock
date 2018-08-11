@@ -96,8 +96,8 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imagePicker = R.segue.registInformationController.showImagePickerIdentifier(segue: segue) {
-//            imagePicker.destination.topViewController = self
-//            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
+            imagePicker.destination.topViewController = self
+            imagePicker.destination.uploader = RegisterUserImageUploader.init(callback: viewModel.setImageURL)
         }
         
         if let sexvc = R.segue.registInformationController.showSexSelect(segue: segue) {
@@ -125,4 +125,13 @@ class RegistInformationController: UIViewController, UIPopoverPresentationContro
         plog("销毁了")
     }
    
+}
+extension RegistInformationController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    
+        if string == " " {
+            return false
+        }
+        return true
+    }
 }

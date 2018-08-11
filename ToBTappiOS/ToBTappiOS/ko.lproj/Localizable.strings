@@ -116,10 +116,7 @@
 "Tutorial_FingerprintHand" = "지문추가\n사용할손선택";
 "Tutorial_FingerprintFinger" = "지문추가\n사용할손가락선택";
 "Tutorial_FingerprintAddOwner" = "지문사용자추가\n이름을더추가하시겠습니까?여기를클릭하십시오.";
-"Tutorial_Tab0" = "이것은자사의홈페이지입니다.";
-"Tutorial_Tab1" = "여기에서다른사람들과공유할수있습니다.";
-"Tutorial_Tab2" = "이것은잠금권한과거이력조회하는페이지입니다.";
-"Tutorial_Tab3" = "계정관련정보및도움말.";
+
 "Tutorial_TapplockAdd" = "새로운Tapplock을추가하기\n잠금장치를추가하려면여기를클릭하십시오.";
 "Tutorial_TapplockLockCell" = "잠금장치세부정보\n더많은잠금장치를여기서찾아보십시오.";
 "Tutorial_DetailUnlock" = "블루투스잠금해제\n블루투스가연결되어있는동안잠금장치를열려면여기를클릭하십시오.";
@@ -192,6 +189,10 @@
 "Code400021" = "The lock name already exists";
 "Code400022" = "The authorization has been revoded";
 "Code400023" = "The invitation code has been expired";
+"Servererror" = "Server error";
+
+
+
 
 //ToB 提示
 "Invalidinvitationcode" = "Invalid invitation code";
@@ -208,3 +209,10 @@
 "MenuNotification" = "Notification";
 "MenuSetting" = "Setting";
 "MenuLogout" = "Log out";
+
+
+"InstructionsMenu" = "Here is the menu";
+"InstructionsHistorylist" = "This is the access history page";
+"InstructionDateSelct" = "set the time search criteria";
+"InstructionLeftFingerPrint" = "Click here to see the left hand fingerprint";
+"InstructionRightFingerPrint" = "Click here to see the right hand fingerprint";

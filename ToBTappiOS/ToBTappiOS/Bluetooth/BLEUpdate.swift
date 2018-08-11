@@ -81,9 +81,12 @@ class BLEUpdate: NSObject {
     
     // 更新指纹
     func startEnrrol() {
-        let finger = uploadFinger[0].templateData?.inserting(separator: ",", every: 8)
-        let source = finger!.components(separatedBy: ",")
-        self.updateFingerprint(fingers: source)
+//        let finger = uploadFinger[0].templateData?.inserting(separator: ",", every: 8)
+//        if finger != nil {
+//            let source = finger!.components(separatedBy: ",")
+//            self.updateFingerprint(fingers: source)
+//        }
+        
     }
     
     

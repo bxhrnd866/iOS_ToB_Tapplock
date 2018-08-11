@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import PKHUD
+import Instructions
 class FingerLockDetailController: UIViewController {
 
     @IBOutlet weak var collectView: UICollectionView!
@@ -30,7 +31,9 @@ class FingerLockDetailController: UIViewController {
     @IBOutlet weak var rightBtn: UIButton!
     
     let viewModel = FingerDetailViewModel()
+    let coachMarksController = CoachMarksController()
     
+    @IBOutlet weak var historyBtn: HistoryGradientBtn!
     @IBOutlet weak var underLine: UIView!
     var handType: Bool = false
     
@@ -93,7 +96,7 @@ class FingerLockDetailController: UIViewController {
                     HUD.show(.progress)
                 case .sucess:
                     HUD.hide()
-   
+                    self?.viewModel.dataSource.value = (self?.viewModel.leftSource)!
                     self?.collectView.reloadData()
                 case .errorMessage(let mesg):
                     HUD.hide()
@@ -127,6 +130,17 @@ class FingerLockDetailController: UIViewController {
                 self?.collectView.reloadData()
         }).disposed(by: rx.disposeBag)
         
+        
+        let instructionKey = String(describing: type(of: self))
+        let instruction: Bool? = UserDefaults.standard.bool(forKey: instructionKey)
+        if instruction == nil || !instruction! {
+            UserDefaults.standard.set(true, forKey: instructionKey)
+            self.coachMarksController.overlay.color = UIColor.overLayColor
+            self.coachMarksController.overlay.allowTap = true
+            self.coachMarksController.dataSource = self
+            self.coachMarksController.delegate = self
+            self.coachMarksController.start(on: self)
+        }
     }
 
     
@@ -168,4 +182,42 @@ extension FingerLockDetailController: UICollectionViewDataSource, UICollectionVi
         cell.tagLab.text = model.finger.text
         return cell
     }
+}
+//指南实现拓展
+extension FingerLockDetailController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        var hintText: String
+        switch index {
+        case 0:
+            hintText = R.string.localizable.instructionLeftFingerPrint()
+        case 1:
+            hintText = R.string.localizable.instructionRightFingerPrint()
+        default:
+            hintText = R.string.localizable.instructionsHistorylist()
+        }
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,
+                                                                           arrowOrientation: coachMark.arrowOrientation,
+                                                                           hintText: hintText,
+                                                                           nextText: nil)
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        switch index {
+        case 0:
+            return coachMarksController.helper.makeCoachMark(for: leftBtn)
+        case 1:
+            return coachMarksController.helper.makeCoachMark(for: rightBtn)
+        default:
+            return coachMarksController.helper.makeCoachMark(for: historyBtn)
+        }
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 3
+    }
+    
+    
 }

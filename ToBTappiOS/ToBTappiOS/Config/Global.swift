@@ -67,7 +67,6 @@ let notificaitonName_postDFUUpate = "notificaitonName_postDFUUpate"
 
 let language_model_key = "language_model_key"
 
-let user_saveKey = "user_saveKey"
 
 
 

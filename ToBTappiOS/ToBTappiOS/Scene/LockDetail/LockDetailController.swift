@@ -8,6 +8,8 @@
 
 import UIKit
 import PKHUD
+import Instructions
+
 class LockDetailController: UIViewController {
 
     
@@ -25,7 +27,13 @@ class LockDetailController: UIViewController {
     
     @IBOutlet weak var batteryImg: UIImageView!
     
+    @IBOutlet weak var unlock: unlockGradientBtn!
+    
+    @IBOutlet weak var historyBtn: HistoryGradientBtn!
+    
+    @IBOutlet weak var firmwareUpdate: UIButton!
     let viewModel = BlueDetailViewModel.init()
+    let coachMarksController = CoachMarksController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +112,44 @@ class LockDetailController: UIViewController {
         
         viewModel.hardVersionUpdate()
         
+        if let permissions = ConfigModel.default.user.value?.permissions {
+            
+            for model in permissions {
+                if model.permissionCode == "303" {
+                    self.firmwareUpdate.isHidden = false
+                    break
+                }
+            }
+        }
+        
+        
+       
+        self.firmwareUpdate.rx.tap.subscribe({ [weak self] _ in
+            self?.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+        }).disposed(by: rx.disposeBag)
+        
+        
+        
+        viewModel.rx_update.asDriver().drive(onNext: { [weak self] bl in
+            
+            if bl {
+                self?.firmwareUpdate.backgroundColor = UIColor.themeColor
+            } else {
+                self?.firmwareUpdate.backgroundColor = UIColor("#F1F1F1")
+            }
+        }).disposed(by: rx.disposeBag)
+
+        
+        let instructionKey = String(describing: type(of: self))
+        let instruction: Bool? = UserDefaults.standard.bool(forKey: instructionKey)
+        if instruction == nil || !instruction! {
+            UserDefaults.standard.set(true, forKey: instructionKey)
+            self.coachMarksController.overlay.color = UIColor.overLayColor
+            self.coachMarksController.overlay.allowTap = true
+            self.coachMarksController.dataSource = self
+            self.coachMarksController.delegate = self
+            self.coachMarksController.start(on: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,6 +160,9 @@ class LockDetailController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        viewModel.hardVersionUpdate()
+        
+        
     }
     
     
@@ -122,13 +171,27 @@ class LockDetailController: UIViewController {
           viewModel.unlockButtonAction()
         }
         
+        loadAPI()
     }
     
-    @IBAction func firmwareUpdateAction(_ sender: Any) {
-        
-//          self.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
-        
+
+    func loadAPI() {
+        provider.rx.request(APIServer.downloadFingerprint(lockId: 9))
+            .mapObject(APIResponseData<FingerprintDataModel>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                
+                plog(response.data)
+                // 0 下载 1 删除
+                if response.success {
+                    guard let data = response.data else { return }
+                    
+                } else {
+                    // 错误信息
+                    //                    SyncView.instance.rx_hidden.value = true
+                }
+            }).disposed(by: rx.disposeBag)
     }
+    
     
     deinit {
         plog("销毁了")
@@ -140,9 +203,43 @@ class LockDetailController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let vc = R.segue.lockDetailController.showUpdateDFU(segue: segue) {
-            
+            vc.destination.updateModel = viewModel.updateModel
         }
     }
- 
+}
 
+//指南实现拓展
+extension LockDetailController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        var hintText: String
+        switch index {
+        case 0:
+            hintText = R.string.localizable.instructionUnlock()
+        default:
+            hintText = R.string.localizable.instructionsHistorylist()
+        }
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,
+                                                                           arrowOrientation: coachMark.arrowOrientation,
+                                                                           hintText: hintText,
+                                                                           nextText: nil)
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        switch index {
+        case 0:
+            return coachMarksController.helper.makeCoachMark(for: unlock)
+     
+        default:
+            return coachMarksController.helper.makeCoachMark(for: historyBtn)
+        }
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    
 }

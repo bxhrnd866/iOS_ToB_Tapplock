@@ -61,3 +61,12 @@ class RegistMailController: UIViewController {
         
     }
 }
+extension RegistMailController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string == " " {
+            return false
+        }
+        return true
+    }
+}

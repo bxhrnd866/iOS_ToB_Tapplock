@@ -28,6 +28,14 @@ extension UIViewController {
         delegate.menuView?.showLeftMenuView()
     }
     
+    func hiddenMenu() {
+        let del = UIApplication.shared.delegate as? AppDelegate
+        if del?.menuView?.x == 0 {
+            del?.menuView?.hiddenMenuView()
+        }
+    }
+    
+    
     //页面按钮点击时,检查蓝牙状态
     func checkBlueWithAlert() -> Bool {
         if TapplockManager.default.manager.state != .poweredOn {

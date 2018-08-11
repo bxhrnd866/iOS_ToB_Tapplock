@@ -35,19 +35,7 @@ class TapplockModel: NSObject, Mappable {
    
     
     //物理层蓝牙类
-    var peripheralModel: PeripheralModel? {
-        didSet {
-            peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
-            
-            peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
-            
-            rx_status.asObservable().subscribe(onNext: { [weak self] status in
-                if status == .disconnected {
-                    self?.peripheralModel = nil
-                }
-            }).disposed(by: rx.disposeBag)
-        }
-    }
+    var peripheralModel: PeripheralModel?
     
     //连接状态
     public var rx_status: Variable<CBPeripheralState?> = Variable(.disconnected)
@@ -61,12 +49,27 @@ class TapplockModel: NSObject, Mappable {
             return peripheralModel == self.peripheralModel
         } else if peripheralModel.rx_mac.value?.macValue == mac?.macValue {
             self.peripheralModel = peripheralModel
+            bindData()
             return true
         } else {
             return false
         }
     }
     
+    func bindData() {
+        
+        peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
+        
+        peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
+        
+        
+        rx_status.asObservable().subscribe(onNext: { [weak self] status in
+            if status == .disconnected {
+                self?.peripheralModel = nil
+            }
+        }).disposed(by: rx.disposeBag)
+        
+    }
 
     //更新Tapplock信息
     public func update(_ model: TapplockModel) {

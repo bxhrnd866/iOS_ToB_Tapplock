@@ -17,6 +17,8 @@ class BlueDetailViewModel: NSObject {
     var rx_batteryLabelText = Variable("-")
     var rx_lockStatus = Variable("--")
     var rx_step: Variable<RequestStep> = Variable(.none)
+    var rx_update: Variable<Bool> = Variable(false)
+    var updateModel: FirmwareModel?
     
     override init() {
         super.init()
@@ -76,15 +78,24 @@ class BlueDetailViewModel: NSObject {
     }
     
     func hardVersionUpdate() {
-        provider.rx.request(APIServer.checkFirmwares(hardwareVersion: (lock?.hardwareVersion)!))
-            .mapObject(APIResponse<FirmwareModel>.self)
-            .subscribe(onSuccess: { [weak self] response in
+        if let version = lock?.hardwareVersion {
+            provider.rx.request(APIServer.checkFirmwares(hardwareVersion: version))
+                .mapObject(APIResponse<FirmwareModel>.self)
+                .subscribe(onSuccess: { [weak self] response in
+                    
+                    if let hv = version.toInt(), let max = response.data?.currentVersion?.toInt() {
+                        
+                        if max > hv {
+                            self?.updateModel = response.data
+                            self?.rx_update.value = true
+                        }
+                    }
                 
-                
-            
-            }) { ( error) in
-                self.rx_step.value = .failed
-            }.disposed(by: rx.disposeBag)
+                }) { ( error) in
+                    self.rx_step.value = .failed
+                }.disposed(by: rx.disposeBag)
+        }
+        
         
     }
     
