@@ -36,11 +36,8 @@ extension Date {
         if date == nil {
             return 1522378147
         }
-
-        let newdate = NSDate()
-        
-        let dateStamp:TimeInterval = newdate.timeIntervalSince1970
-        let dateStr:Int = Int(dateStamp)
+        let dateStamp:TimeInterval = date!.timeIntervalSince1970
+        let dateStr = Int(dateStamp)
         return dateStr
     }
 

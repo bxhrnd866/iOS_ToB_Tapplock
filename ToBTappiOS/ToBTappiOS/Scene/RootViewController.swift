@@ -50,7 +50,7 @@ class RootViewController: UIViewController {
                     let md = AddressModel()
                     md.location = location
                     _ = xm.reverseGeocode(location: location).firstValue.done({ [weak self] cl in
-                        let add = "\(cl.country ?? "")\(cl.locality ?? "")\(cl.subLocality ?? "")\(cl.thoroughfare ?? "")"
+                        let add = "\(cl.country ?? "")\(cl.administrativeArea ?? "")\(cl.locality ?? "")\(cl.subLocality ?? "")\(cl.thoroughfare ?? "")"
                         md.address = add
                         ConfigModel.default.locaiton = md
                     })

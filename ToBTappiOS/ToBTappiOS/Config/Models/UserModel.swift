@@ -85,4 +85,14 @@ class UserModel: Mappable {
 class AddressModel {
     var location: CLLocation?
     var address: String?
+    var latitude: String? {
+        let lat = ConfigModel.default.locaiton?.location?.coordinate.latitude
+        return String(format: "%.5f", lat ?? 0)
+    }
+    
+    var longitude: String? {
+        let long = ConfigModel.default.locaiton?.location?.coordinate.longitude
+        return String(format: "%.5f", long ?? 0)
+    }
+    
 }

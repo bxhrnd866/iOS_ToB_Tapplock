@@ -160,7 +160,7 @@ class LockDetailController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        viewModel.hardVersionUpdate()
+
         
         
     }
@@ -169,30 +169,10 @@ class LockDetailController: UIViewController {
     @IBAction func unlockAction(_ sender: Any) {
         if checkBlueWithAlert() {
           viewModel.unlockButtonAction()
-        }
-        
-        loadAPI()
+        }        
     }
-    
 
-    func loadAPI() {
-        provider.rx.request(APIServer.downloadFingerprint(lockId: 9))
-            .mapObject(APIResponseData<FingerprintDataModel>.self)
-            .subscribe(onSuccess: { [weak self] response in
-                
-                plog(response.data)
-                // 0 下载 1 删除
-                if response.success {
-                    guard let data = response.data else { return }
-                    
-                } else {
-                    // 错误信息
-                    //                    SyncView.instance.rx_hidden.value = true
-                }
-            }).disposed(by: rx.disposeBag)
-    }
-    
-    
+  
     deinit {
         plog("销毁了")
     }
@@ -207,6 +187,7 @@ class LockDetailController: UIViewController {
         }
     }
 }
+
 
 //指南实现拓展
 extension LockDetailController: CoachMarksControllerDelegate,CoachMarksControllerDataSource {

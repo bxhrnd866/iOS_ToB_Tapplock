@@ -46,7 +46,8 @@ extension PeripheralModel {
     public func writeEncryptedData(data: Data) {
         
         if secretKey == nil { 
-            plog("老版本不加密")
+//            plog("老版本不加密")
+            plog(data.hexadecimal())
             peripheral.writeValue(data, for: writeCharacteristic!, type: .withResponse)
             return
         }
@@ -78,7 +79,6 @@ extension PeripheralModel {
     public func responseDecrypted(data: Data) {
         let response = self.decrypt(data: data)
         setResponse(data: response)
-        plog(response.hexadecimal())
     }
     
     // 加密

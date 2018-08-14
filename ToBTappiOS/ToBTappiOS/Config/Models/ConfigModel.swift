@@ -23,6 +23,10 @@ class ConfigModel: NSObject {
     
     //Set推送Token
     func setpushToken(){
+        
+        if pushToken == nil {
+            return
+        }
         plog("更新token")
         provider.rx.request(APIServer.userUpdate(fcmDeviceToken: pushToken,
                                                  firstName: nil,
@@ -55,42 +59,45 @@ class ConfigModel: NSObject {
                     } else {
                         plog("失败 继续调用")
                         
+                        self?.deleteToken(logout: true)
+                        
                     }
                 }).disposed(by: rx.disposeBag)
         }
     }
     
     
-    func deleteToken() {
+    func deleteToken(logout: Bool = false) {
         
         let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
         let type = usermanger?.object(forKey: "NotificationType") as? String
-        if type == nil {
-            return
-        }
     
-        let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
-        provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
-            .mapObject(APIResponse<EmptyModel>.self)
-            .subscribe(onSuccess: { response in
+        if type != nil || logout == true {
             
-                if response.success {
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    ConfigModel.default.user.value = nil
-                    DispatchQueue.main.async(execute: {
-                        delegate.removeMenuView()
-                        if let presnt = delegate.window?.rootViewController?.presentedViewController {
-                            presnt.dismiss(animated: false) {
-                                if let pt = delegate.window?.rootViewController?.presentedViewController {
-                                    pt.dismiss(animated: false, completion: nil)
-                                }
-                            }
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            ConfigModel.default.user.value = nil
+            DispatchQueue.main.async(execute: {
+                delegate.removeMenuView()
+                if let presnt = delegate.window?.rootViewController?.presentedViewController {
+                    presnt.dismiss(animated: false) {
+                        if let pt = delegate.window?.rootViewController?.presentedViewController {
+                            pt.dismiss(animated: false, completion: nil)
                         }
-                    })
+                    }
                 }
-                
-            }).disposed(by: rx.disposeBag)
-  
+            })
+            
+            let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
+            provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
+                .mapObject(APIResponse<EmptyModel>.self)
+                .subscribe(onSuccess: { response in
+                    
+                    if response.success {
+                        plog("删除token 成功")
+                    }
+                    
+                }).disposed(by: rx.disposeBag)
+        }
     }
     
     

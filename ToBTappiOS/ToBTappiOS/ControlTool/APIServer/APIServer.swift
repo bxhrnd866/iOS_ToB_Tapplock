@@ -10,9 +10,9 @@ import Foundation
 import Foundation
 import Moya
 
-//let APIHost = "http://192.168.7.213:8781"
+let APIHost = "http://192.168.7.213:8781"
 
-let APIHost = "https://entapi.tapplock.com"
+//let APIHost = "https://entapi.tapplock.com"
 
 let APILock = "/lock/api/v1/"
 let APIUser = "/user/api/v1/"
@@ -32,10 +32,9 @@ enum APIServer {
     case forgetPassword(mail: String, newPassword: String, verifyCode: String)
     case lockList(userId: Int?, lockName: String?, groupIds: String?, authType: Int?, page: Int, size: Int)  //授权类型0-蓝牙 1-指纹  锁列表
     case allGroupslist
-    case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, id: Int, latitude: String?, longitude: String?, lockName: String?, morseCode: String?, morseStatus: Int?, syncTypes: [Int]) //更新锁信息  更新类型0-地理位置 1-固件 2-其他
+    case updateLock(battery: String?, firmwareVersion: String?, hardwareVersion: String?, lockId: Int, latitude: String?, longitude: String?, location: String?, lockName: String?, morseCode: String?, morseStatus: Int?, syncTypes: [Int]) //更新锁信息  更新类型0-地理位置 1-固件 2-其他
+    case updateLockHistory(accessTypes: [Int],closeOperateTimes: Array<Any>?, latitude: String?, longitude: String?, location: String?, lockId: Int, morseOperateTimes: Array<Any>?, operateLocalDate: String, unlockFingerprints: Array<Any>?, userId: Int?)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 3-关锁
     case historyList(userId: Int?, lockId: Int?, targetName: String?, beginTime: Int?, endTime: Int?, accessType: Int, size: Int, page: Int, groupIds: String?)  // 查询类型(逗号分隔）0-fingerprint 1-bluetooth,2-close 3-auth bluetooth 4-auth fingerprint 5-cancel bluetooth 6-cancel fingerprint 7-location 8-firmware 9-other
-    case updateCloseTime(corpId: Int, lockId: Int, operateTime: Int) // 添加关锁记录
-    case updateOpenTime(location: String?, latitude: String?, longitude: String?, lockId: Int, morseOperateTimes: [String]?, unlockFingerprints: [[String : String]]?, unlockType: Int)  //解锁类型0-蓝牙解锁 1-指纹解锁 2-摩斯码解锁 , "lockFingerprintIndex": "0010","operateTime": 1527064805
     case checkFirmwares(hardwareVersion: String)
     case feedBack(content: String, title: String) // 反馈
     case userFingerPrint // 查询用户下的指纹
@@ -105,14 +104,12 @@ extension APIServer: TargetType{
             return "users/get_verify_code"
         case .lockList(_,_, _, _, _, _):
             return "locks/for_staff"
-        case .updateLock(_, _, _, _, _, _, _, _, _, _):
+        case .updateLock(_, _, _, _, _, _, _, _, _, _, _):
             return "locks"
         case .historyList(_, _, _, _, _, _, _, _, _):
             return "lock_histories/access_history"
-        case .updateCloseTime(_, _, _):
-            return "lock_histories/close"
-        case .updateOpenTime(_, _, _, _, _, _, _):
-            return "lock_histories/open"
+        case .updateLockHistory(_, _, _, _, _, _, _, _, _, _):
+            return "lock_histories"
         case .oauthToken(_,_, _):
             return "uaa/oauth/token"
         case .downloadFingerprint(_):
@@ -158,17 +155,22 @@ extension APIServer: TargetType{
              .checkVerifyCode(_, _),
              .downloadMorsecode(_):
             return .get
-        case .updateLock(_, _, _, _, _, _, _, _, _, _),
+        case .updateLock(_, _, _, _, _, _, _, _, _, _, _),
              .updateFingerprintSycnState(_),
              .userUpdate(_, _, _, _, _, _, _, _),
              .chagePassword(_, _):
             return .put
-        case .updateCloseTime(_, _, _),
-             .updateOpenTime(_, _, _, _, _, _, _),
-             .oauthToken(_,_, _),
-             .userRegister(_, _, _, _, _, _, _, _, _, _),
+        case .oauthToken(let a,_, _):
+            if a == nil {
+                return .delete
+            } else {
+                return .post
+            }
+            
+        case .userRegister(_, _, _, _, _, _, _, _, _, _),
              .userLog(_, _),
              .forgetPassword(_, _, _),
+             .updateLockHistory(_, _, _, _, _, _, _, _, _, _),
              .feedBack(_, _):
             return .post
         case .deleteLocks(_):
@@ -263,8 +265,8 @@ extension APIServer: TargetType{
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters + ["corpId": ConfigModel.default.user.value?.corpId ?? 1234567])
             
-        case .updateLock(let battery, let firmwareVersion, let hardwareVersion, let id, let latitude, let longitude, let lockName, let morseCode, let morseStatus, let syncTypes):
-            
+        case .updateLock(let battery, let firmwareVersion, let hardwareVersion, let lockId, let latitude, let longitude, let location, let lockName, let morseCode, let morseStatus, let syncTypes):
+           
             if battery != nil {
                 bodyParameters = bodyParameters + ["battery": battery!]
             }
@@ -289,8 +291,12 @@ extension APIServer: TargetType{
             if morseStatus != nil {
                 bodyParameters = bodyParameters + ["morseStatus": morseStatus!]
             }
+            
+            if location != nil {
+                bodyParameters = bodyParameters + ["location": location!]
+            }
         
-            bodyParameters = bodyParameters + ["id": id, "syncTypes": syncTypes]
+            bodyParameters = bodyParameters + ["lockId": lockId, "syncTypes": syncTypes]
             
             return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
             
@@ -321,14 +327,14 @@ extension APIServer: TargetType{
             
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
-        case .updateCloseTime(let corpId, let lockId, let operateTime):
-            bodyParameters = bodyParameters + ["corpId": corpId, "lockId": lockId, "operateTime": operateTime]
-            return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
+        case .updateLockHistory(let accessType, let closeOperateTimes, let latitude, let longitude, let location, let lockId, let morseOperateTimes, let operateLocalDate, let unlockFingerprints, let userId):
             
-        case .updateOpenTime(let location, let latitude, let longitude, let lockId, let morseOperateTimes, let unlockFingerprints, let unlockType):
-            
-            if location != nil {
-                bodyParameters = bodyParameters + ["location": location!]
+            if userId != nil {
+                bodyParameters = bodyParameters + ["userId": userId!]
+            }
+          
+            if closeOperateTimes != nil {
+                bodyParameters = bodyParameters + ["closeOperateTimes": closeOperateTimes!]
             }
             if latitude != nil {
                 bodyParameters = bodyParameters + ["latitude": latitude!]
@@ -336,14 +342,19 @@ extension APIServer: TargetType{
             if longitude != nil {
                 bodyParameters = bodyParameters + ["longitude": longitude!]
             }
+            if location != nil {
+                bodyParameters = bodyParameters + ["location": location!]
+            }
+            
             if morseOperateTimes != nil {
                 bodyParameters = bodyParameters + ["morseOperateTimes": morseOperateTimes!]
             }
+            
             if unlockFingerprints != nil {
                 bodyParameters = bodyParameters + ["unlockFingerprints": unlockFingerprints!]
             }
            
-            bodyParameters = bodyParameters + ["corpId": ConfigModel.default.user.value?.corpId ?? 0, "lockId": lockId, "userId": (ConfigModel.default.user.value?.id)!, "unlockType": unlockType]
+            bodyParameters = bodyParameters + ["corpId": (ConfigModel.default.user.value?.corpId) ?? 11, "lockId": lockId, "accessTypes": accessType, "operateLocalDate": operateLocalDate]
             
             return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
             
@@ -352,9 +363,10 @@ extension APIServer: TargetType{
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
             
         case .updateFingerprintSycnState(let relSyncStatusUpdateBOList):
- 
-            bodyParameters = bodyParameters + ["relSyncStatusUpdateBOList": relSyncStatusUpdateBOList]
-            return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
+
+            let data = try? JSONSerialization.data(withJSONObject: relSyncStatusUpdateBOList, options: [])
+            
+            return .requestCompositeData(bodyData: data!, urlParameters: urlParameters)
             
         case .userUpdate(let fcmDeviceToken, let firstName, let groupIds, let lastName, let permissionIds, let phone, let photoUrl, let sex):
             

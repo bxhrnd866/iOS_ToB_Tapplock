@@ -103,7 +103,7 @@ class SerchTextField: UITextField {
         self.leftViewMode = .always
         self.backgroundColor = UIColor.white
         self.font = UIFont.init(name: font_name, size: 14)
-        self.placeholder = "输入锁的名字"
+        self.placeholder = R.string.localizable.searchLockName()
     }
 
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {

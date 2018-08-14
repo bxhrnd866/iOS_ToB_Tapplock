@@ -19,6 +19,7 @@ class BLEUpdate: NSObject {
     private var deleteFinger = [FingerprintDataModel]()
     private var updateApis = [FingerprintDataModel]()
     
+    
     init(_ peripheral: PeripheralModel) {
         super.init()
         
@@ -27,38 +28,54 @@ class BLEUpdate: NSObject {
             .subscribe(onNext: { [weak self] response in
                 
                 switch response {
-                case .EnrollFingerprint(_):
+                    
+                case .FingerprintEnd(_):
                     if response.success {
-                        self?.updateApis.append((self?.uploadFinger[0])!)
+                        plog("添加指纹成功")
+                        let md = self?.uploadFinger[0]
+                        md?.lockFingerprintIndex = response.fingerprintID
+                        self?.updateApis.append(md!)
                         self?.uploadFinger.remove(at: 0)
                         if self?.uploadFinger.count == 0 {
-                            self?.updatefingerprintSyncState(syncType: 0)
+                            self?.updateSyncState()
                         } else {
                             self?.startEnrrol()
                         }
                         
                     } else {
-                        self?.updatefingerprintSyncState(syncType: 0)
+                        plog("添加指纹失败")
+                        self?.updateSyncState()
                     }
                     
                 case .DeleteFingerprint(_):
                    
                     if response.success {
+                        plog("删除成功")
                         self?.updateApis.append((self?.deleteFinger[0])!)
                         self?.deleteFinger.remove(at: 0)
+                        
                         if self?.deleteFinger.count == 0 {
-                            self?.updatefingerprintSyncState(syncType: 1)
+                            if (self?.uploadFinger.count)! > 0 {
+                                self?.startEnrrol()
+                            } else {
+                                self?.updateSyncState()
+                            }
+                            
                         } else {
                             self?.deleteFingerprint()
                         }
                         
                     } else {
-                        self?.updatefingerprintSyncState(syncType: 1)
+                        plog("删除失败")
+                        if (self?.uploadFinger.count)! > 0 {
+                            self?.startEnrrol()
+                        } else {
+                            self?.updateSyncState()
+                        }
                     }
                 case .MorseCode(_):
                      SyncView.instance.rx_hidden.value = true
                     if response.success {
-                        
                         self?.updateMorseStatus()
                     }
                 case .FactoryReset(_):
@@ -66,6 +83,8 @@ class BLEUpdate: NSObject {
                         self?.deleteLockAPI()
                     }
                 case .Unlock(_):
+                    
+                    plog("解锁成功")
                     if response.success {
                         if self?.peripheral?.lockStatus == -1 {
                             self?.peripheral?.sendRestCommand()
@@ -79,28 +98,65 @@ class BLEUpdate: NSObject {
         
     }
     
+    public func updateLockState() {
+        
+
+        self.updateLockInfor()
+        switch self.peripheral?.lockStatus {
+        case 0:
+            self.showTotals()
+            self.loadAPI()
+        case 1:
+            if self.peripheral?.morseStatus == 0 {
+                self.showTotals()
+                self.downloadMorseCode()
+            }
+        default:
+            break
+        }
+    }
+    
     // 更新指纹
-    func startEnrrol() {
-//        let finger = uploadFinger[0].templateData?.inserting(separator: ",", every: 8)
-//        if finger != nil {
-//            let source = finger!.components(separatedBy: ",")
-//            self.updateFingerprint(fingers: source)
-//        }
+     fileprivate func startEnrrol() {
+        plog(uploadFinger.count)
+        
+        if  uploadFinger.count == 0 {
+            return
+        }
+        
+        let finger = uploadFinger[0].templateData?.inserting(separator: ",", every: 16)
+        if finger != nil {
+            let source = finger!.components(separatedBy: ",")
+            self.updateFingerprint(fingers: source)
+        }
         
     }
     
     
-    func updateFingerprint(fingers: [String]) {
+    fileprivate func updateFingerprint(fingers: [String]) {
         var data = fingers
         
         peripheral?.sendStartFingerprint()
+        var num = 0
+        
         let codeTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
         codeTimer.schedule(deadline: .now(), repeating: .milliseconds(10))
         codeTimer.setEventHandler(handler: {
             
-            self.peripheral?.sendFingerPrintData(data: data[0])
+            var c = ""
+            if data.count != 1 {
+                let a = String(num).decimalConver()
+                let b = a?.hexadecimalSupplement()
+                c = b! + "0800" + data[0]
+            } else {
+                c = "3e0200" + data[0]
+            }
+            
+            self.peripheral?.sendFingerPrintData(data: c)
             data.remove(at: 0)
+            num = num + 1
             if data.count == 0 {
+                self.peripheral?.sendEndFingerprint()
                 codeTimer.cancel()
             }
         })
@@ -108,21 +164,24 @@ class BLEUpdate: NSObject {
     }
     
     // 删除指纹
-    func deleteFingerprint() {
+    fileprivate func deleteFingerprint() {
         let index = deleteFinger[0]
         if index.lockFingerprintIndex != nil {
             peripheral?.sendDeleteFingerprintCommand(index: index.lockFingerprintIndex!)
         }
     }
     // 删除锁
-    func deleteLock()  {
+     public func deleteLock()  {
         self.peripheral?.sendUnlockCommand()
     }
+    
+    
+    
 }
 
 extension BLEUpdate {   // API 相关
     // 获取指纹
-    func loadAPI() {
+    fileprivate func loadAPI() {
         provider.rx.request(APIServer.downloadFingerprint(lockId: (peripheral?.id)!))
             .mapObject(APIResponseData<FingerprintDataModel>.self)
             .subscribe(onSuccess: { [weak self] response in
@@ -131,6 +190,7 @@ extension BLEUpdate {   // API 相关
                 if response.success {
                     guard let data = response.data else { return }
                     _ = data.map {
+                        
                         if $0.syncType == 0 {
                             self?.uploadFinger.append($0)
                         } else {
@@ -139,8 +199,10 @@ extension BLEUpdate {   // API 相关
                     }
 
                     if self?.deleteFinger.count != 0 {
+                        
                         self?.deleteFingerprint()
                     } else {
+                       
                         self?.startEnrrol()
                     }
                 } else {
@@ -150,90 +212,91 @@ extension BLEUpdate {   // API 相关
             }).disposed(by: rx.disposeBag)
     }
     
-    // 更新锁指纹同步完成
-    func updatefingerprintSyncState(syncType: Int) {
-        updateApis.removeAll()
+    
+     // 更新锁指纹同步完成
+    fileprivate func updateSyncState() {
         var arr = [Any]()
         for model in updateApis {
-            
             var dict = [String : Any]()
             if model.fingerprintId != nil {
                 dict = dict + ["fingerprintId": model.fingerprintId!]
             }
             
             if model.lockFingerprintIndex != nil {
-                dict = dict + ["fingerprintId": model.lockFingerprintIndex!]
+                dict = dict + ["lockFingerprintIndex": model.lockFingerprintIndex!]
             }
-            if model.lockId != nil {
-                dict = dict + ["lockId": model.lockId!]
+         
+            if model.syncType != nil {
+                dict = dict + ["syncType": model.syncType!]
             }
-            dict = dict + ["syncType": syncType]
+            
+            dict = dict + ["lockId": (self.peripheral?.id)!]
+            
             arr.append(dict)
         }
+        
+        updateApis.removeAll()
         
         provider.rx.request(APIServer.updateFingerprintSycnState(relSyncStatusUpdateBOList: arr))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { [weak self] response in
-                
+                SyncView.instance.rx_hidden.value = true
                 if response.success {
-    
-                    
-                    if syncType == 1 {
-                        
-                        if (self?.uploadFinger.count)! > 0 {
-                            self?.startEnrrol()
-                        } else if self?.peripheral?.morseStatus == 1 {
-                            self?.downloadMorseCode()
-                        } else {
-                            SyncView.instance.rx_hidden.value = true
-                        }
-                        
-                    } else {
-                        if self?.peripheral?.morseStatus == 1 {
-                            self?.downloadMorseCode()
-                        } else {
-                            SyncView.instance.rx_hidden.value = true
-                        }
+                    if self?.peripheral?.morseStatus == 0 {
+                        plog("下载摩斯码")
+                        self?.downloadMorseCode()
                     }
-                    
                 } else {
                     plog(response.codeMessage)
-                    SyncView.instance.rx_hidden.value = true
                 }
-            
-        }).disposed(by: rx.disposeBag)
+                
+            }) { ( error) in
+                SyncView.instance.rx_hidden.value = true
+            }.disposed(by: rx.disposeBag)
         
     }
+    
+    
+   
+  
     // 更新锁信息
-    func updateLockInfor() {
+    fileprivate func updateLockInfor() {
         // 更新锁信息 位置 电量
-        let lat = ConfigModel.default.locaiton?.location?.coordinate.latitude
-        let long = ConfigModel.default.locaiton?.location?.coordinate.longitude
+        let lat = ConfigModel.default.locaiton?.latitude
+        let long = ConfigModel.default.locaiton?.longitude
         
         provider.rx.request(APIServer.updateLock(battery: String((peripheral!.rx_battery.value)!),
                                                  firmwareVersion: nil,
                                                  hardwareVersion: peripheral?.rx_hardware.value,
-                                                 id: (peripheral?.id)!,
-                                                 latitude: String(lat!),
-                                                 longitude: String(long!),
-                                                 lockName: nil, morseCode: nil, morseStatus: nil, syncTypes: [0,1,2]))
+                                                 lockId: (peripheral?.id)!,
+                                                 latitude: lat ?? "0",
+                                                 longitude: long ?? "0",
+                                                 location: ConfigModel.default.locaiton?.address,
+                                                 lockName: nil,
+                                                 morseCode: nil,
+                                                 morseStatus: nil,
+                                                 syncTypes: [0,2]))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { response in
-                
+
                 if !response.success {
                     plog(response.codeMessage)
                 }
             }).disposed(by: rx.disposeBag)
     }
     
+  
+    
     // 删除锁API
-    func deleteLockAPI() {
+    fileprivate func deleteLockAPI() {
         
         provider.rx.request(APIServer.deleteLocks(id: (peripheral?.id)!))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.success {
                     // 删除锁成功
+                    TapplockManager.default.rx_deleteLock.value = self?.peripheral?.rx_mac.value
+                    
                 } else {
                     // 删除失败
                 }
@@ -241,7 +304,7 @@ extension BLEUpdate {   // API 相关
     }
     
     // 下载指纹摩斯码
-    func downloadMorseCode() {
+    fileprivate func downloadMorseCode() {
         provider.rx.request(APIServer.downloadMorsecode(id: (peripheral?.id)!))
             .mapObject(APIResponseString.self)
             .subscribe(onSuccess: { [weak self] response in
@@ -255,13 +318,14 @@ extension BLEUpdate {   // API 相关
         }).disposed(by: rx.disposeBag)
     }
     // 更新摩斯码状态
-    func updateMorseStatus() {
+    fileprivate func updateMorseStatus() {
         provider.rx.request(APIServer.updateLock(battery: nil,
                                                  firmwareVersion: nil,
                                                  hardwareVersion: nil,
-                                                 id: (peripheral?.id)!,
+                                                 lockId: (peripheral?.id)!,
                                                  latitude: nil,
                                                  longitude: nil,
+                                                 location: nil,
                                                  lockName: nil, morseCode: nil, morseStatus: 1, syncTypes: [2]))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { response in
@@ -273,13 +337,37 @@ extension BLEUpdate {   // API 相关
     }
     
     
+    func updateHistoryTime(close: Array<Any>, finger: Array<Any>, morese: Array<Any>) {
+        
+        var types = [3]
+        
+        if finger.count != 0 {
+            types.append(1)
+        }
+        if morese.count != 0 {
+            types.append(2)
+        }
+        
+        provider.rx.request(APIServer.updateLockHistory(accessTypes: types, closeOperateTimes: close, latitude: nil, longitude: nil, location: nil, lockId: (self.peripheral?.id)!, morseOperateTimes: morese.count > 0 ? morese : nil, operateLocalDate: Date().string(custom: "yyyy-MM-dd"), unlockFingerprints: finger.count > 0 ? finger : nil, userId: nil)).mapObject(APIResponse<EmptyModel>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                if response.success {
+                    plog("上传历史成功")
+                }
+                self?.updateLockState()
+            
+        }).disposed(by: rx.disposeBag)
+        
+        
+    }
     
-    func showTotals() {
+    
+    
+    fileprivate func showTotals() {
         SyncView.instance.rx_hidden.value = false
         let window = UIApplication.shared.delegate?.window!
         let x =  window?.rootViewController?.presentedViewController
         
-        let alertController = CFAlertViewController(title: "有数据需要同步",
+        let alertController = CFAlertViewController(title: R.string.localizable.dataNeedsToSync(),
                                                     message: nil,
                                                     textAlignment: .left,
                                                     preferredStyle: .alert,

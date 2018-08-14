@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import WXImageCompress
+import Cloudinary
 //锁图片上传类==>图片选择器用
 public protocol Uploader {
     var rx_sucess: Variable<Bool?> { get }
@@ -33,7 +34,8 @@ class RegisterUserImageUploader: NSObject, Uploader {
     }
 
     func upload(image: UIImage) {
-        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: nil, progress: { (progress) in
+        let params = CLDUploadRequestParams().setFolder("tapplock-b2b-ios")
+        cloudinaryStorage.createUploader().upload(data: UIImagePNGRepresentation(image.wxCompress())!, uploadPreset: "eusqphao", params: params, progress: { (progress) in
             print(progress)
         }, completionHandler: { (result, error) in
 
@@ -49,6 +51,13 @@ class RegisterUserImageUploader: NSObject, Uploader {
                 }
             }
         })
+        
+        
+        
+        
+        
+        
+        
     }
 
     //用户信息上传接口

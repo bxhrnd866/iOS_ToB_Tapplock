@@ -14,8 +14,8 @@ class FingerprintDataModel: Mappable {
     
     var fingerprintId: Int?
     var lockFingerprintIndex: String?
-    var lockId: String?
-    var syncType: Int?   // 0下载 1 删除
+    var lockId: Int?
+    var syncType: Int?   // 0下载 1删除
     var templateData: String?   // 数据
 
     

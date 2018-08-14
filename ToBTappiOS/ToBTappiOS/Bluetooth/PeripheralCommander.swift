@@ -69,10 +69,6 @@ extension PeripheralModel {
         writeEncryptedData(data: BluetoothCommand.Unlock.command)
     }
     
-    public func sendEnrollCommand() {
-        writeEncryptedData(data: BluetoothCommand.EnrollFingerprint.command)
-    }
-    
     public func sendDeleteFingerprintCommand(index: String!) {
         writeEncryptedData(data: BluetoothCommand.DeleteFingerprint(index: index).command)
     }
@@ -83,7 +79,7 @@ extension PeripheralModel {
     }
     
     public func sendGetHistory() {
-        writeEncryptedData(data: BluetoothCommand.NewHistory.command)
+        writeEncryptedData(data: BluetoothCommand.History.command)
     }
     
     public func sendStartFingerprint() {

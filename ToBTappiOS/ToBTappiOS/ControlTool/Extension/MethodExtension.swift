@@ -44,6 +44,10 @@ func hexCovertoTamp(time: String) -> Int {
     
     let t12 = String(t1).decimalConver(rax: 2)! as NSString
     let length = t12.length
+    
+    if length < 5 {
+        return 1000
+    }
     let d = t12.substring(with: NSMakeRange(length - 5, 5))
     
     let m = t12.substring(with: NSMakeRange(length - 9, 4))
@@ -64,8 +68,12 @@ func hexCovertoTamp(time: String) -> Int {
     let second = t4.hexToInt!
     
     let date = "\(year)-\(month)-\(day) \(hour):\(mintie):\(second)"
+    
+//    plog(date)
     let tamp = Date.stringTimeCoverToTamp(time: date)
     return tamp
 }
+
+
 
 

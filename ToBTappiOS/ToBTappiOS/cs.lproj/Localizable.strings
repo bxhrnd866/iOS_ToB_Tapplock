@@ -198,7 +198,8 @@
 "InvalidVerificationcode" = "Invalid Verification code";
 "enterthenumber" = "Please enter the number";
 "AllGroup" = "All Group";
-
+"searchLockName" = "search lock name";
+"DataNeedsToSync" = "There is data that needs to be synchronized";
 
 
 "MenuProfile" = "Profile";

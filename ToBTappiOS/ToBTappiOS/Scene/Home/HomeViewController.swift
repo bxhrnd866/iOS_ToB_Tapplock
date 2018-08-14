@@ -69,6 +69,10 @@ class HomeViewController: BaseViewController {
                 self?.logOut()
             }
         }).disposed(by: rx.disposeBag)
+        
+        
+        TapplockManager.default.scan()
+        ConfigModel.default.deleteToken()
     }
 
     
@@ -85,10 +89,12 @@ class HomeViewController: BaseViewController {
                                      textColor: nil,
                                      handler: { _ in
                                         
-                                        ConfigModel.default.user.value = nil
-                                        let delegate = UIApplication.shared.delegate as! AppDelegate
-                                        delegate.removeMenuView()
-                                        self.dismiss(animated: true)
+                                        
+                                        ConfigModel.default.deleteToken(logout: true)
+//                                        ConfigModel.default.user.value = nil
+//                                        let delegate = UIApplication.shared.delegate as! AppDelegate
+//                                        delegate.removeMenuView()
+//                                        self.dismiss(animated: true)
         })
         alertController.addAction(okAction)
         
@@ -121,8 +127,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        ConfigModel.default.deleteToken()
+       
     }
   
     override func didReceiveMemoryWarning() {

@@ -76,19 +76,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarah" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DQ-3f-tMs">
-                                <rect key="frame" x="210.33333333333334" y="114.66666666666667" width="36.333333333333343" height="16.000000000000014"/>
+                                <rect key="frame" x="210.33333333333337" y="114.66666666666667" width="149.66666666666663" height="16.000000000000014"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pena" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbo-S0-tVV">
-                                <rect key="frame" x="210" y="135" width="31" height="15"/>
+                                <rect key="frame" x="210" y="135" width="150" height="15"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1336936684529" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-a7-DJC">
-                                <rect key="frame" x="210" y="174.66666666666666" width="94" height="16"/>
+                                <rect key="frame" x="210" y="174.66666666666666" width="150" height="16"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="514027089@qq.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7B-hM-HP9">
-                                <rect key="frame" x="210" y="195" width="127" height="16"/>
+                                <rect key="frame" x="210" y="195" width="150" height="16"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="13"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,10 +166,13 @@
                         <constraints>
                             <constraint firstItem="zgZ-sH-uVm" firstAttribute="width" secondItem="lEa-Gl-Lsy" secondAttribute="width" id="0PO-g6-c0u"/>
                             <constraint firstItem="Dc8-tP-6Wd" firstAttribute="top" secondItem="iaK-U5-dPE" secondAttribute="bottom" constant="21" id="0mX-fX-jlg"/>
+                            <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="q7B-hM-HP9" secondAttribute="trailing" constant="15" id="1Ph-9Z-3Rc"/>
+                            <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="hDA-a7-DJC" secondAttribute="trailing" constant="15" id="22k-XQ-Hj5"/>
                             <constraint firstItem="RSP-KF-cMz" firstAttribute="top" secondItem="wXg-pS-1tx" secondAttribute="top" constant="29" id="2tP-Nr-vi3"/>
                             <constraint firstItem="lEa-Gl-Lsy" firstAttribute="top" secondItem="yDg-nN-eu0" secondAttribute="bottom" constant="3" id="3cZ-Pe-PTX"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="CxX-5p-tM6" secondAttribute="trailing" constant="20" id="4V2-N5-H20"/>
                             <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="gMG-YY-5Wu" secondAttribute="trailing" constant="20" id="4hN-oy-L0r"/>
+                            <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="Lbo-S0-tVV" secondAttribute="trailing" constant="15" id="4mo-E0-fxp"/>
                             <constraint firstItem="lEa-Gl-Lsy" firstAttribute="leading" secondItem="yDg-nN-eu0" secondAttribute="leading" id="4wf-X4-ffP"/>
                             <constraint firstItem="XS3-Gx-Pzd" firstAttribute="top" secondItem="wXg-pS-1tx" secondAttribute="top" constant="29" id="76j-gz-3Mz"/>
                             <constraint firstItem="hDA-a7-DJC" firstAttribute="centerY" secondItem="6B3-3l-gav" secondAttribute="centerY" id="7Yq-UR-tTD"/>
@@ -194,6 +197,7 @@
                             <constraint firstItem="gMG-YY-5Wu" firstAttribute="top" secondItem="qya-02-7bA" secondAttribute="bottom" constant="19" id="RcF-tY-UKn"/>
                             <constraint firstItem="q7B-hM-HP9" firstAttribute="centerY" secondItem="mYN-Xq-CvK" secondAttribute="centerY" id="Xbk-zA-4wu"/>
                             <constraint firstItem="hDA-a7-DJC" firstAttribute="leading" secondItem="6B3-3l-gav" secondAttribute="trailing" constant="10" id="aAR-9f-3J5"/>
+                            <constraint firstItem="wXg-pS-1tx" firstAttribute="trailing" secondItem="8DQ-3f-tMs" secondAttribute="trailing" constant="15" id="bl2-Qc-wwY"/>
                             <constraint firstItem="XS3-Gx-Pzd" firstAttribute="leading" secondItem="wXg-pS-1tx" secondAttribute="leading" constant="20" id="blF-mR-aoA"/>
                             <constraint firstItem="mYN-Xq-CvK" firstAttribute="top" secondItem="6B3-3l-gav" secondAttribute="bottom" constant="3" id="dBH-zw-zZ8"/>
                             <constraint firstItem="6B3-3l-gav" firstAttribute="width" secondItem="zgZ-sH-uVm" secondAttribute="width" id="don-UV-RQK"/>

@@ -21,7 +21,7 @@ class PeripheralModel: NSObject {
     public var rx_hardware: Variable<String?> = Variable(nil)
     public var rx_firmware: Variable<String?> = Variable(nil)
     public var rx_response: Variable<BluetoothResponse> = Variable(.NoResponse)
-    public var rx_historyTotals: Variable<Int> = Variable(0)
+    
     
     var key1: String!
     var serialNo: String!
@@ -37,6 +37,16 @@ class PeripheralModel: NSObject {
     var writeCharacteristic: CBCharacteristic?
     
     var bleUpdate: BLEUpdate?
+    
+    
+    var fingerprintOpen = [[String: Any]]()
+    var morseOpen = [Int]()
+    var closeHistory = [Int]()
+    var morseNum = 0
+    
+    
+    
+    
     
     //初始化方法
     init(_ peripheral: CBPeripheral) {
@@ -55,8 +65,6 @@ class PeripheralModel: NSObject {
         response.filter({ $0.firemwareVersion != nil }).map { $0.firemwareVersion! }.bind(to: rx_firmware).disposed(by: rx.disposeBag)
         
         response.filter({ $0.hardVersion != nil }).map { $0.hardVersion! }.bind(to: rx_hardware).disposed(by: rx.disposeBag)
-        
-        response.filter({ $0.historyTotals != nil}).map { $0.historyTotals! }.bind(to: rx_historyTotals).disposed(by: rx.disposeBag)
         
         self.rx_mac.value = peripheral.mac
         
@@ -102,49 +110,54 @@ extension PeripheralModel {
             
         case .PairingRegular:
             
-            sendBatteryCommand()
+            if self.lockStatus == -1 {
+                self.bleUpdate?.deleteLock()
+            } else {
+               sendBatteryCommand()
+            }
             
         case .Battery:
             
             sendTimeCommd()
             
         case .GMTTime:
+            
             sendGetHistory()
             
-        case .T2AllHistory:
+        case .HistoryNumers:
             
-            plog("xxxxxx")
-            
-            // 数据历史获取完成
-            
-            if self.lockStatus != -1 {
-                self.bleUpdate?.updateLockInfor()
-            }
-            
-            switch self.lockStatus {
-            case -1:
-                self.bleUpdate?.deleteLock()
-            case 0:
-                self.bleUpdate?.showTotals()
-                self.bleUpdate?.loadAPI()
-        
-            case 1:
-                if self.morseStatus == 0 {
-                    self.bleUpdate?.showTotals()
-                    self.bleUpdate?.downloadMorseCode()
+            if let tuple = response.historyNums {
+                if tuple.0 == 0 {
+                    self.bleUpdate?.updateLockState()
+                } else {
+                    morseNum = tuple.1
                 }
-            default:
-                break
             }
+        
+        case .OpenHistory:
             
+            guard let open = response.openTime , let finerHistory = response.FingerprintHistory else { return }
+            if finerHistory == true {
+                let dict = ["lockFingerprintIndex": open.0, "operateTime": open.1] as [String : Any]
+                self.fingerprintOpen.append(dict)
+            } else {
+                self.morseOpen.append(open.1)
+            }
+        case .OpenEnd:
             
+            if morseNum == 0 {
+               self.bleUpdate?.updateHistoryTime(close: closeHistory, finger: fingerprintOpen, morese: morseOpen)
+            }
+        case .CloseHistory:
+            guard let close = response.closeTime else { return }
+            self.closeHistory.append(close)
             
+        case .CloseEnd:
+            self.bleUpdate?.updateHistoryTime(close: closeHistory, finger: fingerprintOpen, morese: morseOpen)
         default:
             break
         }
     }
-    
-
 }
 
 

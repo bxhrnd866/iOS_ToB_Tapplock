@@ -60,21 +60,24 @@ class BlueDetailViewModel: NSObject {
     
     func unlockButtonAction() {
 
+        let lat = ConfigModel.default.locaiton?.latitude
+        let long = ConfigModel.default.locaiton?.longitude
+       
+    
         rx_step.value = .loading
-        provider.rx.request(APIServer.updateOpenTime(location: ConfigModel.default.locaiton?.address ?? "", latitude: "\(ConfigModel.default.locaiton?.location?.coordinate.latitude ?? 0)", longitude: "\(ConfigModel.default.locaiton?.location?.coordinate.longitude ?? 0)", lockId: (lock?.id)!, morseOperateTimes: nil, unlockFingerprints: nil, unlockType: 0))
+        provider.rx.request(APIServer.updateLockHistory(accessTypes: [0], closeOperateTimes: nil, latitude: lat, longitude: long, location: ConfigModel.default.locaiton?.address, lockId: (lock?.id)!, morseOperateTimes: nil, operateLocalDate: Date().string(custom: "yyyy-MM-dd"), unlockFingerprints: nil, userId: ConfigModel.default.user.value?.id))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { [weak self] response in
-                
                 if response.success {
                     self?.rx_step.value = .sucess
                     self?.lock?.peripheralModel?.sendUnlockCommand()
                 } else {
-                   self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                    self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
                 }
-            }) { ( error) in
+                
+            }) { (error) in
                 self.rx_step.value = .failed
-            }.disposed(by: rx.disposeBag)
-
+        }.disposed(by: rx.disposeBag)
     }
     
     func hardVersionUpdate() {

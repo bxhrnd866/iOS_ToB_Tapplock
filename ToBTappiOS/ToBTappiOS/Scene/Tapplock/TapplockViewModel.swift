@@ -24,13 +24,29 @@ class TapplockViewModel: NSObject {
     override init() {
         super.init()
         
-        
         TapplockManager.default.rx_peripherals
             .asDriver()
             .drive(onNext: { [weak self] _ in
                self?.contains()
         }).disposed(by: rx.disposeBag)
         
+        
+        TapplockManager.default.rx_deleteLock
+            .asObservable().filter({ $0 != nil })
+            .map({ $0!.macText })
+            .subscribe(onNext: { [weak self] mac in
+                self?.removeModel(mac: mac)
+            
+        }).disposed(by: rx.disposeBag)
+    }
+    
+    private func removeModel(mac: String) {
+        for (a, b) in self.rx_lockList.value.enumerated() {
+            if b.mac == mac {
+                self.rx_lockList.value.remove(at: a)
+                break
+            }
+        }
     }
     
     

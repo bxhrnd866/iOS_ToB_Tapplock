@@ -30,6 +30,9 @@ final class TapplockManager: NSObject {
     
     var rx_dfuLock: Variable<CBPeripheral?> = Variable(nil)
     
+    var rx_deleteLock: Variable<String?> = Variable(nil)
+    
+    
     static let `default` = TapplockManager()
     
     private override init() {
@@ -46,12 +49,14 @@ final class TapplockManager: NSObject {
         stop()
         rx_peripherals.value = []
         editingLock = nil
+        
     }
 
     public func scan() {
-//        manager.stopScan()
+        if ConfigModel.default.user.value != nil  {
+           manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE),CBUUID.init(string: DFU_SERVICE)], options: nil)
+        }
         
-        manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE),CBUUID.init(string: DFU_SERVICE)], options: nil)
     }
     
     public func stop() {

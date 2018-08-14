@@ -1335,7 +1335,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 182 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1965,6 +1965,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let mustUpdateMessage = Rswift.StringResource(key: "MustUpdateMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: There is data that needs to be synchronized
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let dataNeedsToSync = Rswift.StringResource(key: "DataNeedsToSync", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: This is the access history page
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2061,6 +2065,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: search lock name
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let searchLockName = Rswift.StringResource(key: "searchLockName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: set the time search criteria
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3165,6 +3173,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("MustUpdateMessage", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: There is data that needs to be synchronized
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func dataNeedsToSync(_: Void = ()) -> String {
+        return NSLocalizedString("DataNeedsToSync", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: This is the access history page
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3331,6 +3346,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func cancel(_: Void = ()) -> String {
         return NSLocalizedString("cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: search lock name
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func searchLockName(_: Void = ()) -> String {
+        return NSLocalizedString("searchLockName", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: set the time search criteria

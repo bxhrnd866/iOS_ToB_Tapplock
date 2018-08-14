@@ -45,12 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         networkOff()
         
-   
-    
-    
+
         return true
     }
 
+    
+
+
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
        
         Messaging.messaging().apnsToken = deviceToken
@@ -81,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if ConfigModel.default.user.value != nil {
            ConfigModel.default.deleteToken()
+           
         }
         
         TapplockManager.default.scan()

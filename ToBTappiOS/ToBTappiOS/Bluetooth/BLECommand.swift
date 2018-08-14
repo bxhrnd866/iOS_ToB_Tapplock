@@ -16,11 +16,10 @@ let CMD_PairingRegular = CDM_PREFIX + "B4010800"
 let CMD_Booting = CDM_PREFIX + "92010C00"
 let CMD_Battery = CDM_PREFIX + "81030000"
 let CMD_Unlock = CDM_PREFIX + "81020000"
-let CMD_EnrollFingerprint = CDM_PREFIX + "92020000"
 let CMD_DeleteFingerprint = CDM_PREFIX + "45020200"
 let CMD_FactoryReset = CDM_PREFIX + "E3010000"
 let CMD_MorseCode = CDM_PREFIX + "EB020200"
-let CMD_NewHistory = CDM_PREFIX + "9B020000"
+let CMD_History = CDM_PREFIX + "9B020000"
 let CMD_DFU = CDM_PREFIX + "27010000"
 let CMD_GetFirmWareVersion = CDM_PREFIX + "45010000"
 let CMD_SendTime = CDM_PREFIX + "10020600"
@@ -40,10 +39,9 @@ enum BluetoothCommand {
     case Booting(key1: String, key2: String, serialNumber: String)
     case Battery
     case Unlock
-    case EnrollFingerprint
     case DeleteFingerprint(index: String)
     case FactoryReset
-    case NewHistory
+    case History
     case MorseCode(code: String)
     case DFUModel
     case GetFirmWareVersion
@@ -73,9 +71,7 @@ enum BluetoothCommand {
             return CMD_Unlock
         case .Battery:
             return CMD_Battery
-        case .EnrollFingerprint:
             
-            return CMD_EnrollFingerprint
         case .DeleteFingerprint(let index):
             return CMD_DeleteFingerprint + index
         case .FactoryReset:
@@ -83,9 +79,9 @@ enum BluetoothCommand {
             return CMD_FactoryReset
         case .MorseCode(let code):
             return CMD_MorseCode + code
-        case .NewHistory:
-             plog("NewHistory:" + CMD_NewHistory)
-            return CMD_NewHistory
+        case .History:
+             plog("NewHistory:" + CMD_History)
+            return CMD_History
         case .DFUModel:
             return CMD_DFU
         case .GetFirmWareVersion:
