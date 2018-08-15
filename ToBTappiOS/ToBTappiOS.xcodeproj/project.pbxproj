@@ -60,6 +60,7 @@
 		553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C620EDFDE500A43F5D /* GroupCollectionViewCell.swift */; };
 		553FD1C920EE1E2600A43F5D /* PermissionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */; };
 		5540C1D620F72E3E0033E0B5 /* SexSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */; };
+		5541535C2124168700AAC72C /* html in Resources */ = {isa = PBXBuildFile; fileRef = 5541535B2124168700AAC72C /* html */; };
 		55437EA520ECC4CA00C25143 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55437EA420ECC4CA00C25143 /* MenuModel.swift */; };
 		55446567210FFB2900C425FD /* SyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55446566210FFB2900C425FD /* SyncView.swift */; };
 		5544656B210FFEB500C425FD /* BLEUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544656A210FFEB500C425FD /* BLEUpdate.swift */; };
@@ -251,6 +252,7 @@
 		553FD1C620EDFDE500A43F5D /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		553FD1C820EE1E2600A43F5D /* PermissionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCollectionCell.swift; sourceTree = "<group>"; };
 		5540C1D520F72E3E0033E0B5 /* SexSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexSelectController.swift; sourceTree = "<group>"; };
+		5541535B2124168700AAC72C /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		55437EA420ECC4CA00C25143 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		55446566210FFB2900C425FD /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
 		5544656A210FFEB500C425FD /* BLEUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEUpdate.swift; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 		7DFE0FE020CD3F6200C94FA3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5541535B2124168700AAC72C /* html */,
 				7DFE108020CD3FD500C94FA3 /* Century Gothic.ttf */,
 				7DFE108820CD41AA00C94FA3 /* Root_logo.png */,
 			);
@@ -950,6 +953,7 @@
 				7D05125A20D266210075C681 /* ViewHistory.storyboard in Resources */,
 				553E72C420AAB38C00CFFEB8 /* InfoPlist.strings in Resources */,
 				55226CCF2109D4FE00F2074F /* UpdateDFU.storyboard in Resources */,
+				5541535C2124168700AAC72C /* html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

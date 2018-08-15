@@ -95,6 +95,12 @@ extension PeripheralModel {
         writeEncryptedData(data: BluetoothCommand.SendFingerprintData(data: data).command)
     }
     
+    public func sendClearMorseCode() {
+        
+        writeEncryptedData(data: BluetoothCommand.SendClearMoreseCode.command)
+    }
+    
+    
     
     
 }

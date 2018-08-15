@@ -61,32 +61,41 @@ class FingerLockDetailController: UIViewController {
         naviTitle.text = viewModel.lock?.lockName
         lockName.text = viewModel.lock?.lockName
         groupName.text = viewModel.lock?.groupName
-        if let num = viewModel.lock?.battery?.toInt() {
-            lockBattylab.text = "\(num)" + "%"
-            if num < 60 {
-                lockBattylab.textColor = UIColor.themeColor
-            } else {
-                lockBattylab.textColor = UIColor.black
+        
+    
+        viewModel.rx_batteryLabelText.asDriver().drive(onNext: { [weak self] batt in
+            
+            self?.lockBattylab.text = batt
+            guard let num = Int(batt) else {
+                self?.lockBattyImg.image = R.image.lock_battery_0()
+                return
             }
             
-            if num < 20 {
-                lockBattyImg.image = R.image.lock_battery_0()
-            } else if num < 40 {
-                lockBattyImg.image = R.image.lock_battery_20()
-            } else if num < 60 {
-               lockBattyImg.image = R.image.lock_battery_40()
-            } else if num < 80 {
-                lockBattyImg.image = R.image.lock_battery_60()
-            } else if num < 100 {
-                lockBattyImg.image = R.image.lock_battery_80()
-            } else if num == 100 {
-                lockBattyImg.image = R.image.lock_battery_100()
+            self?.lockBattylab.text = batt + "%"
+            
+            if num < 60 {
+                self?.lockBattylab.textColor = UIColor.themeColor
+            } else {
+                self?.lockBattylab.textColor = UIColor.black
             }
-        } else {
-            lockBattyImg.image = R.image.lock_battery_0()
-            lockBattylab.text = "--"
-        }
-       
+            if num < 20 {
+                self?.lockBattyImg.image = R.image.lock_battery_0()
+            } else if num < 40 {
+                self?.lockBattyImg.image = R.image.lock_battery_20()
+            } else if num < 60 {
+                self?.lockBattyImg.image = R.image.lock_battery_40()
+            } else if num < 80 {
+                self?.lockBattyImg.image = R.image.lock_battery_60()
+            } else if num < 100 {
+                self?.lockBattyImg.image = R.image.lock_battery_80()
+            } else if num == 100 {
+                self?.lockBattyImg.image = R.image.lock_battery_100()
+            }
+            
+        }).disposed(by: rx.disposeBag)
+        
+        
+        
         viewModel.rx_step
             .asObservable()
             .subscribe(onNext: { [weak self] step in
@@ -159,15 +168,16 @@ class FingerLockDetailController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let vc = R.segue.fingerLockDetailController.fingerHistorySegue(segue: segue) {
+            vc.destination.viewModel.lockId = viewModel.lock?.id
+        }
     }
-    */
+ 
 }
 
 extension FingerLockDetailController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

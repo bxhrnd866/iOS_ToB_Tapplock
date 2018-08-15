@@ -21,16 +21,14 @@ class LockHistoryViewModel: NSObject {
     
     var userId: Int?
     var lockId: Int?
-    var quertType = 1  // 0--finger 1---blue
+    var quertType = 1  // 1--finger 0---blue
     
     
     var rx_targetName: Variable<String?> = Variable(nil)
     var rx_beginTime: Variable<Int?> = Variable(nil)
     var rx_endTime: Variable<Int?> = Variable(nil)
     
-    
-    
-    
+
     init(type: Int) {
         super.init()
         self.quertType = type

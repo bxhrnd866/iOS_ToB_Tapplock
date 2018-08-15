@@ -18,14 +18,14 @@ class BlueHistoryController: UIViewController {
     
     @IBOutlet weak var dateBtn: UIBarButtonItem!
     
-    let viewModel = LockHistoryViewModel(type: 1)
+    let viewModel = LockHistoryViewModel(type: 0)
      let coachMarksController = CoachMarksController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
-        
+       
         tableview.mj_header  = RefreshGifheader.init { [weak self] in
             self?.viewModel.loadRefresh()
         }

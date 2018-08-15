@@ -1,0 +1,887 @@
+/*
+ * **************************************************************
+ *	关于body,html的重置 
+ * **************************************************************
+ */
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+html {
+	font-size: 100px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	/*去掉在手机设备上点击文本框显示高亮的黑边*/
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	/*禁止文本被选中*/
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	/*兼容IE6-9的写法：onselectstart="return false;" unselectable="on"*/
+	-webkit-font-smoothing: antialiased;
+	/*解决字体在移动端比例缩小后出现锯齿的问题*/
+}
+
+body {
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+	margin: 0;
+	overflow-x: hidden;
+	/*开启moblie网页快速滚动和回弹的效果*/
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	-ms-overflow-scrolling: touch;
+	-o-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+}
+
+
+/*
+ * **************************************************************
+ *	关于设置标签的块级重置
+ * **************************************************************
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+main,
+nav,
+section,
+summary,
+span,
+a {
+	display: block;
+}
+
+
+/*
+ * **************************************************************
+ *	关于a标签的重置
+ * **************************************************************
+ */
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+	color: #333;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+
+/*
+ * **************************************************************
+ *	关于img标签的重置
+ * **************************************************************
+ */
+
+img {
+	-ms-interpolation-mode: bicubic;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	border: 0;
+	display: block;
+	/*禁止用户拷贝或存储图像*/
+	-webkit-touch-callout: none;
+}
+
+
+/*
+ * **************************************************************
+ *	关于input表单的重置
+ * **************************************************************
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+input {
+	line-height: normal;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	/*-webkit-appearance: button;*/
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	cursor: pointer;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+
+/*解决firefox按钮文字难以垂直居中问题*/
+
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"]>input[type="button"]::-moz-focus-inner {
+	border: none;
+	padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga", "kern";
+}
+
+button,
+input:not([type="radio"]):not([type="checkbox"]),
+select {
+	vertical-align: middle;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+	/*设置方向在顶部，这样里面的文字就不会在中间或底部了*/
+	resize: vertical;
+}
+
+
+/*文本框提示文本颜色设置*/
+
+
+/* WebKit browsers */
+
+::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+
+/* Mozilla Firefox 4 to 18 */
+
+:-moz-placeholder {
+	color: #ccc;
+	opacity: 1;
+}
+
+
+/* Mozilla Firefox 19+ */
+
+::-moz-placeholder {
+	color: #ccc;
+	opacity: 1;
+}
+
+
+/* Internet Explorer 10+ */
+
+:-ms-input-placeholder {
+	color: #ccc;
+}
+
+
+/*
+ * **************************************************************
+ *	关于table的重置
+ * **************************************************************
+ */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+
+/*
+ * **************************************************************
+ *	关于浮动
+ * **************************************************************
+ */
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.cf:before,
+.cf:after {
+	display: table;
+	content: "";
+}
+
+.cf:after {
+	clear: both;
+}
+
+
+/*
+ * **************************************************************
+ *	关于响应式图片
+ * **************************************************************
+ */
+
+.hz-responsiveimg {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+
+/*
+ * **************************************************************
+ *	文本-省略号 截断
+ * **************************************************************
+ */
+
+.hz-ellipsis {
+	word-wrap: normal;
+	/* for IE */
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+/*多行位置截断*/
+
+.hz-line-clamp3 {
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	/*行数*/
+	-webkit-box-orient: vertical;
+}
+
+
+/*
+ * **************************************************************
+ *	1px优化
+ * **************************************************************
+ */
+
+.retainbt,
+.retainbb,
+.retainbl,
+.retainbr,
+.retainb {
+	position: relative;
+}
+
+.retainbt:before,
+.retainbb:after {
+	pointer-events: none;
+	position: absolute;
+	content: "";
+	height: 1px;
+	background: rgba(32, 35, 37, .24);
+	left: 0;
+	right: 0
+}
+
+.retainbt:before {
+	top: 0
+}
+
+.retainbb:after {
+	bottom: 0
+}
+
+.retainbl:before,
+.retainbr:after {
+	pointer-events: none;
+	position: absolute;
+	content: "";
+	width: 1px;
+	background: rgba(32, 35, 37, .24);
+	top: 0;
+	bottom: 0
+}
+
+.retainbl:before {
+	left: 0
+}
+
+.retainbr:after {
+	right: 0
+}
+
+.retainb:after {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border: 1px solid rgba(32, 35, 37, .24);
+	pointer-events: none
+}
+
+@media (-webkit-min-device-pixel-ratio:1.5),
+(min-device-pixel-ratio:1.5),
+(min-resolution: 144dpi),
+(min-resolution:1.5dppx) {
+	.retainbt:before,
+	.retainbb:after {
+		-webkit-transform: scaleY(.5);
+		transform: scaleY(.5)
+	}
+	.retainbl:before,
+	.retainbr:after {
+		-webkit-transform: scaleX(.5);
+		transform: scaleX(.5)
+	}
+	.retainb:after {
+		width: 200%;
+		height: 200%;
+		-webkit-transform: scale(.5);
+		transform: scale(.5)
+	}
+	.retainbt:before,
+	.retainbl:before,
+	.retainb:after {
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0
+	}
+	.retainbb:after,
+	.retainbr:after {
+		-webkit-transform-origin: 100% 100%;
+		transform-origin: 100% 100%
+	}
+}
+
+@media (-webkit-device-pixel-ratio:1.5) {
+	.retainbt:before,
+	.retainbb:after {
+		-webkit-transform: scaleY(.6666);
+		transform: scaleY(.6666)
+	}
+	.retainbl:before,
+	.retainbr:after {
+		-webkit-transform: scaleX(.6666);
+		transform: scaleX(.6666)
+	}
+	.retainb:after {
+		width: 150%;
+		height: 150%;
+		-webkit-transform: scale(.6666);
+		transform: scale(.6666)
+	}
+}
+
+@media (-webkit-device-pixel-ratio:3) {
+	.retainbt:before,
+	.retainbb:after {
+		-webkit-transform: scaleY(.3333);
+		transform: scaleY(.3333)
+	}
+	.retainbl:before,
+	.retainbr:after {
+		-webkit-transform: scaleX(.3333);
+		transform: scaleX(.3333)
+	}
+	.retainb:after {
+		width: 300%;
+		height: 300%;
+		-webkit-transform: scale(.3333);
+		transform: scale(.3333)
+	}
+}
+
+
+/*
+ * **************************************************************
+ *	消除transition闪屏
+ * **************************************************************
+ */
+
+.transition-css {
+	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+	-webkit-transform-style: preserve-3d;
+	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+	-webkit-backface-visibility: hidden;
+}
+
+
+/*开启硬件加速/解决页面闪白/保证动画流畅*/
+
+.run-css {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+
+/*
+ * **************************************************************
+ *	flex box盒模型样式
+ * **************************************************************
+ */
+
+.vertical-view {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.horizontal-view {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+
+
+/**/
+
+.dropload-up,
+.dropload-down {
+	width: 100%;
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	font-size: 0.24rem;
+	color: #666;
+	/* 开启硬件加速 */
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	bottom: 0;
+	left: 0;
+}
+
+.dropload-down {
+	height: 0.8rem;
+}
+
+.dropload-refresh,
+.dropload-update,
+.dropload-load,
+.dropload-noData {
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+}
+
+.dropload-load .loading {
+	display: inline-block;
+	height: 0.15rem;
+	width: 0.15rem;
+	border-radius: 100%;
+	margin: 0.06rem;
+	border: 0.02rem solid #666;
+	border-bottom-color: transparent;
+	vertical-align: middle;
+	-webkit-animation: rotate 0.75s linear infinite;
+	animation: rotate 0.75s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(180deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.hz-none {
+	display: none;
+}
+
+.hz-block {
+	display: block;
+}
+
+
+/*弹框*/
+
+.cd-popup1,
+.cd-popup2 {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	z-index: 9999999;
+}
+
+.cd-popup1.is-visible1,
+.cd-popup2.is-visible1 {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+	transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.cd-popup-container {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	-webkit-transform: translateY(-60px);
+	-moz-transform: translateY(-60px);
+	-ms-transform: translateY(-60px);
+	-o-transform: translateY(-60px);
+	transform: translateY(-60px);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-ms-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	overflow: hidden;
+	position: relative;
+	top: 50%;
+	left: 50%;
+}
+
+.cd-popup-container1 {
+	width: 5.08rem;
+	height: 6.5rem;
+	margin-top: -3.25rem;
+	margin-left: -2.52rem;
+	background: url(../img/wshop/cd_popup.png) no-repeat center;
+	background-size: 5.08rem 6.5rem;
+	border-radius: .3rem .3rem .3rem .3rem;
+}
+
+.cd-popup-container3 {
+	width: 5.94rem;
+	/*height: 5.6rem;*/
+	padding-bottom: 1rem;
+	background-color: #fff;
+	margin-top: -2.8rem;
+	margin-left: -2.97rem;
+	border-radius: 0.08rem;
+}
+.cd-popup-container2 {
+	width: 5.94rem;
+	height: 4.24rem;
+	background-color: #fff;
+	margin-top: -2.12rem;
+	margin-left: -2.97rem;
+	border-radius: 0.08rem;
+}
+
+.cd-popup-container4{
+	width: 6.32rem;
+	height: 5.12rem;
+	background-color: #fff;
+	top: 10%;
+	margin-left: -3.16rem;
+	border-radius: 0.08rem;
+}
+.cd-popup-container5{
+	width: 5.6rem;
+	height: 3.7rem;
+	background-color: #fff;
+	border-radius: 0.08rem;
+	margin-top: -1.85rem;
+	margin-left: -2.8rem;
+}
+.cd-popup-container6{
+	width: 6.28rem;
+	height: 7.46rem;
+	background-color: #fff;
+	margin-left: -3.14rem;
+	margin-top: -3.73rem;
+	top: 60%;
+	border-radius: 0.08rem;
+	padding: 0 0.35rem;
+}
+.cd-popup-container7{
+	width: 5.3rem;
+	height: 3.95rem;
+	background: #fff;
+	top: 50%;
+	left: 50%;
+	margin-top:-1.975rem;
+	margin-left: -2.65rem;
+	border-radius: 0.08rem;
+}
+.is-visible1 .cd-popup-container1,
+.is-visible1 .cd-popup-container2 {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+
+/*radio*/
+
+.radio {
+	position: relative;
+}
+
+.radio input[type=radio] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0.36rem;
+	height: 0.36rem;
+	opacity: 0;
+}
+
+.radio label {
+	position: absolute;
+	left: 0.4rem;
+	top: 0;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	z-index: 1;
+}
+
+.radio label:before {
+	content: '';
+	position: absolute;
+	left: -0.4rem;
+	top: 0;
+	width: 0.5rem;
+	height: 0.5rem;
+	border: 0.02rem solid #ddd;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.radio label:after {
+	content: "";
+	position: absolute;
+	left: -0.22rem;
+	top: 0.12rem;
+	width: 0.14rem;
+	height: 0.2rem;
+	border: 0;
+	border-right: 0.02rem solid #fff;
+	border-bottom: 0.02rem solid #fff;
+	background: #fff;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.radio input[type='radio']:checked+label:before {
+	background: #02b4b6;
+	border-color: #02b4b6;
+}
+
+.radio input[type='radio']:checked+label:after {
+	background: #02b4b6;
+}
+
+
+/*upload radio*/
+
+.radio-check {
+	margin-bottom: 0.2rem;
+	position: relative;
+	height: 0.36rem;
+}
+
+.radio-check>input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0.36rem;
+	height: 0.36rem;
+	opacity: 0;
+}
+
+.radio-check>label {
+	position: absolute;
+	left: 0.48rem;
+	line-height: 0.36rem;
+	top: 0px;
+	font-size: 0.28rem;
+}
+
+.radio-check>label:before {
+	content: '';
+	position: absolute;
+	left: -0.48rem;
+	top: 0;
+	display: inline-block;
+	width: 0.36rem;
+	height: 0.36rem;
+	border-radius: 50%;
+	border: 0.02rem solid #ddd;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.radio-check>label:after {
+	content: '';
+	position: absolute;
+	left: -0.4rem;
+	top: 0.08rem;
+	display: inline-block;
+	width: 0.12rem;
+	height: 0.12rem;
+	border-radius: 50%;
+	margin-top: 0.04rem;
+	margin-left: 0.04rem;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.radio-check input[type='radio']:checked+label:before {
+	background: #02b4b6;
+}
+
+.radio-check input[type='radio']:checked+label:after {
+	background: #fff;
+}
+.rc1{
+	position: absolute;
+	top: 0.9rem;
+	left: 0.8rem;
+}
+.rc2{
+	position: absolute;
+	top: 0.9rem;
+	left: 2.9rem;
+}
+.rc3{
+	position: absolute;
+	top: 0.9rem;
+	right: 2.55rem;
+}
+.rc4{
+	position: absolute;
+	bottom: 0.3rem;
+	left: 0.8rem;
+}
+.rc5{
+	position: absolute;
+	bottom: 0.3rem;
+	left: 2.9rem;
+}

@@ -72,7 +72,7 @@ class HomeViewController: BaseViewController {
         
         
         TapplockManager.default.scan()
-        ConfigModel.default.deleteToken()
+        ConfigModel.default.notificaitonType()
     }
 
     
@@ -89,12 +89,9 @@ class HomeViewController: BaseViewController {
                                      textColor: nil,
                                      handler: { _ in
                                         
-                                        
-                                        ConfigModel.default.deleteToken(logout: true)
-//                                        ConfigModel.default.user.value = nil
-//                                        let delegate = UIApplication.shared.delegate as! AppDelegate
-//                                        delegate.removeMenuView()
-//                                        self.dismiss(animated: true)
+        
+                                        ConfigModel.default.loagOut()
+
         })
         alertController.addAction(okAction)
         

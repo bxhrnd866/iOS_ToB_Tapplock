@@ -22,10 +22,13 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var headerImg: UIImageView!
     
-    @IBOutlet weak var groupLab: UILabel!
-    
     @IBOutlet weak var groupView: UIView!
     
+    @IBOutlet weak var groupBgView: UIView!
+    
+    @IBOutlet weak var groupHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var companyName: UILabel!
     
     @IBOutlet weak var permissionLab: UILabel!
     
@@ -38,8 +41,21 @@ class ProfileViewController: BaseViewController {
         if ConfigModel.default.user.value?.permissionType == -1 {
             self.permissionLab.isHidden = true
             self.permissionView.isHidden = true
-            self.groupLab.isHidden = true
-            self.groupView.isHidden = true
+            self.groupBgView.isHidden = true
+            self.companyName.text = ConfigModel.default.user.value?.corpName
+            
+        } else {
+            self.companyName.isHidden = true
+            if ConfigModel.default.user.value?.groups?.count == 0 {
+                self.groupHeight.constant = 0
+                self.groupBgView.isHidden = true
+                self.companyName.isHidden = true
+            }
+            if ConfigModel.default.user.value?.permissions?.count == 0 {
+                self.permissionLab.isHidden = true
+                self.permissionView.isHidden = true
+            }
+            
         }
         
         

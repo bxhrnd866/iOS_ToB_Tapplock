@@ -13,9 +13,12 @@ import RxSwift
 import RxCocoa
 class RootViewController: UIViewController {
 
+    @IBOutlet weak var iconImg: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        iconImg.layer.cornerRadius = 20
+        iconImg.layer.masksToBounds = true
 
     }
     

@@ -10,11 +10,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Century Gothic.ttf">
-            <string>CenturyGothic</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -24,30 +19,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Root_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qEU-Ya-Ajq">
-                                <rect key="frame" x="76" y="163" width="222" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Homebackground" translatesAutoresizingMaskIntoConstraints="NO" id="P1g-FX-czU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Homelogo" translatesAutoresizingMaskIntoConstraints="NO" id="oeQ-wK-dlx">
+                                <rect key="frame" x="137" y="715" width="100" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="222" id="HJn-To-34I"/>
-                                    <constraint firstAttribute="height" constant="80" id="cLH-Gb-ZA4"/>
+                                    <constraint firstAttribute="height" constant="20" id="50w-fG-PA6"/>
+                                    <constraint firstAttribute="width" constant="100" id="8Wg-cY-gjM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapplock © 2016 All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv1-Jq-1hz">
-                                <rect key="frame" x="84.333333333333329" y="733" width="206.66666666666669" height="15"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © Tapplock Corp." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-1l-G1m">
+                                <rect key="frame" x="20" y="745" width="335" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="Zn3-Cx-bh8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-5a-Lzf">
+                                <rect key="frame" x="139" y="235.66666666666663" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="GEF-Ul-RRU"/>
+                                    <constraint firstAttribute="width" constant="97" id="L2A-zz-EZN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast and easy access for what's important" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Vr-z6x">
+                                <rect key="frame" x="20" y="357.66666666666669" width="335" height="15.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cv1-Jq-1hz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Yb-mJ-WEh"/>
-                            <constraint firstItem="qEU-Ya-Ajq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1/2" id="Bow-FX-UYx"/>
-                            <constraint firstItem="qEU-Ya-Ajq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VWg-dD-cgh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cv1-Jq-1hz" secondAttribute="bottom" constant="30" id="nGq-dg-NUt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eC4-1l-G1m" secondAttribute="trailing" constant="20" id="2Di-r5-WZV"/>
+                            <constraint firstItem="TIf-Vr-z6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5bA-3W-5OL"/>
+                            <constraint firstItem="oeQ-wK-dlx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AAK-bJ-qow"/>
+                            <constraint firstItem="P1g-FX-czU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bn3-Ol-p6B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P1g-FX-czU" secondAttribute="trailing" id="C8x-6T-hOK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eC4-1l-G1m" secondAttribute="bottom" constant="15" id="C9m-Cf-FQy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TIf-Vr-z6x" secondAttribute="trailing" constant="20" id="QZM-bv-EtI"/>
+                            <constraint firstItem="P1g-FX-czU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TVT-cH-ZIL"/>
+                            <constraint firstItem="eC4-1l-G1m" firstAttribute="top" secondItem="oeQ-wK-dlx" secondAttribute="bottom" constant="10" id="cOB-Ep-fRT"/>
+                            <constraint firstItem="TIf-Vr-z6x" firstAttribute="top" secondItem="oIY-5a-Lzf" secondAttribute="bottom" constant="25" id="deG-8f-3u8"/>
+                            <constraint firstAttribute="bottom" secondItem="P1g-FX-czU" secondAttribute="bottom" id="eqv-Yh-z7P"/>
+                            <constraint firstItem="oIY-5a-Lzf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPZ-dU-jcl"/>
+                            <constraint firstItem="eC4-1l-G1m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nHK-aJ-8co"/>
+                            <constraint firstItem="oIY-5a-Lzf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="7/10" id="pb5-9V-YHI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="iconImg" destination="oIY-5a-Lzf" id="WA3-Dp-ObB"/>
                         <segue destination="hLA-4J-Go9" kind="presentation" identifier="showLoginSb" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vsZ-ON-65k"/>
                         <segue destination="S33-P0-oSD" kind="presentation" identifier="showHomeSB" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bHw-ht-YYO"/>
                         <segue destination="Tlo-Nh-SJ3" kind="presentation" identifier="ShowTutorialSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2x5-sX-6dJ"/>
@@ -55,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="27"/>
+            <point key="canvasLocation" x="124" y="26.600985221674879"/>
         </scene>
         <!--LogIn-->
         <scene sceneID="1nQ-UQ-Xzy">
@@ -409,8 +439,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CenterIcon" width="341" height="341"/>
+        <image name="Homebackground" width="375" height="667"/>
+        <image name="Homelogo" width="51" height="17"/>
         <image name="Login_Logo" width="207" height="70"/>
-        <image name="Root_logo.png" width="555" height="201"/>
         <image name="Tutorial - 01" width="360" height="640"/>
         <image name="Tutorial - 02" width="360" height="640"/>
         <image name="Tutorial - 03" width="360" height="640"/>

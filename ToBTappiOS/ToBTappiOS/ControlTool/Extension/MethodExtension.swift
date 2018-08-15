@@ -71,7 +71,14 @@ func hexCovertoTamp(time: String) -> Int {
     
 //    plog(date)
     let tamp = Date.stringTimeCoverToTamp(time: date)
-    return tamp
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];//获得系统的时区
+//    NSDate *date = [NSDate date]; //获得时间对象
+    
+    let zone = NSTimeZone.system
+    let now = Date()
+    let sec = zone.secondsFromGMT(for: now)
+
+    return sec + tamp
 }
 
 

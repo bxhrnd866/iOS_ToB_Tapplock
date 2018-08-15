@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>点击下拉</title>
+	<link rel="stylesheet" type="text/css" href="css/xrkllReset.css" />
+	<style type="text/css">
+		.container{width: 100%;}
+        .container .tab{width: 100%; font-size: .5rem; line-height: 2rem; border-bottom: 1px solid #eeeeee; text-align: left; padding-left:.5rem;}
+
+		/*xialakuang*/
+		.container .tabDiv{width: 100%; padding: .1rem;}
+		.container .tabDiv p{font-size: .4rem; text-align: center; margin: .2rem 0;}
+
+
+		/*tupian */
+		.imgs{display: block; margin: .1rem auto;}
+		.i1,.i9,.i10,.i11,.i12,.i013,.i13,.i14,.i18,.i19,.i02,.i03,.i04,.i05,.i06,.i07{width: 100%;}
+
+	</style>
+</head>
+
+<body style="background: #ffffff; position: relative;">
+	<div class="container">
+		
+
+		<!-- shouji  -->
+		<!-- 9 -->
+		<div class="tab tab9">How to unlock with Bluetooth </div>
+		<div class="tabDiv tabDiv9" style="display: none;"> 
+			<p>1.1	Turn on the Bluetooth</p>
+			<p>1.2	Press button twice, see blue LED blinking</p>
+			<img src="img/01.png" class="imgs i01">
+			<p>1.3	Press button twice, see the LED blinking.</p>
+			<p>1.4	When the lock connected, the light on the top right will turn to green.</p>
+			<img src="img/02.png"  class="imgs i02">
+			<p>1.5	Get into the lock detail page, you will see the unlock button. </p>
+			<img src="img/03.png"  class="imgs i03">
+			<p>1.6	Click to unlock the lock with Bluetooth. </p>
+		</div>
+
+		<!-- 10 -->
+		<div class="tab tab10">How to unlock with Fingerprint </div>
+		<div class="tabDiv tabDiv10" style="display: none;"> 
+			<p>2.1	Get into lock detail page to see which fingerprint can be used to open the lock</p>
+			<img src="img/04.png" class="imgs i04">
+			<p>2.2	Put your finger on the sensor for a while until the LED light turns to green.</p>
+			<p>2.3	Done!</p>
+		</div>
+
+		<!-- 11 -->
+		<div class="tab tab11">How to view all locks</div>
+		<div class="tabDiv tabDiv11" style="display: none;"> 
+			<p>3.1	If you have view all locks permission, click “View all locks” on the sliding menu to see the lock list.</p>
+			<img src="img/05.png" class="imgs i05">
+			<p>3.2	Click All Group to filter the lock list.</p>
+		</div>
+
+		<!-- 12 -->
+		<div class="tab tab12">How to view all history</div>
+		<div class="tabDiv tabDiv12" style="display: none;"> 
+			<p>4.1	If you have VIEW ALL HISTORY permission, click “View all history” on the sliding menu to see all Bluetooth and Fingerprint access history.</p>
+			<img src="img/06.png" class="imgs i06">
+		</div>
+
+		<!-- 13 -->
+		<div class="tab tab13">How to update firmware </div>
+		<div class="tabDiv tabDiv13" style="display: none;"> 
+			<p>5.1	If you have INITIATE FIRMWARE UPDATE permission, you can see Firmware Update button on the lock detail page.</p>
+			<img src="img/07.png" class="imgs i07">
+			<p>5.2	Click Firmware Update to start update firmware.</p>
+		</div>
+
+	</div>
+		
+
+	
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/fontSize.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+
+		$(".tab9").click(function(){
+			$(".tabDiv9").toggle();
+		});
+
+		$(".tab10").click(function(){
+			$(".tabDiv10").toggle();
+		});
+
+		$(".tab11").click(function(){
+			$(".tabDiv11").toggle();
+		});
+
+		$(".tab12").click(function(){
+			$(".tabDiv12").toggle();
+		});
+
+
+		$(".tab13").click(function(){
+			$(".tabDiv13").toggle();
+		});
+	});
+</script>
+
+</html>

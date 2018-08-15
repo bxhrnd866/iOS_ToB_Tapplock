@@ -16,11 +16,47 @@ class FingerDetailViewModel: NSObject {
     var rx_step: Variable<RequestStep> = Variable(.none)
     var leftSource = [FingerPrintModel]()
     var rightSource = [FingerPrintModel]()
-    
+    var rx_batteryLabelText = Variable("-")
     var dataSource = Variable([FingerPrintModel]())
     
     override init() {
         super.init()
+        
+        
+        lock?.rx_battery.asObservable()
+            .filter {
+                $0 != nil
+            }
+            .map {
+                "\($0!)"
+            }
+            .bind(to: rx_batteryLabelText)
+            .disposed(by: rx.disposeBag)
+        
+        if lock?.rx_battery.value == nil {
+            lock?.peripheralModel?.sendBatteryCommand()
+        }
+        
+        let status = lock?.rx_status.asObservable().share(replay: 1)
+        
+        status!.subscribe(onNext: { [weak self] status in
+            //刚连接上锁之后,还没有完成Pair,此时不能发指令
+            if .connected == status {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                    if self?.lock?.peripheralModel?.rx_battery.value == nil {
+                        print("再次发送了")
+                        self?.lock?.peripheralModel?.sendBatteryCommand()
+                    }
+                }
+            } else {
+                self?.rx_batteryLabelText.value = "--"
+            }
+        }).disposed(by: rx.disposeBag)
+        
+        
+        
+        
+        
         loadAPI()
     }
     

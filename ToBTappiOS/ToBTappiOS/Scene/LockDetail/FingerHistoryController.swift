@@ -11,7 +11,7 @@ import UIKit
 class FingerHistoryController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let viewModel = LockHistoryViewModel(type: 0)
+    let viewModel = LockHistoryViewModel(type: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
 

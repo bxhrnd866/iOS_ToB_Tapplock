@@ -29,6 +29,8 @@ let RCM_OpenTime = RCM_PREFIX + "A0"
 let RCM_OpenTimeEnd = RCM_PREFIX + "AFFF"
 let RCM_CloseTime = RCM_PREFIX + "B0"
 let RCM_CloseTimeEnd = RCM_PREFIX + "BFFF"
+let RCM_ClearMorseCode = RCM_PREFIX + "ec02"
+
 
 //蓝牙通信响应,参考蓝牙通信文档
 enum BluetoothResponse {
@@ -53,7 +55,7 @@ enum BluetoothResponse {
     case OpenEnd(value: String)
     case CloseHistory(value: String)
     case CloseEnd(value: String)
-    
+    case ClearMorseCode(value: String)
     
     
     typealias RawValue = String
@@ -80,6 +82,7 @@ enum BluetoothResponse {
              .OpenHistory(let value),
              .OpenEnd(let value),
              .CloseHistory(let value),
+             .ClearMorseCode(let value),
              .CloseEnd(let value):
             return value
         }

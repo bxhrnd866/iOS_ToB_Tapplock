@@ -10,9 +10,9 @@ import Foundation
 import Foundation
 import Moya
 
-let APIHost = "http://192.168.7.213:8781"
+//let APIHost = "http://192.168.7.213:8781"
 
-//let APIHost = "https://entapi.tapplock.com"
+let APIHost = "https://entapi.tapplock.com"
 
 let APILock = "/lock/api/v1/"
 let APIUser = "/user/api/v1/"
@@ -135,7 +135,7 @@ extension APIServer: TargetType{
         case .macforAnylock(_, _):
             return "locks/any_lock"
         case .deleteLocks(let id):
-            return "locks/\(id)"
+            return "locks/callback/\(id)"
         case .downloadMorsecode(_):
             return "locks/morse_code"
         }

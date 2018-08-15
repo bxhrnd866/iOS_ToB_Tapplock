@@ -36,7 +36,7 @@ class NotificationService: UNNotificationServiceExtension {
             
             let type = data["type"] as? String
             
-            if type == "-1" {
+            if type == "-1" || type == "-2" {
                 usermanger?.set(type, forKey: "NotificationType")
                 usermanger?.removeObject(forKey: "NotificationContent")
                 return

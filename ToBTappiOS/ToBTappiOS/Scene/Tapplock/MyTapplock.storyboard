@@ -107,13 +107,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TL101" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tr-jY-1Ev">
-                                                            <rect key="frame" x="95" y="29" width="46" height="22.666666666666671"/>
+                                                            <rect key="frame" x="95" y="29.333333333333336" width="117" height="22.333333333333336"/>
                                                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="18"/>
                                                             <color key="textColor" red="0.2627450980392157" green="0.28235294117647058" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9A-QM-0Hx">
-                                                            <rect key="frame" x="248" y="33.666666666666664" width="64" height="14.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnect" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9A-QM-0Hx">
+                                                            <rect key="frame" x="232" y="33.666666666666664" width="80" height="14.333333333333336"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="1HA-zb-6GK"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.28235294119999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -142,6 +145,7 @@
                                                         <constraint firstItem="6Tr-jY-1Ev" firstAttribute="leading" secondItem="xAQ-my-gWP" secondAttribute="trailing" constant="36" id="WHq-lN-J7W"/>
                                                         <constraint firstAttribute="height" constant="81" id="X3H-rY-wF0"/>
                                                         <constraint firstAttribute="trailing" secondItem="WI3-ps-gSz" secondAttribute="trailing" constant="9" id="gU5-bt-cSa"/>
+                                                        <constraint firstItem="e9A-QM-0Hx" firstAttribute="leading" secondItem="6Tr-jY-1Ev" secondAttribute="trailing" constant="20" id="gws-AS-2jc"/>
                                                         <constraint firstItem="xAQ-my-gWP" firstAttribute="centerY" secondItem="ZMo-hj-0az" secondAttribute="centerY" id="hK8-2l-9Ir"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -281,7 +285,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardware Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw4-FZ-ZvK">
-                                                    <rect key="frame" x="20" y="17.666666666666668" width="139.66666666666666" height="21.000000000000004"/>
+                                                    <rect key="frame" x="20" y="18" width="139.66666666666666" height="21"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

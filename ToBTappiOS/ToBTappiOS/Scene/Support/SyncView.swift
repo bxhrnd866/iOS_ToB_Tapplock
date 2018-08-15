@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import CFAlertViewController
 class SyncView: UIView {
     
     static let instance = SyncView(frame: CGRect(x: mScreenW - 100, y: mScreenH - 150, width: 50, height: 50))
@@ -35,10 +36,12 @@ class SyncView: UIView {
         rx_hidden.asDriver().drive(onNext: { [weak self] bl in
             
             self?.isHidden = bl
+            
             if bl {
                 self?.endAnimation()
-                
+                self?.showTotals(meg: R.string.localizable.dataSyncCompeted())
             } else {
+                self?.showTotals(meg: R.string.localizable.dataNeedsToSync())
                 self?.startAnimation()
             }
         }).disposed(by: rx.disposeBag)
@@ -64,6 +67,26 @@ class SyncView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func showTotals(meg: String) {
+        
+        let window = UIApplication.shared.delegate?.window!
+        let x =  window?.rootViewController?.presentedViewController
+        
+        let alertController = CFAlertViewController(title: meg,
+                                                    message: nil,
+                                                    textAlignment: .left,
+                                                    preferredStyle: .alert,
+                                                    didDismissAlertHandler: nil)
+        alertController.shouldDismissOnBackgroundTap = false
+        alertController.backgroundStyle = .blur
+        alertController.backgroundColor = UIColor.clear
+        
+        let ok = CFAlertAction(title: R.string.localizable.oK(), style: .Default, alignment: .justified, backgroundColor: UIColor.themeColor, textColor: nil, handler: nil)
+        
+        alertController.addAction(ok)
+        x?.present(alertController, animated: true, completion: nil)
     }
     
 }

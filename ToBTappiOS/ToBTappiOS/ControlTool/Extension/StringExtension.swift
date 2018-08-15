@@ -27,9 +27,15 @@ extension String {
     //XXXXXXXX => XX:XX:XX:XX
     var macText: String {
         get {
-            var mac = macValue.inserting(separator: ":", every: 2)
-            mac = mac.uppercased()
-            return mac
+            let mac = macValue.inserting(separator: ":", every: 2)
+            
+            let arrr = mac.components(separatedBy: ":")
+            if arrr.count != 6 {
+                return ""
+            }
+            var xmac = arrr[5] + ":" + arrr[4] + ":" + arrr[3] + ":" + arrr[2] + ":" + arrr[1] + ":" + arrr[0]
+            xmac = xmac.uppercased()
+            return xmac
             
         }
     }

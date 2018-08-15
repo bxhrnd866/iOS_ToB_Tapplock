@@ -44,10 +44,11 @@ class TapplockModel: NSObject, Mappable {
     
     //Tapplock模型是否与物理蓝牙设备为同一个设备
     public func contains(_ peripheralModel: PeripheralModel) -> Bool {
-        
+
         if self.peripheralModel != nil {
             return peripheralModel == self.peripheralModel
-        } else if peripheralModel.rx_mac.value?.macValue == mac?.macValue {
+        } else if peripheralModel.rx_mac.value == mac {
+            plog(mac)
             self.peripheralModel = peripheralModel
             bindData()
             return true
@@ -61,7 +62,6 @@ class TapplockModel: NSObject, Mappable {
         peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
         
         peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
-        
         
         rx_status.asObservable().subscribe(onNext: { [weak self] status in
             if status == .disconnected {

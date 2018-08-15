@@ -15,7 +15,7 @@ class FingerprintHistoryViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     weak var controller: ViewHistoryController?
-    let viewModel = LockHistoryViewModel(type: 0)
+    let viewModel = LockHistoryViewModel(type: 1)
  
     override func viewDidLoad() {
         super.viewDidLoad()

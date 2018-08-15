@@ -205,7 +205,9 @@
 "AllGroup" = "All Group";
 "searchLockName" = "search lock name";
 "DataNeedsToSync" = "There is data that needs to be synchronized";
-
+"DataSyncCompeted" = "Data Synchronization Completed";
+"UserLogoutType111" = "用户权限变更";
+"UserLogoutType222" = "用户退出被删除";
 
 
 

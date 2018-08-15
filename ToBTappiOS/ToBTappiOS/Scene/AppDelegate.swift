@@ -46,11 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         networkOff()
         
 
+ 
         return true
     }
-
-    
-
 
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -82,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        checkVersion()
         
         if ConfigModel.default.user.value != nil {
-           ConfigModel.default.deleteToken()
+           ConfigModel.default.notificaitonType()
            
         }
         
@@ -98,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         if ConfigModel.default.user.value != nil {
-            ConfigModel.default.deleteToken()
+            ConfigModel.default.notificaitonType()
         }
         
         completionHandler(UNNotificationPresentationOptions.alert)

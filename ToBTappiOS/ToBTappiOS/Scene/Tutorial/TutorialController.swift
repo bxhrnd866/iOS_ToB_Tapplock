@@ -7,13 +7,28 @@
 //
 
 import UIKit
-
+import WebKit
 class TutorialController: UIViewController {
 
+    var wbView: WKWebView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        wbView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.view.height))
+        self.view.addSubview(self.wbView!)
+    
+        let mainb = Bundle.main.bundlePath + "/html"
+        
+        let url = URL(fileURLWithPath: mainb)
+        
+        let htmlpath = "\(mainb)/phone.html"
+        
+        let ml = try? String(contentsOfFile: htmlpath, encoding: String.Encoding.utf8)
+        
+        if ml != nil {
+            self.wbView?.loadHTMLString(ml!, baseURL: url)
+        }
     }
 
     override func didReceiveMemoryWarning() {

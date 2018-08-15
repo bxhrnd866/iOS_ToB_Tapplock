@@ -200,6 +200,7 @@
 "AllGroup" = "All Group";
 "searchLockName" = "search lock name";
 "DataNeedsToSync" = "There is data that needs to be synchronized";
+"DataSyncCompeted" = "Data Synchronization Completed";
 
 
 "MenuProfile" = "Profile";

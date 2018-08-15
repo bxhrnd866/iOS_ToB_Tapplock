@@ -12,8 +12,10 @@ import CryptoSwift
 extension PeripheralModel {
     
     func randomKeyServeEncrpted(numer: String) {
-        
-        provider.rx.request(APIServer.macforAnylock(mac: peripheral.mac!, randNum: numer))
+        guard let mac = self.rx_mac.value else {
+            return
+        }
+        provider.rx.request(APIServer.macforAnylock(mac: mac, randNum: numer))
             .mapObject(APIResponse<TapplockModel>.self)
             .subscribe(onSuccess: { [weak self] response in
                 

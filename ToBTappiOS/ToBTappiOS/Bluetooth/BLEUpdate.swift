@@ -31,7 +31,9 @@ class BLEUpdate: NSObject {
                     
                 case .FingerprintEnd(_):
                     if response.success {
-                        plog("添加指纹成功")
+                        plog("添加指纹成功 ----->\(response.fingerprintID)--\(response.value) ")
+                        
+                        
                         let md = self?.uploadFinger[0]
                         md?.lockFingerprintIndex = response.fingerprintID
                         self?.updateApis.append(md!)
@@ -48,31 +50,20 @@ class BLEUpdate: NSObject {
                     }
                     
                 case .DeleteFingerprint(_):
-                   
-                    if response.success {
-                        plog("删除成功")
-                        self?.updateApis.append((self?.deleteFinger[0])!)
-                        self?.deleteFinger.remove(at: 0)
-                        
-                        if self?.deleteFinger.count == 0 {
-                            if (self?.uploadFinger.count)! > 0 {
-                                self?.startEnrrol()
-                            } else {
-                                self?.updateSyncState()
-                            }
-                            
-                        } else {
-                            self?.deleteFingerprint()
-                        }
-                        
-                    } else {
-                        plog("删除失败")
+                    self?.updateApis.append((self?.deleteFinger[0])!)
+                    self?.deleteFinger.remove(at: 0)
+                    if self?.deleteFinger.count == 0 {
                         if (self?.uploadFinger.count)! > 0 {
                             self?.startEnrrol()
                         } else {
                             self?.updateSyncState()
                         }
+                        
+                    } else {
+                        self?.deleteFingerprint()
                     }
+                    plog("已删除成功")
+                  
                 case .MorseCode(_):
                      SyncView.instance.rx_hidden.value = true
                     if response.success {
@@ -90,6 +81,13 @@ class BLEUpdate: NSObject {
                             self?.peripheral?.sendRestCommand()
                         }
                     }
+                case .ClearMorseCode(_):
+                    
+                    if response.success {
+                        plog("删除morsecode 成功")
+                        self?.updateMorseStatus()
+                    }
+                    
                 default:
                     break
                 }
@@ -98,19 +96,27 @@ class BLEUpdate: NSObject {
         
     }
     
+    
     public func updateLockState() {
         
-
         self.updateLockInfor()
         switch self.peripheral?.lockStatus {
         case 0:
-            self.showTotals()
+            SyncView.instance.rx_hidden.value = false
             self.loadAPI()
         case 1:
+            
             if self.peripheral?.morseStatus == 0 {
-                self.showTotals()
+                 SyncView.instance.rx_hidden.value = false
                 self.downloadMorseCode()
             }
+            
+            if self.peripheral?.morseStatus == -1 {
+                plog("删除摩斯码")
+                SyncView.instance.rx_hidden.value = false
+                self.peripheral?.sendClearMorseCode()
+            }
+            
         default:
             break
         }
@@ -209,13 +215,28 @@ extension BLEUpdate {   // API 相关
                     // 错误信息
                      SyncView.instance.rx_hidden.value = true
                 }
-            }).disposed(by: rx.disposeBag)
+            }) { ( error) in
+                SyncView.instance.rx_hidden.value = true
+            }.disposed(by: rx.disposeBag)
     }
     
     
      // 更新锁指纹同步完成
     fileprivate func updateSyncState() {
         var arr = [Any]()
+        if updateApis.count == 0 {
+            if self.peripheral?.morseStatus == 0 {
+                plog("下载摩斯码")
+                self.downloadMorseCode()
+            } else if self.peripheral?.morseStatus == -1 {
+                plog("删除摩斯码")
+                self.peripheral?.sendClearMorseCode()
+            } else {
+                SyncView.instance.rx_hidden.value = true
+            }
+            return
+        }
+        
         for model in updateApis {
             var dict = [String : Any]()
             if model.fingerprintId != nil {
@@ -237,17 +258,25 @@ extension BLEUpdate {   // API 相关
         
         updateApis.removeAll()
         
+        
         provider.rx.request(APIServer.updateFingerprintSycnState(relSyncStatusUpdateBOList: arr))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { [weak self] response in
-                SyncView.instance.rx_hidden.value = true
+                
                 if response.success {
                     if self?.peripheral?.morseStatus == 0 {
                         plog("下载摩斯码")
                         self?.downloadMorseCode()
+                    } else if self?.peripheral?.morseStatus == -1 {
+                        plog("删除摩斯码")
+                        self?.peripheral?.sendClearMorseCode()
+                    } else {
+                         SyncView.instance.rx_hidden.value = true
                     }
+                   
                 } else {
                     plog(response.codeMessage)
+                    SyncView.instance.rx_hidden.value = true
                 }
                 
             }) { ( error) in
@@ -281,6 +310,7 @@ extension BLEUpdate {   // API 相关
 
                 if !response.success {
                     plog(response.codeMessage)
+                    
                 }
             }).disposed(by: rx.disposeBag)
     }
@@ -332,8 +362,11 @@ extension BLEUpdate {   // API 相关
                 
                 if !response.success {
                     plog(response.codeMessage)
+                    SyncView.instance.rx_hidden.value = true
                 }
-            }).disposed(by: rx.disposeBag)
+            }) { ( error) in
+                SyncView.instance.rx_hidden.value = true
+            }.disposed(by: rx.disposeBag)
     }
     
     
@@ -362,26 +395,7 @@ extension BLEUpdate {   // API 相关
     
     
     
-    fileprivate func showTotals() {
-        SyncView.instance.rx_hidden.value = false
-        let window = UIApplication.shared.delegate?.window!
-        let x =  window?.rootViewController?.presentedViewController
-        
-        let alertController = CFAlertViewController(title: R.string.localizable.dataNeedsToSync(),
-                                                    message: nil,
-                                                    textAlignment: .left,
-                                                    preferredStyle: .alert,
-                                                    didDismissAlertHandler: nil)
-        alertController.shouldDismissOnBackgroundTap = false
-        alertController.backgroundStyle = .blur
-        alertController.backgroundColor = UIColor.clear
-        
-        let ok = CFAlertAction(title: R.string.localizable.oK(), style: .Default, alignment: .justified, backgroundColor: UIColor.themeColor, textColor: nil, handler: nil)
-        
-        alertController.addAction(ok)
-        x?.present(alertController, animated: true, completion: nil)
-    }
-    
+  
 }
 
 

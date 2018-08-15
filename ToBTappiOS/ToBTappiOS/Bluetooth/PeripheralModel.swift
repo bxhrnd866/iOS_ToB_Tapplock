@@ -66,7 +66,7 @@ class PeripheralModel: NSObject {
         
         response.filter({ $0.hardVersion != nil }).map { $0.hardVersion! }.bind(to: rx_hardware).disposed(by: rx.disposeBag)
         
-        self.rx_mac.value = peripheral.mac
+//        self.rx_mac.value = peripheral.mac
         
     }
     
@@ -82,13 +82,21 @@ extension PeripheralModel {
         
         guard let response = BluetoothResponse.init(data) else {
             let none = data.hexadecimal()
-            plog("未被处理的数据\(none)")
+//            plog("未被处理的数据\(none)")
             return
         }
        
         self.rx_response.value = response
         
         switch response {
+            
+        case .GetDeviceMac:
+            
+            self.rx_mac.value = response.mac?.macText
+            
+            TapplockManager.default.rx_viewmodel?.contains()
+            
+            sendGetFiremwareCommand()
             
         case .GetFiremwareVersion:
             
@@ -109,12 +117,17 @@ extension PeripheralModel {
             }
             
         case .PairingRegular:
-            
-            if self.lockStatus == -1 {
-                self.bleUpdate?.deleteLock()
+            if response.success {
+                if self.lockStatus == -1 {
+                    self.bleUpdate?.deleteLock()
+                } else {
+                    sendBatteryCommand()
+                }
             } else {
-               sendBatteryCommand()
+                plog("配对失败")
             }
+            
+            
             
         case .Battery:
             
@@ -122,6 +135,7 @@ extension PeripheralModel {
             
         case .GMTTime:
             
+            sleep(1)
             sendGetHistory()
             
         case .HistoryNumers:
@@ -198,7 +212,8 @@ extension PeripheralModel: CBPeripheralDelegate {
             switch characteristic.uuid.uuidString {
             case UUID_Characteristic_SEND:
                 writeCharacteristic = characteristic
-                sendGetFiremwareCommand()
+//                sendGetFiremwareCommand()
+                sendGetDeviceMacCommand()
                 break
             case UUID_Characteristic_RECIEVE:
                 readCharacteristic = characteristic

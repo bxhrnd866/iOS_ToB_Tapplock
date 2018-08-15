@@ -9,6 +9,7 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import CFAlertViewController
 class ConfigModel: NSObject {
     
     static let `default` = ConfigModel()
@@ -59,45 +60,90 @@ class ConfigModel: NSObject {
                     } else {
                         plog("失败 继续调用")
                         
-                        self?.deleteToken(logout: true)
+                        self?.loagOut()
                         
                     }
                 }).disposed(by: rx.disposeBag)
         }
     }
     
-    
-    func deleteToken(logout: Bool = false) {
-        
+
+    public func notificaitonType() {
         let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
         let type = usermanger?.object(forKey: "NotificationType") as? String
+        
+        var title: String? = nil
+        
+        if type == "-1" {
+            title = R.string.localizable.userLogoutType111()
+        }
+        
+        if type == "-2" {
+            title = R.string.localizable.userLogoutType222()
+        }
+        
+        if title == nil {
+            return
+        }
+        
+        let alertController = CFAlertViewController(title: nil,
+                                                    message: title,
+                                                    textAlignment: .left,
+                                                    preferredStyle: .alert,
+                                                    didDismissAlertHandler: nil)
+        let okAction = CFAlertAction(title: R.string.localizable.yes(),
+                                     style: .Default,
+                                     alignment: .justified,
+                                     backgroundColor: UIColor.themeColor,
+                                     textColor: nil,
+                                     handler: { _ in
+                                        self.loagOut()
+                                        
+        })
+        alertController.addAction(okAction)
+
+        
+        alertController.shouldDismissOnBackgroundTap = false
+        alertController.backgroundStyle = .blur
+        alertController.backgroundColor = UIColor.clear
+        let window = UIApplication.shared.delegate?.window!
+        
+        
+        if let presnt = window?.rootViewController?.presentedViewController {
+            presnt.present(alertController, animated: true, completion: nil)
+        } else {
+            window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
     
-        if type != nil || logout == true {
-            
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            ConfigModel.default.user.value = nil
-            DispatchQueue.main.async(execute: {
-                delegate.removeMenuView()
-                if let presnt = delegate.window?.rootViewController?.presentedViewController {
-                    presnt.dismiss(animated: false) {
-                        if let pt = delegate.window?.rootViewController?.presentedViewController {
-                            pt.dismiss(animated: false, completion: nil)
-                        }
+    
+    public func loagOut() {
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        ConfigModel.default.user.value = nil
+        TapplockManager.default.rx_viewmodel = nil
+        DispatchQueue.main.async(execute: {
+            delegate.removeMenuView()
+            if let presnt = delegate.window?.rootViewController?.presentedViewController {
+                presnt.dismiss(animated: false) {
+                    if let pt = delegate.window?.rootViewController?.presentedViewController {
+                        pt.dismiss(animated: false, completion: nil)
                     }
                 }
-            })
-            
-            let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
-            provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
-                .mapObject(APIResponse<EmptyModel>.self)
-                .subscribe(onSuccess: { response in
-                    
-                    if response.success {
-                        plog("删除token 成功")
-                    }
-                    
-                }).disposed(by: rx.disposeBag)
-        }
+            }
+        })
+        
+        let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
+        provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
+            .mapObject(APIResponse<EmptyModel>.self)
+            .subscribe(onSuccess: { response in
+                
+                if response.success {
+                    plog("删除token 成功")
+                }
+                
+            }).disposed(by: rx.disposeBag)
     }
     
     

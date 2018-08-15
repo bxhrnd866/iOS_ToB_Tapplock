@@ -60,6 +60,8 @@ class BlueDetailViewModel: NSObject {
     
     func unlockButtonAction() {
 
+        
+        
         let lat = ConfigModel.default.locaiton?.latitude
         let long = ConfigModel.default.locaiton?.longitude
        
@@ -87,8 +89,9 @@ class BlueDetailViewModel: NSObject {
                 .subscribe(onSuccess: { [weak self] response in
                     
                     if let hv = version.toInt(), let max = response.data?.currentVersion?.toInt() {
-                        
+                        self?.updateModel = response.data
                         if max > hv {
+                            
                             self?.updateModel = response.data
                             self?.rx_update.value = true
                         }

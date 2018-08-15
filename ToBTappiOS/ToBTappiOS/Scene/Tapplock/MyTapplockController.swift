@@ -43,7 +43,10 @@ class MyTapplockController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        TapplockManager.default.rx_viewmodel = viewModel
+        
+        
         bleBtn.rx.tap.subscribe(onNext: { [weak self] in
             
             if self?.viewModel.rx_authType.value == 0 {

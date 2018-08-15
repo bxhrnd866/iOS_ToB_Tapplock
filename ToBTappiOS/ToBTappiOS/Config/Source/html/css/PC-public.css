@@ -1,0 +1,212 @@
+/*@media screen and (max-width: 750px) {
+    .con100 {
+         min-width: 75rem;
+    }*/
+
+/*浮动*/
+.fl{float: left;}
+.fr{float: right;}
+/*字体*/
+.font14{font-size: 14px;}
+.font16{font-size: 16px;}
+.font18{font-size: 18px;}
+.font20{font-size: 20px;}
+.font24{font-size: 24px;}
+.font28{font-size: 28px;}
+.font30{font-size: 30px;}
+/*颜色---根据项目来设置公共颜色*/
+.backcolerf5{background: #f5f5f5;}
+.backcoler1{background: #00bfae;}
+.backcoler2{background: #f39c11;}
+.backcoler3{background: #9fd569;}
+.backcoler4{background: #f47e4c;}
+/*边框*/
+.borderl1{border-left: 6px solid #00bfae;}
+.borderl2{border-left: 6px solid #f39c11;}
+.borderl3{border-left: 6px solid #9fd569;}
+.borderl4{border-left: 6px solid #f47e4c;}
+/*常用盒子---根据项目进行删减*/
+.layout{width: 100%;}
+.container1200{margin: 0 auto; position: relative;}
+.con100{width: 100%;  margin:0 auto;}
+.container1420{width: 1420px; margin: 0 auto; position: relative;}
+.container1300{width: 1300px;margin: 0 auto; position: relative;}
+/*显隐/块级/行内*/
+.hz-block{display: block;}
+.hz-inline{display: inline;}
+.hz-inline-block{display: inline-block;}
+.hz-hide{display: none;visibility: hidden;}
+
+/*滚动条美化*/
+::-webkit-scrollbar {width: 4px;height: 4px}
+::-webkit-scrollbar-thumb {border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;background-color: #aaa;}
+::-webkit-scrollbar-track {background-color: transparent}
+
+/*margin*/
+.mt65{margin-top: 65px;}
+.mr30{margin-right: 30px;}
+.mr35{margin-right: 35px;}
+.mr20{margin-right: 20px;}
+.mr13{margin-right: 13px;}
+.mb25{margin-bottom: 25px;}
+/*padding*/
+.pt65{padding-top: 65px;}
+.pb100{padding-bottom: 100px;}
+.pt160{padding-top: 160px;}
+.pb185{padding-bottom: 185px;}
+.ptb70{padding:70px 0;}
+.pt70{padding-top: 70px;}
+.pb180{padding-bottom:180px;}
+.pt95{padding-top: 95px;}
+.pb150{padding-bottom: 150px;}
+.pb225{padding-bottom: 225px;}
+/*header start*/
+
+
+/*footer start*/
+
+/*其余小部件公共样式*/
+
+
+/** 清除内外边距 **/
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote,  /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre,  /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea,  /* form elements 表单元素 */
+table,th,td /* table elements 表格元素 */{
+	margin:0;
+	padding:0;
+}
+
+body,
+button, input, select, textarea /* for ie */ {
+    font: 12px/24px Arial, 'Microsoft Yahei',"宋体", sans-serif;
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+address, cite, em, i { font-style: normal; } /* 将斜体扶正 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+li { list-style: none; }
+
+/** 重置文本格式元素 **/
+a { text-decoration: none;color: #333; }
+a:hover { text-decoration: none; }
+
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0;display: block; } /* img 搭车：让a链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; line-height:normal; } /* 使得表单元素在 ie 下能继承字体大小 */
+
+/** 重置表格元素 **/
+table{ border-collapse: collapse; border-spacing: 0; }
+input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer;}
+input{outline: none;border: none;}
+
+/* ie6 7 8(q) bug  */
+iframe{display:block;}
+
+/* 清浮动 */
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.clearfix {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/*
+ * **************************************************************
+ *	文本-省略号 截断
+ * **************************************************************
+ */
+
+.hz-ellipsis {
+	word-wrap: normal;
+	/* for IE */
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.hz-ellipsis a{ color:#9fa6ba;}
+.hz-ellipsis a:hover{ color:#ffc600;}
+
+/*多行位置截断*/
+
+.hz-line-clamp2 {
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	/*行数*/
+	-webkit-box-orient: vertical;
+}
+.hz-line-clamp3 {
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	/*行数*/
+	-webkit-box-orient: vertical;
+}
+.hz-line-clamp4 {
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	/*行数*/
+	-webkit-box-orient: vertical;
+}
+/*面包屑*/
+.crumbs{
+	/*margin-top: 10px;	*/
+}
+.crumbs p{
+	font-size: 14px;
+	color:#333333;	
+	margin-top: 20px;
+}
+
+.crumbs h3 a{
+	display: block;
+	text-align: right;
+	margin-left: 1015px;
+	margin-right: 65px;
+	background: url(../img/fanhui1.png) no-repeat left center;
+	padding-left: 35px;
+	font-size: 16px;
+	color:#333333;	
+	margin-top: 20px;
+	height: 25px;
+}
+.crumbs1 h3 a{
+	display: block;
+	text-align: right;
+	margin-left: 1015px;
+	margin-right: 65px;
+	background: url(../img/fanhui1.png) no-repeat left center;
+	padding-left: 35px;
+	font-size: 16px;
+	color:#333333;	
+	margin-top: 20px;
+	height: 25px;
+}
+
+/*相对定位*/
+.retalive{position: relative;}

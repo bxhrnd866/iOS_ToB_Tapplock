@@ -22,7 +22,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 4 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
     /// Resource file `Century Gothic.ttf`.
     static let centuryGothicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Century Gothic", pathExtension: "ttf")
@@ -32,6 +32,8 @@ struct R: Rswift.Validatable {
     static let root_logoPng = Rswift.FileResource(bundle: R.hostingBundle, name: "Root_logo", pathExtension: "png")
     /// Resource file `api_tapplock_com.cer`.
     static let api_tapplock_comCer = Rswift.FileResource(bundle: R.hostingBundle, name: "api_tapplock_com", pathExtension: "cer")
+    /// Resource file `html`.
+    static let html = Rswift.FileResource(bundle: R.hostingBundle, name: "html", pathExtension: "")
     
     /// `bundle.url(forResource: "Century Gothic", withExtension: "ttf")`
     static func centuryGothicTtf(_: Void = ()) -> Foundation.URL? {
@@ -57,6 +59,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
+    /// `bundle.url(forResource: "html", withExtension: "")`
+    static func html(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.html
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   
@@ -77,12 +85,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 87 images.
+  /// This `R.image` struct is generated, and contains static references to 89 images.
   struct image {
-    /// Image `About_Logo`.
-    static let about_Logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "About_Logo")
     /// Image `Back_Arrow`.
     static let back_Arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Back_Arrow")
+    /// Image `CenterIcon`.
+    static let centerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CenterIcon")
     /// Image `DFU-Hierarchical`.
     static let dfuHierarchical = Rswift.ImageResource(bundle: R.hostingBundle, name: "DFU-Hierarchical")
     /// Image `History_calender`.
@@ -107,6 +115,10 @@ struct R: Rswift.Validatable {
     static let home_right = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_right")
     /// Image `Home_search`.
     static let home_search = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_search")
+    /// Image `Homebackground`.
+    static let homebackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "Homebackground")
+    /// Image `Homelogo`.
+    static let homelogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Homelogo")
     /// Image `Lock_lockicon`.
     static let lock_lockicon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Lock_lockicon")
     /// Image `Log_email`.
@@ -254,14 +266,14 @@ struct R: Rswift.Validatable {
     /// Image `rightArrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightArrow")
     
-    /// `UIImage(named: "About_Logo", bundle: ..., traitCollection: ...)`
-    static func about_Logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.about_Logo, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "Back_Arrow", bundle: ..., traitCollection: ...)`
     static func back_Arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back_Arrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "CenterIcon", bundle: ..., traitCollection: ...)`
+    static func centerIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.centerIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "DFU-Hierarchical", bundle: ..., traitCollection: ...)`
@@ -322,6 +334,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Home_search", bundle: ..., traitCollection: ...)`
     static func home_search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.home_search, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Homebackground", bundle: ..., traitCollection: ...)`
+    static func homebackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.homebackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Homelogo", bundle: ..., traitCollection: ...)`
+    static func homelogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.homelogo, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Lock_lockicon", bundle: ..., traitCollection: ...)`
@@ -1335,7 +1357,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 187 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -1437,6 +1459,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let connected = Rswift.StringResource(key: "Connected", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Data Synchronization Completed
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let dataSyncCompeted = Rswift.StringResource(key: "DataSyncCompeted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: Data Synchronizing Failed, Please Try Again
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2073,6 +2099,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let instructionDateSelct = Rswift.StringResource(key: "InstructionDateSelct", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: 用户权限变更
+      /// 
+      /// Locales: en
+      static let userLogoutType111 = Rswift.StringResource(key: "UserLogoutType111", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: 用户退出被删除
+      /// 
+      /// Locales: en
+      static let userLogoutType222 = Rswift.StringResource(key: "UserLogoutType222", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       
       /// en translation: %@ opened the lock %@
       /// 
@@ -2247,6 +2281,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func connected(_: Void = ()) -> String {
         return NSLocalizedString("Connected", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Data Synchronization Completed
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func dataSyncCompeted(_: Void = ()) -> String {
+        return NSLocalizedString("DataSyncCompeted", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Data Synchronizing Failed, Please Try Again
@@ -3362,6 +3403,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("InstructionDateSelct", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 用户权限变更
+      /// 
+      /// Locales: en
+      static func userLogoutType111(_: Void = ()) -> String {
+        return NSLocalizedString("UserLogoutType111", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 用户退出被删除
+      /// 
+      /// Locales: en
+      static func userLogoutType222(_: Void = ()) -> String {
+        return NSLocalizedString("UserLogoutType222", bundle: R.hostingBundle, comment: "")
+      }
+      
       fileprivate init() {}
     }
     
@@ -3547,12 +3602,14 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "CenterIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CenterIcon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Tutorial - 02") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 02' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Homelogo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Homelogo' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Tutorial - 01") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 01' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Homebackground") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Homebackground' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Login_Logo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Login_Logo' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Tutorial - 04") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 04' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Root_logo.png") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Root_logo.png' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Tutorial - 02") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 02' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Tutorial - 03") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 03' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Tutorial - 01") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 01' is used in storyboard 'Main', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

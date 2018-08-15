@@ -27,7 +27,7 @@ class UserGroupViewModel: NSObject {
     
     func loadAPI() {
         self.rx_step.value = .loading
-        if ConfigModel.default.user.value?.groups != nil {
+        if ConfigModel.default.user.value?.groups?.count != 0 {
             self.rx_data.value = (ConfigModel.default.user.value?.rx_groups.value)!
             self.rx_step.value = .sucess
             return

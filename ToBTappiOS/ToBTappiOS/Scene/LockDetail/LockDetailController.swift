@@ -112,20 +112,36 @@ class LockDetailController: UIViewController {
         
         viewModel.hardVersionUpdate()
         
-        if let permissions = ConfigModel.default.user.value?.permissions {
-            
-            for model in permissions {
-                if model.permissionCode == "303" {
-                    self.firmwareUpdate.isHidden = false
-                    break
+        if ConfigModel.default.user.value?.permissionType == -1 {
+            self.firmwareUpdate.isHidden = false
+        } else {
+            if let permissions = ConfigModel.default.user.value?.permissions {
+                
+                for model in permissions {
+                    if model.permissionCode == "303" {
+                        self.firmwareUpdate.isHidden = false
+                        break
+                    }
                 }
             }
         }
         
         
+        
+        
        
         self.firmwareUpdate.rx.tap.subscribe({ [weak self] _ in
-            self?.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+            
+            if self?.viewModel.rx_update.value == false {
+                self?.showToast(message: R.string.localizable.errorMessage_NoFirmwareUpdate())
+            } else {
+                if (self?.checkBlueWithAlert())! && self?.viewModel.updateModel?.firmwarePackageUrl != nil {
+                    
+                    self?.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
+                }
+                
+            }
+          
         }).disposed(by: rx.disposeBag)
         
         
@@ -185,6 +201,11 @@ class LockDetailController: UIViewController {
         if let vc = R.segue.lockDetailController.showUpdateDFU(segue: segue) {
             vc.destination.updateModel = viewModel.updateModel
         }
+        
+        if let vc = R.segue.lockDetailController.lockBluetoothHistory(segue: segue) {
+            vc.destination.viewModel.lockId = viewModel.lock?.id
+        }
+        
     }
 }
 

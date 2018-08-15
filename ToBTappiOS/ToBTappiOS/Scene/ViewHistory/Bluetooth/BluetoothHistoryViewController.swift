@@ -19,7 +19,7 @@ class BluetoothHistoryViewController: UIViewController {
     
     weak var controller: ViewHistoryController?
     
-    let viewModel = LockHistoryViewModel(type: 1)
+    let viewModel = LockHistoryViewModel(type: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()

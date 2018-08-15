@@ -24,16 +24,17 @@ class TapplockViewModel: NSObject {
     override init() {
         super.init()
         
-        TapplockManager.default.rx_peripherals
-            .asDriver()
-            .drive(onNext: { [weak self] _ in
-               self?.contains()
-        }).disposed(by: rx.disposeBag)
+//        TapplockManager.default.rx_peripherals
+//            .asDriver()
+//            .drive(onNext: { [weak self] _ in
+//               self?.contains()
+//        }).disposed(by: rx.disposeBag)
+        
         
         
         TapplockManager.default.rx_deleteLock
             .asObservable().filter({ $0 != nil })
-            .map({ $0!.macText })
+            .map({ $0! })
             .subscribe(onNext: { [weak self] mac in
                 self?.removeModel(mac: mac)
             
@@ -44,20 +45,21 @@ class TapplockViewModel: NSObject {
         for (a, b) in self.rx_lockList.value.enumerated() {
             if b.mac == mac {
                 self.rx_lockList.value.remove(at: a)
-                break
-            }
-        }
-    }
-    
-    
-    private func contains() {
-        for model in TapplockManager.default.rx_peripherals.value {
-            if self.rx_lockList.value.reduce(false, { $0 || $1.contains(model) }) {
-                plog("找到一个")
+                
                 break
             }
         }
         
+        TapplockManager.default.rx_deleteLock.value = nil
+    }
+    
+    
+    func contains() {
+        for model in TapplockManager.default.rx_peripherals.value {
+            if self.rx_lockList.value.reduce(false, { $0 || $1.contains(model) }) {
+                plog("找到一个")
+            }
+        }
     }
     
     func loadRefresh() {
@@ -105,5 +107,9 @@ class TapplockViewModel: NSObject {
             }.disposed(by: rx.disposeBag)
         
         
+    }
+    
+    deinit {
+        plog("model销毁")
     }
 }

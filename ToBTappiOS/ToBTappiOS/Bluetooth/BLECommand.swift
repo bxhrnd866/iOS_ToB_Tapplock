@@ -30,6 +30,8 @@ let CMD_VerifyRandom = CDM_PREFIX + "02030C00"
 let CMD_SendFingerprintStart = CDM_PREFIX + "89020000"
 let CMD_SendFingerprintData = CDM_PREFIX + "e0"
 let CMD_SendFingerprintEnd = CDM_PREFIX + "8a020000"
+let CMD_SendClearMorseCode = CDM_PREFIX + "ec020000"
+
 
 //蓝牙通信指令,参考蓝牙通信文档
 enum BluetoothCommand {
@@ -53,6 +55,7 @@ enum BluetoothCommand {
     case SendFingerprintStart
     case SendFingerprintData(data: String)
     case SendFingerprintEnd
+    case SendClearMoreseCode
     
     var commandString: String {
         switch self {
@@ -104,6 +107,8 @@ enum BluetoothCommand {
             return CMD_SendFingerprintData + data
         case .SendFingerprintEnd:
             return CMD_SendFingerprintEnd
+        case .SendClearMoreseCode:
+            return CMD_SendClearMorseCode
         }
     }
 
