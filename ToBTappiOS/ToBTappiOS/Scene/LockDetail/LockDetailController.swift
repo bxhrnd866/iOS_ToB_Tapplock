@@ -135,6 +135,12 @@ class LockDetailController: UIViewController {
             if self?.viewModel.rx_update.value == false {
                 self?.showToast(message: R.string.localizable.errorMessage_NoFirmwareUpdate())
             } else {
+                
+                if SyncView.instance.rx_hidden.value == false {
+                    self?.showToast(message: R.string.localizable.dataisbeingsynchronized())
+                    return
+                }
+
                 if (self?.checkBlueWithAlert())! && self?.viewModel.updateModel?.firmwarePackageUrl != nil {
                     
                     self?.performSegue(withIdentifier: R.segue.lockDetailController.showUpdateDFU, sender: self)
@@ -183,9 +189,17 @@ class LockDetailController: UIViewController {
     
     
     @IBAction func unlockAction(_ sender: Any) {
+        
+        if SyncView.instance.rx_hidden.value == false {
+            self.showToast(message: R.string.localizable.dataisbeingsynchronized())
+            return
+        }
+        
         if checkBlueWithAlert() {
           viewModel.unlockButtonAction()
-        }        
+        }
+//
+//        TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
     }
 
   

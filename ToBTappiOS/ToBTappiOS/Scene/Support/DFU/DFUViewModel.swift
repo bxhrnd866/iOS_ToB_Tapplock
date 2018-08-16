@@ -20,7 +20,7 @@ enum UpdateStatus {
     case updatefail
 }
 
-class DFUViewModel: NSObject {
+class DFUViewModel: TapplockManagerDelegate{
     
     var rx_step: Variable<UpdateStatus> = Variable(.none)
     var rx_progress: Variable<Float> = Variable(0.0)
@@ -29,14 +29,11 @@ class DFUViewModel: NSObject {
     var downloadUrl: String?
     var periphal: CBPeripheral?
     
-    override init() {
-        super.init()
+    init() {
         
-        TapplockManager.default.rx_dfuLock.asObservable().filter({ $0 != nil }).map({ $0! }).subscribe(onNext: { [weak self] ble in
-            self?.UpdateTapplockDFU(peropheral: ble)
-            TapplockManager.default .rx_dfuLock.value = nil
-        }).disposed(by: rx.disposeBag)
         
+
+        TapplockManager.default.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(enterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
     }
@@ -51,7 +48,7 @@ class DFUViewModel: NSObject {
                 _ = dfuController?.abort()
             }
             
-//            self.scanAgin()
+            self.scanAgin()
             self.rx_step.value = .updatefail
         }
     }
@@ -71,10 +68,10 @@ class DFUViewModel: NSObject {
                     self?.rx_step.value = .downfail
                     return
                 }
-                self?.dfuUrl = DownloadManager.default.downloadFilePath(downurl)
-                //                let xm = Bundle.main.path(forResource: "DFU_TAPP_X1003", ofType: "zip")
-                //                let url = URL(fileURLWithPath: xm!)
-                //                self?.dfuUrl = url
+//                self?.dfuUrl = DownloadManager.default.downloadFilePath(downurl)
+                                let xm = Bundle.main.path(forResource: "app_0816", ofType: "zip")
+                                let url = URL(fileURLWithPath: xm!)
+                                self?.dfuUrl = url
                 self?.checkBlueWithAlert()
             default:
                 plog("失败")
@@ -97,14 +94,18 @@ class DFUViewModel: NSObject {
         dfuController = initiator.with(firmware: firmware!).start()
 
         self.periphal = peropheral
-//
-        
+
     }
     
+
     func updateFireware() -> Void {
         self.rx_step.value = .updating
         TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
         TapplockManager.default.manager.stopScan()
+    }
+    
+    func startDFU(peripheral: CBPeripheral) {
+        self.UpdateTapplockDFU(peropheral: peripheral)
     }
 
     func sendDFUUpatestate(update: UpdateStatus) {

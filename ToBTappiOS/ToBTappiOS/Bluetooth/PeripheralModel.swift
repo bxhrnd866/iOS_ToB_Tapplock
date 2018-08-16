@@ -207,7 +207,7 @@ extension PeripheralModel: CBPeripheralDelegate {
     }
     // MARK: 搜索特征
     public func onDiscoverCharacteristics(_ peripheral: CBPeripheral, service: CBService) {
-        
+      
         for characteristic in service.characteristics! {
             switch characteristic.uuid.uuidString {
             case UUID_Characteristic_SEND:

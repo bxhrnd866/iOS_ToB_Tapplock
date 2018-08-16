@@ -167,21 +167,12 @@ enum BluetoothResponse {
         switch self {
         case .GetFiremwareVersion:
             
-            if self.value == nil {
+            if self.value == nil || self.value?.length != 8 {
                 return nil
             }
-            
-            if self.rawValue.length < 21 {
-                plog("太短")
-                return nil
-            }
-            
-            let fm = self.rawValue[18...21]
-            let val = self.rawValue[14...17]
-            if val != "0001" && val != "0002"{
-                return fm.exchangeSequence()
-            }
-            return fm
+           
+            let a = self.value![4...7]
+            return a
         default:
             return nil
         }
@@ -190,14 +181,10 @@ enum BluetoothResponse {
     var hardVersion: String?  {
         switch self {
         case .GetFiremwareVersion:
-            if self.value == nil {
-                plog("固件号为空")
+            if self.value == nil || self.value?.length != 8 {
                 return nil
             }
-            if (self.value?.length)! < 4 {
-                plog("固件号为空")
-                return nil
-            }
+            
             let val = TapplockType(rawValue: (self.value?[0...3])!)
             return val?.deviceType
         default:
@@ -325,7 +312,12 @@ enum BluetoothResponse {
             let index = self.value![0...3]
             let type = self.value![4...(self.value?.count)! - 1]
             let time = hexCovertoTamp(time: type)
-            return (index, time)
+            if time == nil {
+                return nil
+            } else {
+               return (index, time!)
+            }
+            
         default:
             return nil
         }

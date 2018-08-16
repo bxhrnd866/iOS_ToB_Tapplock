@@ -33,6 +33,7 @@
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
+		5527245121254B9F005ABE44 /* app_0816.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5527245021254B9F005ABE44 /* app_0816.zip */; };
 		5528F8002112E7CF009775B7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F7FF2112E7CF009775B7 /* NotificationController.swift */; };
 		5528F8022112E85D009775B7 /* NotifactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F8012112E85D009775B7 /* NotifactionCell.swift */; };
 		5528F8062112E8A7009775B7 /* NotificationCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5528F8052112E8A7009775B7 /* NotificationCenter.storyboard */; };
@@ -219,6 +220,7 @@
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		5527245021254B9F005ABE44 /* app_0816.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = app_0816.zip; sourceTree = "<group>"; };
 		5528F7FF2112E7CF009775B7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		5528F8012112E85D009775B7 /* NotifactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifactionCell.swift; sourceTree = "<group>"; };
 		5528F8052112E8A7009775B7 /* NotificationCenter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationCenter.storyboard; sourceTree = "<group>"; };
@@ -432,6 +434,17 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		5527245221256DCC005ABE44 /* DFU */ = {
+			isa = PBXGroup;
+			children = (
+				55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */,
+				55226CD02109D52100F2074F /* UpdateDFUController.swift */,
+				55226CD22109D56100F2074F /* UpdateLoadingController.swift */,
+				55B3DAE3210AC722001697D3 /* DFUViewModel.swift */,
+			);
+			path = DFU;
+			sourceTree = "<group>";
+		};
 		5528F7FE2112E7AD009775B7 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +491,7 @@
 				553E72C020AAB35200CFFEB8 /* Localizable.strings */,
 				7D8D773920CE1DF100C218D0 /* R.generated.swift */,
 				7DFE10C520CD464300C94FA3 /* ToBTappiOS-Bridging-Header.h */,
+				5527245021254B9F005ABE44 /* app_0816.zip */,
 				557C3F3720EB1EBB00A24D54 /* api_tapplock_com.cer */,
 				55211CE4211C3F170065002A /* GoogleService-Info.plist */,
 			);
@@ -619,10 +633,7 @@
 				556411A921008D4C00F039AF /* SearchBar.swift */,
 				5589411B210872AD005F2324 /* HistoryDateController.swift */,
 				5589411921087295005F2324 /* HistoryDatePicker.storyboard */,
-				55226CCE2109D4FE00F2074F /* UpdateDFU.storyboard */,
-				55226CD02109D52100F2074F /* UpdateDFUController.swift */,
-				55226CD22109D56100F2074F /* UpdateLoadingController.swift */,
-				55B3DAE3210AC722001697D3 /* DFUViewModel.swift */,
+				5527245221256DCC005ABE44 /* DFU */,
 				551CAD31210C57350066D4C9 /* ImagePicker */,
 				55446566210FFB2900C425FD /* SyncView.swift */,
 			);
@@ -931,6 +942,7 @@
 			files = (
 				7DFE10DA20CD4A3800C94FA3 /* LogIn.storyboard in Resources */,
 				7D8D774020CE418900C218D0 /* Home.storyboard in Resources */,
+				5527245121254B9F005ABE44 /* app_0816.zip in Resources */,
 				553E72AA20AAAD8F00CFFEB8 /* LaunchScreen.storyboard in Resources */,
 				553E72BE20AAB35200CFFEB8 /* Localizable.strings in Resources */,
 				553E72A720AAAD8F00CFFEB8 /* Assets.xcassets in Resources */,

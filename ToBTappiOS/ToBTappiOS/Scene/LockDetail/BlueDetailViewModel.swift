@@ -84,18 +84,24 @@ class BlueDetailViewModel: NSObject {
     
     func hardVersionUpdate() {
         if let version = lock?.hardwareVersion {
-            provider.rx.request(APIServer.checkFirmwares(hardwareVersion: version))
+            provider.rx.request(APIServer.checkFirmwares(hardwareVersion: "0002"))
                 .mapObject(APIResponse<FirmwareModel>.self)
                 .subscribe(onSuccess: { [weak self] response in
-                    
-                    if let hv = version.toInt(), let max = response.data?.currentVersion?.toInt() {
-                        self?.updateModel = response.data
-                        if max > hv {
-                            
+
                             self?.updateModel = response.data
                             self?.rx_update.value = true
-                        }
-                    }
+                
+//                    if let hv = self?.lock?.peripheralModel?.rx_firmware.value, let max = response.data?.currentVersion?.toInt() {
+//
+//                        if max > hv {
+//
+//                            self?.updateModel = response.data
+//                            self?.rx_update.value = true
+//
+//                            plog(hv)
+//                            plog(self?.updateModel)
+//                        }
+//                    }
                 
                 }) { ( error) in
                     self.rx_step.value = .failed

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class RegisterViewModel: NSObject {
-    var rx_url: Variable<String?> = Variable(nil)
+    var rx_url: Variable<String?> = Variable("https://res.cloudinary.com/tapplock/image/upload/v1534414207/tapplock-b2b-android/1.png")
     var rx_firstName: Variable<String?> = Variable(nil)
     var rx_lastName: Variable<String?> = Variable(nil)
     var rx_mail: Variable<String?> = Variable(nil)
@@ -21,7 +21,6 @@ class RegisterViewModel: NSObject {
     var rx_corpId: Variable<Int?> = Variable(nil)
 
     
-
     var rx_step: Variable<RequestStep> = Variable(.none)
 
     func setImageURL(_ url: String) {

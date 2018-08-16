@@ -38,11 +38,11 @@
                                 <color key="textColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-5a-Lzf">
-                                <rect key="frame" x="139" y="235.66666666666663" width="97" height="97"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mainlogo" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-5a-Lzf">
+                                <rect key="frame" x="127.66666666666669" y="224.33333333333337" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="97" id="GEF-Ul-RRU"/>
-                                    <constraint firstAttribute="width" constant="97" id="L2A-zz-EZN"/>
+                                    <constraint firstAttribute="height" constant="120" id="GEF-Ul-RRU"/>
+                                    <constraint firstAttribute="width" constant="120" id="L2A-zz-EZN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -51,7 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast and easy access for what's important" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Vr-z6x">
-                                <rect key="frame" x="20" y="357.66666666666669" width="335" height="15.666666666666686"/>
+                                <rect key="frame" x="20" y="369.33333333333331" width="335" height="15.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -439,10 +439,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CenterIcon" width="341" height="341"/>
         <image name="Homebackground" width="375" height="667"/>
         <image name="Homelogo" width="51" height="17"/>
         <image name="Login_Logo" width="207" height="70"/>
+        <image name="Mainlogo" width="139" height="133"/>
         <image name="Tutorial - 01" width="360" height="640"/>
         <image name="Tutorial - 02" width="360" height="640"/>
         <image name="Tutorial - 03" width="360" height="640"/>

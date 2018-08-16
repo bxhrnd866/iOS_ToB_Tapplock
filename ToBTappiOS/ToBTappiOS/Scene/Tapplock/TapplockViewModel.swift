@@ -50,7 +50,7 @@ class TapplockViewModel: NSObject {
             }
         }
         
-        TapplockManager.default.rx_deleteLock.value = nil
+//        TapplockManager.default.rx_deleteLock.value = nil
     }
     
     

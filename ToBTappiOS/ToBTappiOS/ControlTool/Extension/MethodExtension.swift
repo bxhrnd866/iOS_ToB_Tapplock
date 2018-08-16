@@ -34,7 +34,7 @@ func GMTCoverToHex() -> String {
 }
 
 
-func hexCovertoTamp(time: String) -> Int {
+func hexCovertoTamp(time: String) -> Int? {
     
     let xm  = time[0...3]
     let x1 = xm[0...1]
@@ -46,8 +46,9 @@ func hexCovertoTamp(time: String) -> Int {
     let length = t12.length
     
     if length < 5 {
-        return 1000
+        return nil
     }
+    
     let d = t12.substring(with: NSMakeRange(length - 5, 5))
     
     let m = t12.substring(with: NSMakeRange(length - 9, 4))

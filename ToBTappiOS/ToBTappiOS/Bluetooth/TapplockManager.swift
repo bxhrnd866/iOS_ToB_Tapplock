@@ -28,7 +28,7 @@ final class TapplockManager: NSObject {
 
     var editingLock: TapplockModel? = nil
     
-    var rx_dfuLock: Variable<CBPeripheral?> = Variable(nil)
+    weak var delegate: TapplockManagerDelegate?
     
     var rx_deleteLock: Variable<String?> = Variable(nil)
     
@@ -56,7 +56,7 @@ final class TapplockManager: NSObject {
 
     public func scan() {
         if ConfigModel.default.user.value != nil  {
-           manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE),CBUUID.init(string: DFU_SERVICE)], options: nil)
+           manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE), CBUUID.init(string: DFU_SERVICE)], options: nil)
         }
         
     }
@@ -88,7 +88,7 @@ extension TapplockManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOn:
-            manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE),CBUUID.init(string: DFU_SERVICE)], options: nil)
+            manager.scanForPeripherals(withServices: [CBUUID.init(string: UUID_SERVICE), CBUUID.init(string: DFU_SERVICE)], options: nil)
         default:
             break
         }
@@ -96,7 +96,9 @@ extension TapplockManager: CBCentralManagerDelegate {
     
     //发现设备
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        plog(peripheral.name)
+
+        let name = advertisementData["kCBAdvDataLocalName"] as? String
+        
         plog(advertisementData)
 //        if let data = advertisementData["kCBAdvDataManufacturerData"] {
 //            let hex = (data as! Data).hexadecimal()
@@ -104,8 +106,10 @@ extension TapplockManager: CBCentralManagerDelegate {
 //            plog(data)
 //            peripheral.mac = mac
 //        }
-        if peripheral.name  == "TappLock" {
-            self.rx_dfuLock.value = peripheral
+        if name  == "Tapplock" {
+            if self.delegate != nil {
+                self.delegate?.startDFU(peripheral: peripheral)
+            }
             return
         }
 
@@ -114,16 +118,16 @@ extension TapplockManager: CBCentralManagerDelegate {
         if !self.rx_peripherals.value.reduce(false, { $0 || $1 == peripheral }) {
             manager.connect(peripheral, options: nil)
         }
-        
     }
+    
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("连接--> 成功")
         if !self.rx_peripherals.value.reduce(false, { $0 || $1 == peripheral }) {
             addTapplock(peripheral)
         }
-        peripheral.discoverServices([CBUUID.init(string: UUID_SERVICE)])
         
+        peripheral.discoverServices([CBUUID.init(string: UUID_SERVICE)])
         for per in isConnectPeripheral {
             if per === peripheral {
                 isConnectPeripheral.remove(per)
@@ -160,9 +164,14 @@ extension TapplockManager: CBCentralManagerDelegate {
                 rx_peripherals.value.remove(model)
             }
         }
+        
         if UIApplication.shared.applicationState == .active {
             scan()
         }
     }
     
+}
+
+protocol TapplockManagerDelegate: class {
+    func startDFU(peripheral: CBPeripheral)
 }
