@@ -77,6 +77,13 @@ class ViewHistorySearchController: UIViewController {
                 self?.rx_endTime.value = nil
                 self?.textfield.resignFirstResponder()
                 
+                self?.controller?.startLab = nil
+                self?.controller?.endLab = nil
+                self?.controller?.rx_targetName.value = nil
+                self?.controller?.rx_beginTime.value = nil
+                self?.controller?.rx_endTime.value = nil
+                
+                
         }).disposed(by: rx.disposeBag)
         
         searchBtn.rx.tap

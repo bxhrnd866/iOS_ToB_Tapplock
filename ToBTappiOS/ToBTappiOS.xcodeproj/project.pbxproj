@@ -33,6 +33,11 @@
 		55235E8E20AE7B0D00B98D38 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */; };
 		55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E8F20AE7CB600B98D38 /* LanguageModel.swift */; };
 		55235E9220AE97D800B98D38 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55235E9120AE97D800B98D38 /* EmptyModel.swift */; };
+		55241ABA2127F34F00214930 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55241AB92127F34F00214930 /* TutorialViewController.swift */; };
+		55241ABC2127F38400214930 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55241ABB2127F38400214930 /* Tutorial.storyboard */; };
+		55241ABE2127F53600214930 /* ApageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55241ABD2127F53600214930 /* ApageViewController.swift */; };
+		55241AC02127F54000214930 /* BpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55241ABF2127F54000214930 /* BpageViewController.swift */; };
+		55241AC22127F54900214930 /* CpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55241AC12127F54900214930 /* CpageViewController.swift */; };
 		5527245121254B9F005ABE44 /* app_0816.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5527245021254B9F005ABE44 /* app_0816.zip */; };
 		5528F8002112E7CF009775B7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F7FF2112E7CF009775B7 /* NotificationController.swift */; };
 		5528F8022112E85D009775B7 /* NotifactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528F8012112E85D009775B7 /* NotifactionCell.swift */; };
@@ -220,6 +225,11 @@
 		55235E8D20AE7B0D00B98D38 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		55235E8F20AE7CB600B98D38 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		55235E9120AE97D800B98D38 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		55241AB92127F34F00214930 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		55241ABB2127F38400214930 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		55241ABD2127F53600214930 /* ApageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApageViewController.swift; sourceTree = "<group>"; };
+		55241ABF2127F54000214930 /* BpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpageViewController.swift; sourceTree = "<group>"; };
+		55241AC12127F54900214930 /* CpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpageViewController.swift; sourceTree = "<group>"; };
 		5527245021254B9F005ABE44 /* app_0816.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = app_0816.zip; sourceTree = "<group>"; };
 		5528F7FF2112E7CF009775B7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		5528F8012112E85D009775B7 /* NotifactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifactionCell.swift; sourceTree = "<group>"; };
@@ -434,6 +444,18 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		55241AB52127F30D00214930 /* Tutorial View */ = {
+			isa = PBXGroup;
+			children = (
+				55241AB92127F34F00214930 /* TutorialViewController.swift */,
+				55241ABD2127F53600214930 /* ApageViewController.swift */,
+				55241ABF2127F54000214930 /* BpageViewController.swift */,
+				55241AC12127F54900214930 /* CpageViewController.swift */,
+				55241ABB2127F38400214930 /* Tutorial.storyboard */,
+			);
+			path = "Tutorial View";
+			sourceTree = "<group>";
+		};
 		5527245221256DCC005ABE44 /* DFU */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +529,7 @@
 				7DFE108620CD407900C94FA3 /* BaseViewController.swift */,
 				7DFE108220CD405000C94FA3 /* RootViewController.swift */,
 				553E72A320AAAD8E00CFFEB8 /* Main.storyboard */,
+				55241AB52127F30D00214930 /* Tutorial View */,
 				5528F7FE2112E7AD009775B7 /* Notification */,
 				5589411821087243005F2324 /* Support */,
 				553FD1C320EDE84200A43F5D /* Tutorial */,
@@ -959,6 +982,7 @@
 				7D05124820D263B90075C681 /* Setting.storyboard in Resources */,
 				7D05125420D265830075C681 /* ViewAlllock.storyboard in Resources */,
 				55211CE5211C3F180065002A /* GoogleService-Info.plist in Resources */,
+				55241ABC2127F38400214930 /* Tutorial.storyboard in Resources */,
 				55D054A620D8E850003C92B5 /* FingerLockDetail.storyboard in Resources */,
 				551CAD3F210C57350066D4C9 /* ImagePicker.storyboard in Resources */,
 				5589411A21087295005F2324 /* HistoryDatePicker.storyboard in Resources */,
@@ -1100,6 +1124,7 @@
 				557E6FC520DA02C8003C7975 /* PermissionController.swift in Sources */,
 				551CAD40210C57350066D4C9 /* CameraCell.swift in Sources */,
 				5532F88320FF398200D4E9C5 /* TapplockViewModel.swift in Sources */,
+				55241ABE2127F53600214930 /* ApageViewController.swift in Sources */,
 				557E6FC920DA2875003C7975 /* ProfileModel.swift in Sources */,
 				553E730720AAB8C100CFFEB8 /* PeripheralState.swift in Sources */,
 				55446567210FFB2900C425FD /* SyncView.swift in Sources */,
@@ -1124,6 +1149,7 @@
 				5559DEED210F3FE600D2BC98 /* FingerprintDataModel.swift in Sources */,
 				7DFE10F420CD4AC700C94FA3 /* RegistVerficationController.swift in Sources */,
 				5528F8022112E85D009775B7 /* NotifactionCell.swift in Sources */,
+				55241ABA2127F34F00214930 /* TutorialViewController.swift in Sources */,
 				5544656F21106D6A00C425FD /* PeripheralCommander.swift in Sources */,
 				55E1B9BA210AE43900DDFA36 /* ViewHistorySearchController.swift in Sources */,
 				55A1127020EA31460008A4CC /* TapplockManager.swift in Sources */,
@@ -1167,6 +1193,7 @@
 				5564117C210061AD00F039AF /* UserGroupController.swift in Sources */,
 				7DFE10D020CD46EE00C94FA3 /* RefreshGifheader.m in Sources */,
 				550F3560211E973100AD9C93 /* NotificationModel.swift in Sources */,
+				55241AC22127F54900214930 /* CpageViewController.swift in Sources */,
 				557F272D20F4B09B0032A662 /* APIServer.swift in Sources */,
 				55235E9020AE7CB600B98D38 /* LanguageModel.swift in Sources */,
 				5564118021006C2000F039AF /* AllGroupController.swift in Sources */,
@@ -1192,6 +1219,7 @@
 				553E732120AABB5B00CFFEB8 /* UserModel.swift in Sources */,
 				553E730420AAB8C100CFFEB8 /* DataExtension.swift in Sources */,
 				551CAD46210C57350066D4C9 /* SelectPictureViewController.swift in Sources */,
+				55241AC02127F54000214930 /* BpageViewController.swift in Sources */,
 				55A5A80A210721F90077C3AD /* FingerDetailViewModel.swift in Sources */,
 				7DFE10DF20CD4A7E00C94FA3 /* LoginViewController.swift in Sources */,
 				557C3F3320EB1BD400A24D54 /* APIResponse.swift in Sources */,

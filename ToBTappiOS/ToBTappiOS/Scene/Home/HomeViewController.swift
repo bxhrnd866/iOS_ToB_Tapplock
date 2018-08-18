@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CFAlertViewController
-import Reachability
+//import Reachability
 class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {

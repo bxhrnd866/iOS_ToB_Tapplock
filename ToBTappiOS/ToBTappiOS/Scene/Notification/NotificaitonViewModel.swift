@@ -29,6 +29,7 @@ class NotificationViewModel: NSObject {
                 
                 model.title = $0["title"]
                 model.body = $0["body"]
+                model.timeText = $0["time"]
                 
                 rx_data.value.append(model)
             }

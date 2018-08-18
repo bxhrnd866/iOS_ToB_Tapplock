@@ -48,7 +48,6 @@ class TapplockModel: NSObject, Mappable {
         if self.peripheralModel != nil {
             return peripheralModel == self.peripheralModel
         } else if peripheralModel.rx_mac.value == mac {
-            plog(mac)
             self.peripheralModel = peripheralModel
             bindData()
             return true

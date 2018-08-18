@@ -38,6 +38,8 @@ struct APICode {
             return R.string.localizable.pmViewHistory()
         case 205:
             return R.string.localizable.pmManageOperationalPermission()
+        case 206:
+            return R.string.localizable.pmViewGroupsInfo()
         case 300:
             return R.string.localizable.pmAssignedgroups()
         case 301:

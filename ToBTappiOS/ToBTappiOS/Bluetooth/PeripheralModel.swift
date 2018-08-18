@@ -38,14 +38,10 @@ class PeripheralModel: NSObject {
     
     var bleUpdate: BLEUpdate?
     
-    
     var fingerprintOpen = [[String: Any]]()
     var morseOpen = [Int]()
     var closeHistory = [Int]()
     var morseNum = 0
-    
-    
-    
     
     
     //初始化方法
@@ -66,7 +62,7 @@ class PeripheralModel: NSObject {
         
         response.filter({ $0.hardVersion != nil }).map { $0.hardVersion! }.bind(to: rx_hardware).disposed(by: rx.disposeBag)
         
-//        self.rx_mac.value = peripheral.mac
+        self.rx_mac.value = peripheral.mac
         
     }
     
@@ -89,14 +85,6 @@ extension PeripheralModel {
         self.rx_response.value = response
         
         switch response {
-            
-        case .GetDeviceMac:
-            
-            self.rx_mac.value = response.mac?.macText
-            
-            TapplockManager.default.rx_viewmodel?.contains()
-            
-            sendGetFiremwareCommand()
             
         case .GetFiremwareVersion:
             
@@ -126,8 +114,6 @@ extension PeripheralModel {
             } else {
                 plog("配对失败")
             }
-            
-            
             
         case .Battery:
             
@@ -212,8 +198,7 @@ extension PeripheralModel: CBPeripheralDelegate {
             switch characteristic.uuid.uuidString {
             case UUID_Characteristic_SEND:
                 writeCharacteristic = characteristic
-//                sendGetFiremwareCommand()
-                sendGetDeviceMacCommand()
+                sendGetFiremwareCommand()
                 break
             case UUID_Characteristic_RECIEVE:
                 readCharacteristic = characteristic

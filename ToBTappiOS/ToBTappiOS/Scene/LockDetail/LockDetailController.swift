@@ -190,16 +190,16 @@ class LockDetailController: UIViewController {
     
     @IBAction func unlockAction(_ sender: Any) {
         
-        if SyncView.instance.rx_hidden.value == false {
-            self.showToast(message: R.string.localizable.dataisbeingsynchronized())
-            return
-        }
-        
-        if checkBlueWithAlert() {
-          viewModel.unlockButtonAction()
-        }
+//        if SyncView.instance.rx_hidden.value == false {
+//            self.showToast(message: R.string.localizable.dataisbeingsynchronized())
+//            return
+//        }
 //
-//        TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
+//        if checkBlueWithAlert() {
+//          viewModel.unlockButtonAction()
+//        }
+//
+        TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
     }
 
   

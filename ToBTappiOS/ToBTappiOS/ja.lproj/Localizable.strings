@@ -165,6 +165,8 @@
 "PMAccesshistory" = "View all access history";
 "PMReceivenotifications" = "Receive Bluetooth / connect notifications";
 "PMInitiatefirmwareupdates" = "Initiate firmware updates";
+"PMViewGroupsInfo" = "View Groups Info";
+
 
 
 "Code400000" = "Data does not exist or has been deleted";

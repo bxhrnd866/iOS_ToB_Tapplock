@@ -41,7 +41,7 @@ class RootViewController: UIViewController {
             if !used {
                 UserDefaults.standard.set(true, forKey: "used")
                 UserDefaults.standard.synchronize()
-                self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialSegue, sender: self)
+                self.performSegue(withIdentifier: R.segue.rootViewController.showTutorialIdentrifier , sender: self)
             }
             else if ConfigModel.default.user.value != nil {
                 

@@ -93,10 +93,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 89 images.
+  /// This `R.image` struct is generated, and contains static references to 116 images.
   struct image {
+    /// Image `Apage`.
+    static let apage = Rswift.ImageResource(bundle: R.hostingBundle, name: "Apage")
     /// Image `Back_Arrow`.
     static let back_Arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Back_Arrow")
+    /// Image `Bpage`.
+    static let bpage = Rswift.ImageResource(bundle: R.hostingBundle, name: "Bpage")
+    /// Image `Cpage`.
+    static let cpage = Rswift.ImageResource(bundle: R.hostingBundle, name: "Cpage")
     /// Image `DFU-Hierarchical`.
     static let dfuHierarchical = Rswift.ImageResource(bundle: R.hostingBundle, name: "DFU-Hierarchical")
     /// Image `History_calender`.
@@ -271,12 +277,75 @@ struct R: Rswift.Validatable {
     static let loudou = Rswift.ImageResource(bundle: R.hostingBundle, name: "loudou")
     /// Image `placeholder_lock`.
     static let placeholder_lock = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder_lock")
+    /// Image `progress_0`.
+    static let progress_0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_0")
+    /// Image `progress_10`.
+    static let progress_10 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_10")
+    /// Image `progress_11`.
+    static let progress_11 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_11")
+    /// Image `progress_12`.
+    static let progress_12 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_12")
+    /// Image `progress_13`.
+    static let progress_13 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_13")
+    /// Image `progress_14`.
+    static let progress_14 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_14")
+    /// Image `progress_15`.
+    static let progress_15 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_15")
+    /// Image `progress_16`.
+    static let progress_16 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_16")
+    /// Image `progress_17`.
+    static let progress_17 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_17")
+    /// Image `progress_18`.
+    static let progress_18 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_18")
+    /// Image `progress_19`.
+    static let progress_19 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_19")
+    /// Image `progress_1`.
+    static let progress_1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_1")
+    /// Image `progress_20`.
+    static let progress_20 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_20")
+    /// Image `progress_21`.
+    static let progress_21 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_21")
+    /// Image `progress_22`.
+    static let progress_22 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_22")
+    /// Image `progress_23`.
+    static let progress_23 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_23")
+    /// Image `progress_2`.
+    static let progress_2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_2")
+    /// Image `progress_3`.
+    static let progress_3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_3")
+    /// Image `progress_4`.
+    static let progress_4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_4")
+    /// Image `progress_5`.
+    static let progress_5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_5")
+    /// Image `progress_6`.
+    static let progress_6 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_6")
+    /// Image `progress_7`.
+    static let progress_7 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_7")
+    /// Image `progress_8`.
+    static let progress_8 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_8")
+    /// Image `progress_9`.
+    static let progress_9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_9")
     /// Image `rightArrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightArrow")
+    
+    /// `UIImage(named: "Apage", bundle: ..., traitCollection: ...)`
+    static func apage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.apage, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "Back_Arrow", bundle: ..., traitCollection: ...)`
     static func back_Arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back_Arrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Bpage", bundle: ..., traitCollection: ...)`
+    static func bpage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bpage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Cpage", bundle: ..., traitCollection: ...)`
+    static func cpage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cpage, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "DFU-Hierarchical", bundle: ..., traitCollection: ...)`
@@ -714,6 +783,126 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.placeholder_lock, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "progress_0", bundle: ..., traitCollection: ...)`
+    static func progress_0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_0, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_1", bundle: ..., traitCollection: ...)`
+    static func progress_1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_10", bundle: ..., traitCollection: ...)`
+    static func progress_10(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_10, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_11", bundle: ..., traitCollection: ...)`
+    static func progress_11(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_11, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_12", bundle: ..., traitCollection: ...)`
+    static func progress_12(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_12, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_13", bundle: ..., traitCollection: ...)`
+    static func progress_13(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_13, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_14", bundle: ..., traitCollection: ...)`
+    static func progress_14(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_14, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_15", bundle: ..., traitCollection: ...)`
+    static func progress_15(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_15, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_16", bundle: ..., traitCollection: ...)`
+    static func progress_16(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_16, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_17", bundle: ..., traitCollection: ...)`
+    static func progress_17(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_17, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_18", bundle: ..., traitCollection: ...)`
+    static func progress_18(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_18, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_19", bundle: ..., traitCollection: ...)`
+    static func progress_19(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_19, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_2", bundle: ..., traitCollection: ...)`
+    static func progress_2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_20", bundle: ..., traitCollection: ...)`
+    static func progress_20(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_20, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_21", bundle: ..., traitCollection: ...)`
+    static func progress_21(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_21, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_22", bundle: ..., traitCollection: ...)`
+    static func progress_22(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_22, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_23", bundle: ..., traitCollection: ...)`
+    static func progress_23(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_23, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_3", bundle: ..., traitCollection: ...)`
+    static func progress_3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_3, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_4", bundle: ..., traitCollection: ...)`
+    static func progress_4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_4, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_5", bundle: ..., traitCollection: ...)`
+    static func progress_5(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_5, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_6", bundle: ..., traitCollection: ...)`
+    static func progress_6(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_6, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_7", bundle: ..., traitCollection: ...)`
+    static func progress_7(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_7, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_8", bundle: ..., traitCollection: ...)`
+    static func progress_8(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_8, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "progress_9", bundle: ..., traitCollection: ...)`
+    static func progress_9(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.progress_9, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "rightArrow", bundle: ..., traitCollection: ...)`
     static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
@@ -771,7 +960,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 18 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 19 view controllers.
   struct segue {
     /// This struct is generated for `AllLocksViewController`, and contains static references to 1 segues.
     struct allLocksViewController {
@@ -1093,19 +1282,12 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `RootViewController`, and contains static references to 3 segues.
     struct rootViewController {
-      /// Segue identifier `ShowTutorialSegue`.
-      static let showTutorialSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "ShowTutorialSegue")
       /// Segue identifier `showHomeSB`.
       static let showHomeSB: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, BaseNaviController> = Rswift.StoryboardSegueIdentifier(identifier: "showHomeSB")
       /// Segue identifier `showLoginSb`.
       static let showLoginSb: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "showLoginSb")
-      
-      /// Optionally returns a typed version of segue `ShowTutorialSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showTutorialSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, UIKit.UIViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.rootViewController.showTutorialSegue, segue: segue)
-      }
+      /// Segue identifier `showTutorialIdentrifier`.
+      static let showTutorialIdentrifier: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, RootViewController, TutorialViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showTutorialIdentrifier")
       
       /// Optionally returns a typed version of segue `showHomeSB`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -1121,6 +1303,13 @@ struct R: Rswift.Validatable {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.rootViewController.showLoginSb, segue: segue)
       }
       
+      /// Optionally returns a typed version of segue `showTutorialIdentrifier`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showTutorialIdentrifier(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, RootViewController, TutorialViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.rootViewController.showTutorialIdentrifier, segue: segue)
+      }
+      
       fileprivate init() {}
     }
     
@@ -1134,6 +1323,39 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func photoAlbumSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SelectPictureViewController, PhotoAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.selectPictureViewController.photoAlbumSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `TutorialViewController`, and contains static references to 3 segues.
+    struct tutorialViewController {
+      /// Segue identifier `aPageControll`.
+      static let aPageControll: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TutorialViewController, ApageViewController> = Rswift.StoryboardSegueIdentifier(identifier: "aPageControll")
+      /// Segue identifier `bPageController`.
+      static let bPageController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TutorialViewController, BpageViewController> = Rswift.StoryboardSegueIdentifier(identifier: "bPageController")
+      /// Segue identifier `cPageController`.
+      static let cPageController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TutorialViewController, CpageViewController> = Rswift.StoryboardSegueIdentifier(identifier: "cPageController")
+      
+      /// Optionally returns a typed version of segue `aPageControll`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func aPageControll(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TutorialViewController, ApageViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.tutorialViewController.aPageControll, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `bPageController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func bPageController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TutorialViewController, BpageViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.tutorialViewController.bPageController, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `cPageController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func cPageController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TutorialViewController, CpageViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.tutorialViewController.cPageController, segue: segue)
       }
       
       fileprivate init() {}
@@ -1190,7 +1412,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 16 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 17 storyboards.
   struct storyboard {
     /// Storyboard `FingerLockDetail`.
     static let fingerLockDetail = _R.storyboard.fingerLockDetail()
@@ -1218,6 +1440,8 @@ struct R: Rswift.Validatable {
     static let register = _R.storyboard.register()
     /// Storyboard `Setting`.
     static let setting = _R.storyboard.setting()
+    /// Storyboard `Tutorial`.
+    static let tutorial = _R.storyboard.tutorial()
     /// Storyboard `UpdateDFU`.
     static let updateDFU = _R.storyboard.updateDFU()
     /// Storyboard `ViewAlllock`.
@@ -1288,6 +1512,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Setting", bundle: ...)`
     static func setting(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.setting)
+    }
+    
+    /// `UIStoryboard(name: "Tutorial", bundle: ...)`
+    static func tutorial(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.tutorial)
     }
     
     /// `UIStoryboard(name: "UpdateDFU", bundle: ...)`
@@ -1365,7 +1594,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 188 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 189 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -2059,6 +2288,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let menuViewAllLocks = Rswift.StringResource(key: "MenuViewAllLocks", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: View Groups Info
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let pmViewGroupsInfo = Rswift.StringResource(key: "PMViewGroupsInfo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: View History
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3331,6 +3564,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("MenuViewAllLocks", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: View Groups Info
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func pmViewGroupsInfo(_: Void = ()) -> String {
+        return NSLocalizedString("PMViewGroupsInfo", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: View History
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3504,6 +3744,7 @@ struct _R: Rswift.Validatable {
       try register.validate()
       try fingerLockDetail.validate()
       try lockDetail.validate()
+      try tutorial.validate()
       try viewHistory.validate()
       try viewAlllock.validate()
       try imagePicker.validate()
@@ -3621,14 +3862,9 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Tutorial - 02") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 02' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Homelogo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Homelogo' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Tutorial - 01") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 01' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Homebackground") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Homebackground' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Homelogo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Homelogo' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Mainlogo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mainlogo' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Login_Logo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Login_Logo' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Tutorial - 04") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 04' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Tutorial - 03") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Tutorial - 03' is used in storyboard 'Main', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -3705,6 +3941,21 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Back_Arrow") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Back_Arrow' is used in storyboard 'Setting', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_right") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_right' is used in storyboard 'Setting', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Home_Hierarchical") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Hierarchical' is used in storyboard 'Setting', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct tutorial: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = TutorialViewController
+      
+      let bundle = R.hostingBundle
+      let name = "Tutorial"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Apage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Apage' is used in storyboard 'Tutorial', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Cpage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Cpage' is used in storyboard 'Tutorial', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Bpage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Bpage' is used in storyboard 'Tutorial', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

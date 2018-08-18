@@ -167,6 +167,7 @@
 "PMAccesshistory" = "View all access history";
 "PMReceivenotifications" = "Receive Bluetooth / connect notifications";
 "PMInitiatefirmwareupdates" = "Initiate firmware updates";
+"PMViewGroupsInfo" = "View Groups Info";
 
 
 
@@ -209,6 +210,7 @@
 "UserLogoutType111" = "用户权限变更";
 "UserLogoutType222" = "用户退出被删除";
 "Dataisbeingsynchronized" = "Data is being synchronized, please do not operate";
+
 
 
 "MenuProfile" = "Profile";

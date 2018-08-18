@@ -52,6 +52,15 @@ class normalGradientBtn: UIButton {
     }
 }
 
+class TutorialBtn: UIButton {
+    override func draw(_ rect: CGRect) {
+        let layer = CAGradientLayer.normalgradientLayer(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), colorA: UIColor.aleftColor, colorB: UIColor.arightColor, corner: 5)
+        
+        self.layer.insertSublayer(layer, at: 0)
+        
+    }
+}
+
 
 class unlockGradientBtn: UIButton {
     override func draw(_ rect: CGRect) {

@@ -42,8 +42,9 @@ class NotificationService: UNNotificationServiceExtension {
                 return
             }
             
-            
-            let dict = ["title": bestAttemptContent.title, "body": bestAttemptContent.body]
+            let time = String(Date().timeIntervalSince1970)
+
+            let dict = ["title": bestAttemptContent.title, "body": bestAttemptContent.body, "time": time]
         
             var array = usermanger?.object(forKey: "NotificationContent") as? [[String: String]]
 

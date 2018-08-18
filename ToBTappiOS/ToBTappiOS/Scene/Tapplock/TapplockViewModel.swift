@@ -24,11 +24,11 @@ class TapplockViewModel: NSObject {
     override init() {
         super.init()
         
-//        TapplockManager.default.rx_peripherals
-//            .asDriver()
-//            .drive(onNext: { [weak self] _ in
-//               self?.contains()
-//        }).disposed(by: rx.disposeBag)
+        TapplockManager.default.rx_peripherals
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+               self?.contains()
+        }).disposed(by: rx.disposeBag)
         
         
         
@@ -45,12 +45,9 @@ class TapplockViewModel: NSObject {
         for (a, b) in self.rx_lockList.value.enumerated() {
             if b.mac == mac {
                 self.rx_lockList.value.remove(at: a)
-                
                 break
             }
         }
-        
-//        TapplockManager.default.rx_deleteLock.value = nil
     }
     
     

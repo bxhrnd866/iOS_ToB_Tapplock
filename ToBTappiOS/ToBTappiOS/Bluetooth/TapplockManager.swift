@@ -14,7 +14,7 @@ import CoreLocation
 import CFAlertViewController
 
 let UUID_SERVICE = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
-let DFU_SERVICE = "00001530-1212-EFDE-1523-785FEABCD123"
+let DFU_SERVICE = "00001801-0000-1000-8000-00805f9b34fb"
 let UUID_Characteristic_SEND = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
 let UUID_Characteristic_RECIEVE = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
 
@@ -97,15 +97,16 @@ extension TapplockManager: CBCentralManagerDelegate {
     //发现设备
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
 
+        plog(peripheral.name)
         let name = advertisementData["kCBAdvDataLocalName"] as? String
         
         plog(advertisementData)
-//        if let data = advertisementData["kCBAdvDataManufacturerData"] {
-//            let hex = (data as! Data).hexadecimal()
-//            let mac = hex[4...hex.length - 1].macText
-//            plog(data)
-//            peripheral.mac = mac
-//        }
+        if let data = advertisementData["kCBAdvDataManufacturerData"] {
+            let hex = (data as! Data).hexadecimal()
+            let mac = hex[4...hex.length - 1].macText
+            plog(mac)
+            peripheral.mac = mac
+        }
         if name  == "Tapplock" {
             if self.delegate != nil {
                 self.delegate?.startDFU(peripheral: peripheral)

@@ -57,15 +57,12 @@ extension APIServer: TargetType{
              .forgetPassword(_, _, _),
              .userRegister(_, _, _, _, _, _, _, _, _, _),
              .checkinviteCodes(_),
-             .checkVerifyCode(_, _),
-             .chagePassword(_, _):
-    
+             .checkVerifyCode(_, _):
             return ["Content-type": "application/json", "clientType": "1"]
         case .registerVerifyCode(_, _):
            
             return ["Content-type": "application/json", "clientType": "1", "lang": ConfigModel.default.language.code]
         default:
-            
             let basicToken = UserDefaults.standard.object(forKey: key_basicToken) as? String
             return ["Content-type": "application/json", "clientType": "1", "Authorization": "Bearer " + (basicToken ?? "aaaaaa")]
         }
@@ -84,6 +81,7 @@ extension APIServer: TargetType{
              .checkVerifyCode(_, _),
              .allGroupslist,
              .feedBack(_, _),
+             .chagePassword(_, _),
              .updateFingerprintSycnState(_):
             return URL(string: APIHost + APIUser)!
         default:

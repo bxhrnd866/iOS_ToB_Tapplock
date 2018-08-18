@@ -128,11 +128,9 @@ extension AppDelegate {
                                                 message: R.string.localizable.errorMessage_NetOff(),
                                                 textAlignment: .left,
                                                 preferredStyle: .alert,
-                                                didDismissAlertHandler: { [weak self] _ in
-                                                    if self?.reachability.connection == .none {
-                                                        self?.showtotals()
-                                                    }
-        })
+                                                didDismissAlertHandler: nil)
+
+    
         
         
         let okAction = CFAlertAction(title: R.string.localizable.yes(),
@@ -141,7 +139,10 @@ extension AppDelegate {
                                      backgroundColor: UIColor.themeColor,
                                      textColor: nil,
                                      handler: { _ in
-                                        
+                                        if self.reachability.connection == .none {
+                                            
+                                            self.showtotals()
+                                        }
         })
         alertController.addAction(okAction)
         alertController.backgroundStyle = .blur

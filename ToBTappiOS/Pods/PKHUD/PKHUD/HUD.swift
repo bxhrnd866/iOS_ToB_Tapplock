@@ -33,7 +33,7 @@ public final class HUD {
         get { return PKHUD.sharedHUD.dimsBackground }
         set { PKHUD.sharedHUD.dimsBackground = newValue }
     }
-
+    
     public static var allowsInteraction: Bool {
         get { return PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled  }
         set { PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = newValue }
@@ -43,8 +43,26 @@ public final class HUD {
 
     // MARK: Public methods, PKHUD based
     public static func show(_ content: HUDContentType, onView view: UIView? = nil) {
-        PKHUD.sharedHUD.contentView = contentView(content)
+        PKHUD.sharedHUD.contentView = mycontentView()
         PKHUD.sharedHUD.show(onView: view)
+    }
+    
+    static func mycontentView() -> UIImageView {
+        let vm = UIImageView(frame: CGRect(x: 0, y: 0, width: 98, height: 98))
+//        vm.backgroundColor = UIColor.red
+        var arr = [UIImage]()
+        for i in 0...23 {
+            let name = "progress_\(i)"
+            let img = UIImage(named: name)
+            arr.append(img!)
+            print(name)
+        }
+        vm.animationImages = arr
+        vm.animationDuration = 2
+        
+        vm.startAnimating()
+        
+        return vm
     }
 
     public static func hide(_ completion: ((Bool) -> Void)? = nil) {

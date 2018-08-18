@@ -14,9 +14,11 @@ class NotifactionCell: UITableViewCell {
         didSet {
             self.labtext.text = self.model?.body
             self.titlelab.text = self.model?.title
+            self.timelab.text = self.model?.timeText
         }
     }
     
+    @IBOutlet weak var timelab: UILabel!
     
     @IBOutlet weak var titlelab: UILabel!
     

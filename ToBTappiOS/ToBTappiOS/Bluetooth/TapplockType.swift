@@ -13,9 +13,6 @@ let aKind = "0001"
 let bKind = "0002"
 let cKind = "80a1"
 
-
-
-
 // 设备类型
 enum TapplockType: String {
     case typeA = "0001"

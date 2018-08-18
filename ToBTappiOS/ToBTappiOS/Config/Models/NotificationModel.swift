@@ -10,6 +10,8 @@ import Foundation
 
 class NoficationModel {
     var title: String?
+    var timeText: String?
+    
     var body: String? {
         didSet {
             let text = self.body ?? "xxxx"
