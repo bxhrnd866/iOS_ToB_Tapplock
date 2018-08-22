@@ -41,7 +41,10 @@ class InviteCodeController: UIViewController {
                     self?.corpId = response.data?.corpId
                     self?.performSegue(withIdentifier: R.segue.inviteCodeController.showPassword, sender: self)
                 } else {
-                    self?.showToast(message: response.codeMessage)
+                    if response.codeMessage != nil  {
+                        self?.showToast(message: response.codeMessage!)
+                    }
+                    
                 }
             }){ ( error) in
                 HUD.hide()

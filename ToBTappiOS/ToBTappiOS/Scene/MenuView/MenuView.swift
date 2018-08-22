@@ -43,9 +43,8 @@ class MenuView: UIView {
         addSubview(rightBtn)
         
         self.headerImg = UIImageView(frame: CGRect(x: 76 * mScale, y: 37 * mScale, width: 90 * mScale, height: 90 * mScale))
-        self.headerImg.layer.cornerRadius = 4
+        self.headerImg.layer.cornerRadius = 45 * mScale
         self.headerImg.layer.masksToBounds = true
-        self.headerImg.image = R.image.userPlace()
         bgview.addSubview(self.headerImg)
         
         namelab = UILabel(frame: CGRect(x: 0, y: self.headerImg.bottomY + 15 * mScale, width: bgview.width, height: 33))
@@ -74,7 +73,11 @@ class MenuView: UIView {
                 self?.namelab.text = "\(user?.firstName ?? "")" + "\(user?.lastName ?? "")"
 
                 if user?.photoUrl != nil, let url = URL(string: (user?.photoUrl)!) {
-                    self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
+                    
+                    plog(url)
+//                    self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
+                    self?.headerImg.kf.setImage(with: ImageResource(downloadURL: url))
+                    
                 }
 
             }).disposed(by: rx.disposeBag)

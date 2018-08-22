@@ -40,16 +40,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in}
         application.registerForRemoteNotifications()
         
-        
-        SyncView.instance.rx_hidden.value = true
+    
         
         networkOff()
-        
 
+        
+    
+       
+        
  
         return true
     }
 
+    
+    
+    
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
        
@@ -83,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
            ConfigModel.default.notificaitonType()
            
         }
-        
+        checkVersion()
         TapplockManager.default.scan()
 
     }
@@ -99,6 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             ConfigModel.default.notificaitonType()
         }
         
+//        let user = notification.request.content.userInfo
+//        plog(user)
         completionHandler(UNNotificationPresentationOptions.alert)
     }
     

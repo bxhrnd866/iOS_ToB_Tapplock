@@ -22,7 +22,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 6 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
     /// Resource file `Century Gothic.ttf`.
     static let centuryGothicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Century Gothic", pathExtension: "ttf")
@@ -30,8 +30,6 @@ struct R: Rswift.Validatable {
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
     /// Resource file `Root_logo.png`.
     static let root_logoPng = Rswift.FileResource(bundle: R.hostingBundle, name: "Root_logo", pathExtension: "png")
-    /// Resource file `api_tapplock_com.cer`.
-    static let api_tapplock_comCer = Rswift.FileResource(bundle: R.hostingBundle, name: "api_tapplock_com", pathExtension: "cer")
     /// Resource file `app_0816.zip`.
     static let app_0816Zip = Rswift.FileResource(bundle: R.hostingBundle, name: "app_0816", pathExtension: "zip")
     /// Resource file `html`.
@@ -52,12 +50,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Root_logo", withExtension: "png")`
     static func root_logoPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.root_logoPng
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-    
-    /// `bundle.url(forResource: "api_tapplock_com", withExtension: "cer")`
-    static func api_tapplock_comCer(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.api_tapplock_comCer
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -93,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 116 images.
+  /// This `R.image` struct is generated, and contains static references to 117 images.
   struct image {
     /// Image `Apage`.
     static let apage = Rswift.ImageResource(bundle: R.hostingBundle, name: "Apage")
@@ -327,6 +319,8 @@ struct R: Rswift.Validatable {
     static let progress_9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "progress_9")
     /// Image `rightArrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightArrow")
+    /// Image `tututu`.
+    static let tututu = Rswift.ImageResource(bundle: R.hostingBundle, name: "tututu")
     
     /// `UIImage(named: "Apage", bundle: ..., traitCollection: ...)`
     static func apage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -906,6 +900,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "rightArrow", bundle: ..., traitCollection: ...)`
     static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tututu", bundle: ..., traitCollection: ...)`
+    static func tututu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tututu, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -2328,6 +2327,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let errorMessage_NoFirmwareUpdate = Rswift.StringResource(key: "ErrorMessage_NoFirmwareUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: Your account has been deleted
+      /// 
+      /// Locales: en
+      static let userLogoutType222 = Rswift.StringResource(key: "UserLogoutType222", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your permissions have changed
+      /// 
+      /// Locales: en
+      static let userLogoutType111 = Rswift.StringResource(key: "UserLogoutType111", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: because of mismatch of fingerprint with confirmation
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -2344,14 +2351,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let instructionDateSelct = Rswift.StringResource(key: "InstructionDateSelct", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
-      /// en translation: 用户权限变更
-      /// 
-      /// Locales: en
-      static let userLogoutType111 = Rswift.StringResource(key: "UserLogoutType111", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: 用户退出被删除
-      /// 
-      /// Locales: en
-      static let userLogoutType222 = Rswift.StringResource(key: "UserLogoutType222", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       
       /// en translation: %@ opened the lock %@
       /// 
@@ -3634,6 +3633,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessage_NoFirmwareUpdate", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Your account has been deleted
+      /// 
+      /// Locales: en
+      static func userLogoutType222(_: Void = ()) -> String {
+        return NSLocalizedString("UserLogoutType222", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Your permissions have changed
+      /// 
+      /// Locales: en
+      static func userLogoutType111(_: Void = ()) -> String {
+        return NSLocalizedString("UserLogoutType111", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: because of mismatch of fingerprint with confirmation
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3660,20 +3673,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func instructionDateSelct(_: Void = ()) -> String {
         return NSLocalizedString("InstructionDateSelct", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 用户权限变更
-      /// 
-      /// Locales: en
-      static func userLogoutType111(_: Void = ()) -> String {
-        return NSLocalizedString("UserLogoutType111", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 用户退出被删除
-      /// 
-      /// Locales: en
-      static func userLogoutType222(_: Void = ()) -> String {
-        return NSLocalizedString("UserLogoutType222", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

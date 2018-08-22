@@ -36,7 +36,11 @@ class LoginViewModel: NSObject {
                         self?.rx_step.value = RequestStep.sucess
                         
                     } else {
-                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                        if response.codeMessage != nil {
+                            self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                        }  else {
+                            self?.rx_step.value = .failed
+                        }
                     }
                 
                 }) { ( error) in
@@ -60,6 +64,9 @@ class LoginViewModel: NSObject {
             return false
         } else if (rx_password.value?.containsEmoji)! {
             rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_Emoji())
+            return false
+        } else if !(mail?.isMail)! {
+            rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.errorMessage_MailIncorrect())
             return false
         } else {
             return true

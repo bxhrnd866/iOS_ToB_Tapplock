@@ -14,7 +14,8 @@ class SyncView: UIView {
     
     static let instance = SyncView(frame: CGRect(x: mScreenW - 100, y: mScreenH - 150, width: 50, height: 50))
     
-    var rx_hidden: Variable<Bool> = Variable(false)
+    var rx_numers: Variable<Int> = Variable(0)
+    
 
     var imgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
@@ -31,19 +32,25 @@ class SyncView: UIView {
         
         self.addSubview(imgView)
         
-        rx_hidden.asDriver().drive(self.rx.isHidden).disposed(by: rx.disposeBag)
+        self.isHidden = true
         
-        rx_hidden.asDriver().drive(onNext: { [weak self] bl in
-            
-            self?.isHidden = bl
-            
-            if bl {
-                self?.endAnimation()
-                self?.showTotals(meg: R.string.localizable.dataSyncCompeted())
+        rx_numers.asDriver().drive(onNext: { [weak self] number in
+            plog(number)
+            if number > 0 {
+                if self?.isHidden == true {
+                    self?.isHidden = false
+                    self?.showTotals(meg: R.string.localizable.dataNeedsToSync())
+                    self?.startAnimation()
+                }
             } else {
-                self?.showTotals(meg: R.string.localizable.dataNeedsToSync())
-                self?.startAnimation()
+                if self?.isHidden == false {
+                    self?.isHidden = true
+                    self?.endAnimation()
+                    self?.showTotals(meg: R.string.localizable.dataSyncCompeted())
+                    
+                }
             }
+
         }).disposed(by: rx.disposeBag)
         
         

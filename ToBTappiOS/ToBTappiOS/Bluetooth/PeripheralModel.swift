@@ -52,8 +52,6 @@ class PeripheralModel: NSObject {
         
         self.bleUpdate = BLEUpdate(self)
         
-        peripheral.rx.observe(CBPeripheralState.self, "state").map({$0!}).distinctUntilChanged().bind(to: rx_status).disposed(by: rx.disposeBag)
-        
         let response = rx_response.asObservable().share(replay: 1)
         
         response.filter({ $0.battery != nil }).map { $0.battery! }.bind(to: rx_battery).disposed(by: rx.disposeBag)
@@ -61,6 +59,25 @@ class PeripheralModel: NSObject {
         response.filter({ $0.firemwareVersion != nil }).map { $0.firemwareVersion! }.bind(to: rx_firmware).disposed(by: rx.disposeBag)
         
         response.filter({ $0.hardVersion != nil }).map { $0.hardVersion! }.bind(to: rx_hardware).disposed(by: rx.disposeBag)
+        
+      
+        
+        
+        peripheral.rx.observe(CBPeripheralState.self, "state").map({$0!})
+            .distinctUntilChanged()
+            .asObservable()
+            .subscribe(onNext: { [weak self] state in
+                self?.rx_status.value = state
+                
+                if state == .disconnected {
+                    if SyncView.instance.rx_numers.value > 0 {
+                        SyncView.instance.rx_numers.value -= 1
+                    }
+                }
+                
+            
+        }).disposed(by: rx.disposeBag)
+        
         
         self.rx_mac.value = peripheral.mac
         
@@ -85,10 +102,16 @@ extension PeripheralModel {
         self.rx_response.value = response
         
         switch response {
+        
+        case .GetDeviceMac:
+            
+            plog(response.mac)
             
         case .GetFiremwareVersion:
             
 //            sendGetRandom()
+            
+    
             randomKeyServeEncrpted(numer: "01020304")
             
         case .GetRandomData:
@@ -106,11 +129,10 @@ extension PeripheralModel {
             
         case .PairingRegular:
             if response.success {
-                if self.lockStatus == -1 {
-                    self.bleUpdate?.deleteLock()
-                } else {
-                    sendBatteryCommand()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.sendBatteryCommand()
                 }
+                
             } else {
                 plog("配对失败")
             }
@@ -121,13 +143,14 @@ extension PeripheralModel {
             
         case .GMTTime:
             
-            sleep(1)
-            sendGetHistory()
-            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.sendGetHistory()
+            }
+    
         case .HistoryNumers:
             
             if let tuple = response.historyNums {
-                if tuple.0 == 0 {
+                if tuple.0 == 0 && tuple.1 == 0 {
                     self.bleUpdate?.updateLockState()
                 } else {
                     morseNum = tuple.1
@@ -199,6 +222,7 @@ extension PeripheralModel: CBPeripheralDelegate {
             case UUID_Characteristic_SEND:
                 writeCharacteristic = characteristic
                 sendGetFiremwareCommand()
+//                sendGetDeviceMacCommand()
                 break
             case UUID_Characteristic_RECIEVE:
                 readCharacteristic = characteristic

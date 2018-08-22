@@ -231,6 +231,11 @@ private extension MoyaProvider {
         let completionHandler: RequestableCompletion = { response, request, data, error in
             var newdata: Data? = nil
 
+            
+            
+            print("code ---------> \(response?.statusCode)")
+//            self.sendAlamofireRequest(alamoRequest, target: target, callbackQueue: callbackQueue, progress: progressCompletion, completion: completion)
+            
             if data != nil {
                 let text = String(data: data!, encoding: String.Encoding.utf8)
                 let base = Data(base64Encoded: text!)
@@ -241,7 +246,7 @@ private extension MoyaProvider {
                         let dec = try aes.decrypt((base?.bytes)!)
                         newdata = Data(dec)
                     } catch let err {
-                        print("------>\(err)")
+                        print("nvalidData ------>\(err)")
                     }
                 }
                 

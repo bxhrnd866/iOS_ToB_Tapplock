@@ -92,8 +92,6 @@
 		557C3F3220EB1BD400A24D54 /* APIEncrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F2F20EB1BD400A24D54 /* APIEncrypt.swift */; };
 		557C3F3320EB1BD400A24D54 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F3020EB1BD400A24D54 /* APIResponse.swift */; };
 		557C3F3620EB1E8A00A24D54 /* AppDelegate+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F3520EB1E8A00A24D54 /* AppDelegate+Method.swift */; };
-		557C3F3820EB1EBD00A24D54 /* api_tapplock_com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 557C3F3720EB1EBB00A24D54 /* api_tapplock_com.cer */; };
-		557C3F3A20EB1FE400A24D54 /* SupportVersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F3920EB1FE400A24D54 /* SupportVersionModel.swift */; };
 		557C3F3F20EB526B00A24D54 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F3E20EB526B00A24D54 /* MenuView.swift */; };
 		557C3F4120EB530400A24D54 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F4020EB530400A24D54 /* MenuViewModel.swift */; };
 		557C3F4420EB57B800A24D54 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557C3F4220EB57B800A24D54 /* MenuTableViewCell.swift */; };
@@ -135,6 +133,7 @@
 		55D054AC20D8E8CE003C92B5 /* FingerHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */; };
 		55DD15FB21030B5D0091CACA /* EnumTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD15FA21030B5D0091CACA /* EnumTools.swift */; };
 		55E1B9BA210AE43900DDFA36 /* ViewHistorySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E1B9B9210AE43900DDFA36 /* ViewHistorySearchController.swift */; };
+		55F09861212AE40B00D97953 /* AppVersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F09860212AE40B00D97953 /* AppVersionModel.swift */; };
 		7D05124820D263B90075C681 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D05124720D263B90075C681 /* Setting.storyboard */; };
 		7D05124A20D263F10075C681 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124920D263F10075C681 /* SettingViewController.swift */; };
 		7D05124C20D2650F0075C681 /* MyTapplockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05124B20D2650F0075C681 /* MyTapplockController.swift */; };
@@ -292,8 +291,6 @@
 		557C3F2F20EB1BD400A24D54 /* APIEncrypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEncrypt.swift; sourceTree = "<group>"; };
 		557C3F3020EB1BD400A24D54 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		557C3F3520EB1E8A00A24D54 /* AppDelegate+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Method.swift"; sourceTree = "<group>"; };
-		557C3F3720EB1EBB00A24D54 /* api_tapplock_com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = api_tapplock_com.cer; sourceTree = "<group>"; };
-		557C3F3920EB1FE400A24D54 /* SupportVersionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportVersionModel.swift; sourceTree = "<group>"; };
 		557C3F3B20EB224F00A24D54 /* ToBTappiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToBTappiOS.entitlements; sourceTree = "<group>"; };
 		557C3F3E20EB526B00A24D54 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		557C3F4020EB530400A24D54 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -336,6 +333,7 @@
 		55D054AB20D8E8CE003C92B5 /* FingerHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerHistoryController.swift; sourceTree = "<group>"; };
 		55DD15FA21030B5D0091CACA /* EnumTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTools.swift; sourceTree = "<group>"; };
 		55E1B9B9210AE43900DDFA36 /* ViewHistorySearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHistorySearchController.swift; sourceTree = "<group>"; };
+		55F09860212AE40B00D97953 /* AppVersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionModel.swift; sourceTree = "<group>"; };
 		7D05124720D263B90075C681 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		7D05124920D263F10075C681 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7D05124B20D2650F0075C681 /* MyTapplockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTapplockController.swift; sourceTree = "<group>"; };
@@ -514,7 +512,6 @@
 				7D8D773920CE1DF100C218D0 /* R.generated.swift */,
 				7DFE10C520CD464300C94FA3 /* ToBTappiOS-Bridging-Header.h */,
 				5527245021254B9F005ABE44 /* app_0816.zip */,
-				557C3F3720EB1EBB00A24D54 /* api_tapplock_com.cer */,
 				55211CE4211C3F170065002A /* GoogleService-Info.plist */,
 			);
 			path = ToBTappiOS;
@@ -606,7 +603,6 @@
 				55AD995F20F99D6D00826EDE /* BasicTokenModel.swift */,
 				55730F3620F5F147007F5230 /* GroupsModel.swift */,
 				55730F3820F5F3EA007F5230 /* PermissionInfoModel.swift */,
-				557C3F3920EB1FE400A24D54 /* SupportVersionModel.swift */,
 				55437EA420ECC4CA00C25143 /* MenuModel.swift */,
 				5507B82020F897DA00C499DB /* LockHistoryModel.swift */,
 				5507B82220F89ADE00C499DB /* FirmwareModel.swift */,
@@ -616,6 +612,7 @@
 				5559DEE6210F0F0500D2BC98 /* InviteCodeModel.swift */,
 				5559DEEC210F3FE600D2BC98 /* FingerprintDataModel.swift */,
 				550F355F211E973100AD9C93 /* NotificationModel.swift */,
+				55F09860212AE40B00D97953 /* AppVersionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -973,7 +970,6 @@
 				553E72A520AAAD8E00CFFEB8 /* Main.storyboard in Resources */,
 				7DFE10F820CD4AD600C94FA3 /* Register.storyboard in Resources */,
 				55D054A220D8D2D2003C92B5 /* LockDetail.storyboard in Resources */,
-				557C3F3820EB1EBD00A24D54 /* api_tapplock_com.cer in Resources */,
 				7DFE108920CD41AA00C94FA3 /* Root_logo.png in Resources */,
 				7D05124E20D2651A0075C681 /* MyTapplock.storyboard in Resources */,
 				5528F8062112E8A7009775B7 /* NotificationCenter.storyboard in Resources */,
@@ -1116,7 +1112,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				557C3F3A20EB1FE400A24D54 /* SupportVersionModel.swift in Sources */,
 				55D054A820D8E876003C92B5 /* FingerLockDetailController.swift in Sources */,
 				55529F8021184E9F0024E9F6 /* FingerLockDetailCell.swift in Sources */,
 				553E730C20AAB8C100CFFEB8 /* UIIViewControllerExtension.swift in Sources */,
@@ -1160,6 +1155,7 @@
 				55226CD12109D52100F2074F /* UpdateDFUController.swift in Sources */,
 				553FD1C720EDFDE500A43F5D /* GroupCollectionViewCell.swift in Sources */,
 				55A5A8082107207D0077C3AD /* FingerPrintModel.swift in Sources */,
+				55F09861212AE40B00D97953 /* AppVersionModel.swift in Sources */,
 				55730F3720F5F147007F5230 /* GroupsModel.swift in Sources */,
 				7DFE0FC120CD365700C94FA3 /* AppDelegate.swift in Sources */,
 				7DFE108320CD405000C94FA3 /* RootViewController.swift in Sources */,

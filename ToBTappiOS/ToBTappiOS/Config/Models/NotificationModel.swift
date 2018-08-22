@@ -12,6 +12,15 @@ class NoficationModel {
     var title: String?
     var timeText: String?
     
+    var tamp: String? {
+        didSet {
+            if self.tamp != nil {
+                self.timeText = Date.tampCoveToString(timeStamp: (self.tamp?.toInt())!, fomatter: "yyyy-MM-dd")
+            }
+        }
+    }
+    
+    
     var body: String? {
         didSet {
             let text = self.body ?? "xxxx"

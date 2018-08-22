@@ -99,10 +99,7 @@ extension PeripheralModel {
         
         writeEncryptedData(data: BluetoothCommand.SendClearMoreseCode.command)
     }
-    
-    
-    
-    
+
 }
 
 

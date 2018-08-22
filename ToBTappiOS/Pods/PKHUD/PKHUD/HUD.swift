@@ -55,7 +55,7 @@ public final class HUD {
             let name = "progress_\(i)"
             let img = UIImage(named: name)
             arr.append(img!)
-            print(name)
+        
         }
         vm.animationImages = arr
         vm.animationDuration = 2

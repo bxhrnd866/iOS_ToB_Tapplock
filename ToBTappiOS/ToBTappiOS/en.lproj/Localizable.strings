@@ -207,8 +207,8 @@
 "searchLockName" = "search lock name";
 "DataNeedsToSync" = "There is data that needs to be synchronized";
 "DataSyncCompeted" = "Data Synchronization Completed";
-"UserLogoutType111" = "用户权限变更";
-"UserLogoutType222" = "用户退出被删除";
+"UserLogoutType111" = "Your permissions have changed";
+"UserLogoutType222" = "Your account has been deleted";
 "Dataisbeingsynchronized" = "Data is being synchronized, please do not operate";
 
 

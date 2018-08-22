@@ -127,16 +127,17 @@ class LockDetailController: UIViewController {
         }
         
         
-        
-        
-       
         self.firmwareUpdate.rx.tap.subscribe({ [weak self] _ in
             
             if self?.viewModel.rx_update.value == false {
                 self?.showToast(message: R.string.localizable.errorMessage_NoFirmwareUpdate())
             } else {
                 
-                if SyncView.instance.rx_hidden.value == false {
+                if TapplockManager.default.editingLock?.peripheralModel?.rx_battery.value == nil {
+                    return
+                }
+                
+                if SyncView.instance.rx_numers.value > 0 {
                     self?.showToast(message: R.string.localizable.dataisbeingsynchronized())
                     return
                 }
@@ -190,16 +191,21 @@ class LockDetailController: UIViewController {
     
     @IBAction func unlockAction(_ sender: Any) {
         
-//        if SyncView.instance.rx_hidden.value == false {
-//            self.showToast(message: R.string.localizable.dataisbeingsynchronized())
-//            return
-//        }
+        
+        if TapplockManager.default.editingLock?.peripheralModel?.rx_battery.value == nil {
+            return
+        }
+        
+        if SyncView.instance.rx_numers.value > 0{
+            self.showToast(message: R.string.localizable.dataisbeingsynchronized())
+            return
+        }
+
+        if checkBlueWithAlert() {
+          viewModel.unlockButtonAction()
+        }
 //
-//        if checkBlueWithAlert() {
-//          viewModel.unlockButtonAction()
-//        }
-//
-        TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
+//        TapplockManager.default.editingLock?.peripheralModel?.sendEnterIntoDFU()
     }
 
   

@@ -57,15 +57,20 @@ class TapplockModel: NSObject, Mappable {
     }
     
     func bindData() {
+        plog("绑定数据---> \(self.lockName)")
         
         peripheralModel?.rx_battery.asObservable().bind(to: rx_battery).disposed(by: rx.disposeBag)
         
-        peripheralModel?.rx_status.asObservable().bind(to: rx_status).disposed(by: rx.disposeBag)
-        
-        rx_status.asObservable().subscribe(onNext: { [weak self] status in
-            if status == .disconnected {
-                self?.peripheralModel = nil
-            }
+        peripheralModel?.rx_status
+            .asObservable()
+            .subscribe(onNext: { [weak self] state in
+                
+                self?.rx_status.value = state
+                
+                if state == .disconnected {
+                    self?.peripheralModel = nil
+                }
+            
         }).disposed(by: rx.disposeBag)
         
     }

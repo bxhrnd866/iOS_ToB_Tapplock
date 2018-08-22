@@ -192,15 +192,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Mrar opened the lock TL104A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMr-r1-CbK">
-                                                    <rect key="frame" x="87" y="13" width="268" height="23"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="23" id="BTc-OO-PBj"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                                    <color key="textColor" red="0.18823529410000001" green="0.74117647060000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-20  16:41:29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-YN-fgh">
                                                     <rect key="frame" x="108" y="64.333333333333329" width="252" height="18"/>
                                                     <constraints>
@@ -246,11 +237,21 @@
                                                     <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-aF-Sw0">
+                                                    <rect key="frame" x="87" y="13" width="268" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="1dh-Vi-aXe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <color key="textColor" red="0.18823529410000001" green="0.74117647060000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Gvc-Yj-c56" secondAttribute="trailing" id="4Lk-rp-eXW"/>
                                                 <constraint firstItem="nM9-zQ-JuU" firstAttribute="top" secondItem="jsN-ht-8zn" secondAttribute="bottom" constant="7" id="4rI-2q-n8r"/>
+                                                <constraint firstAttribute="trailing" secondItem="WWd-aF-Sw0" secondAttribute="trailing" constant="20" id="7bC-9Y-RGq"/>
                                                 <constraint firstItem="JNb-mI-od4" firstAttribute="leading" secondItem="8U4-JG-KIA" secondAttribute="trailing" constant="12" id="9jo-Qb-KRi"/>
                                                 <constraint firstItem="6kH-YN-fgh" firstAttribute="centerY" secondItem="jsN-ht-8zn" secondAttribute="centerY" id="9rK-Pq-KIR"/>
                                                 <constraint firstItem="HW1-a9-6Nd" firstAttribute="leading" secondItem="nM9-zQ-JuU" secondAttribute="trailing" constant="6" id="EIy-vw-RrA"/>
@@ -258,14 +259,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="Gvc-Yj-c56" secondAttribute="bottom" id="JAh-H5-XD2"/>
                                                 <constraint firstItem="8U4-JG-KIA" firstAttribute="top" secondItem="A3Q-az-rI2" secondAttribute="top" constant="18" id="Jeh-zt-W4l"/>
                                                 <constraint firstItem="nM9-zQ-JuU" firstAttribute="leading" secondItem="jsN-ht-8zn" secondAttribute="leading" id="JwI-rp-Nux"/>
-                                                <constraint firstItem="JNb-mI-od4" firstAttribute="top" secondItem="wMr-r1-CbK" secondAttribute="bottom" constant="2" id="LEx-4M-duY"/>
-                                                <constraint firstItem="wMr-r1-CbK" firstAttribute="leading" secondItem="8U4-JG-KIA" secondAttribute="trailing" constant="12" id="QI5-Ai-jiE"/>
+                                                <constraint firstItem="WWd-aF-Sw0" firstAttribute="top" secondItem="A3Q-az-rI2" secondAttribute="top" constant="13" id="R0K-PU-iWW"/>
                                                 <constraint firstAttribute="trailing" secondItem="HW1-a9-6Nd" secondAttribute="trailing" constant="15" id="SOJ-Wj-kpQ"/>
                                                 <constraint firstItem="jsN-ht-8zn" firstAttribute="leading" secondItem="JNb-mI-od4" secondAttribute="leading" id="Ttr-hY-He4"/>
-                                                <constraint firstAttribute="trailing" secondItem="wMr-r1-CbK" secondAttribute="trailing" constant="20" id="WGG-wT-twH"/>
+                                                <constraint firstItem="WWd-aF-Sw0" firstAttribute="leading" secondItem="8U4-JG-KIA" secondAttribute="trailing" constant="12" id="blj-ab-d6n"/>
                                                 <constraint firstItem="jsN-ht-8zn" firstAttribute="top" secondItem="JNb-mI-od4" secondAttribute="bottom" constant="8" id="cCr-Ob-HdS"/>
-                                                <constraint firstItem="wMr-r1-CbK" firstAttribute="top" secondItem="A3Q-az-rI2" secondAttribute="top" constant="13" id="dJP-rR-dEr"/>
                                                 <constraint firstItem="8U4-JG-KIA" firstAttribute="leading" secondItem="A3Q-az-rI2" secondAttribute="leading" constant="21" id="dSc-J6-XiA"/>
+                                                <constraint firstItem="JNb-mI-od4" firstAttribute="top" secondItem="WWd-aF-Sw0" secondAttribute="bottom" constant="3" id="ftG-bK-SwX"/>
                                                 <constraint firstAttribute="trailing" secondItem="JNb-mI-od4" secondAttribute="trailing" constant="20" id="hiY-m5-Es6"/>
                                                 <constraint firstItem="HW1-a9-6Nd" firstAttribute="top" secondItem="6kH-YN-fgh" secondAttribute="bottom" constant="10" id="pBI-EK-PLB"/>
                                                 <constraint firstAttribute="trailing" secondItem="6kH-YN-fgh" secondAttribute="trailing" constant="15" id="rdw-cu-RVy"/>
@@ -274,9 +274,9 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="wMr-r1-CbK" id="fuk-jL-Bua"/>
                                             <outlet property="emaliLab" destination="JNb-mI-od4" id="C3h-N0-2qo"/>
                                             <outlet property="locationLabel" destination="HW1-a9-6Nd" id="nOt-PR-f7n"/>
+                                            <outlet property="openLab" destination="WWd-aF-Sw0" id="dTo-jp-OMB"/>
                                             <outlet property="portraitImageView" destination="8U4-JG-KIA" id="Xw1-IJ-SN5"/>
                                             <outlet property="timeLabel" destination="6kH-YN-fgh" id="rsR-Ud-60G"/>
                                         </connections>

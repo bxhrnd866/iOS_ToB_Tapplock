@@ -120,6 +120,9 @@ extension String {
         let dateStam = date!.timeIntervalSince1970
         return Int(dateStam)
     }
+    
+    
+    
 
     
 }
@@ -322,7 +325,6 @@ private func dateFormatter(_ format: String) -> DateFormatter {
 private func defaultNumberFormatter() -> NumberFormatter {
     return threadLocalInstance(.defaultNumberFormatter, initialValue: NumberFormatter())
 }
-
 
 
 

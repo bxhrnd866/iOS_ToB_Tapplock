@@ -46,9 +46,6 @@ class RegisterUserImageUploader: NSObject, Uploader {
                 
                 self.callBack((result?.url)!)
                 
-                if ConfigModel.default.user.value != nil {
-                    self.saveToApi(url: (result?.url)!)
-                }
             }
         })
         
@@ -60,28 +57,10 @@ class RegisterUserImageUploader: NSObject, Uploader {
         
     }
 
-    //用户信息上传接口
-    func saveToApi(url: String) {
 
-        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: nil,
-                                                 firstName: nil,
-                                                 groupIds: nil,
-                                                 lastName: nil,
-                                                 permissionIds: nil,
-                                                 phone: nil,
-                                                 photoUrl: url,
-                                                 sex: nil))
-            .mapObject(APIResponse<UserModel>.self).subscribe(onSuccess: { [weak self] response in
-                
-                if let user = response.data {
-                    self?.rx_sucess.value = true
-                    ConfigModel.default.user.value = user
-                } else if let errorMessage = response.message {
-                    self?.rx_errorMessage.value = errorMessage
-                }
-            }).disposed(by: rx.disposeBag)
-        
-    }
 
 }
+
+
+
 

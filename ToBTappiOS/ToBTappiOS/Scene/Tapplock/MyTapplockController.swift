@@ -81,7 +81,7 @@ class MyTapplockController: BaseViewController {
             .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.tapplockListCellIdenty.identifier, cellType: TappLockListCell.self)) {
                 (indexPath, model, cell) in
                 cell.model = model
-                
+
         }.disposed(by: rx.disposeBag)
         
         
@@ -111,6 +111,9 @@ class MyTapplockController: BaseViewController {
                 switch step {
                 case .errorMessage(let mesg):
                     self?.showToast(message: mesg)
+                case .sucess:
+                    self?.tableView.reloadData()
+                    
                 default:
                     break
                 }
@@ -256,3 +259,7 @@ extension MyTapplockController: CoachMarksControllerDelegate,CoachMarksControlle
     
     
 }
+
+
+
+

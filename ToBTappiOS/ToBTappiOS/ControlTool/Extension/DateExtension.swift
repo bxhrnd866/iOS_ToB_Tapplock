@@ -10,15 +10,7 @@ import Foundation
 extension Date {
     
 
-   static func tampCoverToStringTime(tamp: Int) -> String {
-        let timeInterval : TimeInterval = TimeInterval(tamp)
-        let date = NSDate(timeIntervalSince1970: timeInterval)
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //自定义日期格式
-        let time = dateformatter.string(from: date as Date)
-        return time
-    }
-    
+
     
    static func tampCoveToString(timeStamp: Int,fomatter: String = "yyyy-MM-dd HH:mm:sss") -> String {
         let timeInterval = TimeInterval(timeStamp)
@@ -48,6 +40,5 @@ extension Date {
             return String(stmp)
         }
     }
-    
-    
+  
 }

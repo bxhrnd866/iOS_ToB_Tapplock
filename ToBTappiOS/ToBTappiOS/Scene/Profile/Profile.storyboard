@@ -37,6 +37,11 @@
                                     <constraint firstAttribute="width" constant="90" id="6Uc-kv-04E"/>
                                     <constraint firstAttribute="height" constant="90" id="9bY-Fb-62y"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-3l-gav">
                                 <rect key="frame" x="135" y="174" width="65" height="17"/>

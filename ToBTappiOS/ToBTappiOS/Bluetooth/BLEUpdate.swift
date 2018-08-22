@@ -65,7 +65,7 @@ class BLEUpdate: NSObject {
                     plog("已删除成功")
                   
                 case .MorseCode(_):
-                     SyncView.instance.rx_hidden.value = true
+                     SyncView.instance.rx_numers.value -= 1
                     if response.success {
                         self?.updateMorseStatus()
                     }
@@ -82,7 +82,7 @@ class BLEUpdate: NSObject {
                         }
                     }
                 case .ClearMorseCode(_):
-                    
+                    SyncView.instance.rx_numers.value -= 1
                     if response.success {
                         plog("删除morsecode 成功")
                         self?.updateMorseStatus()
@@ -102,21 +102,23 @@ class BLEUpdate: NSObject {
         self.updateLockInfor()
         switch self.peripheral?.lockStatus {
         case 0:
-            SyncView.instance.rx_hidden.value = false
+            SyncView.instance.rx_numers.value += 1
             self.loadAPI()
         case 1:
             
             if self.peripheral?.morseStatus == 0 {
-                 SyncView.instance.rx_hidden.value = false
+                 SyncView.instance.rx_numers.value += 1
                 self.downloadMorseCode()
             }
             
             if self.peripheral?.morseStatus == -1 {
                 plog("删除摩斯码")
-                SyncView.instance.rx_hidden.value = false
+                SyncView.instance.rx_numers.value += 1
                 self.peripheral?.sendClearMorseCode()
             }
             
+        case -1:
+            self.deleteLock()
         default:
             break
         }
@@ -213,10 +215,10 @@ extension BLEUpdate {   // API 相关
                     }
                 } else {
                     // 错误信息
-                     SyncView.instance.rx_hidden.value = true
+                     SyncView.instance.rx_numers.value -= 1
                 }
             }) { ( error) in
-                SyncView.instance.rx_hidden.value = true
+                SyncView.instance.rx_numers.value -= 1
             }.disposed(by: rx.disposeBag)
     }
     
@@ -232,7 +234,7 @@ extension BLEUpdate {   // API 相关
                 plog("删除摩斯码")
                 self.peripheral?.sendClearMorseCode()
             } else {
-                SyncView.instance.rx_hidden.value = true
+                SyncView.instance.rx_numers.value -= 1
             }
             return
         }
@@ -271,16 +273,16 @@ extension BLEUpdate {   // API 相关
                         plog("删除摩斯码")
                         self?.peripheral?.sendClearMorseCode()
                     } else {
-                         SyncView.instance.rx_hidden.value = true
+                         SyncView.instance.rx_numers.value -= 1
                     }
                    
                 } else {
-                    plog(response.codeMessage)
-                    SyncView.instance.rx_hidden.value = true
+                   
+                    SyncView.instance.rx_numers.value -= 1
                 }
                 
             }) { ( error) in
-                SyncView.instance.rx_hidden.value = true
+                SyncView.instance.rx_numers.value -= 1
             }.disposed(by: rx.disposeBag)
         
     }
@@ -319,7 +321,7 @@ extension BLEUpdate {   // API 相关
     
     // 删除锁API
     fileprivate func deleteLockAPI() {
-        
+        plog("删除锁删除锁")
         provider.rx.request(APIServer.deleteLocks(id: (peripheral?.id)!))
             .mapObject(APIResponse<EmptyModel>.self)
             .subscribe(onSuccess: { [weak self] response in
@@ -330,7 +332,9 @@ extension BLEUpdate {   // API 相关
                 } else {
                     // 删除失败
                 }
-            }).disposed(by: rx.disposeBag)
+            }) { ( error) in
+
+            }.disposed(by: rx.disposeBag)
     }
     
     // 下载指纹摩斯码
@@ -342,10 +346,12 @@ extension BLEUpdate {   // API 相关
                     if response.data != nil {
                         self?.peripheral?.sendMorseCodeCommand(code: response.data!)
                     } else {
-                         SyncView.instance.rx_hidden.value = true
+                         SyncView.instance.rx_numers.value -= 1
                     }
                 }
-        }).disposed(by: rx.disposeBag)
+            }) { ( error) in
+                SyncView.instance.rx_numers.value -= 1
+            }.disposed(by: rx.disposeBag)
     }
     // 更新摩斯码状态
     fileprivate func updateMorseStatus() {
@@ -362,10 +368,10 @@ extension BLEUpdate {   // API 相关
                 
                 if !response.success {
                     plog(response.codeMessage)
-                    SyncView.instance.rx_hidden.value = true
+                    
                 }
             }) { ( error) in
-                SyncView.instance.rx_hidden.value = true
+                
             }.disposed(by: rx.disposeBag)
     }
     
@@ -388,7 +394,9 @@ extension BLEUpdate {   // API 相关
                 }
                 self?.updateLockState()
             
-        }).disposed(by: rx.disposeBag)
+            }) { [weak self] ( error) in
+                self?.updateLockState()
+            }.disposed(by: rx.disposeBag)
         
         
     }

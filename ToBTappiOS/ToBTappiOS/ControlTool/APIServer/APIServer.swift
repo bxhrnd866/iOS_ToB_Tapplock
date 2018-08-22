@@ -43,6 +43,7 @@ enum APIServer {
     case macforAnylock(mac: String, randNum: String)
     case deleteLocks(id: Int)
     case downloadMorsecode(id: Int)
+    case appversion
 
 }
 //            let value = "tapplock-b2b-client:tapplock123!@#".toBase64()
@@ -57,6 +58,7 @@ extension APIServer: TargetType{
              .forgetPassword(_, _, _),
              .userRegister(_, _, _, _, _, _, _, _, _, _),
              .checkinviteCodes(_),
+             .appversion,
              .checkVerifyCode(_, _):
             return ["Content-type": "application/json", "clientType": "1"]
         case .registerVerifyCode(_, _):
@@ -82,6 +84,7 @@ extension APIServer: TargetType{
              .allGroupslist,
              .feedBack(_, _),
              .chagePassword(_, _),
+             .appversion,
              .updateFingerprintSycnState(_):
             return URL(string: APIHost + APIUser)!
         default:
@@ -136,6 +139,8 @@ extension APIServer: TargetType{
             return "locks/callback/\(id)"
         case .downloadMorsecode(_):
             return "locks/morse_code"
+        case .appversion:
+            return "versions/0"
         }
     }
     
@@ -151,6 +156,7 @@ extension APIServer: TargetType{
              .allGroupslist,
              .macforAnylock(_, _),
              .checkVerifyCode(_, _),
+             .appversion,
              .downloadMorsecode(_):
             return .get
         case .updateLock(_, _, _, _, _, _, _, _, _, _, _),
@@ -212,7 +218,7 @@ extension APIServer: TargetType{
             
         case .userLog(let mail, let password):
             
-            bodyParameters = bodyParameters + ["mail": mail, "password": password.sha256(), "clientType": 1]
+            bodyParameters = bodyParameters + ["mail": mail, "password": password.sha256(), "clientType": 1, "platform": 1]
            
             return .requestParameters(parameters: bodyParameters, encoding: JSONEncoding.default)
             
@@ -429,6 +435,9 @@ extension APIServer: TargetType{
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         case .downloadMorsecode(let id):
             urlParameters = urlParameters + ["lockId": id]
+            return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
+        case .appversion:
+            
             return .requestCompositeData(bodyData: Data.init(), urlParameters: urlParameters)
         }
         

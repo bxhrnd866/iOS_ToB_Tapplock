@@ -14,8 +14,8 @@ class BluetoothHistoryCell: UITableViewCell {
     @IBOutlet weak var portraitImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
 
+    @IBOutlet weak var openLab: UILabel!
     @IBOutlet weak var emaliLab: UILabel!
     
     var model: LockHistoryModel? {
@@ -27,25 +27,30 @@ class BluetoothHistoryCell: UITableViewCell {
             self.timeLabel.text = model?.timeDate
             
             
-            
-            if let first = model?.firstName, let lock = model?.lockName {
-                let str = R.string.localizable.lockLog(first, lock)
+            if model?.firstName == nil || model?.lockName == nil {
                 
-                let attrStr = NSMutableAttributedString.init(string: str)
+                self.openLab.text = nil
+            } else {
+                let str = R.string.localizable.lockLog((model?.firstName)!, (model?.lockName)!)
                 
-                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
-                                       NSAttributedStringKey.foregroundColor: UIColor("#30bdde")],
-                                      range: NSRange((str.range(of: first))!, in: str))
+                let length01 = (model?.firstName?.length)!
                 
-                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
-                                       NSAttributedStringKey.foregroundColor: UIColor.themeColor],
-                                      range: NSRange((str.range(of: lock))!, in: str))
+                let range01 = NSRange(location: 0, length: length01)
                 
-                descriptionLabel.attributedText = attrStr
-            }  else {
-                descriptionLabel.text = ""
+                let length02 = (model?.lockName?.length)!
+                
+                let ranglo02 = NSRange(location: str.length - length02, length: length02)
+                
+                let attr = NSMutableAttributedString(string: str)
+                
+                attr.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.themeColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], range: ranglo02)
+                attr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], range: range01)
+                
+                self.openLab.attributedText = attr
             }
             
+            
+
             
             guard let ul = model?.photoUrl else {
                 self.portraitImageView.image = R.image.userPlace()

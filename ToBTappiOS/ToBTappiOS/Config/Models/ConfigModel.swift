@@ -37,9 +37,10 @@ class ConfigModel: NSObject {
                                                  phone: nil,
                                                  photoUrl: nil,
                                                  sex: nil)).subscribe(onSuccess: { [weak self] response in
-                                                    if response.statusCode == 200 {
-                                                        self?.pushToken = nil
-                                                    }
+                                                   
+//                                                    if response.statusCode == 200 {
+//                                                        self?.pushToken = nil
+//                                                    }
                                                     
                                                  }).disposed(by: rx.disposeBag)
         
@@ -123,16 +124,24 @@ class ConfigModel: NSObject {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         ConfigModel.default.user.value = nil
         TapplockManager.default.rx_viewmodel = nil
-        DispatchQueue.main.async(execute: {
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            
             delegate.removeMenuView()
             if let presnt = delegate.window?.rootViewController?.presentedViewController {
+               
                 presnt.dismiss(animated: false) {
+                    
                     if let pt = delegate.window?.rootViewController?.presentedViewController {
                         pt.dismiss(animated: false, completion: nil)
                     }
                 }
+            } else {
+                
             }
-        })
+            
+        }
         
         let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
         provider.rx.request(APIServer.oauthToken(grant_type: nil , refresh_token: nil, access_token: access))
@@ -145,6 +154,8 @@ class ConfigModel: NSObject {
                 
             }).disposed(by: rx.disposeBag)
     }
+    
+
     
     
     private override init() {

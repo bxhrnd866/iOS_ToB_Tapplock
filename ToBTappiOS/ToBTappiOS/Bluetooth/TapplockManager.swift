@@ -78,8 +78,6 @@ final class TapplockManager: NSObject {
             
         }
     }
-  
-
 }
 
 // MARK: 蓝牙相关
@@ -107,6 +105,7 @@ extension TapplockManager: CBCentralManagerDelegate {
             plog(mac)
             peripheral.mac = mac
         }
+     
         if name  == "Tapplock" {
             if self.delegate != nil {
                 self.delegate?.startDFU(peripheral: peripheral)
@@ -160,6 +159,8 @@ extension TapplockManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("连接--> 断开了")
+        
+        
         for model in rx_peripherals.value {
             if model.peripheral == peripheral {
                 rx_peripherals.value.remove(model)

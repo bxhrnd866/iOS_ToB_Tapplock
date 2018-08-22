@@ -70,7 +70,10 @@ class RegistVerficationController: UIViewController {
                         
                         self?.performSegue(withIdentifier: R.segue.registVerficationController.showInviationCode, sender: self)
                     } else {
-                        self?.showToast(message: response.codeMessage)
+                        if response.codeMessage != nil {
+                            self?.showToast(message: response.codeMessage!)
+                        }
+                        
                     }
                     
                 }){ ( error) in

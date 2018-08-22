@@ -38,7 +38,11 @@ class ForgetPasswordViewModel: NSObject {
                     if response.success {
                         
                     } else {
-                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                        if response.codeMessage != nil {
+                            self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                        }  else {
+                            self?.rx_step.value = .failed
+                        }
                     }
                 }){ ( error) in
                     self.rx_step.value = .failed
@@ -74,7 +78,11 @@ class ForgetPasswordViewModel: NSObject {
                         if response.success {
                             self?.rx_step.value = RequestStep.sucess
                         } else {
-                            self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                            if response.codeMessage != nil {
+                                self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                            } else {
+                                self?.rx_step.value = .failed
+                            }
                         }
                     }){ ( error) in
                         self.rx_step.value = .failed

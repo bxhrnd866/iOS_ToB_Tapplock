@@ -38,6 +38,9 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.headerImg.layer.cornerRadius = 45
+        self.headerImg.layer.masksToBounds = true
+        
         if ConfigModel.default.user.value?.permissionType == -1 {
             self.permissionLab.isHidden = true
             self.permissionView.isHidden = true
@@ -73,7 +76,7 @@ class ProfileViewController: BaseViewController {
                 self?.mailNum.text = user?.mail
                 
                 if user?.photoUrl != nil, let url = URL(string: (user?.photoUrl)!) {
-                    self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url), options: [.processor(kfProcessor)])
+                    self?.headerImg.kf.setImage(with: ImageResource.init(downloadURL: url))
                 }
                 
             }).disposed(by: rx.disposeBag)
@@ -85,7 +88,23 @@ class ProfileViewController: BaseViewController {
     }
     
     func setImageUrl(_ url: String) {
-        plog(url)
+        //用户信息上传接口
+        
+        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: nil,
+                                                 firstName: nil,
+                                                 groupIds: nil,
+                                                 lastName: nil,
+                                                 permissionIds: nil,
+                                                 phone: nil,
+                                                 photoUrl: url,
+                                                 sex: nil))
+            .mapObject(APIResponse<UserModel>.self).subscribe(onSuccess: { response in
+                
+                if let user = response.data {
+                    ConfigModel.default.user.value = user
+                }
+                
+            }).disposed(by: rx.disposeBag)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

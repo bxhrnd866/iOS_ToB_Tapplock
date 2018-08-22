@@ -21,6 +21,9 @@ class TapplockViewModel: NSObject {
     var rx_step: Variable<RequestStep> = Variable(.none)
     var rx_loadAll = Variable(false)
     
+    var pushToken = false
+    
+    
     override init() {
         super.init()
         
@@ -29,7 +32,7 @@ class TapplockViewModel: NSObject {
             .drive(onNext: { [weak self] _ in
                self?.contains()
         }).disposed(by: rx.disposeBag)
-        
+//
         
         
         TapplockManager.default.rx_deleteLock
@@ -74,16 +77,21 @@ class TapplockViewModel: NSObject {
     }
     
     func loadAPI() {
-                
+        
         provider.rx.request(APIServer.lockList(userId: ConfigModel.default.user.value?.id ?? 9001,lockName: rx_lockName.value, groupIds: rx_groupId.value != nil ? String(self.rx_groupId.value ?? -1) : ConfigModel.default.user.value?.groupIds, authType: rx_authType.value, page: page, size: 20))
             .mapObject(APIResponse<ListModel<TapplockModel>>.self)
             .subscribe(onSuccess: { [weak self] response in
-                
+
                 if response.success {
-                    ConfigModel.default.setpushToken()
-                    self?.rx_step.value = .sucess
+
+                    if !(self?.pushToken)! {
+                        ConfigModel.default.setpushToken()
+                        self?.pushToken = true
+                    }
+
+
                     if let list = response.data?.list {
-                        
+
                         self?.page = (response.data?.pageCurrent)!
                         self?.totalPage = (response.data?.totalPage)!
                         self?.rx_loadAll.value = (self?.page)! >= (self?.totalPage)!
@@ -94,17 +102,27 @@ class TapplockViewModel: NSObject {
                         }
                         self?.contains()
                     }
-                    
+
+                    self?.rx_step.value = .sucess
+
                 } else {
-                    self?.rx_step.value = .errorMessage(mesg: response.codeMessage!)
+                    if response.codeMessage != nil {
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                    } else {
+                        self?.rx_step.value = .failed
+                    }
                 }
-                
+
             }){ ( error) in
+                plog("token过期")
                 self.rx_step.value = .failed
             }.disposed(by: rx.disposeBag)
         
-        
+      
     }
+    
+    
+
     
     deinit {
         plog("model销毁")

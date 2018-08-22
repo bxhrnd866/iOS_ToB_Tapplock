@@ -21,28 +21,35 @@ class FingerPrintListCell: UITableViewCell {
     var model: LockHistoryModel? {
         didSet {
             
-            self.emailLab.text = model?.mail
+            self.emailLab.text = self.model?.mail
         
-            self.timeLab.text = model?.timeDate
+            self.timeLab.text = self.model?.timeDate
             
-            if let first = model?.firstName, let lock = model?.lockName {
-                let str = R.string.localizable.lockLog(first, lock)
+            
+    
+            if model?.firstName == nil || model?.lockName == nil {
                 
-                let attrStr = NSMutableAttributedString.init(string: str)
-                
-                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
-                                       NSAttributedStringKey.foregroundColor: UIColor("#30bdde")],
-                                      range: NSRange((str.range(of: first))!, in: str))
-                
-                attrStr.addAttributes([NSAttributedStringKey.font: UIFont(name: font_name, size: 16) ?? UIFont.boldSystemFont(ofSize: 16),
-                                       NSAttributedStringKey.foregroundColor: UIColor.themeColor],
-                                      range: NSRange((str.range(of: lock))!, in: str))
-                
-                decriptionLab.attributedText = attrStr
-            }  else {
                 decriptionLab.text = ""
+            } else {
+                let str = R.string.localizable.lockLog((model?.firstName)!, (model?.lockName)!)
+                
+                let length01 = (model?.firstName?.length)!
+                
+                let range01 = NSRange(location: 0, length: length01)
+                
+                let length02 = (model?.lockName?.length)!
+                
+                let ranglo02 = NSRange(location: str.length - length02, length: length02)
+                
+                let attr = NSMutableAttributedString(string: str)
+                
+                attr.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.themeColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], range: ranglo02)
+                attr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], range: range01)
+                
+                self.decriptionLab.attributedText = attr
             }
-           
+            
+            
             
             guard let ul = model?.photoUrl else {
                 self.lockImg.image = R.image.userPlace()

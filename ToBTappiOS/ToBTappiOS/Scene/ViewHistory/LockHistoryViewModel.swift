@@ -75,7 +75,11 @@ class LockHistoryViewModel: NSObject {
                     }
                     self?.rx_step.value = .sucess
                 } else {
-                    self?.rx_step.value = .errorMessage(mesg: response.codeMessage!)
+                    if response.codeMessage != nil {
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                    }  else {
+                        self?.rx_step.value = .failed
+                    }
                 }
                 
             }) { ( error) in

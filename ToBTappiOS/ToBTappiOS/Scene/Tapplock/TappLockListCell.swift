@@ -24,17 +24,18 @@ class TappLockListCell: UITableViewCell {
     var model: TapplockModel? {
         didSet {
             
+            
             self.model?.rx_status.asDriver().drive(onNext: { [weak self] state in
                 let bglayer = self?.bgView.layer.sublayers?.first!
                 self?.statusLab.text = state?.textValue
                 if state == .connected {
-    
+                    
                     bglayer?.isHidden = false
                     self?.lockName.textColor = UIColor.white
                     self?.statusLab.textColor = UIColor.white
                     self?.dot.backgroundColor = UIColor("#3effbf")
                     self?.headerImg.image = R.image.home_lock2_s()
-
+                    
                 } else {
                     
                     bglayer?.isHidden = true
@@ -43,21 +44,33 @@ class TappLockListCell: UITableViewCell {
                     self?.dot.backgroundColor = UIColor("#d1d0d6")
                     self?.headerImg.image = R.image.home_lock2_n()
                 }
-
+                
             }).disposed(by: rx.disposeBag)
             
             self.lockName.text = model?.lockName
             
         }
     }
-    
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.bgView.genlaGradientlayer()
+        
     }
+    
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        var mutle = self
+        mutle.rx.disposeBag = DisposeBag()
+        let bglayer = self.bgView.layer.sublayers?.first!
+     
+    
+    }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

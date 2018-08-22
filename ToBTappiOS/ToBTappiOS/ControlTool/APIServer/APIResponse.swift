@@ -19,6 +19,7 @@ struct APIResponse<T:Mappable>: Mappable {
     var error: String? {
         didSet {
             if self.error == "invalid_token" || self.error == "invalid_grant" {
+                self.code = 999999
                 ConfigModel.default.refreshToken()
             }
         }
@@ -26,8 +27,11 @@ struct APIResponse<T:Mappable>: Mappable {
     var error_description: String?
     
     
-    var codeMessage: String! {
+    var codeMessage: String? {
         guard let co = code else { return R.string.localizable.servererror() }
+        if co == 999999 {
+            return nil
+        }
         return APICode(code: co).rawValue
     }
     var success: Bool! {
@@ -63,14 +67,18 @@ struct APIResponseString: Mappable {
     var error: String? {
         didSet {
             if self.error == "invalid_token" || self.error == "invalid_grant"  {
+                self.code = 999999
                 ConfigModel.default.refreshToken()
             }
         }
     }
     var error_description: String?
     
-    var codeMessage: String! {
+    var codeMessage: String? {
         guard let co = code else { return R.string.localizable.servererror() }
+        if co == 999999 {
+            return nil
+        }
         return APICode(code: co).rawValue
     }
     
@@ -106,15 +114,19 @@ struct APIResponseData<T: Mappable>: Mappable{
     
     var error: String? {
         didSet {
-            if self.error == "invalid_token" || self.error == "invalid_grant"  {
+            if self.error == "invalid_token" || self.error == "invalid_grant" {
+                self.code = 999999
                 ConfigModel.default.refreshToken()
             }
         }
     }
     var error_description: String?
     
-    var codeMessage: String! {
+    var codeMessage: String? {
         guard let co = code else { return R.string.localizable.servererror() }
+        if co == 999999 {
+            return nil
+        }
         return APICode(code: co).rawValue
     }
     

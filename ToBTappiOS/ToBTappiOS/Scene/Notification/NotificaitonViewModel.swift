@@ -24,13 +24,13 @@ class NotificationViewModel: NSObject {
         
         if array != nil {
             let _ = array!.map {
-            
+                
                 let model = NoficationModel()
                 
                 model.title = $0["title"]
                 model.body = $0["body"]
-                model.timeText = $0["time"]
-                
+                model.tamp = $0["time"]
+                plog(model.body)
                 rx_data.value.append(model)
             }
             self.rx_refresh.value = true

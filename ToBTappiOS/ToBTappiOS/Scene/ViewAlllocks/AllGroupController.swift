@@ -53,7 +53,10 @@ class AllGroupController: UIViewController {
                         self?.groups.value.insert(model, at: 0)
                     }
                 } else {
-                    self?.showToast(message: response.codeMessage)
+                    
+                    if response.codeMessage != nil {
+                        self?.showToast(message: response.codeMessage!)
+                    } 
                 }
             
             }) { ( error) in

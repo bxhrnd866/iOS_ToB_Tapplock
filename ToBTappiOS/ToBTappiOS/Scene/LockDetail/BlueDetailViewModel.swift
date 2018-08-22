@@ -46,12 +46,12 @@ class BlueDetailViewModel: NSObject {
         status!.subscribe(onNext: { [weak self] status in
             //刚连接上锁之后,还没有完成Pair,此时不能发指令
             if .connected == status {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-                    if self?.lock?.peripheralModel?.rx_battery.value == nil {
-                        print("再次发送了")
-                        self?.lock?.peripheralModel?.sendBatteryCommand()
-                    }
-                }
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//                    if self?.lock?.peripheralModel?.rx_battery.value == nil {
+//                        print("再次发送了")
+//                        self?.lock?.peripheralModel?.sendBatteryCommand()
+//                    }
+//                }
             } else {
                 self?.rx_batteryLabelText.value = "--"
             }
@@ -60,7 +60,6 @@ class BlueDetailViewModel: NSObject {
     
     func unlockButtonAction() {
 
-        
         
         let lat = ConfigModel.default.locaiton?.latitude
         let long = ConfigModel.default.locaiton?.longitude
@@ -74,7 +73,12 @@ class BlueDetailViewModel: NSObject {
                     self?.rx_step.value = .sucess
                     self?.lock?.peripheralModel?.sendUnlockCommand()
                 } else {
-                    self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage)
+                    
+                    if response.codeMessage != nil {
+                        self?.rx_step.value = RequestStep.errorMessage(mesg: response.codeMessage!)
+                    } else {
+                        self?.rx_step.value = .failed
+                    }
                 }
                 
             }) { (error) in
