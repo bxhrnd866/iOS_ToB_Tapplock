@@ -194,7 +194,7 @@
 "Code400022" = "The authorization has been revoded";
 "Code400023" = "The invitation code has been expired";
 "Servererror" = "Server error";
-
+"PhoneNumberLong" = "phone number is too long";
 
 
 

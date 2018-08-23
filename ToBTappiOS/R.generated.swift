@@ -1593,7 +1593,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 189 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 190 localization keys.
     struct localizable {
       /// en translation: %@ opened the lock %@
       /// 
@@ -2343,6 +2343,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, ja, ko, cs, sk
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
+      /// en translation: phone number is too long
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static let phoneNumberLong = Rswift.StringResource(key: "PhoneNumberLong", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "ko", "cs", "sk"], comment: nil)
       /// en translation: search lock name
       /// 
       /// Locales: en, ja, ko, cs, sk
@@ -3659,6 +3663,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, ja, ko, cs, sk
       static func cancel(_: Void = ()) -> String {
         return NSLocalizedString("cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: phone number is too long
+      /// 
+      /// Locales: en, ja, ko, cs, sk
+      static func phoneNumberLong(_: Void = ()) -> String {
+        return NSLocalizedString("PhoneNumberLong", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: search lock name

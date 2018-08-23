@@ -8,7 +8,7 @@
 
 import Foundation
 
-let nameLenthMax = 10
+let nameLenthMax = 20
 
 let passwordLenthMax = 20
 

@@ -107,7 +107,7 @@
 "Fingerprint" = "지문";
 "Confirm delete" = "정말 삭제하시겠습니까";
 "AdddNewLock" = "새로운Tapplock을추가하기";
-
+"PhoneNumberLong" = "phone number is too long";
 
 "Tutorial_AddShareAccess" = "접근권한공유추가\n지인에게잠금해제권한을공유하시겠습니까?";
 "Tutorial_OneTimeAccess" = "일회성권한부여\n공유된사람에게제한시간10분동안일시적인잠금해제권한을부여해보십시오.";

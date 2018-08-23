@@ -210,6 +210,7 @@
 "UserLogoutType111" = "Your permissions have changed";
 "UserLogoutType222" = "Your account has been deleted";
 "Dataisbeingsynchronized" = "Data is being synchronized, please do not operate";
+"PhoneNumberLong" = "phone number is too long";
 
 
 

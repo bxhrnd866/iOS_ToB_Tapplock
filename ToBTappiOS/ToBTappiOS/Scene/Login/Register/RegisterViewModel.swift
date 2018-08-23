@@ -83,6 +83,13 @@ class RegisterViewModel: NSObject {
         } else if rx_iphone.value?.isPurnInt == false {
             rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.enterthenumber())
             return false
+        } else if rx_iphone.value != nil {
+            if (rx_iphone.value?.length)! > 11 {
+                rx_step.value = RequestStep.errorMessage(mesg: R.string.localizable.phoneNumberLong())
+                return false
+            } else {
+                return true
+            }
         } else {
             return true
         }

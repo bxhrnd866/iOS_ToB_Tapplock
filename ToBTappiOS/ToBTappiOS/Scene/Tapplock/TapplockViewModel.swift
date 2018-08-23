@@ -84,11 +84,10 @@ class TapplockViewModel: NSObject {
 
                 if response.success {
 
-                    if !(self?.pushToken)! {
-                        ConfigModel.default.setpushToken()
+                    if !(self?.pushToken)! && ConfigModel.default.pushToken != nil {
+                        ConfigModel.default.setpushToken(token: ConfigModel.default.pushToken!)
                         self?.pushToken = true
                     }
-
 
                     if let list = response.data?.list {
 

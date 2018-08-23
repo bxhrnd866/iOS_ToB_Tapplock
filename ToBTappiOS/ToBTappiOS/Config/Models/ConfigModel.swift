@@ -23,13 +23,10 @@ class ConfigModel: NSObject {
     var locaiton:  AddressModel? // 定位
     
     //Set推送Token
-    func setpushToken(){
+    func setpushToken(token: String){
         
-        if pushToken == nil {
-            return
-        }
         plog("更新token")
-        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: pushToken,
+        provider.rx.request(APIServer.userUpdate(fcmDeviceToken: token,
                                                  firstName: nil,
                                                  groupIds: nil,
                                                  lastName: nil,
@@ -43,7 +40,6 @@ class ConfigModel: NSObject {
 //                                                    }
                                                     
                                                  }).disposed(by: rx.disposeBag)
-        
     }
     
     func refreshToken() {
@@ -121,11 +117,12 @@ class ConfigModel: NSObject {
     
     public func loagOut() {
         
+        self.setpushToken(token: "")
+        
         let delegate = UIApplication.shared.delegate as! AppDelegate
         ConfigModel.default.user.value = nil
         TapplockManager.default.rx_viewmodel = nil
-        
-        
+    
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             
             delegate.removeMenuView()
@@ -140,7 +137,6 @@ class ConfigModel: NSObject {
             } else {
                 
             }
-            
         }
         
         let access = UserDefaults.standard.object(forKey: key_basicToken) as? String
@@ -169,10 +165,8 @@ class ConfigModel: NSObject {
             let preferredLang = (UserDefaults.standard.object(forKey: "AppleLanguages") as! Array<String>).first
             language = Language.init(preferredLang!)
         }
-
         
         //设置用户
-        
         let usermanger = UserDefaults(suiteName: "group.tapplockNotificaitonService.com")
         let userStr: String? = usermanger?.value(forKey: "user_saveKey") as? String
         if userStr != nil {
@@ -192,7 +186,7 @@ class ConfigModel: NSObject {
             }
             
             if self?.pushToken != nil {
-                self?.setpushToken()
+                self?.setpushToken(token: (self?.pushToken)!)
             }
             
             usermanger?.set(md.toJSONString(), forKey: "user_saveKey")
